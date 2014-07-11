@@ -44,6 +44,7 @@
             <li><a href="<?php echo base_url()."index.php/home/mesas"?>"><i class="fa fa-calendar"></i> Agenda</a></li>
             <li><a href="<?php echo base_url() . "index.php/home/produto" ?>"><i class="fa fa-truck"></i> Ônibus</a></li>
             <li><a href="<?php echo base_url() . "index.php/home/produto" ?>"><i class="fa fa-money"></i> Financeiro</a></li>
+            <li><a href="<?php echo base_url() . "index.php/home/motorista" ?>"><i class="fa fa-car"></i> Motorista</a></li>
             <li><a href="<?php echo base_url()."index.php/home/usuario"?>"><i class="fa fa-user"></i> Usuário</a></li>
             <li><a href="bootstrap-grid.html"><i class="fa fa-wrench"></i> Configurações</a></li>
             <li class="dropdown">
@@ -86,60 +87,66 @@
       <div id="page-wrapper">
         <div class="row">
           <div class="col-lg-12">
-            <h1>Cliente <small>Cadastro</small></h1>
+            <h1>Cliente <small>Editar</small></h1>
             <ol class="breadcrumb">
-              <li class="active"><i class="fa fa-users"></i><a href="<?php echo base_url()."index.php/home/cliente"?>"> Cliente</a>/Cadastro</li>
+              <li class="active"><i class="fa fa-users"></i><a href="<?php echo base_url()."index.php/home/cliente"?>"> Cliente</a>/Editar</li>
             </ol>
           </div>
         </div><!-- /.row -->
 <div class="row col-sm-4">
-                    <h3>Cadastrar Cliente</h3>
+                    <h3>Editar Cliente</h3>
                     <?php 
-    echo form_open('home/cadastroValidacaoCliente');
-    
+    echo form_open('home/editarValidacaoCliente');
+    $this->db->where('id_clients', $this->input->post('id_clients'));
+    $query = $this->db->get('tb_clients');
+    foreach ($query->result_array() as $row) {
+      $usuarioDados = $row;
+    }
     echo validation_errors();
 
     echo form_label('Nome: ');
-    echo form_input(['name' => 'nome', 'id' => 'nome', 'class' => 'form-control input-sm']);
+    echo form_input(['name' => 'nome', 'id' => 'nome', 'class' => 'form-control input-sm','value' => $usuarioDados['nome']]);
     echo '<br>';
     echo form_label('Data Nascimento: ');
-    echo form_input(['name' => 'data_nascimento', 'id'=>'data_nascimento','class'=>'form-control input-sm datepicker']);
+    echo form_input(['name' => 'data_nascimento', 'id'=>'data_nascimento','class'=>'form-control input-sm datepicker','value' => $usuarioDados['data_nascimento']]);
     echo '<br>';
     echo form_label('RG: ');
-    echo form_input(['name' => 'rg', 'id'=>'rg','class'=>'form-control input-sm']);
+    echo form_input(['name' => 'rg', 'id'=>'rg','class'=>'form-control input-sm','value' => $usuarioDados['rg']]);
     echo '<br>';
     echo form_label('CPF: ');
-    echo form_input(['name' => 'cpf', 'id'=>'cpf','class'=>'form-control input-sm']);
+    echo form_input(['name' => 'cpf', 'id'=>'cpf','class'=>'form-control input-sm','value' => $usuarioDados['cpf']]);
     echo '<br>';
     echo form_label('E-mail: ');
-    echo form_input(['name' => 'email', 'id' => 'email', 'class' => 'form-control input-sm']);
+    echo form_input(['name' => 'email', 'id' => 'email', 'class' => 'form-control input-sm','value' => $usuarioDados['email']]);
     echo '<br>';
     echo form_label('Telefone: ');
-    echo form_input(['name'=>'telefone','id'=>'telefone','class'=>'form-control input-sm']);
+    echo form_input(['name'=>'telefone','id'=>'telefone','class'=>'form-control input-sm','value' => $usuarioDados['telefone']]);
     echo '<br>';
     echo form_label('Celular: ');
-    echo form_input(['name'=>'celular','id'=>'celular', 'class'=>'form-control input-sm']);
+    echo form_input(['name'=>'celular','id'=>'celular', 'class'=>'form-control input-sm','value' => $usuarioDados['celular']]);
     echo '<br>';
     echo form_label('Rua: ');
-    echo form_input(['name' => 'rua', 'id' => 'rua', 'class' => 'form-control input-sm']);
+    echo form_input(['name' => 'rua', 'id' => 'rua', 'class' => 'form-control input-sm','value' => $usuarioDados['rua']]);
     echo '<br>';
     echo form_label('Bairro: ');
-    echo form_input(['name' => 'bairro', 'id' => 'bairro', 'class' => 'form-control input-sm']);
+    echo form_input(['name' => 'bairro', 'id' => 'bairro', 'class' => 'form-control input-sm','value' => $usuarioDados['bairro']]);
     echo '<br>';
     echo form_label('Cidade: ');
-    echo form_input(['name' => 'cidade', 'id' => 'cidade', 'class' => 'form-control input-sm']);
+    echo form_input(['name' => 'cidade', 'id' => 'cidade', 'class' => 'form-control input-sm','value' => $usuarioDados['cidade']]);
     echo '<br>';
     echo form_label('Local de Embarque: ');
-    echo form_input(['name' => 'loc_embarque', 'id' => 'loc_embarque', 'class' => 'form-control input-sm']);
+    echo form_input(['name' => 'loc_embarque', 'id' => 'loc_embarque', 'class' => 'form-control input-sm','value' => $usuarioDados['loc_embarque']]);
+    echo '<br>';
+    echo form_label('Última Viagem: ');
+    echo form_input(['name' => 'ult_viagem', 'id' => 'ult_viagem', 'class' => 'form-control input-sm','value' => $usuarioDados['ult_viagem']]);
     echo '<br>';
     echo form_label('Observação: ');
-    echo form_input(['name' => 'observacao', 'id' => 'observacao', 'class' => 'form-control input-sm']);
+    echo form_input(['name' => 'observacao', 'id' => 'observacao', 'class' => 'form-control input-sm','value' => $usuarioDados['observacao']]);
+
+    echo form_hidden('id_clients', $this->input->post('id_clients'));
 
     echo "<br />";
-    echo '<input type="submit" class="btn btn-primary" value="Cadastrar">';
-    //echo '<p>';
-    //echo form_submit('signup_submit','Cadastrar');
-    //echo '</p>';
+    echo '<input type="submit" class="btn btn-primary" value="Editar">';
 
     echo form_close();
     ?>

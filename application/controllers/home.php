@@ -155,18 +155,18 @@ class Home extends CI_Controller {
 		}
 	}
 
-	public function mesas(){
+	public function motorista(){
 		if($this->session->userdata('is_logged_in')==1){
-			$this->load->view('vw_mesa');
+			$this->load->view('vw_motorista');
 		}
 		else{
 			$this->load->view('vw_login');
 		}
 	}
 
-	public function cadastroMesa(){
+	public function motoristaCadastro(){
 		if($this->session->userdata('is_logged_in')==1){
-			$this->load->view('vw_cadastroMesa');
+			$this->load->view('vw_motoristaCadastro');
 		}
 		else{
 			$this->load->view('vw_login');
@@ -203,6 +203,22 @@ class Home extends CI_Controller {
 			$this->load->view('vw_cliente');
 		} else{
 			$this->load->view('vw_clienteCadastro');
+		}
+	}
+
+	public function editarValidacaoCliente(){
+		$this->load->library('form_validation');
+
+		$this->form_validation->set_rules('nome','nome','required|trim');
+		$this->form_validation->set_rules('telefone','telefone','required|trim');
+
+		if($this->form_validation->run()){
+			$this->load->model('md_users');
+			$this->md_users->editarCliente();
+			$this->load->view('vw_cliente');
+		}
+		else{
+			$this->load->view('vw_clienteEditar');
 		}
 	}
 
@@ -291,24 +307,6 @@ class Home extends CI_Controller {
 		}
 	}
 
-	public function editarValidarProduto(){
-		$this->load->library('form_validation');
-		$this->form_validation->set_rules('produto','Produto','required|trim');
-		$this->form_validation->set_rules('vlunitario','Valor','required|trim');
-		$this->form_validation->set_rules('unmedida','Unidade','required|trim');
-		$this->form_validation->set_rules('categoria','Categoria','required|trim');
-		$this->form_validation->set_rules('descricao','Descricao','required|trim');
-
-		if($this->form_validation->run()){
-			$this->load->model('model_users');
-			$this->model_users->editarProduto();
-			$this->load->view('vw_produto');
-		}
-		else{
-			$this->load->view('vw_editarProduto');
-		}
-	}
-
 	public function editarValidarCategoria(){
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('categoria','Categoria', 'required|trim');
@@ -376,9 +374,9 @@ class Home extends CI_Controller {
 		}
 	}
 
-	public function editarProduto(){
+	public function editarCliente(){
 		if($this->session->userdata('is_logged_in')==1){
-			$this->load->view('vw_editarProduto');
+			$this->load->view('vw_clienteEditar');
 		}
 		else{
 			$this->load->view('vw_login');

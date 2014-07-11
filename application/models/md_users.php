@@ -44,6 +44,24 @@ class Md_users extends CI_Model{
 		$this->db->insert('tb_clients',$data);
 	}
 
+	public function editarCliente(){
+		$data = array('nome' 	=> $this->input->post('nome'),
+			'data_nascimento' 	=> $this->input->post('data_nascimento'),
+			'rg' 				=> $this->input->post('rg'),
+			'cpf' 				=> $this->input->post('cpf'),
+			'email' 			=> $this->input->post('email'),
+			'telefone' 			=> $this->input->post('telefone'),
+			'celular' 			=> $this->input->post('celular'),
+			'rua' 				=> $this->input->post('rua'),
+			'bairro' 			=> $this->input->post('bairro'),
+			'cidade' 			=> $this->input->post('cidade'),
+			'loc_embarque' 		=> $this->input->post('loc_embarque'),
+			'observacao' 		=> $this->input->post('observacao')
+			);
+		$this->db->where('id_clients',$this->input->post('id_clients'));
+		$this->db->update('tb_clients',$data);
+	}
+	
 	public function addCategoria(){
 		$data = array('ds_categoria' => $this->input->post('nome'),
 			'bo_ativo' => 't' 
@@ -100,18 +118,6 @@ class Md_users extends CI_Model{
 		$data = array ('ds_categoria' => $this->input->post('nome'));
 		$this->db->where('cd_categoria',$this->input->post('categoria'));
 		$this->db->update('tb_categoria',$data);
-	}
-
-	public function editarProduto(){
-		$data = array('cd_gtin' => $this->input->post('codbarra'),
-			'ds_produto' => $this->input->post('produto'),
-			'vl_unitario' => $this->input->post('vlunitario'),
-			'cd_unidade_medida' => $this->input->post('unmedida'),
-			'ds_composicao' => $this->input->post('descricao'),
-			'in_producao_propria' => $this->input->post('prodpropria')
-			);
-		$this->db->where('cd_produto',$this->input->post('cd_produto'));
-		$this->db->update('tb_produtos_servicos',$data);
 	}
 
 	public function receberPedido(){

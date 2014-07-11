@@ -44,8 +44,8 @@
             <li><a href="<?php echo base_url()."index.php/home/mesas"?>"><i class="fa fa-calendar"></i> Agenda</a></li>
             <li><a href="<?php echo base_url() . "index.php/home/produto" ?>"><i class="fa fa-truck"></i> Ônibus</a></li>
             <li><a href="<?php echo base_url() . "index.php/home/produto" ?>"><i class="fa fa-money"></i> Financeiro</a></li>
-            <li><a href="<?php echo base_url() . "index.php/home/motorista" ?>"><i class="fa fa-car"></i> Motorista</a></li>
-            <li class="active"><a href="<?php echo base_url()."index.php/home/usuario"?>"><i class="fa fa-user"></i> Usuário</a></li>
+            <li class="active"><a href="<?php echo base_url() . "index.php/home/motorista" ?>"><i class="fa fa-car"></i> Motorista</a></li>
+            <li><a href="<?php echo base_url()."index.php/home/usuario"?>"><i class="fa fa-user"></i> Usuário</a></li>
             <li><a href="bootstrap-grid.html"><i class="fa fa-wrench"></i> Configurações</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bar-chart-o"></i> Relatórios <b class="caret"></b></a>
@@ -87,36 +87,54 @@
       <div id="page-wrapper">
         <div class="row">
           <div class="col-lg-12">
-            <h1>Usuário <small>Cadastro</small></h1>
+            <h1>Motorista <small>Cadastro</small></h1>
             <ol class="breadcrumb">
-              <li class="active"><i class="fa fa-user"></i><a href="<?php echo base_url()."index.php/home/usuario"?>"> Usuário</a>/Cadastro</li>
+              <li class="active"><i class="fa fa-car"></i><a href="<?php echo base_url()."index.php/home/motorista"?>"> Motorista</a>/Cadastro</li>
             </ol>
           </div>
         </div><!-- /.row -->
 <div class="row col-sm-4">
-                    <h1>Cadastrar Usuário</h1>
+                    <h3>Cadastrar Motorista</h3>
                     <?php 
-    echo form_open('home/cadastroValidacaoPessoal');
+    echo form_open('home/cadastroValidacaoCliente');
     
     echo validation_errors();
 
     echo form_label('Nome: ');
     echo form_input(['name' => 'nome', 'id' => 'nome', 'class' => 'form-control input-sm']);
     echo '<br>';
-    echo form_label('Nome de Usuario: ');
-    echo form_input(['name' => 'usuario', 'id' => 'usuario', 'class' => 'form-control input-sm']);
+    echo form_label('Data Nascimento: ');
+    echo form_input(['name' => 'data_nascimento', 'id'=>'data_nascimento','class'=>'form-control input-sm datepicker']);
+    echo '<br>';
+    echo form_label('RG: ');
+    echo form_input(['name' => 'rg', 'id'=>'rg','class'=>'form-control input-sm']);
+    echo '<br>';
+    echo form_label('CPF: ');
+    echo form_input(['name' => 'cpf', 'id'=>'cpf','class'=>'form-control input-sm']);
     echo '<br>';
     echo form_label('E-mail: ');
     echo form_input(['name' => 'email', 'id' => 'email', 'class' => 'form-control input-sm']);
-    echo '<br>';
-    echo form_label('Senha');
-    echo form_password(['name' => 'senha', 'id' => 'senha', 'class' => 'form-control input-sm']);
     echo '<br>';
     echo form_label('Telefone: ');
     echo form_input(['name'=>'telefone','id'=>'telefone','class'=>'form-control input-sm']);
     echo '<br>';
     echo form_label('Celular: ');
     echo form_input(['name'=>'celular','id'=>'celular', 'class'=>'form-control input-sm']);
+    echo '<br>';
+    echo form_label('Rua: ');
+    echo form_input(['name' => 'rua', 'id' => 'rua', 'class' => 'form-control input-sm']);
+    echo '<br>';
+    echo form_label('Bairro: ');
+    echo form_input(['name' => 'bairro', 'id' => 'bairro', 'class' => 'form-control input-sm']);
+    echo '<br>';
+    echo form_label('Cidade: ');
+    echo form_input(['name' => 'cidade', 'id' => 'cidade', 'class' => 'form-control input-sm']);
+    echo '<br>';
+    echo form_label('Local de Embarque: ');
+    echo form_input(['name' => 'loc_embarque', 'id' => 'loc_embarque', 'class' => 'form-control input-sm']);
+    echo '<br>';
+    echo form_label('Observação: ');
+    echo form_input(['name' => 'observacao', 'id' => 'observacao', 'class' => 'form-control input-sm']);
 
     echo "<br />";
     echo '<input type="submit" class="btn btn-primary" value="Cadastrar">';

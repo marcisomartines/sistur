@@ -39,6 +39,7 @@
             <li><a href="<?php echo base_url()."index.php/home/mesas"?>"><i class="fa fa-calendar"></i> Agenda</a></li>
             <li><a href="<?php echo base_url() . "index.php/home/onibus" ?>"><i class="fa fa-truck"></i> Ônibus</a></li>
             <li><a href="<?php echo base_url() . "index.php/home/produto" ?>"><i class="fa fa-money"></i> Financeiro</a></li>
+            <li><a href="<?php echo base_url() . "index.php/home/motorista" ?>"><i class="fa fa-car"></i> Motorista</a></li>
             <li><a href="<?php echo base_url()."index.php/home/usuario"?>"><i class="fa fa-user"></i> Usuário</a></li>
             <li><a href="bootstrap-grid.html"><i class="fa fa-wrench"></i> Configurações</a></li>
             <li class="dropdown">
@@ -112,7 +113,7 @@
                 <td><?=$row->loc_embarque?></td>
                 <td width='180px'><?=form_open('home/excluirCliente')?>
                 <input type="hidden" name="id_clients" value="<?=$row->id_clients?>" />
-                <input type="submit" class="btn btn-danger btn-xs pull-right" value="Exclui">
+                <input type="submit" class="btn btn-danger btn-xs pull-right" value="Excluir">
               </form><?=form_open('home/editarCliente')?>
                 <input type="hidden" name="id_clients" value="<?=$row->id_clients?>" />
                 <input type="submit" class="btn btn-warning btn-xs pull-right" value="Editar">
