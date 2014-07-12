@@ -128,6 +128,22 @@
     echo '<br>';
     echo form_label('Observação: ');
     echo form_input(['name'=>'observacao','id'=>'observacao','class'=>'form-control input-sm','value' => $onibusDados['observacao']]);
+    echo '<br>';
+    $ativo = array(
+    'name'        => 'status',
+    'id'          => 'status',
+    'value'       => 'A',
+    'checked'     => ($onibusDados['status']!='I'?TRUE:FALSE),
+    );
+    $inativo = array(
+    'name'        => 'status',
+    'id'          => 'status',
+    'value'       => 'I',
+    'checked'     => ($onibusDados['status']=='I'?TRUE:FALSE),
+    );
+    echo form_label('Situação: ');
+    echo "Ativo ".form_radio($ativo);
+    echo " Inativo ".form_radio($inativo);
 
     echo form_hidden('id_cars', $this->input->post('id_cars'));
 
