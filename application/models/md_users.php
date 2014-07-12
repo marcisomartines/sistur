@@ -95,6 +95,21 @@ class Md_users extends CI_Model{
 		$this->db->update('tb_drivers',$data);
 	}
 
+	public function editarOnibus(){
+		$data = array('montadora' 	=> $this->input->post('montadora'),
+			'modelo' 				=> $this->input->post('modelo'),
+			'chassis' 				=> $this->input->post('chassis'),
+			'placa' 				=> $this->input->post('placa'),
+			'codigo' 				=> $this->input->post('codigo'),
+			'ano' 					=> $this->input->post('ano'),
+			'nr_poltrona' 			=> $this->input->post('nr_poltrona'),
+			'status'				=> $this->input->post('status'),
+			'observacao' 			=> $this->input->post('observacao')
+			);
+		$this->db->where('id_cars',$this->input->post('id_cars'));
+		$this->db->update('tb_cars',$data);
+	}
+
 	public function editarCliente(){
 		$data = array('nome' 	=> $this->input->post('nome'),
 			'data_nascimento' 	=> $this->input->post('data_nascimento'),
@@ -118,31 +133,6 @@ class Md_users extends CI_Model{
 			'bo_ativo' => 't' 
 			);
 		$this->db->insert('tb_categoria',$data);
-	}
-
-	public function reservarMesa(){
-		$data = array('cd_status_mesa' => 3);
-		$this->db->where('cd_mesa',$this->input->post('cd_mesa'));
-		$this->db->update('tb_mesa',$data);
-	}
-
-	public function liberarMesa(){
-		$data = array('cd_status_mesa' => 1);
-		$this->db->where('cd_mesa',$this->input->post('cd_mesa'));
-		$this->db->update('tb_mesa',$data);
-	}
-
-	public function pagarConta(){
-		$date=date("Y/m/d h:i:s");
-		$data = array('st_situacao' => 'P',
-					  'ts_fechamento' => $date);
-		$this->db->where('cd_mesa',$this->input->post('mesa'));
-		$this->db->where('st_situacao','F');
-		$this->db->update('tb_mesa_consumo',$data);
-		$total = array('cd_mesa' => $this->input->post('mesa'),
-						'ts_fechamento' => $date,
-						'vl_total' => $this->input->post('vl_total'));
-		$this->db->insert('tb_mesa_consumo_total',$total);
 	}
 
 	public function editarPessoal(){

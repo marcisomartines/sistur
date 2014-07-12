@@ -295,12 +295,38 @@ class Home extends CI_Controller {
 		}
 	}
 
-	public function alterarMesa(){
+	public function excluirOnibus(){
 		if($this->session->userdata('is_logged_in')==1){
-			$this->load->view('vw_editarMesa');
+			$this->db->where('id_cars',$this->input->post('id_cars'));
+			$this->db->delete('tb_cars');
+			$this->load->view('vw_onibus');
 		}
 		else{
 			$this->load->view('vw_login');
+		}
+	}
+
+	public function editarOnibus(){
+		if($this->session->userdata('is_logged_in')==1){
+			$this->load->view('vw_onibusEditar');
+		}
+		else{
+			$this->load->view('vw_login');
+		}
+	}
+
+	public function editarValidacaoOnibus(){
+		$this->load->library('form_validation');
+
+		$this->form_validation->set_rules('codigo','codigo','required|trim');
+
+		if($this->form_validation->run()){
+			$this->load->model('md_users');
+			$this->md_users->editarOnibus();
+			$this->load->view('vw_onibus');
+		}
+		else{
+			$this->load->view('vw_onibusEditar');
 		}
 	}
 

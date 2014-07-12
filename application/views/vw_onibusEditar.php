@@ -87,45 +87,52 @@
       <div id="page-wrapper">
         <div class="row">
           <div class="col-lg-12">
-            <h1>Ônibus <small>Cadastro</small></h1>
+            <h1>Ônibus <small>Edição</small></h1>
             <ol class="breadcrumb">
-              <li class="active"><i class="fa fa-truck"></i><a href="<?php echo base_url()."index.php/home/onibus"?>"> Ônibus</a> / Cadastro</li>
+              <li class="active"><i class="fa fa-truck"></i><a href="<?php echo base_url()."index.php/home/onibus"?>"> Ônibus</a> / Editar</li>
             </ol>
           </div>
         </div><!-- /.row -->
 <div class="row col-sm-4">
-                    <h3>Cadastrar Ônibus</h3>
+                    <h3>Editarr Ônibus</h3>
                     <?php 
-    echo form_open('home/cadastroValidacaoOnibus');
-    
+    echo form_open('home/editarValidacaoOnibus');
+
+    $this->db->where('id_cars', $this->input->post('id_cars'));
+    $query = $this->db->get('tb_cars');
+    foreach ($query->result_array() as $row) {
+      $onibusDados = $row;
+    }
     echo validation_errors();
 
     echo form_label('Código: ');
-    echo form_input(['name' => 'codigo', 'id'=>'codigo','class'=>'form-control input-sm datepicker']);
+    echo form_input(['name' => 'codigo', 'id'=>'codigo','class'=>'form-control input-sm datepicker','value' => $onibusDados['codigo']]);
     echo '<br>';
     echo form_label('Montadora: ');
-    echo form_input(['name' => 'montadora', 'id' => 'montadora', 'class' => 'form-control input-sm']);
+    echo form_input(['name' => 'montadora', 'id' => 'montadora', 'class' => 'form-control input-sm','value' => $onibusDados['montadora']]);
     echo '<br>';
     echo form_label('Modelo: ');
-    echo form_input(['name' => 'modelo', 'id'=>'modelo','class'=>'form-control input-sm datepicker']);
+    echo form_input(['name' => 'modelo', 'id'=>'modelo','class'=>'form-control input-sm datepicker','value' => $onibusDados['modelo']]);
     echo '<br>';
     echo form_label('Ano: ');
-    echo form_input(['name' => 'ano', 'id'=>'ano','class'=>'form-control input-sm']);
+    echo form_input(['name' => 'ano', 'id'=>'ano','class'=>'form-control input-sm','value' => $onibusDados['ano']]);
     echo '<br>';
     echo form_label('Placa: ');
-    echo form_input(['name' => 'placa', 'id'=>'placa','class'=>'form-control input-sm']);
+    echo form_input(['name' => 'placa', 'id'=>'placa','class'=>'form-control input-sm','value' => $onibusDados['placa']]);
     echo '<br>';
     echo form_label('Chassis: ');
-    echo form_input(['name' => 'chassis', 'id' => 'chassis', 'class' => 'form-control input-sm']);
+    echo form_input(['name' => 'chassis', 'id' => 'chassis', 'class' => 'form-control input-sm','value' => $onibusDados['chassis']]);
     echo '<br>';
     echo form_label('N° Poltronas: ');
-    echo form_input(['name' => 'nr_poltrona', 'id' => 'nr_poltrona', 'class' => 'form-control input-sm']);
+    echo form_input(['name' => 'nr_poltrona', 'id' => 'nr_poltrona', 'class' => 'form-control input-sm','value' => $onibusDados['nr_poltrona']]);
     echo '<br>';
     echo form_label('Observação: ');
-    echo form_input(['name'=>'observacao','id'=>'observacao','class'=>'form-control input-sm']);
+    echo form_input(['name'=>'observacao','id'=>'observacao','class'=>'form-control input-sm','value' => $onibusDados['observacao']]);
+
+    echo form_hidden('id_cars', $this->input->post('id_cars'));
 
     echo "<br />";
-    echo '<input type="submit" class="btn btn-primary" value="Cadastrar">';
+    echo '<input type="submit" class="btn btn-primary" value="Editar">';
 
     echo form_close();
     ?>
