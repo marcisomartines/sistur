@@ -62,6 +62,25 @@ class Md_users extends CI_Model{
 		$this->db->insert('tb_drivers',$data);
 	}
 
+	public function editarMotorista(){
+		$data = array('nome' 	=> $this->input->post('nome'),
+			'data_nascimento' 	=> $this->input->post('data_nascimento'),
+			'rg' 				=> $this->input->post('rg'),
+			'cpf' 				=> $this->input->post('cpf'),
+			'email' 			=> $this->input->post('email'),
+			'telefone' 			=> $this->input->post('telefone'),
+			'celular' 			=> $this->input->post('celular'),
+			'rua' 				=> $this->input->post('rua'),
+			'bairro' 			=> $this->input->post('bairro'),
+			'cidade' 			=> $this->input->post('cidade'),
+			'cnh' 				=> $this->input->post('cnh'),
+			'observacao' 		=> $this->input->post('observacao'),
+			'status'			=> $this->input->post('status')
+			);
+		$this->db->where('id_drivers',$this->input->post('id_drivers'));
+		$this->db->update('tb_drivers',$data);
+	}
+
 	public function editarCliente(){
 		$data = array('nome' 	=> $this->input->post('nome'),
 			'data_nascimento' 	=> $this->input->post('data_nascimento'),

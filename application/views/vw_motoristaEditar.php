@@ -40,11 +40,11 @@
           <ul class="nav navbar-nav side-nav">
             <li><a href="<?php echo base_url()."index.php/home/"?>"><i class="fa fa-dashboard"></i> Geral</a></li>
             <li><a href="<?php echo base_url()."index.php/home/reserva"?>"><i class="fa fa-ticket"></i> Reserva</a></li>
-            <li class="active"><a href="<?php echo base_url()."index.php/home/cliente"?>"><i class="fa fa-users "></i> Cliente</a></li>
+            <li><a href="<?php echo base_url()."index.php/home/cliente"?>"><i class="fa fa-users "></i> Cliente</a></li>
             <li><a href="<?php echo base_url()."index.php/home/mesas"?>"><i class="fa fa-calendar"></i> Agenda</a></li>
             <li><a href="<?php echo base_url() . "index.php/home/produto" ?>"><i class="fa fa-truck"></i> Ônibus</a></li>
             <li><a href="<?php echo base_url() . "index.php/home/produto" ?>"><i class="fa fa-money"></i> Financeiro</a></li>
-            <li><a href="<?php echo base_url() . "index.php/home/motorista" ?>"><i class="fa fa-car"></i> Motorista</a></li>
+            <li class="active"><a href="<?php echo base_url() . "index.php/home/motorista" ?>"><i class="fa fa-car"></i> Motorista</a></li>
             <li><a href="<?php echo base_url()."index.php/home/usuario"?>"><i class="fa fa-user"></i> Usuário</a></li>
             <li><a href="bootstrap-grid.html"><i class="fa fa-wrench"></i> Configurações</a></li>
             <li class="dropdown">
@@ -87,63 +87,76 @@
       <div id="page-wrapper">
         <div class="row">
           <div class="col-lg-12">
-            <h1>Cliente <small>Editar</small></h1>
+            <h1>Motorista <small>Edição</small></h1>
             <ol class="breadcrumb">
-              <li class="active"><i class="fa fa-users"></i><a href="<?php echo base_url()."index.php/home/cliente"?>"> Cliente</a>/Editar</li>
+              <li class="active"><i class="fa fa-car"></i><a href="<?php echo base_url()."index.php/home/motorista"?>"> Motorista</a> / Edição</li>
             </ol>
           </div>
         </div><!-- /.row -->
 <div class="row col-sm-4">
-                    <h3>Editar Cliente</h3>
+                    <h3>Editar Motorista</h3>
                     <?php 
-    echo form_open('home/editarValidacaoCliente');
-    $this->db->where('id_clients', $this->input->post('id_clients'));
-    $query = $this->db->get('tb_clients');
+    echo form_open('home/editarValidacaoMotorista');
+    $this->db->where('id_drivers', $this->input->post('id_drivers'));
+    $query = $this->db->get('tb_drivers');
     foreach ($query->result_array() as $row) {
-      $clienteDados = $row;
+      $motoristaDados = $row;
     }
     echo validation_errors();
 
     echo form_label('Nome: ');
-    echo form_input(['name' => 'nome', 'id' => 'nome', 'class' => 'form-control input-sm','value' => $clienteDados['nome']]);
+    echo form_input(['name' => 'nome', 'id' => 'nome', 'class' => 'form-control input-sm','value' => $motoristaDados['nome']]);
     echo '<br>';
     echo form_label('Data Nascimento: ');
-    echo form_input(['name' => 'data_nascimento', 'id'=>'data_nascimento','class'=>'form-control input-sm datepicker','value' => $clienteDados['data_nascimento']]);
+    echo form_input(['name' => 'data_nascimento', 'id'=>'data_nascimento','class'=>'form-control input-sm datepicker','value' => $motoristaDados['data_nascimento']]);
     echo '<br>';
     echo form_label('RG: ');
-    echo form_input(['name' => 'rg', 'id'=>'rg','class'=>'form-control input-sm','value' => $clienteDados['rg']]);
+    echo form_input(['name' => 'rg', 'id'=>'rg','class'=>'form-control input-sm','value' => $motoristaDados['rg']]);
     echo '<br>';
     echo form_label('CPF: ');
-    echo form_input(['name' => 'cpf', 'id'=>'cpf','class'=>'form-control input-sm','value' => $clienteDados['cpf']]);
+    echo form_input(['name' => 'cpf', 'id'=>'cpf','class'=>'form-control input-sm','value' => $motoristaDados['cpf']]);
+    echo '<br>';
+    echo form_label('CNH: ');
+    echo form_input(['name' => 'cnh', 'id' => 'cnh', 'class' => 'form-control input-sm','value' => $motoristaDados['cnh']]);
     echo '<br>';
     echo form_label('E-mail: ');
-    echo form_input(['name' => 'email', 'id' => 'email', 'class' => 'form-control input-sm','value' => $clienteDados['email']]);
+    echo form_input(['name' => 'email', 'id' => 'email', 'class' => 'form-control input-sm','value' => $motoristaDados['email']]);
     echo '<br>';
     echo form_label('Telefone: ');
-    echo form_input(['name'=>'telefone','id'=>'telefone','class'=>'form-control input-sm','value' => $clienteDados['telefone']]);
+    echo form_input(['name'=>'telefone','id'=>'telefone','class'=>'form-control input-sm','value' => $motoristaDados['telefone']]);
     echo '<br>';
     echo form_label('Celular: ');
-    echo form_input(['name'=>'celular','id'=>'celular', 'class'=>'form-control input-sm','value' => $clienteDados['celular']]);
+    echo form_input(['name'=>'celular','id'=>'celular', 'class'=>'form-control input-sm','value' => $motoristaDados['celular']]);
     echo '<br>';
     echo form_label('Rua: ');
-    echo form_input(['name' => 'rua', 'id' => 'rua', 'class' => 'form-control input-sm','value' => $clienteDados['rua']]);
+    echo form_input(['name' => 'rua', 'id' => 'rua', 'class' => 'form-control input-sm','value' => $motoristaDados['rua']]);
     echo '<br>';
     echo form_label('Bairro: ');
-    echo form_input(['name' => 'bairro', 'id' => 'bairro', 'class' => 'form-control input-sm','value' => $clienteDados['bairro']]);
+    echo form_input(['name' => 'bairro', 'id' => 'bairro', 'class' => 'form-control input-sm','value' => $motoristaDados['bairro']]);
     echo '<br>';
     echo form_label('Cidade: ');
-    echo form_input(['name' => 'cidade', 'id' => 'cidade', 'class' => 'form-control input-sm','value' => $clienteDados['cidade']]);
-    echo '<br>';
-    echo form_label('Local de Embarque: ');
-    echo form_input(['name' => 'loc_embarque', 'id' => 'loc_embarque', 'class' => 'form-control input-sm','value' => $clienteDados['loc_embarque']]);
-    echo '<br>';
-    echo form_label('Última Viagem: ');
-    echo form_input(['name' => 'ult_viagem', 'id' => 'ult_viagem', 'class' => 'form-control input-sm','value' => $clienteDados['ult_viagem']]);
+    echo form_input(['name' => 'cidade', 'id' => 'cidade', 'class' => 'form-control input-sm','value' => $motoristaDados['cidade']]);
     echo '<br>';
     echo form_label('Observação: ');
-    echo form_input(['name' => 'observacao', 'id' => 'observacao', 'class' => 'form-control input-sm','value' => $clienteDados['observacao']]);
+    echo form_input(['name' => 'observacao', 'id' => 'observacao', 'class' => 'form-control input-sm','value' => $motoristaDados['observacao']]);
+    echo '<br>';
+    $ativo = array(
+    'name'        => 'status',
+    'id'          => 'status',
+    'value'       => 'A',
+    'checked'     => ($motoristaDados['status']=='A'?TRUE:FALSE),
+    );
+    $inativo = array(
+    'name'        => 'status',
+    'id'          => 'status',
+    'value'       => 'I',
+    'checked'     => ($motoristaDados['status']=='A'?FALSE:TRUE),
+    );
+    echo form_label('Situação: ');
+    echo "Ativo ".form_radio($ativo);
+    echo " Inativo ".form_radio($inativo);
 
-    echo form_hidden('id_clients', $this->input->post('id_clients'));
+    echo form_hidden('id_drivers', $this->input->post('id_drivers'));
 
     echo "<br />";
     echo '<input type="submit" class="btn btn-primary" value="Editar">';

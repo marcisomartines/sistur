@@ -108,7 +108,7 @@
                 <td><?=$row->email?></td>
                 <td><?=$row->telefone?></td>
                 <td><?=$row->celular?></td>
-                <td><?=$row->status?></td>
+                <td><?=($row->status=='A'?"Ativo":"Inativo")?></td>
                 <td width='180px'><?=form_open('home/excluirMotorista')?>
                 <input type="hidden" name="id_drivers" value="<?=$row->id_drivers?>" />
                 <input type="submit" class="btn btn-danger btn-xs pull-right" value="Excluir">

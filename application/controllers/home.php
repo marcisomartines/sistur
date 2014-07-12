@@ -188,6 +188,42 @@ class Home extends CI_Controller {
 		}
 	}
 
+	public function editarMotorista(){
+		if($this->session->userdata('is_logged_in')==1){
+			$this->load->view('vw_motoristaEditar');
+		}
+		else{
+			$this->load->view('vw_login');
+		}
+	}
+
+	public function editarValidacaoMotorista(){
+		$this->load->library('form_validation');
+
+		$this->form_validation->set_rules('nome','nome','required|trim');
+		$this->form_validation->set_rules('telefone','telefone','required|trim');
+
+		if($this->form_validation->run()){
+			$this->load->model('md_users');
+			$this->md_users->editarMotorista();
+			$this->load->view('vw_motorista');
+		}
+		else{
+			$this->load->view('vw_motoristaEditar');
+		}
+	}
+
+	public function excluirMotorista(){
+		if($this->session->userdata('is_logged_in')==1){
+			$this->db->where('id_drivers',$this->input->post('id_drivers'));
+			$this->db->delete('tb_drivers');
+			$this->load->view('vw_motorista');
+		}
+		else{
+			$this->load->view('vw_login');
+		}
+	}
+
 	public function cliente(){
 		if($this->session->userdata('is_logged_in')==1){
 			$this->load->view('vw_cliente');
