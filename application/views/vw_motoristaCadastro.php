@@ -89,14 +89,14 @@
           <div class="col-lg-12">
             <h1>Motorista <small>Cadastro</small></h1>
             <ol class="breadcrumb">
-              <li class="active"><i class="fa fa-car"></i><a href="<?php echo base_url()."index.php/home/motorista"?>"> Motorista</a>/Cadastro</li>
+              <li class="active"><i class="fa fa-car"></i><a href="<?php echo base_url()."index.php/home/motorista"?>"> Motorista</a> / Cadastro</li>
             </ol>
           </div>
         </div><!-- /.row -->
 <div class="row col-sm-4">
                     <h3>Cadastrar Motorista</h3>
                     <?php 
-    echo form_open('home/cadastroValidacaoCliente');
+    echo form_open('home/cadastroValidacaoMotorista');
     
     echo validation_errors();
 
@@ -111,6 +111,9 @@
     echo '<br>';
     echo form_label('CPF: ');
     echo form_input(['name' => 'cpf', 'id'=>'cpf','class'=>'form-control input-sm']);
+    echo '<br>';
+    echo form_label('CNH: ');
+    echo form_input(['name' => 'cnh', 'id' => 'cnh', 'class' => 'form-control input-sm']);
     echo '<br>';
     echo form_label('E-mail: ');
     echo form_input(['name' => 'email', 'id' => 'email', 'class' => 'form-control input-sm']);
@@ -130,17 +133,11 @@
     echo form_label('Cidade: ');
     echo form_input(['name' => 'cidade', 'id' => 'cidade', 'class' => 'form-control input-sm']);
     echo '<br>';
-    echo form_label('Local de Embarque: ');
-    echo form_input(['name' => 'loc_embarque', 'id' => 'loc_embarque', 'class' => 'form-control input-sm']);
-    echo '<br>';
     echo form_label('Observação: ');
     echo form_input(['name' => 'observacao', 'id' => 'observacao', 'class' => 'form-control input-sm']);
 
     echo "<br />";
     echo '<input type="submit" class="btn btn-primary" value="Cadastrar">';
-    //echo '<p>';
-    //echo form_submit('signup_submit','Cadastrar');
-    //echo '</p>';
 
     echo form_close();
     ?>

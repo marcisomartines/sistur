@@ -173,6 +173,21 @@ class Home extends CI_Controller {
 		}
 	}
 
+	public function cadastroValidacaoMotorista(){ 
+		$this->load->library('form_validation');
+
+		$this->form_validation->set_rules('nome','nome','required|trim');
+		$this->form_validation->set_rules('telefone','telefone','required|trim');
+
+		if($this->form_validation->run()){
+			$this->load->model('md_users');
+			$this->md_users->addMotorista();
+			$this->load->view('vw_motorista');
+		} else{
+			$this->load->view('vw_motoristaCadastro');
+		}
+	}
+
 	public function cliente(){
 		if($this->session->userdata('is_logged_in')==1){
 			$this->load->view('vw_cliente');

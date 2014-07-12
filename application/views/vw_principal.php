@@ -12,6 +12,7 @@
     <link href="<?=base_url()?>css/bootstrap.css" rel="stylesheet">
     <link href="<?=base_url()?>css/sb-admin.css" rel="stylesheet">
     <link rel="stylesheet" href="<?=base_url()?>font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?=base_url()?>font-awesome/css/font-awesome.css">
     <link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.4.3.min.css">
   </head>
 
@@ -40,7 +41,7 @@
             <li><a href="<?php echo base_url()."index.php/home/mesas"?>"><i class="fa fa-calendar"></i> Agenda</a></li>
             <li><a href="<?php echo base_url()."index.php/home/produto" ?>"><i class="fa fa-truck"></i> Ônibus</a></li>
             <li><a href="<?php echo base_url()."index.php/home/produto" ?>"><i class="fa fa-money"></i> Financeiro</a></li>
-            <li><a href="<?php echo base_url()."index.php/home/motorista" ?>"><i class="fa fa-cubes"></i> Motorista</a></li>
+            <li><a href="<?php echo base_url()."index.php/home/motorista" ?>"><i class="fa fa-car"></i> Motorista</a></li>
             <li><a href="<?php echo base_url()."index.php/home/usuario"?>"><i class="fa fa-user"></i> Usuário</a></li>
             <li><a href="bootstrap-grid.html"><i class="fa fa-wrench"></i> Configurações</a></li>
             <li class="dropdown">
