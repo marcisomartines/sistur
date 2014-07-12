@@ -62,6 +62,20 @@ class Md_users extends CI_Model{
 		$this->db->insert('tb_drivers',$data);
 	}
 
+	public function addOnibus(){
+		$data = array('montadora' 	=> $this->input->post('montadora'),
+			'modelo' 				=> $this->input->post('modelo'),
+			'chassis' 				=> $this->input->post('chassis'),
+			'placa' 				=> $this->input->post('placa'),
+			'codigo' 				=> $this->input->post('codigo'),
+			'ano' 					=> $this->input->post('ano'),
+			'nr_poltrona' 			=> $this->input->post('nr_poltrona'),
+			'status'				=> 'A',
+			'observacao' 			=> $this->input->post('observacao')
+			);
+		$this->db->insert('tb_cars',$data);
+	}
+
 	public function editarMotorista(){
 		$data = array('nome' 	=> $this->input->post('nome'),
 			'data_nascimento' 	=> $this->input->post('data_nascimento'),

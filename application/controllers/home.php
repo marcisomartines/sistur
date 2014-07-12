@@ -125,16 +125,6 @@ class Home extends CI_Controller {
 		}
 	}
 
-	public function cadastro(){
-		if($this->session->userdata('is_logged_in')==1)
-		{
-			$this->load->view("vw_cadastro");
-		}
-		else{
-			$this->load->view("vw_login");
-		}
-	}
-
 	public function usuario(){
 		if($this->session->userdata('is_logged_in')==1)
 		{
@@ -282,49 +272,27 @@ class Home extends CI_Controller {
 		}
 	}
 
-	public function cadastroCategoria(){
+	public function onibusCadastro(){
 		if($this->session->userdata('is_logged_in')==1){
-			$this->load->view('vw_cadastroCategoria');
+			$this->load->view('vw_onibusCadastro');
 		}
 		else{
 			$this->load->view('vw_login');
 		}
 	}
 
-	public function view_upload(){
-		$this->load->view('vw_upload',array('error'=>''));
-	}
+	public function cadastroValidacaoOnibus(){ 
+		$this->load->library('form_validation');
 
-	public function upload(){
-		$config['upload_path'] = "./img/";
-		$config['allowed_types'] = "jpg|jpeg|png|gif";
-		$this->load->library('upload',$config);
+		$this->form_validation->set_rules('codigo','codigo','required|trim');
 
-		if(!$this->upload->do_upload()){
-			$error=array('error' => $this->upload->display_errors());
-			$this->load->view('vw_upload',$error);
-		}else{
-			$arquivo=$this->upload->data();
+		if($this->form_validation->run()){
+			$this->load->model('md_users');
+			$this->md_users->addOnibus();
+			$this->load->view('vw_onibus');
+		} else{
+			$this->load->view('vw_onibusCadastro');
 		}
-	}
-
-	public function reservarMesa(){//funcao para reservar uma mesa
-		$this->load->model('model_users');
-		$this->model_users->reservarMesa();
-		$this->load->view('vw_mesa');
-	}
-
-	public function liberarMesa(){
-		$this->load->model('model_users');
-		$this->model_users->liberarMesa();
-		$this->load->view('vw_mesa');
-	}
-
-	public function pagarConta(){
-		$this->load->model('model_users');
-		$this->model_users->pagarConta();
-		$this->model_users->liberarMesa();
-		$this->load->view('vw_members');
 	}
 
 	public function alterarMesa(){
@@ -445,14 +413,4 @@ class Home extends CI_Controller {
 		}
 	}
 
-	public function receberPedido(){
-		if($this->session->userdata('is_logged_in')==1){
-			$this->load->model('model_users');
-			$this->model_users->receberPedido();
-			$this->load->view('vw_members');
-		}
-		else{
-			$this->load->view('vw_login');
-		}
-	}
 }
