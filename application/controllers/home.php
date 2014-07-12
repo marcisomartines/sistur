@@ -273,9 +273,9 @@ class Home extends CI_Controller {
 		}
 	}
 
-	public function categoria(){
+	public function onibus(){
 		if($this->session->userdata('is_logged_in')==1){
-			$this->load->view('vw_categoria');
+			$this->load->view('vw_onibus');
 		}
 		else{
 			$this->load->view('vw_login');
