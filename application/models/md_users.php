@@ -127,13 +127,6 @@ class Md_users extends CI_Model{
 		$this->db->where('id_clients',$this->input->post('id_clients'));
 		$this->db->update('tb_clients',$data);
 	}
-	
-	public function addCategoria(){
-		$data = array('ds_categoria' => $this->input->post('nome'),
-			'bo_ativo' => 't' 
-			);
-		$this->db->insert('tb_categoria',$data);
-	}
 
 	public function editarPessoal(){
 		$data = array(
@@ -142,7 +135,8 @@ class Md_users extends CI_Model{
 			'email' => $this->input->post('email'),
 			'senha' => md5($this->input->post('senha')),
 			'telefone' => $this->input->post('telefone'),
-			'celular' => $this->input->post('celular')
+			'celular' => $this->input->post('celular'),
+			'status' => $this->input->post('status')
 			);
 		$this->db->where('id_users',$this->input->post('id_users'));
 		$this->db->update('tb_users',$data);

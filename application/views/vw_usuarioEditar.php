@@ -121,7 +121,22 @@
                     echo '<br>';
                     echo form_label('Celular: ','celular');
                     echo form_input(['name' => 'celular', 'id' => 'celular', 'class' => 'form-control input-sm', 'value' => $usuarioDados['celular'], 'placeholder' => 'Celular']);
-
+                    echo '<br>';
+                    $ativo = array(
+                    'name'        => 'status',
+                    'id'          => 'status',
+                    'value'       => 'A',
+                    'checked'     => ($usuarioDados['status']=='A'?TRUE:FALSE),
+                    );
+                    $inativo = array(
+                    'name'        => 'status',
+                    'id'          => 'status',
+                    'value'       => 'I',
+                    'checked'     => ($usuarioDados['status']=='A'?FALSE:TRUE),
+                    );
+                    echo form_label('Situação: ');
+                    echo "Ativo ".form_radio($ativo);
+                    echo " Inativo ".form_radio($inativo);
                     echo form_hidden('id_users', $this->input->post('id_users'));
 
                     echo "<br />";
