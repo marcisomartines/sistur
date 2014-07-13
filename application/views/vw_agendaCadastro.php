@@ -40,8 +40,8 @@
           <ul class="nav navbar-nav side-nav">
             <li><a href="<?php echo base_url()."index.php/home/"?>"><i class="fa fa-dashboard"></i> Geral</a></li>
             <li><a href="<?php echo base_url()."index.php/home/reserva"?>"><i class="fa fa-ticket"></i> Reserva</a></li>
-            <li class="active"><a href="<?php echo base_url()."index.php/home/cliente"?>"><i class="fa fa-users "></i> Cliente</a></li>
-            <li><a href="<?php echo base_url()."index.php/home/agenda"?>"><i class="fa fa-calendar"></i> Agendamento</a></li>
+            <li><a href="<?php echo base_url()."index.php/home/cliente"?>"><i class="fa fa-users "></i> Cliente</a></li>
+            <li class="active"><a href="<?php echo base_url()."index.php/home/agenda"?>"><i class="fa fa-calendar"></i> Agendamento</a></li>
             <li><a href="<?php echo base_url() . "index.php/home/onibus" ?>"><i class="fa fa-truck"></i> Ônibus</a></li>
             <li><a href="<?php echo base_url() . "index.php/home/produto" ?>"><i class="fa fa-money"></i> Financeiro</a></li>
             <li><a href="<?php echo base_url() . "index.php/home/motorista" ?>"><i class="fa fa-car"></i> Motorista</a></li>
@@ -87,9 +87,9 @@
       <div id="page-wrapper">
         <div class="row">
           <div class="col-lg-12">
-            <h1>Cliente <small>Cadastro</small></h1>
+            <h1>Agendamento <small>Cadastro</small></h1>
             <ol class="breadcrumb">
-              <li class="active"><i class="fa fa-users"></i><a href="<?php echo base_url()."index.php/home/cliente"?>"> Cliente</a>/Cadastro</li>
+              <li class="active"><i class="fa fa-users"></i><a href="<?php echo base_url()."index.php/home/cliente"?>"> Agendamento</a> / Agendamento</li>
             </ol>
           </div>
         </div><!-- /.row -->
