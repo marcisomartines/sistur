@@ -33,7 +33,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html">Pantanal Sul Turismo</a>
+          <a class="navbar-brand" href="">Pantanal Sul Turismo</a>
         </div>
 
         <div class="collapse navbar-collapse navbar-ex1-collapse">
@@ -41,10 +41,10 @@
             <li><a href="<?php echo base_url()."index.php/home/"?>"><i class="fa fa-dashboard"></i> Geral</a></li>
             <li><a href="<?php echo base_url()."index.php/home/reserva"?>"><i class="fa fa-ticket"></i> Reserva</a></li>
             <li><a href="<?php echo base_url()."index.php/home/cliente"?>"><i class="fa fa-users "></i> Cliente</a></li>
-            <li><a href="<?php echo base_url()."index.php/home/mesas"?>"><i class="fa fa-calendar"></i> Agenda</a></li>
-            <li><a href="<?php echo base_url() . "index.php/home/onibus" ?>"><i class="fa fa-truck"></i> Ônibus</a></li>
-            <li><a href="<?php echo base_url() . "index.php/home/produto" ?>"><i class="fa fa-money"></i> Financeiro</a></li>
-            <li><a href="<?php echo base_url() . "index.php/home/motorista" ?>"><i class="fa fa-car"></i> Motorista</a></li>
+            <li><a href="<?php echo base_url()."index.php/home/agenda"?>"><i class="fa fa-calendar"></i> Agendamento</a></li>
+            <li><a href="<?php echo base_url()."index.php/home/onibus" ?>"><i class="fa fa-truck"></i> Ônibus</a></li>
+            <li><a href="<?php echo base_url()."index.php/home/produto" ?>"><i class="fa fa-money"></i> Financeiro</a></li>
+            <li><a href="<?php echo base_url()."index.php/home/motorista" ?>"><i class="fa fa-car"></i> Motorista</a></li>
             <li class="active"><a href="<?php echo base_url()."index.php/home/usuario"?>"><i class="fa fa-user"></i> Usuário</a></li>
             <li><a href="bootstrap-grid.html"><i class="fa fa-wrench"></i> Configurações</a></li>
             <li class="dropdown">
