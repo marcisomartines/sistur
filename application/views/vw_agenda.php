@@ -95,9 +95,42 @@
                         <li><a href="#agenda" role="tab" data-toggle="tab">Agenda</a></li>
                     </ul>
                     <div id="myTabContent" class="tab-content">
-                        <div class="tab-pane fade in active" id="listagem">
-                            <p>listagem de exemplio.</p>
-                        </div>
+                        <div class="tab-pane fade in active" id="listagem"><!--Listagem de agendamentos-->
+                            <table class="table">
+        <tr>
+          <th>Modelo</th>
+          <th>Código</th>
+          <th>N° Poltronas</th>
+          <th>Placa</th>
+          <th>Situação</th>
+          <th align="center">Ação</th>
+        </tr>
+      <?php
+        $query=$this->db->get('tb_cars');
+        foreach ($query->result() as $row){
+      ?>
+              <tr>
+                <td><?=$row->modelo?></td>
+                <td><?=$row->codigo?></td>
+                <td><?=$row->nr_poltrona?></td>
+                <td><?=$row->placa?></td>
+                <td><?=($row->status=='A'?"Ativo":"Inativo")?></td>
+                <td width='180px'><?=form_open('home/excluirOnibus')?>
+                <input type="hidden" name="id_cars" value="<?=$row->id_cars?>" />
+                <input type="submit" class="btn btn-danger btn-xs pull-right" value="Excluir">
+              </form><?=form_open('home/editarOnibus')?>
+                <input type="hidden" name="id_cars" value="<?=$row->id_cars?>" />
+                <input type="submit" class="btn btn-warning btn-xs pull-right" value="Editar">
+              </form><?=form_open('home/detalharOnibus')?>
+                <input type="hidden" name="id_cars" value="<?=$row->id_cars?>" />
+                <input type="submit" class="btn btn-success btn-xs pull-right" value="Detalhar">
+              </form></td>
+              </tr>
+      <?php
+        }
+      ?>
+      </table>
+                        </div><!--fim da Listagem de agendamentos-->
                         <div class="tab-pane fade" id="agenda">
                             <p>Agenda de exemplo.</p>
                         </div>
