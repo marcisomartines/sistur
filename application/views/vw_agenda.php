@@ -7,7 +7,6 @@
         <meta name="author" content="Marciso Gonzalez Martines">
 
         <title>Pantanal Sul - Turismo</title>
-
         <link href="<?= base_url() ?>css/bootstrap.css" rel="stylesheet">
         <link href="<?= base_url() ?>css/sb-admin.css" rel="stylesheet">
         <link rel="stylesheet" href="<?= base_url() ?>font-awesome/css/font-awesome.min.css">

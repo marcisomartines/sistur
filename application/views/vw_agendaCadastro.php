@@ -89,7 +89,7 @@ $lusuario = array('class' => 'form-control');
                     <div class="col-lg-12">
                         <h1>Agendamento <small>Cadastro</small></h1>
                         <ol class="breadcrumb">
-                            <li class="active"><i class="fa fa-users"></i><a href="<?php echo base_url() . "index.php/home/agenda" ?>"> Agendamento</a> / Agendamento</li>
+                            <li class="active"><i class="fa fa-calendar"></i><a href="<?php echo base_url() . "index.php/home/agenda" ?>"> Agendamento</a> / Agendamento</li>
                         </ol>
                     </div>
                 </div><!-- /.row -->
@@ -103,20 +103,42 @@ $lusuario = array('class' => 'form-control');
                     echo form_label('Cliente: ');
                     echo form_input(['name' => 'nome', 'id' => 'nome', 'class' => 'form-control input-sm']);
                     echo '<br>';
+                    $this->db->where('status','A');
+                    $query = $this->db->get('tb_cars');
+                    foreach($query->result() as $bus){
+                        $opcao[$bus->id_cars]=$bus->codigo.' - '.$bus->modelo;
+                    }
                     echo form_label('Ônibus: ');
-                    echo form_input(['name' => 'data_nascimento', 'id' => 'data_nascimento', 'class' => 'form-control input-sm datepicker']);
+                    echo form_dropdown('id_car',$opcao,'v','class=form-control');
+                    echo '<br>';
+                    $opcao = array(
+                        'v' => 'Viagem',
+                        'f' => 'Fretamento',
+                        't' => 'Tourismo',
+                        'e' => 'Escursão',
+                    );
+                    echo form_label('Tipo: ');
+                    echo form_dropdown('tipo', $opcao, 'v','class=form-control');
                     echo '<br>';
                     echo form_label('Destino: ');
-                    echo form_input(['name' => 'rg', 'id' => 'rg', 'class' => 'form-control input-sm']);
+                    echo form_input(['name' => 'destino', 'id' => 'destino', 'class' => 'form-control input-sm']);
                     echo '<br>';
                     echo form_label('Data Saida: ');
-                    echo form_input(['name' => 'cpf', 'id' => 'cpf', 'class' => 'form-control input-sm']);
+                    echo form_input(['name' => 'data_saida', 'id' => 'data_saida', 'class' => 'form-control input-sm']);
                     echo '<br>';
                     echo form_label('Data Retorno: ');
-                    echo form_input(['name' => 'email', 'id' => 'email', 'class' => 'form-control input-sm']);
+                    echo form_input(['name' => 'data_retorno', 'id' => 'data_retorno', 'class' => 'form-control input-sm']);
                     echo '<br>';
-                    echo form_label('Tipo: ');
-                    echo form_input(['name' => 'telefone', 'id' => 'telefone', 'class' => 'form-control input-sm']);
+                    $this->db->where('status','A');
+                    $query=$this->db->get('tb_drivers');
+                    foreach($query->result() as $driver){
+                        $opcao2[$driver->id_drivers]=$driver->nome;
+                    }
+                    echo form_label('Motorista: ');
+                    echo form_dropdown('id_motorista',$opcao2,'v','class=form-control');
+                    echo '<br>';
+                    echo form_label('Preço: ');
+                    echo form_input(['name'=>'preco','id'=>'preco','class'=>'form-control input-sm']);
                     echo '<br>';
                     echo form_label('Observação: ');
                     echo form_input(['name' => 'observacao', 'id' => 'observacao', 'class' => 'form-control input-sm']);
