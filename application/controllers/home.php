@@ -332,6 +332,16 @@ class Home extends CI_Controller {
         }
     }
 
+    public function excluirAgenda() {
+        if ($this->session->userdata('is_logged_in') == 1) {
+            $this->db->where('id_tour', $this->input->post('id_tour'));
+            $this->db->delete('tb_tour');
+            $this->load->view('vw_agenda');
+        } else {
+            $this->load->view('vw_login');
+        }
+    }
+
     public function editarValidacaoUsuario() {
         $this->load->library('form_validation');
 
