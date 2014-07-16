@@ -106,7 +106,12 @@
                                     <th align="center">Ação</th>
                                 </tr>
                                 <?php
-                                $query = $this->db->get('tb_cars');
+                                $query = $this->db->query("SELECT tb_tour.id_tour,tb_cars.codigo,tb_cars.modelo,tb_tour.data_saida,
+                                                            tb_tour.data_retorno,tb_tour.destino,tb_tour.tipo,tb_tour.status 
+                                                            FROM tb_tour
+                                                            JOIN tb_cars on tb_cars.id_cars=tb_tour.id_car
+                                                            JOIN tb_drivers on tb_drivers.id_drivers=tb_tour.id_motorista
+                                                            JOIN tb_clients on tb_clients.id_clients=tb_tour.id_client");
                                 foreach ($query->result() as $row) {
                                     ?>
                                     <tr>
@@ -116,15 +121,12 @@
                                         <td><?=$row->data_saida?></td>
                                         <td><?=$row->data_retorno?></td>
                                         <td><?= ($row->status == 'A' ? "Ativo" : "Inativo") ?></td>
-                                        <td width='180px'><?= form_open('home/excluirOnibus') ?>
-                                            <input type="hidden" name="id_cars" value="<?= $row->id_cars ?>" />
+                                        <td width='180px'><?= form_open('home/excluirAgenda') ?>
+                                            <input type="hidden" name="id_tour" value="<?= $row->id_tour ?>" />
                                             <input type="submit" class="btn btn-danger btn-xs pull-right" value="Excluir">
-                                            </form><?= form_open('home/editarOnibus') ?>
-                                            <input type="hidden" name="id_cars" value="<?= $row->id_cars ?>" />
+                                            </form><?= form_open('home/editarAgenda') ?>
+                                            <input type="hidden" name="id_tour" value="<?= $row->id_tour ?>" />
                                             <input type="submit" class="btn btn-warning btn-xs pull-right" value="Editar">
-                                            </form><?= form_open('home/detalharOnibus') ?>
-                                            <input type="hidden" name="id_cars" value="<?= $row->id_cars ?>" />
-                                            <input type="submit" class="btn btn-success btn-xs pull-right" value="Detalhar">
                                             </form></td>
                                     </tr>
                                     <?php

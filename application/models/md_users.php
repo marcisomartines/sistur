@@ -77,17 +77,17 @@ class Md_users extends CI_Model{
 	}
 
 	public function addAgenda(){
-		$data = array('id_client'	=> $this->input->post('id_client'),
-			'id_car'				=> $this->input->post('id_car'),
-			'id_user'				=> $this->input->post('id_user'),
-			'destino'				=> $this->input->post('destino'),
-			'data_saida'			=> $this->input->post('data_saida'),
-			'data_chegada'			=> $this->input->post('data_chegada'),
-			'id_motorista'			=> $this->input->post('id_motorista'),
-			'preco'					=> $this->input->post('preco'),
-			'tipo'					=> $this->input->post('tipo'),
-			'observacao'			=> $this->input->post('observacao'),
-			'status'				=> 'A'
+		$data = array('id_client'   => $this->input->post('id_client'),
+			'id_car'            => $this->input->post('id_car'),
+			'id_user'           => $this->input->post('id_user'),
+			'destino'           => $this->input->post('destino'),
+			'data_saida'        => $this->input->post('data_saida'),
+			'data_retorno'      => $this->input->post('data_retorno'),
+			'id_motorista'      => $this->input->post('id_motorista'),
+			'preco'             => $this->input->post('preco'),
+			'tipo'              => $this->input->post('tipo'),
+			'observacao'        => $this->input->post('observacao'),
+			'status'            => 'A'
 			);
 		$this->db->insert('tb_tour',$data);
 	}

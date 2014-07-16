@@ -69,10 +69,10 @@ $lusuario = array('class' => 'form-control');
                         <?php
                         $this->db->where('nome_user', $this->session->userdata('nome'));
                         $query = $this->db->get('tb_users');
-                        $query = $query->result();
+                        $us = $query->result();
                         ?>
                         <li class="dropdown user-dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?= $query[0]->nome_user ?> <b class="caret"></b></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?= $us[0]->nome_user ?> <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#"><i class="fa fa-user"></i> Perfil</a></li>
                                 <li><a href="#"><i class="fa fa-gear"></i> Configurações</a></li>
@@ -99,12 +99,18 @@ $lusuario = array('class' => 'form-control');
                     echo form_open('home/cadastroValidacaoAgenda');
 
                     echo validation_errors();
-
+                    $query = $this->db->get('tb_clients');
+                    $cliente[]='';
+                    foreach($query->result() as $clt){
+                        $cliente[$clt->id_clients]=$clt->nome;
+                    }
                     echo form_label('Cliente: ');
-                    echo form_input(['name' => 'nome', 'id' => 'nome', 'class' => 'form-control input-sm']);
+                    echo form_dropdown('id_client',$cliente,'v','class=form-control');
+                    //echo form_input(['name' => 'nome', 'id' => 'nome', 'class' => 'form-control input-sm']);
                     echo '<br>';
                     $this->db->where('status','A');
                     $query = $this->db->get('tb_cars');
+                    $opcao[]='';
                     foreach($query->result() as $bus){
                         $opcao[$bus->id_cars]=$bus->codigo.' - '.$bus->modelo;
                     }
@@ -131,6 +137,7 @@ $lusuario = array('class' => 'form-control');
                     echo '<br>';
                     $this->db->where('status','A');
                     $query=$this->db->get('tb_drivers');
+                    $opcao2[]='';
                     foreach($query->result() as $driver){
                         $opcao2[$driver->id_drivers]=$driver->nome;
                     }
@@ -143,11 +150,11 @@ $lusuario = array('class' => 'form-control');
                     echo form_label('Observação: ');
                     echo form_input(['name' => 'observacao', 'id' => 'observacao', 'class' => 'form-control input-sm']);
 
-                    echo form_hidden('id_user', $query[0]->id_users);
+                    echo form_hidden('id_user', $us[0]->id_users);
 
                     echo "<br />";
                     echo '<input type="submit" class="btn btn-primary" value="Cadastrar">';
-
+                    echo "<br />";
                     echo form_close();
                     ?>
                     <!--Fim da Panel verde-->
