@@ -316,6 +316,22 @@ class Home extends CI_Controller {
         }
     }
 
+    public function cadastroValidacaoAgenda(){
+        $this->load->library('form_validation');
+
+        $this->form_validation->set_rules('nome', 'nome', 'required|trim');//cliente
+        $this->form_validation->set_rules('id_car','id_car','required|trim');//onibus
+        $this->form_validation->set_rules('tipo','tipo','required|trim');//tipo de agendamento
+
+        if ($this->form_validation->run()) {
+            $this->load->model('md_users');
+            $this->md_users->addAgenda();
+            $this->load->view('vw_agenda');
+        } else {
+            $this->load->view('vw_agendaCadastro');
+        }
+    }
+
     public function editarValidacaoUsuario() {
         $this->load->library('form_validation');
 

@@ -76,6 +76,22 @@ class Md_users extends CI_Model{
 		$this->db->insert('tb_cars',$data);
 	}
 
+	public function addAgenda(){
+		$data = array('id_client'	=> $this->input->post('id_client'),
+			'id_car'				=> $this->input->post('id_car'),
+			'id_user'				=> $this->input->post('id_user'),
+			'destino'				=> $this->input->post('destino'),
+			'data_saida'			=> $this->input->post('data_saida'),
+			'data_chegada'			=> $this->input->post('data_chegada'),
+			'id_motorista'			=> $this->input->post('id_motorista'),
+			'preco'					=> $this->input->post('preco'),
+			'tipo'					=> $this->input->post('tipo'),
+			'observacao'			=> $this->input->post('observacao'),
+			'status'				=> 'A'
+			);
+		$this->db->insert('tb_tour',$data);
+	}
+
 	public function editarMotorista(){
 		$data = array('nome' 	=> $this->input->post('nome'),
 			'data_nascimento' 	=> $this->input->post('data_nascimento'),
@@ -141,24 +157,5 @@ class Md_users extends CI_Model{
 		$this->db->where('id_users',$this->input->post('id_users'));
 		$this->db->update('tb_users',$data);
 	}
-	public function editarMesa(){
-		$data = array ('tx_mesa' => $this->input->post('mesa'),
-						'nr_mesa'=> $this->input->post('nrmesa'),
-						'pw_senha_mesa' => $this->input->post('senha'));
-		$this->db->where('cd_mesa',$this->input->post('cd_mesa'));
-		$this->db->update('tb_mesa',$data);
-	}
 
-	public function editarCategoria(){
-		$data = array ('ds_categoria' => $this->input->post('nome'));
-		$this->db->where('cd_categoria',$this->input->post('categoria'));
-		$this->db->update('tb_categoria',$data);
-	}
-
-	public function receberPedido(){
-		$data = array ('bo_confirmado' => 'V');
-		$this->db->where('cd_consumo',$this->input->post('cd_consumo'));
-		//$this->db->where('st_situacao','A');
-		$this->db->update('tb_mesa_consumo',$data);
-	}
 }

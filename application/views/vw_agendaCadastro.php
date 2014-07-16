@@ -143,6 +143,8 @@ $lusuario = array('class' => 'form-control');
                     echo form_label('Observação: ');
                     echo form_input(['name' => 'observacao', 'id' => 'observacao', 'class' => 'form-control input-sm']);
 
+                    echo form_hidden('id_user', $query[0]->id_users);
+
                     echo "<br />";
                     echo '<input type="submit" class="btn btn-primary" value="Cadastrar">';
 
