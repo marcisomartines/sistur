@@ -1,7 +1,5 @@
 <?php
-
-if (!defined('BASEPATH'))
-    exit('No direct script access allowed');
+if (!defined('BASEPATH')) exit('No direct script access allowed');
 
 class Home extends CI_Controller {
 
@@ -57,10 +55,6 @@ class Home extends CI_Controller {
     public function logout() {
         $this->session->sess_destroy(); //destroi a sessão
         redirect('home/index');
-    }
-
-    public function signup() {
-        $this->load->view('vw_signup');
     }
 
     public function cadastroValidacaoMesa() {

@@ -17,6 +17,7 @@ $lusuario = array('class' => 'form-control');
         <link href="<?= base_url() ?>css/sb-admin.css" rel="stylesheet">
         <link rel="stylesheet" href="<?= base_url() ?>font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.4.3.min.css">
+        <link rel="stylesheet" href="<?= base_url() ?>css/jquery-ui.css">
     </head>
 
     <body>
@@ -95,6 +96,7 @@ $lusuario = array('class' => 'form-control');
                 </div><!-- /.row -->
                 <div class="row col-sm-4">
                     <h3>Agendamento</h3>
+
                     <?php
                     echo form_open('home/cadastroValidacaoAgenda');
 
@@ -157,7 +159,6 @@ $lusuario = array('class' => 'form-control');
                     echo "<br />";
                     echo form_close();
                     ?>
-                    <!--Fim da Panel verde-->
                 </div>
             </div><!-- /#page-wrapper -->
         </div><!-- /#wrapper -->
@@ -170,5 +171,35 @@ $lusuario = array('class' => 'form-control');
         <script src="<?= base_url() ?>js/morris/chart-data-morris.js"></script>
         <script src="<?= base_url() ?>js/tablesorter/jquery.tablesorter.js"></script>
         <script src="<?= base_url() ?>js/tablesorter/tables.js"></script>
+        <script src="<?= base_url() ?>js/jquery-ui.js"></script>
+                <script>
+$(function() {
+    $("#data_saida").datepicker({
+        dateFormat: 'dd/mm/yy',
+        dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado','Domingo'],
+        dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
+        dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
+        monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+        monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],
+        changeMonth: true,
+        changeYear: true
+    });
+});
+</script>
+        <script>
+$(function() {
+    $("#data_retorno").datepicker({
+        dateFormat: 'dd/mm/yy',
+        dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado','Domingo'],
+        dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
+        dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
+        monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+        monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],
+        changeMonth: true,
+        changeYear: true
+    });
+});
+</script>
+
     </body>
 </html>
