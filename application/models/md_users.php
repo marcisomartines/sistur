@@ -78,35 +78,54 @@ class Md_users extends CI_Model {
     public function addAgenda() {
         $data_saida = implode("-", array_reverse(explode("/", $this->input->post('data_saida'))));
         $data_retorno = implode("-", array_reverse(explode("/", $this->input->post('data_retorno'))));
-        $data = array('id_client' => $this->input->post('id_client'),
-            'id_car' => $this->input->post('id_car'),
-            'id_user' => $this->input->post('id_user'),
-            'destino' => $this->input->post('destino'),
-            'data_saida' => $data_saida,
-            'data_retorno' => $data_retorno,
-            'id_motorista' => $this->input->post('id_motorista'),
-            'preco' => $this->input->post('preco'),
-            'tipo' => $this->input->post('tipo'),
-            'observacao' => $this->input->post('observacao'),
-            'status' => 'A'
+        $data = array('id_client'   => $this->input->post('id_client'),
+            'id_car'                => $this->input->post('id_car'),
+            'id_user'               => $this->input->post('id_user'),
+            'destino'               => $this->input->post('destino'),
+            'data_saida'            => $data_saida,
+            'data_retorno'          => $data_retorno,
+            'id_motorista'          => $this->input->post('id_motorista'),
+            'preco'                 => $this->input->post('preco'),
+            'tipo'                  => $this->input->post('tipo'),
+            'observacao'            => $this->input->post('observacao'),
+            'status'                => 'A'
         );
         $this->db->insert('tb_tour', $data);
     }
+    
+    public function editarAgenda() {
+        $data_saida = implode("-", array_reverse(explode("/", $this->input->post('data_saida'))));
+        $data_retorno = implode("-", array_reverse(explode("/", $this->input->post('data_retorno'))));
+        $data = array('id_client'   => $this->input->post('id_client'),
+            'id_car'                => $this->input->post('id_car'),
+            'id_user'               => $this->input->post('id_user'),
+            'destino'               => $this->input->post('destino'),
+            'data_saida'            => $data_saida,
+            'data_retorno'          => $data_retorno,
+            'id_motorista'          => $this->input->post('id_motorista'),
+            'preco'                 => $this->input->post('preco'),
+            'tipo'                  => $this->input->post('tipo'),
+            'observacao'            => $this->input->post('observacao'),
+            'status'                => $this->input->post('status')
+        );
+        $this->db->where('id_tour', $this->input->post('id_tour'));
+        $this->db->update('tb_tour', $data);
+    }
 
     public function editarMotorista() {
-        $data = array('nome' => $this->input->post('nome'),
-            'data_nascimento' => $this->input->post('data_nascimento'),
-            'rg' => $this->input->post('rg'),
-            'cpf' => $this->input->post('cpf'),
-            'email' => $this->input->post('email'),
-            'telefone' => $this->input->post('telefone'),
-            'celular' => $this->input->post('celular'),
-            'rua' => $this->input->post('rua'),
-            'bairro' => $this->input->post('bairro'),
-            'cidade' => $this->input->post('cidade'),
-            'cnh' => $this->input->post('cnh'),
-            'observacao' => $this->input->post('observacao'),
-            'status' => $this->input->post('status')
+        $data = array('nome'    => $this->input->post('nome'),
+            'data_nascimento'   => $this->input->post('data_nascimento'),
+            'rg'                => $this->input->post('rg'),
+            'cpf'               => $this->input->post('cpf'),
+            'email'             => $this->input->post('email'),
+            'telefone'          => $this->input->post('telefone'),
+            'celular'           => $this->input->post('celular'),
+            'rua'               => $this->input->post('rua'),
+            'bairro'            => $this->input->post('bairro'),
+            'cidade'            => $this->input->post('cidade'),
+            'cnh'               => $this->input->post('cnh'),
+            'observacao'        => $this->input->post('observacao'),
+            'status'            => $this->input->post('status')
         );
         $this->db->where('id_drivers', $this->input->post('id_drivers'));
         $this->db->update('tb_drivers', $data);
