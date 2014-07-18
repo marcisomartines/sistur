@@ -97,7 +97,7 @@ $lusuario = array('class' => 'form-control');
                 <div class="row col-sm-4">
                     <h3>Editar Agendamento</h3>
                     <?php
-                    echo form_open('home/editarValidacaoCliente');
+                    echo form_open('home/editarValidacaoAgenda');
                     $this->db->where('id_tour', $this->input->post('id_tour'));
                     $query = $this->db->get('tb_tour');
                     foreach ($query->result_array() as $row) {

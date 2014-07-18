@@ -325,7 +325,31 @@ class Home extends CI_Controller {
             $this->load->view('vw_agendaCadastro');
         }
     }
+    
+    public function editarAgenda(){
+        if($this->session->userdata('is_logged_in')==1){
+            $this->load->view('vw_agendaEditar');
+        } else{
+            $this->load->view('vw_login');
+        }
+    }
 
+    public function editarValidacaoAgenda(){
+        $this->load->library('form_validation');
+
+        $this->form_validation->set_rules('id_client', 'id_client', 'required|trim');//cliente
+        $this->form_validation->set_rules('id_car','id_car','required|trim');//onibus
+        $this->form_validation->set_rules('tipo','tipo','required|trim');//tipo de agendamento
+
+        if ($this->form_validation->run()) {
+            $this->load->model('md_users');
+            $this->md_users->editarAgenda();
+            $this->load->view('vw_agenda');
+        } else {
+            $this->load->view('vw_agendaEditar');
+        }
+    }
+    
     public function excluirAgenda() {
         if ($this->session->userdata('is_logged_in') == 1) {
             $this->db->where('id_tour', $this->input->post('id_tour'));
