@@ -112,28 +112,8 @@
                     <span class="label label-danger"> Esgotado</span>
                   </a>
                   <a href="#" class="list-group-item">
-                    <span class="badge">23 minutes ago</span>
-                    <i class="fa fa-truck"></i> Order 392 shipped
-                  </a>
-                  <a href="#" class="list-group-item">
-                    <span class="badge">46 minutes ago</span>
-                    <i class="fa fa-money"></i> Invoice 653 has been paid
-                  </a>
-                  <a href="#" class="list-group-item">
-                    <span class="badge">1 hour ago</span>
-                    <i class="fa fa-user"></i> A new user has been added
-                  </a>
-                  <a href="#" class="list-group-item">
-                    <span class="badge">2 hours ago</span>
-                    <i class="fa fa-check"></i> Completed task: "pick up dry cleaning"
-                  </a>
-                  <a href="#" class="list-group-item">
-                    <span class="badge">yesterday</span>
-                    <i class="fa fa-globe"></i> Saved the world
-                  </a>
-                  <a href="#" class="list-group-item">
-                    <span class="badge">two days ago</span>
-                    <i class="fa fa-check"></i> Completed task: "fix error on sales page"
+                    <i class="fa fa-truck"></i> Onibus 1
+                    <span class="label label-warning"> Fretado</span>
                   </a>
                 </div>
               </div>
@@ -142,16 +122,16 @@
           <div class="col-lg-6">
             <div class="panel panel-primary">
               <div class="panel-heading">
-                <h3 class="panel-title"><i class="fa fa-money"></i> Visão Geral das Mesas</h3>
+                <h3 class="panel-title"><i class="fa fa-money"></i> Visão Geral</h3>
               </div>
               <div class="panel-body">
                 <div class="table-responsive">
                   <table class="table table-bordered table-hover table-striped tablesorter">
                     <thead>
                       <tr>
-                        <th>Mesa # <i class="fa fa-sort"></i></th>
-                        <th>Ultimo Pedido <i class="fa fa-sort"></i></th>
-                        <th>Hora Ult. Pedido <i class="fa fa-sort"></i></th>
+                        <th>Onibus<i class="fa fa-sort"></i></th>
+                        <th>Ultimo Viagem <i class="fa fa-sort"></i></th>
+                        <th>Hora Saida <i class="fa fa-sort"></i></th>
                         <th>Valor Total <i class="fa fa-sort"></i></th>
                       </tr>
                     </thead>

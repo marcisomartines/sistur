@@ -113,13 +113,15 @@
                                                             JOIN tb_drivers on tb_drivers.id_drivers=tb_tour.id_motorista
                                                             JOIN tb_clients on tb_clients.id_clients=tb_tour.id_client");
                                 foreach ($query->result() as $row) {
+                                    $data_saida=implode("/",array_reverse(explode("-",$row->data_saida)));
+                                    $data_retorno=implode("/",array_reverse(explode("-",$row->data_retorno)));
                                     ?>
                                     <tr>
                                         <td><?=$row->codigo?></td>
                                         <td><?=$row->modelo?></td>
                                         <td><?=$row->destino?></td>
-                                        <td><?=$row->data_saida?></td>
-                                        <td><?=$row->data_retorno?></td>
+                                        <td><?=$data_saida?></td>
+                                        <td><?=$data_retorno?></td>
                                         <td><?= ($row->status == 'A' ? "Ativo" : "Inativo") ?></td>
                                         <td width='180px'><?= form_open('home/excluirAgenda') ?>
                                             <input type="hidden" name="id_tour" value="<?= $row->id_tour ?>" />
