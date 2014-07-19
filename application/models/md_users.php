@@ -27,8 +27,9 @@ class Md_users extends CI_Model {
     }
 
     public function addCliente() {
+        $data_nascimento = implode("-", array_reverse(explode("/", $this->input->post($this->input->post('data_nascimento')))));
         $data = array('nome' => $this->input->post('nome'),
-            'data_nascimento' => $this->input->post('data_nascimento'),
+            'data_nascimento' => $data_nascimento,
             'rg' => $this->input->post('rg'),
             'cpf' => $this->input->post('cpf'),
             'email' => $this->input->post('email'),
@@ -44,19 +45,22 @@ class Md_users extends CI_Model {
     }
 
     public function addMotorista() {
-        $data = array('nome' => $this->input->post('nome'),
-            'data_nascimento' => $this->input->post('data_nascimento'),
-            'rg' => $this->input->post('rg'),
-            'cpf' => $this->input->post('cpf'),
-            'email' => $this->input->post('email'),
-            'telefone' => $this->input->post('telefone'),
-            'celular' => $this->input->post('celular'),
-            'rua' => $this->input->post('rua'),
-            'bairro' => $this->input->post('bairro'),
-            'cidade' => $this->input->post('cidade'),
-            'cnh' => $this->input->post('cnh'),
-            'observacao' => $this->input->post('observacao'),
-            'status' => 'A'
+        $data_nascimento = implode("-", array_reverse(explode("/", $this->input->post('data_nascimento'))));
+        $validade_cnh = implode("-", array_reverse(explode("/", $this->input->post('validade_cnh'))));
+        $data = array('nome'    => $this->input->post('nome'),
+            'data_nascimento'   => $data_nascimento,
+            'rg'                => $this->input->post('rg'),
+            'cpf'               => $this->input->post('cpf'),
+            'email'             => $this->input->post('email'),
+            'telefone'          => $this->input->post('telefone'),
+            'celular'           => $this->input->post('celular'),
+            'rua'               => $this->input->post('rua'),
+            'bairro'            => $this->input->post('bairro'),
+            'cidade'            => $this->input->post('cidade'),
+            'cnh'               => $this->input->post('cnh'),
+            'validade_cnh'      => $validade_cnh,
+            'observacao'        => $this->input->post('observacao'),
+            'status'            => 'A'
         );
         $this->db->insert('tb_drivers', $data);
     }
@@ -113,8 +117,10 @@ class Md_users extends CI_Model {
     }
 
     public function editarMotorista() {
+        $data_nascimento = implode("-", array_reverse(explode("/", $this->input->post('data_nascimento'))));
+        $validade_cnh = implode("-", array_reverse(explode("/", $this->input->post('validade_cnh'))));
         $data = array('nome'    => $this->input->post('nome'),
-            'data_nascimento'   => $this->input->post('data_nascimento'),
+            'data_nascimento'   => $data_nascimento,
             'rg'                => $this->input->post('rg'),
             'cpf'               => $this->input->post('cpf'),
             'email'             => $this->input->post('email'),
@@ -124,6 +130,7 @@ class Md_users extends CI_Model {
             'bairro'            => $this->input->post('bairro'),
             'cidade'            => $this->input->post('cidade'),
             'cnh'               => $this->input->post('cnh'),
+            'validade_cnh'      => $validade_cnh,
             'observacao'        => $this->input->post('observacao'),
             'status'            => $this->input->post('status')
         );
@@ -147,8 +154,9 @@ class Md_users extends CI_Model {
     }
 
     public function editarCliente() {
+        $data_nascimento = implode("-", array_reverse(explode("/", $this->input->post('data_nascimento'))));
         $data = array('nome' => $this->input->post('nome'),
-            'data_nascimento' => $this->input->post('data_nascimento'),
+            'data_nascimento' => $data_nascimento,
             'rg' => $this->input->post('rg'),
             'cpf' => $this->input->post('cpf'),
             'email' => $this->input->post('email'),

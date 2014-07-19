@@ -102,22 +102,22 @@ $lusuario = array('class' => 'form-control');
 
                     echo validation_errors();
                     $query = $this->db->get('tb_clients');
-                    $cliente[]='';
-                    foreach($query->result() as $clt){
-                        $cliente[$clt->id_clients]=$clt->nome;
+                    $cliente[] = '';
+                    foreach ($query->result() as $clt) {
+                        $cliente[$clt->id_clients] = $clt->nome;
                     }
                     echo form_label('Cliente: ');
-                    echo form_dropdown('id_client',$cliente,'v','class=form-control');
+                    echo form_dropdown('id_client', $cliente, 'v', 'class=form-control');
                     //echo form_input(['name' => 'nome', 'id' => 'nome', 'class' => 'form-control input-sm']);
                     echo '<br>';
-                    $this->db->where('status','A');
+                    $this->db->where('status', 'A');
                     $query = $this->db->get('tb_cars');
-                    $opcao[]='';
-                    foreach($query->result() as $bus){
-                        $opcao[$bus->id_cars]=$bus->codigo.' - '.$bus->modelo;
+                    $opcao[] = '';
+                    foreach ($query->result() as $bus) {
+                        $opcao[$bus->id_cars] = $bus->codigo . ' - ' . $bus->modelo;
                     }
                     echo form_label('Ônibus: ');
-                    echo form_dropdown('id_car',$opcao,'v','class=form-control');
+                    echo form_dropdown('id_car', $opcao, 'v', 'class=form-control');
                     echo '<br>';
                     $opcao = array(
                         'v' => 'Viagem',
@@ -126,7 +126,7 @@ $lusuario = array('class' => 'form-control');
                         'e' => 'Escursão',
                     );
                     echo form_label('Tipo: ');
-                    echo form_dropdown('tipo', $opcao, 'v','class=form-control');
+                    echo form_dropdown('tipo', $opcao, 'v', 'class=form-control');
                     echo '<br>';
                     echo form_label('Destino: ');
                     echo form_input(['name' => 'destino', 'id' => 'destino', 'class' => 'form-control input-sm']);
@@ -137,17 +137,17 @@ $lusuario = array('class' => 'form-control');
                     echo form_label('Data Retorno: ');
                     echo form_input(['name' => 'data_retorno', 'id' => 'data_retorno', 'class' => 'form-control input-sm']);
                     echo '<br>';
-                    $this->db->where('status','A');
-                    $query=$this->db->get('tb_drivers');
-                    $opcao2[]='';
-                    foreach($query->result() as $driver){
-                        $opcao2[$driver->id_drivers]=$driver->nome;
+                    $this->db->where('status', 'A');
+                    $query = $this->db->get('tb_drivers');
+                    $opcao2[] = '';
+                    foreach ($query->result() as $driver) {
+                        $opcao2[$driver->id_drivers] = $driver->nome;
                     }
                     echo form_label('Motorista: ');
-                    echo form_dropdown('id_motorista',$opcao2,'v','class=form-control');
+                    echo form_dropdown('id_motorista', $opcao2, 'v', 'class=form-control');
                     echo '<br>';
                     echo form_label('Preço: ');
-                    echo form_input(['name'=>'preco','id'=>'preco','class'=>'form-control input-sm']);
+                    echo form_input(['name' => 'preco', 'id' => 'preco', 'class' => 'form-control input-sm']);
                     echo '<br>';
                     echo form_label('Observação: ');
                     echo form_input(['name' => 'observacao', 'id' => 'observacao', 'class' => 'form-control input-sm']);
@@ -174,36 +174,36 @@ $lusuario = array('class' => 'form-control');
         <script src="<?= base_url() ?>js/jquery.mask.min.js"></script>
         <script src="<?= base_url() ?>js/jquery-ui.js"></script>
         <script>
-        $(function() {
-            $("#data_saida").datepicker({
-            dateFormat: 'dd/mm/yy',
-            dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado','Domingo'],
-            dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
-            dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
-            monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
-            monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],
-            changeMonth: true,
-            changeYear: true
+            $(function() {
+                $("#data_saida").datepicker({
+                    dateFormat: 'dd/mm/yy',
+                    dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo'],
+                    dayNamesMin: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S', 'D'],
+                    dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],
+                    monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+                    monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+                    changeMonth: true,
+                    changeYear: true
+                });
             });
-        });
         </script>
         <script>
-        $(function() {
-            $("#data_retorno").datepicker({
-                dateFormat: 'dd/mm/yy',
-                dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado','Domingo'],
-                dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
-                dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
-                monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
-                monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],
-                changeMonth: true,
-                changeYear: true
+            $(function() {
+                $("#data_retorno").datepicker({
+                    dateFormat: 'dd/mm/yy',
+                    dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo'],
+                    dayNamesMin: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S', 'D'],
+                    dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],
+                    monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+                    monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+                    changeMonth: true,
+                    changeYear: true
+                });
             });
-        });
         </script>
         <script type="text/javascript">
-        $(function(){
-            $('#exemplo').mask('00/00/0000');
-        });</script>
+            $(function() {
+                $('#preco').mask('000.000.000.000.000,00', {reverse: true});
+            });</script>
     </body>
 </html>

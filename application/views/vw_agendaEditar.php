@@ -223,5 +223,10 @@ $lusuario = array('class' => 'form-control');
                 });
             });
         </script>
+        <script type="text/javascript">
+            $(function() {
+                $('#preco').mask('000.000.000.000.000,00', {reverse: true});
+            });
+        </script>
     </body>
 </html>

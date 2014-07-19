@@ -103,13 +103,14 @@
       <?php
         $query=$this->db->get('tb_clients');
         foreach ($query->result() as $row){
+            $data_nascimento = implode("/", array_reverse(explode("-", $row->data_nascimento)));
       ?>
               <tr>
                 <td><?=$row->nome?></td>
                 <td><?=$row->email?></td>
                 <td><?=$row->telefone?></td>
                 <td><?=$row->celular?></td>
-                <td><?=$row->data_nascimento?></td>
+                <td><?=$data_nascimento?></td>
                 <td><?=$row->loc_embarque?></td>
                 <td width='180px'><?=form_open('home/excluirCliente')?>
                 <input type="hidden" name="id_clients" value="<?=$row->id_clients?>" />

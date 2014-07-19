@@ -17,6 +17,7 @@
     <link href="<?=base_url()?>css/sb-admin.css" rel="stylesheet">
     <link rel="stylesheet" href="<?=base_url()?>font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.4.3.min.css">
+    <link rel="stylesheet" href="<?= base_url() ?>css/jquery-ui.css">
   </head>
 
   <body>
@@ -103,12 +104,13 @@
       $motoristaDados = $row;
     }
     echo validation_errors();
-
+    $data_nascimento = implode("/", array_reverse(explode("-", $clienteDados['data_nascimento'])));
+    $validade_cnh = implode("/", array_reverse(explode("-", $clienteDados['validade_cnh'])));
     echo form_label('Nome: ');
     echo form_input(['name' => 'nome', 'id' => 'nome', 'class' => 'form-control input-sm','value' => $motoristaDados['nome']]);
     echo '<br>';
     echo form_label('Data Nascimento: ');
-    echo form_input(['name' => 'data_nascimento', 'id'=>'data_nascimento','class'=>'form-control input-sm datepicker','value' => $motoristaDados['data_nascimento']]);
+    echo form_input(['name' => 'data_nascimento', 'id'=>'data_nascimento','class'=>'form-control input-sm datepicker','value' => $data_nascimento]);
     echo '<br>';
     echo form_label('RG: ');
     echo form_input(['name' => 'rg', 'id'=>'rg','class'=>'form-control input-sm','value' => $motoristaDados['rg']]);
@@ -118,6 +120,9 @@
     echo '<br>';
     echo form_label('CNH: ');
     echo form_input(['name' => 'cnh', 'id' => 'cnh', 'class' => 'form-control input-sm','value' => $motoristaDados['cnh']]);
+    echo '<br>';
+    echo form_label('Validade CNH: ');
+    echo form_input(['name' => 'validade_cnh', 'id' => 'validade_cnh', 'class' => 'form-control input-sm','value'=>$validade_cnh]);
     echo '<br>';
     echo form_label('E-mail: ');
     echo form_input(['name' => 'email', 'id' => 'email', 'class' => 'form-control input-sm','value' => $motoristaDados['email']]);
@@ -176,5 +181,15 @@
     <script src="<?=base_url()?>js/morris/chart-data-morris.js"></script>
     <script src="<?=base_url()?>js/tablesorter/jquery.tablesorter.js"></script>
     <script src="<?=base_url()?>js/tablesorter/tables.js"></script>
+    <script src="<?= base_url() ?>js/jquery-ui.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            $('#cpf').mask('000.000.000-00', {placeholder: "___.___.___-__"});
+            $('#telefone').mask('(00)0000-0000', {placeholder: "(__)____-____"});
+            $('#celular').mask('(00)0000-0000', {placeholder: "(__)____-____"});
+            $('#data_nascimento').mask('00/00/0000', {placeholder: "__/__/____"});
+            $('#validade_cnh').mask('00/00/0000', {placeholder: "__/__/____"});
+        });
+    </script>
   </body>
 </html>
