@@ -177,6 +177,14 @@ class Home extends CI_Controller {
         }
     }
 
+    public function detalharMotorista() {
+        if ($this->session->userdata('is_logged_in') == 1) {
+            $this->load->view('vw_motoristaDetalhar');
+        } else {
+            $this->load->view('vw_login');
+        }
+    }
+    
     public function excluirMotorista() {
         if ($this->session->userdata('is_logged_in') == 1) {
             $this->db->where('id_drivers', $this->input->post('id_drivers'));
@@ -431,5 +439,4 @@ class Home extends CI_Controller {
             $this->load->view('vw_login');
         }
     }
-
 }
