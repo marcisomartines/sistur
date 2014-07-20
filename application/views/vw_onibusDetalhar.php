@@ -97,14 +97,11 @@ $lusuario = array('class' => 'form-control');
                 <div class="row col-sm-4">
                     <h3>Detalhamento do Ônibus</h3>
                     <?php
-                    echo form_open('home/editarValidacaoOnibus');
-
                     $this->db->where('id_cars', $this->input->post('id_cars'));
                     $query = $this->db->get('tb_cars');
                     foreach ($query->result_array() as $row) {
                         $onibusDados = $row;
                     }
-                    echo validation_errors();
                     $antt = implode("/", array_reverse(explode("-", $onibusDados['antt'])));
                     $agepan = implode("/", array_reverse(explode("-", $onibusDados['agepan'])));
                     $vistec = implode("/", array_reverse(explode("-", $onibusDados['vistec'])));

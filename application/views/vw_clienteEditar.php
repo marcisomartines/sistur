@@ -90,7 +90,7 @@
           <div class="col-lg-12">
             <h1>Cliente <small>Editar</small></h1>
             <ol class="breadcrumb">
-              <li class="active"><i class="fa fa-users"></i><a href="<?php echo base_url()."index.php/home/cliente"?>"> Cliente</a>/Editar</li>
+              <li class="active"><i class="fa fa-users"></i><a href="<?php echo base_url()."index.php/home/cliente"?>"> Cliente</a> / Editar</li>
             </ol>
           </div>
         </div><!-- /.row -->

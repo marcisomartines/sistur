@@ -423,5 +423,13 @@ class Home extends CI_Controller {
             $this->load->view('vw_login');
         }
     }
+    
+    public function detalharCliente() {
+        if ($this->session->userdata('is_logged_in') == 1) {
+            $this->load->view('vw_clienteDetalhar');
+        } else {
+            $this->load->view('vw_login');
+        }
+    }
 
 }
