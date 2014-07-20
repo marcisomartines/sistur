@@ -1,3 +1,8 @@
+<?php
+  $form=array('id' => 'form-login', 'class' => 'form-horizontal','role'=>'form');
+  $usuario=array('name' => 'nome', 'id' => 'nome', 'class' => 'form-control');
+  $lusuario=array('class' => 'form-control');
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,6 +17,7 @@
     <link href="<?=base_url()?>css/sb-admin.css" rel="stylesheet">
     <link rel="stylesheet" href="<?=base_url()?>font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.4.3.min.css">
+    <link rel="stylesheet" href="<?= base_url() ?>css/jquery-ui.css">
   </head>
 
   <body>
@@ -35,9 +41,9 @@
           <ul class="nav navbar-nav side-nav">
             <li><a href="<?php echo base_url()."index.php/home/"?>"><i class="fa fa-dashboard"></i> Geral</a></li>
             <li><a href="<?php echo base_url()."index.php/home/reserva"?>"><i class="fa fa-ticket"></i> Reserva</a></li>
-            <li><a href="<?php echo base_url()."index.php/home/cliente"?>"><i class="fa fa-users "></i> Cliente</a></li>
+            <li class="active"><a href="<?php echo base_url()."index.php/home/cliente"?>"><i class="fa fa-users "></i> Cliente</a></li>
             <li><a href="<?php echo base_url()."index.php/home/agenda"?>"><i class="fa fa-calendar"></i> Agendamento</a></li>
-            <li class="active"><a href="<?php echo base_url() . "index.php/home/onibus" ?>"><i class="fa fa-truck"></i> Ônibus</a></li>
+            <li><a href="<?php echo base_url() . "index.php/home/onibus" ?>"><i class="fa fa-truck"></i> Ônibus</a></li>
             <li><a href="<?php echo base_url() . "index.php/home/produto" ?>"><i class="fa fa-money"></i> Financeiro</a></li>
             <li><a href="<?php echo base_url() . "index.php/home/motorista" ?>"><i class="fa fa-car"></i> Motorista</a></li>
             <li><a href="<?php echo base_url()."index.php/home/usuario"?>"><i class="fa fa-user"></i> Usuário</a></li>
@@ -82,48 +88,71 @@
       <div id="page-wrapper">
         <div class="row">
           <div class="col-lg-12">
-            <h1>Ônibus <small>Listagem</small></h1>
+            <h1>Cliente <small>Editar</small></h1>
             <ol class="breadcrumb">
-              <li class="active"><i class="fa fa-truck"></i> Ônibus</li>
-              <li class="pull-right"><a href="<?php echo base_url()."index.php/home/onibusCadastro"?>" class="btn btn-primary btn-xs" role="button">Novo Ônibus</a></li>
+              <li class="active"><i class="fa fa-users"></i><a href="<?php echo base_url()."index.php/home/cliente"?>"> Cliente</a>/Editar</li>
             </ol>
           </div>
         </div><!-- /.row -->
+<div class="row col-sm-4">
+                    <h3>Editar Cliente</h3>
+                    <?php 
+    echo form_open('home/editarValidacaoCliente');
+    $this->db->where('id_clients', $this->input->post('id_clients'));
+    $query = $this->db->get('tb_clients');
+    foreach ($query->result_array() as $row) {
+      $clienteDados = $row;
+    }
+    echo validation_errors();
+    $data_nascimento = implode("/", array_reverse(explode("-", $clienteDados['data_nascimento'])));
+    echo form_label('Nome: ');
+    echo form_input(['name' => 'nome', 'id' => 'nome', 'class' => 'form-control input-sm','value' => $clienteDados['nome']]);
+    echo '<br>';
+    echo form_label('Data Nascimento: ');
+    echo form_input(['name' => 'data_nascimento', 'id'=>'data_nascimento','class'=>'form-control input-sm datepicker','value' => $data_nascimento]);
+    echo '<br>';
+    echo form_label('RG: ');
+    echo form_input(['name' => 'rg', 'id'=>'rg','class'=>'form-control input-sm','value' => $clienteDados['rg']]);
+    echo '<br>';
+    echo form_label('CPF: ');
+    echo form_input(['name' => 'cpf', 'id'=>'cpf','class'=>'form-control input-sm','value' => $clienteDados['cpf']]);
+    echo '<br>';
+    echo form_label('E-mail: ');
+    echo form_input(['name' => 'email', 'id' => 'email', 'class' => 'form-control input-sm','value' => $clienteDados['email']]);
+    echo '<br>';
+    echo form_label('Telefone: ');
+    echo form_input(['name'=>'telefone','id'=>'telefone','class'=>'form-control input-sm','value' => $clienteDados['telefone']]);
+    echo '<br>';
+    echo form_label('Celular: ');
+    echo form_input(['name'=>'celular','id'=>'celular', 'class'=>'form-control input-sm','value' => $clienteDados['celular']]);
+    echo '<br>';
+    echo form_label('Rua: ');
+    echo form_input(['name' => 'rua', 'id' => 'rua', 'class' => 'form-control input-sm','value' => $clienteDados['rua']]);
+    echo '<br>';
+    echo form_label('Bairro: ');
+    echo form_input(['name' => 'bairro', 'id' => 'bairro', 'class' => 'form-control input-sm','value' => $clienteDados['bairro']]);
+    echo '<br>';
+    echo form_label('Cidade: ');
+    echo form_input(['name' => 'cidade', 'id' => 'cidade', 'class' => 'form-control input-sm','value' => $clienteDados['cidade']]);
+    echo '<br>';
+    echo form_label('Local de Embarque: ');
+    echo form_input(['name' => 'loc_embarque', 'id' => 'loc_embarque', 'class' => 'form-control input-sm','value' => $clienteDados['loc_embarque']]);
+    echo '<br>';
+    echo form_label('Última Viagem: ');
+    echo form_input(['name' => 'ult_viagem', 'id' => 'ult_viagem', 'class' => 'form-control input-sm','value' => $clienteDados['ult_viagem']]);
+    echo '<br>';
+    echo form_label('Observação: ');
+    echo form_input(['name' => 'observacao', 'id' => 'observacao', 'class' => 'form-control input-sm','value' => $clienteDados['observacao']]);
 
-       <table class="table">
-        <tr>
-          <th>Modelo</th>
-          <th>Código</th>
-          <th>N° Poltronas</th>
-          <th>Placa</th>
-          <th>Situação</th>
-          <th align="center">Ação</th>
-        </tr>
-      <?php
-        $query=$this->db->get('tb_cars');
-        foreach ($query->result() as $row){
-      ?>
-              <tr>
-                <td><?=$row->modelo?></td>
-                <td><?=$row->codigo?></td>
-                <td><?=$row->nr_poltrona?></td>
-                <td><?=$row->placa?></td>
-                <td><?=($row->status=='A'?"Ativo":"Inativo")?></td>
-                <td width='180px'><?=form_open('home/excluirOnibus')?>
-                <input type="hidden" name="id_cars" value="<?=$row->id_cars?>" />
-                <input type="submit" class="btn btn-danger btn-xs pull-right" value="Excluir">
-              </form><?=form_open('home/editarOnibus')?>
-                <input type="hidden" name="id_cars" value="<?=$row->id_cars?>" />
-                <input type="submit" class="btn btn-warning btn-xs pull-right" value="Editar">
-              </form><?=form_open('home/detalharOnibus')?>
-                <input type="hidden" name="id_cars" value="<?=$row->id_cars?>" />
-                <input type="submit" class="btn btn-success btn-xs pull-right" value="Detalhar">
-              </form></td>
-              </tr>
-      <?php
-        }
-      ?>
-      </table>
+    echo form_hidden('id_clients', $this->input->post('id_clients'));
+
+    echo "<br />";
+    echo '<input type="submit" class="btn btn-primary" value="Editar">';
+
+    echo form_close();
+    ?>
+                    <!--Fim da Panel verde-->
+                </div>
       </div><!-- /#page-wrapper -->
     </div><!-- /#wrapper -->
     <!-- JavaScript -->
@@ -135,5 +164,15 @@
     <script src="<?=base_url()?>js/morris/chart-data-morris.js"></script>
     <script src="<?=base_url()?>js/tablesorter/jquery.tablesorter.js"></script>
     <script src="<?=base_url()?>js/tablesorter/tables.js"></script>
+    <script src="<?= base_url() ?>js/jquery.mask.min.js"></script>
+    <script src="<?= base_url() ?>js/jquery-ui.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            $('#cpf').mask('000.000.000-00',{placeholder: "___.___.___-__"});
+            $('#telefone').mask('(00)0000-0000',{placeholder: "(__)____-____"});
+            $('#celular').mask('(00)0000-0000',{placeholder: "(__)____-____"});
+            $('#data_nascimento').mask('00/00/0000',{placeholder: "__/__/____"});
+        });
+    </script>
   </body>
 </html>

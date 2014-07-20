@@ -88,14 +88,14 @@ $lusuario = array('class' => 'form-control');
             <div id="page-wrapper">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1>Ônibus <small>Edição</small></h1>
+                        <h1>Ônibus <small>Detalhes</small></h1>
                         <ol class="breadcrumb">
-                            <li class="active"><i class="fa fa-truck"></i><a href="<?php echo base_url() . "index.php/home/onibus" ?>"> Ônibus</a> / Editar</li>
+                            <li class="active"><i class="fa fa-truck"></i><a href="<?php echo base_url() . "index.php/home/onibus" ?>"> Ônibus</a> / Detalhar</li>
                         </ol>
                     </div>
                 </div><!-- /.row -->
                 <div class="row col-sm-4">
-                    <h3>Editar Ônibus</h3>
+                    <h3>Detalhamento do Ônibus</h3>
                     <?php
                     echo form_open('home/editarValidacaoOnibus');
 
@@ -111,71 +111,62 @@ $lusuario = array('class' => 'form-control');
                     $inmetro = implode("/", array_reverse(explode("-", $onibusDados['inmetro'])));
                     $seguro_inicio = implode("/", array_reverse(explode("-", $onibusDados['seguro_inicio'])));
                     $seguro_final = implode("/", array_reverse(explode("-", $onibusDados['seguro_final'])));
-                    echo form_label('Código: ');
-                    echo form_input(['name' => 'codigo', 'id' => 'codigo', 'class' => 'form-control input-sm datepicker', 'value' => $onibusDados['codigo']]);
-                    echo '<br>';
-                    echo form_label('Montadora: ');
-                    echo form_input(['name' => 'montadora', 'id' => 'montadora', 'class' => 'form-control input-sm', 'value' => $onibusDados['montadora']]);
-                    echo '<br>';
-                    echo form_label('Modelo: ');
-                    echo form_input(['name' => 'modelo', 'id' => 'modelo', 'class' => 'form-control input-sm datepicker', 'value' => $onibusDados['modelo']]);
-                    echo '<br>';
-                    echo form_label('Ano: ');
-                    echo form_input(['name' => 'ano', 'id' => 'ano', 'class' => 'form-control input-sm', 'value' => $onibusDados['ano']]);
-                    echo '<br>';
-                    echo form_label('Placa: ');
-                    echo form_input(['name' => 'placa', 'id' => 'placa', 'class' => 'form-control input-sm', 'value' => $onibusDados['placa']]);
-                    echo '<br>';
-                    echo form_label('Chassis: ');
-                    echo form_input(['name' => 'chassis', 'id' => 'chassis', 'class' => 'form-control input-sm', 'value' => $onibusDados['chassis']]);
-                    echo '<br>';
-                    echo form_label('N° Poltronas: ');
-                    echo form_input(['name' => 'nr_poltrona', 'id' => 'nr_poltrona', 'class' => 'form-control input-sm', 'value' => $onibusDados['nr_poltrona']]);
-                    echo '<br>';
-                    echo form_label('ANTT/CRF: ');
-                    echo form_input(['name' => 'antt', 'id' => 'antt', 'class' => 'form-control input-sm col-sx-3', 'value' => $antt]);
-                    echo '<br>';
-                    echo form_label('Agepan: ');
-                    echo form_input(['name' => 'agepan', 'id' => 'agepan', 'class' => 'form-control input-sm col-sx-3', 'value' => $agepan]);
-                    echo '<br>';
-                    echo form_label('Vistec: ');
-                    echo form_input(['name' => 'vistec', 'id' => 'vistec', 'class' => 'form-control input-sm col-sx-3', 'value' => $vistec]);
-                    echo '<br>';
-                    echo form_label('INMETRO: ');
-                    echo form_input(['name' => 'inmetro', 'id' => 'inmetro', 'class' => 'form-control input-sm col-sx-3', 'value' => $inmetro]);
-                    echo '<br>';
-                    echo form_label('Seguro: ');
-                    echo form_input(['name' => 'seguro_inicio', 'id' => 'seguro_inicio', 'class' => 'form-control input-sm', 'value' => $seguro_inicio]);
-                    echo form_input(['name' => 'seguro_final', 'id' => 'seguro_final', 'class' => 'form-control input-sm', 'value' => $seguro_final]);
-
-                    echo '<br>';
-
-                    echo form_label('Observação: ');
-                    echo form_input(['name' => 'observacao', 'id' => 'observacao', 'class' => 'form-control input-sm', 'value' => $onibusDados['observacao']]);
-                    echo '<br>';
-                    $ativo = array(
-                        'name' => 'status',
-                        'id' => 'status',
-                        'value' => 'A',
-                        'checked' => ($onibusDados['status'] != 'I' ? TRUE : FALSE),
-                    );
-                    $inativo = array(
-                        'name' => 'status',
-                        'id' => 'status',
-                        'value' => 'I',
-                        'checked' => ($onibusDados['status'] == 'I' ? TRUE : FALSE),
-                    );
-                    echo form_label('Situação: ');
-                    echo "Ativo " . form_radio($ativo);
-                    echo " Inativo " . form_radio($inativo);
-
-                    echo form_hidden('id_cars', $this->input->post('id_cars'));
-
-                    echo "<br />";
-                    echo '<input type="submit" class="btn btn-primary" value="Editar">';
-
-                    echo form_close();
                     ?>
+                    <table class="table table-striped">
+                        <tr>
+                            <th>Código: </th>
+                            <td><?=$onibusDados['codigo']?></td>
+                        </tr>
+                        <tr>
+                            <th>Montadora: </th>
+                            <td><?=$onibusDados['montadora']?></td>
+                        </tr>
+                        <tr>
+                            <th>Modelo: </th>
+                            <td><?=$onibusDados['modelo']?></td>
+                        </tr>
+                        <tr>
+                            <th>Placa: </th>
+                            <td><?=$onibusDados['placa']?></td>
+                        </tr>
+                        <tr>
+                            <th>Chassis: </th>
+                            <td><?=$onibusDados['chassis']?></td>
+                        </tr>
+                        <tr>
+                            <th>N° Poltronas: </th>
+                            <td><?=$onibusDados['nr_poltrona']?></td>
+                        </tr>
+                        <tr>
+                            <th>Vencimento ANTT/CRF: </th>
+                            <td><?=$antt?></td>
+                        </tr>
+                        <tr>
+                            <th>Vencimento Agepan: </th>
+                            <td><?=$agepan?></td>
+                        </tr>
+                        <tr>
+                            <th>Vencimento Vistec: </th>
+                            <td><?=$vistec?></td>
+                        </tr>
+                        <tr>
+                            <th>Vencimento INMETRO: </th>
+                            <td><?=$inmetro?></td>
+                        </tr>
+                        <tr>
+                            <th>Vencimento Seguro: </th>
+                            <td>Inicio: <?=$seguro_inicio?><br>Final: <?=$seguro_final?></td>
+                        </tr>
+                        <tr>
+                            <th>Situação: </th>
+                            <td><?=$onibusDados['status']?></td>
+                        </tr>
+                        <tr>
+                            <th>Observação: </th>
+                            <td><?=$onibusDados['observacao']?></td>
+                        </tr>
+                    </table>
+                    <a href="<?php echo base_url()."index.php/home/onibus"?>" class="btn btn-primary" role="button">Voltar</a>
                     <!--Fim da Panel verde-->
                 </div>
             </div><!-- /#page-wrapper -->
