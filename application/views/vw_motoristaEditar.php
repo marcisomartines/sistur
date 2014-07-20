@@ -104,8 +104,8 @@
       $motoristaDados = $row;
     }
     echo validation_errors();
-    $data_nascimento = implode("/", array_reverse(explode("-", $clienteDados['data_nascimento'])));
-    $validade_cnh = implode("/", array_reverse(explode("-", $clienteDados['validade_cnh'])));
+    $data_nascimento = implode("/", array_reverse(explode("-", $motoristaDados['data_nascimento'])));
+    $validade_cnh = implode("/", array_reverse(explode("-", $motoristaDados['validade_cnh'])));
     echo form_label('Nome: ');
     echo form_input(['name' => 'nome', 'id' => 'nome', 'class' => 'form-control input-sm','value' => $motoristaDados['nome']]);
     echo '<br>';

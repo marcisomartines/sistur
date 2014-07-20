@@ -122,8 +122,21 @@ $lusuario = array('class' => 'form-control');
                     echo form_label('N° Poltronas: ');
                     echo form_input(['name' => 'nr_poltrona', 'id' => 'nr_poltrona', 'class' => 'form-control input-sm']);
                     echo '<br>';
-                    echo form_label('Observação: ');
-                    echo form_input(['name' => 'observacao', 'id' => 'observacao', 'class' => 'form-control input-sm']);
+                    echo form_label('ANTT/CRF: ');
+                    echo form_input(['name' => 'antt', 'id' => 'antt', 'class' => 'form-control input-sm col-sx-3']);
+                    echo '<br>';
+                    echo form_label('Agepan: ');
+                    echo form_input(['name' => 'agepan', 'id' => 'agepan', 'class' => 'form-control input-sm col-sx-3']);
+                    echo '<br>';
+                    echo form_label('Vistec: ');
+                    echo form_input(['name' => 'vistec', 'id' => 'vistec', 'class' => 'form-control input-sm col-sx-3']);
+                    echo '<br>';
+                    echo form_label('INMETRO: ');
+                    echo form_input(['name' => 'inmetro', 'id' => 'inmetro', 'class' => 'form-control input-sm col-sx-3']);
+                    echo '<br>';
+                    echo form_label('Seguro: ');
+                    echo form_input(['name' => 'seguro_inicio', 'id' => 'seguro_inicio', 'class' => 'form-control input-sm']);
+                    echo form_input(['name' => 'seguro_final', 'id' => 'seguro_final', 'class' => 'form-control input-sm']);
 
                     echo "<br />";
                     echo '<input type="submit" class="btn btn-primary" value="Cadastrar">';
@@ -147,9 +160,15 @@ $lusuario = array('class' => 'form-control');
         <script src="<?= base_url() ?>js/jquery-ui.js"></script>
         <script type="text/javascript">
             $(function() {
-                $('#placa').mask('AAA-0000');
-                $('#ano').mask('0000/0000');
+                $('#placa').mask('AAA-0000',{placeholder: "___-____"});
+                $('#ano').mask('0000/0000',{placeholder: "____/____"});
                 $('#chassis').mask('AAAAAAAAAAAAAAAAA');
+                $('#antt').mask('00/00/0000',{placeholder: "__/__/____"});
+                $('#agepan').mask('00/00/0000',{placeholder: "__/__/____"});
+                $('#vistec').mask('00/00/0000',{placeholder: "__/__/____"});
+                $('#inmetro').mask('00/00/0000',{placeholder: "__/__/____"});
+                $('#seguro_inicio').mask('00/00/0000',{placeholder: "__/__/____"});
+                $('#seguro_final').mask('00/00/0000',{placeholder: "__/__/____"});
             });
         </script>
     </body>

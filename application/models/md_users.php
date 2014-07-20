@@ -66,15 +66,27 @@ class Md_users extends CI_Model {
     }
 
     public function addOnibus() {
+        $antt = implode("-", array_reverse(explode("/", $this->input->post('antt'))));
+        $agepan = implode("-", array_reverse(explode("/", $this->input->post('agepan'))));
+        $vistec = implode("-", array_reverse(explode("/", $this->input->post('vistec'))));
+        $inmetro = implode("-", array_reverse(explode("/", $this->input->post('inmetro'))));
+        $seguro_inicio = implode("-", array_reverse(explode("/", $this->input->post('seguro_inicio'))));
+        $seguro_final = implode("-", array_reverse(explode("/", $this->input->post('seguro_final'))));
         $data = array('montadora' => $this->input->post('montadora'),
-            'modelo' => $this->input->post('modelo'),
-            'chassis' => $this->input->post('chassis'),
-            'placa' => $this->input->post('placa'),
-            'codigo' => $this->input->post('codigo'),
-            'ano' => $this->input->post('ano'),
-            'nr_poltrona' => $this->input->post('nr_poltrona'),
-            'status' => 'A',
-            'observacao' => $this->input->post('observacao')
+            'modelo'        => $this->input->post('modelo'),
+            'chassis'       => $this->input->post('chassis'),
+            'placa'         => $this->input->post('placa'),
+            'codigo'        => $this->input->post('codigo'),
+            'ano'           => $this->input->post('ano'),
+            'nr_poltrona'   => $this->input->post('nr_poltrona'),
+            'status'        => 'A',
+            'antt'          =>$antt,
+            'agepan'        =>$agepan,
+            'vistec'        =>$vistec,
+            'inmetro'       =>$inmetro,
+            'seguro_inicio' =>$seguro_inicio,
+            'seguro_final'  =>$seguro_final,
+            'observacao'    => $this->input->post('observacao')
         );
         $this->db->insert('tb_cars', $data);
     }
@@ -139,15 +151,27 @@ class Md_users extends CI_Model {
     }
 
     public function editarOnibus() {
+        $antt = implode("-", array_reverse(explode("/", $this->input->post('antt'))));
+        $agepan = implode("-", array_reverse(explode("/", $this->input->post('agepan'))));
+        $vistec = implode("-", array_reverse(explode("/", $this->input->post('vistec'))));
+        $inmetro = implode("-", array_reverse(explode("/", $this->input->post('inmetro'))));
+        $seguro_inicio = implode("-", array_reverse(explode("/", $this->input->post('seguro_inicio'))));
+        $seguro_final = implode("-", array_reverse(explode("/", $this->input->post('seguro_final'))));
         $data = array('montadora' => $this->input->post('montadora'),
-            'modelo' => $this->input->post('modelo'),
-            'chassis' => $this->input->post('chassis'),
-            'placa' => $this->input->post('placa'),
-            'codigo' => $this->input->post('codigo'),
-            'ano' => $this->input->post('ano'),
-            'nr_poltrona' => $this->input->post('nr_poltrona'),
-            'status' => $this->input->post('status'),
-            'observacao' => $this->input->post('observacao')
+            'modelo'        => $this->input->post('modelo'),
+            'chassis'       => $this->input->post('chassis'),
+            'placa'         => $this->input->post('placa'),
+            'codigo'        => $this->input->post('codigo'),
+            'ano'           => $this->input->post('ano'),
+            'nr_poltrona'   => $this->input->post('nr_poltrona'),
+            'status'        => $this->input->post('status'),
+            'antt'          => $antt,
+            'agepan'        => $agepan,
+            'vistec'        => $vistec,
+            'inmetro'       => $inmetro,
+            'seguro_inicio' => $seguro_inicio,
+            'seguro_final'  => $seguro_final,
+            'observacao'    => $this->input->post('observacao')
         );
         $this->db->where('id_cars', $this->input->post('id_cars'));
         $this->db->update('tb_cars', $data);
