@@ -93,7 +93,7 @@
                     $this->db->where('tipo','v');
                     $query = $this->db->get('tb_tour');
                     $opcao[] = '';
-                    echo form_label('Selecione a Vigem: ');
+                    echo form_label('Selecione a Viagem: ');
                     ?>
                 <select name="id_tour" id="id_tour">
                     <?php
