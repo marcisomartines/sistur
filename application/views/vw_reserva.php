@@ -89,7 +89,8 @@
                 </div><!-- /.row -->
                 <div class="controls">
                  <?php
-                 $this->db->where('status', 'A');
+                    $this->db->where('status', 'A');
+                    $this->db->where('tipo','v');
                     $query = $this->db->get('tb_tour');
                     $opcao[] = '';
                     echo form_label('Selecione a Vigem: ');

@@ -36,8 +36,7 @@ function reserva()
             document.getElementById('relatorio').innerHTML=ajax.responseText;
         }
     }
-    var dados = document.getElementById('id_tour').value;
-    ajax.open("POST","../home/reservaMapa", false);
-    ajax.setRequestHeader("Content-Type","text/html");
-    ajax.send(dados);
+    var dado = "nome="+document.getElementById('id_tour').value;
+    ajax.open("GET","../home/reservaMapa?"+dado, true);
+    ajax.send(dado);
 }
