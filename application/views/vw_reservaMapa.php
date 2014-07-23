@@ -27,7 +27,7 @@ if (empty($onibus)) {
                         </tr>
                         <tr>
                             <th>Destino: </th>
-                            <td></td>
+                            <td><?=$dados['destino']?></td>
                         </tr>
                         <tr>
                             <th>Data Saída: </th>
@@ -43,7 +43,7 @@ if (empty($onibus)) {
                         </tr>
                         <tr>
                             <th>Preço: </th>
-                            <td></td>
+                            <td>R$<?=$dados['preco']?></td>
                         </tr>
                         <tr>
                             <th>Poltronas Disponíveis: </th>
