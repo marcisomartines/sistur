@@ -3,7 +3,7 @@ $onibus = $_GET['nome'];
 $query = $this->db->query("select * from tb_tour
                             join tb_drivers on tb_drivers.id_drivers=tb_tour.id_motorista
                             join tb_cars on tb_cars.id_cars=tb_tour.id_car
-                            where tb_tour.id_tour=".$onibus);
+                            where tb_tour.id_tour=" . $onibus);
 if (empty($onibus)) {
     echo "Nenhuma viagem selecionada";
 } else {
@@ -64,17 +64,16 @@ if (empty($onibus)) {
                     <div class="table-responsive">
                         <table class="table table-bordered table-hover table-striped tablesorter">
                             <?php
-                            $j=1;
-                                for($i=0;$i<($dados['nr_poltrona']/4);$i++)
-                                {
-                                    echo "<tr>";
-                                    echo "<td class='success' data-toggle='modal' data-target='#myModal'>".$j++."</td>";
-                                    echo "<td class='success' data-toggle='modal' data-target='#myModal'>".$j++."</td>";
-                                    echo "<td></td>";
-                                    echo "<td class='success' data-toggle='modal' data-target='#myModal'>".$j++."</td>";
-                                    echo "<td class='success' data-toggle='modal' data-target='#myModal'>".$j++."</td>";
-                                    echo "</tr>";
-                                }
+                            $j = 1;
+                            for ($i = 0; $i < ($dados['nr_poltrona'] / 4); $i++) {
+                                echo "<tr>";
+                                echo "<td class='success' data-toggle='modal' data-target='#myModal'>" . $j++ . "</td>";
+                                echo "<td class='success' data-toggle='modal' data-target='#myModal'>" . $j++ . "</td>";
+                                echo "<td></td>";
+                                echo "<td class='success' data-toggle='modal' data-target='#myModal'>" . $j++ . "</td>";
+                                echo "<td class='success' data-toggle='modal' data-target='#myModal'>" . $j++ . "</td>";
+                                echo "</tr>";
+                            }
                             ?>
                         </table>
                     </div>
@@ -82,25 +81,71 @@ if (empty($onibus)) {
             </div>
         </div>
     </div>
-<!--aqui termina as tabelas-->
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="myModalLabel">Reservar Poltrona</h4>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary">Salvar</button>
-      </div>
+    <!--aqui termina as tabelas-->
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Reservar Poltrona</h4>
+                </div>
+                <div class="modal-body">
+                    <?php
+                    echo form_open('home/cadastroValidacaoOnibus');
+
+                    echo validation_errors();
+
+                    echo form_label('Código: ');
+                    echo form_input(['name' => 'codigo', 'id' => 'codigo', 'class' => 'form-control input-sm datepicker']);
+                    echo '<br>';
+                    echo form_label('Montadora: ');
+                    echo form_input(['name' => 'montadora', 'id' => 'montadora', 'class' => 'form-control input-sm']);
+                    echo '<br>';
+                    echo form_label('Modelo: ');
+                    echo form_input(['name' => 'modelo', 'id' => 'modelo', 'class' => 'form-control input-sm datepicker']);
+                    echo '<br>';
+                    echo form_label('Ano: ');
+                    echo form_input(['name' => 'ano', 'id' => 'ano', 'class' => 'form-control input-sm']);
+                    echo '<br>';
+                    echo form_label('Placa: ');
+                    echo form_input(['name' => 'placa', 'id' => 'placa', 'class' => 'form-control input-sm']);
+                    echo '<br>';
+                    echo form_label('Chassis: ');
+                    echo form_input(['name' => 'chassis', 'id' => 'chassis', 'class' => 'form-control input-sm']);
+                    echo '<br>';
+                    echo form_label('N° Poltronas: ');
+                    echo form_input(['name' => 'nr_poltrona', 'id' => 'nr_poltrona', 'class' => 'form-control input-sm']);
+                    echo '<br>';
+                    echo form_label('ANTT/CRF: ');
+                    echo form_input(['name' => 'antt', 'id' => 'antt', 'class' => 'form-control input-sm col-sx-3']);
+                    echo '<br>';
+                    echo form_label('Agepan: ');
+                    echo form_input(['name' => 'agepan', 'id' => 'agepan', 'class' => 'form-control input-sm col-sx-3']);
+                    echo '<br>';
+                    echo form_label('Vistec: ');
+                    echo form_input(['name' => 'vistec', 'id' => 'vistec', 'class' => 'form-control input-sm col-sx-3']);
+                    echo '<br>';
+                    echo form_label('INMETRO: ');
+                    echo form_input(['name' => 'inmetro', 'id' => 'inmetro', 'class' => 'form-control input-sm col-sx-3']);
+                    echo '<br>';
+                    echo form_label('Seguro: ');
+                    echo form_input(['name' => 'seguro_inicio', 'id' => 'seguro_inicio', 'class' => 'form-control input-sm']);
+                    echo form_input(['name' => 'seguro_final', 'id' => 'seguro_final', 'class' => 'form-control input-sm']);
+
+                    echo "<br />";
+                    echo '<input type="submit" class="btn btn-primary" value="Cadastrar">';
+
+                    echo form_close();
+                    ?>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-primary">Salvar</button>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
     <?php
 }
 ?>
