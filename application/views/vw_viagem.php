@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,7 +11,6 @@
     <link href="<?=base_url()?>css/bootstrap.css" rel="stylesheet">
     <link href="<?=base_url()?>css/sb-admin.css" rel="stylesheet">
     <link rel="stylesheet" href="<?=base_url()?>font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="<?=base_url()?>font-awesome/css/font-awesome.css">
     <link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.4.3.min.css">
   </head>
 
@@ -35,12 +33,12 @@
 
         <div class="collapse navbar-collapse navbar-ex1-collapse">
           <ul class="nav navbar-nav side-nav">
-            <li class="active"><a href="<?php echo base_url()."index.php/home/"?>"><i class="fa fa-dashboard"></i> Geral</a></li>
+            <li><a href="<?php echo base_url()."index.php/home/"?>"><i class="fa fa-dashboard"></i> Geral</a></li>
             <li><a href="<?php echo base_url()."index.php/home/reserva"?>"><i class="fa fa-ticket"></i> Reserva</a></li>
             <li><a href="<?php echo base_url()."index.php/home/cliente"?>"><i class="fa fa-users "></i> Cliente</a></li>
             <li><a href="<?php echo base_url()."index.php/home/agenda"?>"><i class="fa fa-calendar"></i> Agendamento</a></li>
             <li><a href="<?php echo base_url()."index.php/home/onibus" ?>"><i class="fa fa-truck"></i> Ônibus</a></li>
-            <li><a href="<?php echo base_url()."index.php/home/viagem" ?>"><i class="fa fa-tasks"></i> Viagem</a></li>
+            <li class="active"><a href="<?php echo base_url()."index.php/home/viagem" ?>"><i class="fa fa-tasks"></i> Viagem</a></li>
             <li><a href="<?php echo base_url()."index.php/home/motorista" ?>"><i class="fa fa-car"></i> Motorista</a></li>
             <li><a href="<?php echo base_url()."index.php/home/usuario"?>"><i class="fa fa-user"></i> Usuário</a></li>
             <li><a href="bootstrap-grid.html"><i class="fa fa-wrench"></i> Configurações</a></li>
@@ -84,113 +82,37 @@
       <div id="page-wrapper">
         <div class="row">
           <div class="col-lg-12">
-            <h1>Principal <small>Visão geral</small></h1>
+            <h1>Destino <small>Listagem</small></h1>
             <ol class="breadcrumb">
-              <li class="active"><i class="fa fa-dashboard"></i> Informações gerais</li>
+              <li class="active"><i class="fa fa-tasks"></i> Destino</li>
+              <li class="pull-right"><a href="<?php echo base_url()."index.php/home/viagemCadastro"?>" class="btn btn-primary btn-xs" role="button">Novo Destino</a></li>
             </ol>
-            <div class="alert alert-success alert-dismissable"><!--Usar essa div para mostra alarmes, pedidos e chamados de garçom-->
-              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-              Welcome to SB Admin by <a class="alert-link" href="http://startbootstrap.com">Start Bootstrap</a>! Feel free to use this template for your admin needs! We are using a few different plugins to handle the dynamic tables and charts, so make sure you check out the necessary documentation links provided.
-            </div>
           </div>
         </div><!-- /.row -->
 
-        <div class="row">
-          <div class="col-lg-6">
-            <div class="panel panel-primary">
-              <div class="panel-heading">
-                <h3 class="panel-title"><i class="fa fa-clock-o"></i> Viagens</h3>
-              </div>
-              <div class="panel-body">
-                <div class="list-group">
-                  <a href="#" class="list-group-item">
-                    <i class="fa fa-calendar"></i> Viagem 1 Saida - 21/06/2014
-                    <span class="label label-success"> Disponivel</span>
-                  </a>
-                  <a href="#" class="list-group-item">
-                    <i class="fa fa-calendar"></i> Viagem 2 Saida - 22/06/2014
-                    <span class="label label-danger"> Esgotado</span>
-                  </a>
-                  <a href="#" class="list-group-item">
-                    <i class="fa fa-truck"></i> Onibus 1
-                    <span class="label label-warning"> Fretado</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <div class="panel panel-primary">
-              <div class="panel-heading">
-                <h3 class="panel-title"><i class="fa fa-money"></i> Visão Geral</h3>
-              </div>
-              <div class="panel-body">
-                <div class="table-responsive">
-                  <table class="table table-bordered table-hover table-striped tablesorter">
-                    <thead>
-                      <tr>
-                        <th>Onibus<i class="fa fa-sort"></i></th>
-                        <th>Ultimo Viagem <i class="fa fa-sort"></i></th>
-                        <th>Hora Saida <i class="fa fa-sort"></i></th>
-                        <th>Valor Total <i class="fa fa-sort"></i></th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>3326</td>
-                        <td>10/21/2013</td>
-                        <td>3:29 PM</td>
-                        <td>$321.33</td>
-                      </tr>
-                      <tr>
-                        <td>3325</td>
-                        <td>10/21/2013</td>
-                        <td>3:20 PM</td>
-                        <td>$234.34</td>
-                      </tr>
-                      <tr>
-                        <td>3324</td>
-                        <td>10/21/2013</td>
-                        <td>3:03 PM</td>
-                        <td>$724.17</td>
-                      </tr>
-                      <tr>
-                        <td>3323</td>
-                        <td>10/21/2013</td>
-                        <td>3:00 PM</td>
-                        <td>$23.71</td>
-                      </tr>
-                      <tr>
-                        <td>3322</td>
-                        <td>10/21/2013</td>
-                        <td>2:49 PM</td>
-                        <td>$8345.23</td>
-                      </tr>
-                      <tr>
-                        <td>3321</td>
-                        <td>10/21/2013</td>
-                        <td>2:23 PM</td>
-                        <td>$245.12</td>
-                      </tr>
-                      <tr>
-                        <td>3320</td>
-                        <td>10/21/2013</td>
-                        <td>2:15 PM</td>
-                        <td>$5663.54</td>
-                      </tr>
-                      <tr>
-                        <td>3319</td>
-                        <td>10/21/2013</td>
-                        <td>2:13 PM</td>
-                        <td>$943.45</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div><!-- /.row -->
+       <table class="table">
+        <tr>
+          <th>Destino</th>
+          <th width="180px">Ação</th>
+        </tr>
+      <?php
+        $query=$this->db->get('tb_viagem');
+        foreach ($query->result() as $row){
+      ?>
+              <tr>
+                <td><?=$row->destino?></td>
+                <td><?=form_open('home/excluirViagem')?>
+                <input type="hidden" name="id_viagem" value="<?=$row->id_viagem?>" />
+                <input type="submit" class="btn btn-danger btn-xs pull-right" value="Exclui">
+              </form><?=form_open('home/editarViagem')?>
+                <input type="hidden" name="id_viagem" value="<?=$row->id_viagem?>" />
+                <input type="submit" class="btn btn-success btn-xs pull-right" value="Editar">
+              </form></td>
+              </tr>
+      <?php
+        }
+      ?>
+      </table>
       </div><!-- /#page-wrapper -->
     </div><!-- /#wrapper -->
     <!-- JavaScript -->

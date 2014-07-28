@@ -209,5 +209,42 @@ class Md_users extends CI_Model {
         $this->db->where('id_users', $this->input->post('id_users'));
         $this->db->update('tb_users', $data);
     }
+    
+    public function addReserva() {
+        $data = array('nr_poltrona'   => $this->input->post('nr_poltrona'),
+            'tipo'                    => $this->input->post('tipo'),
+            'id_tour'                 => $this->input->post('id_tour'),//onibus
+            'id_client'               => $this->input->post('cliente'),
+            //'id_movfinan'          => $this->input->post('id_motorista'),
+            'loc_embarque'            => $this->input->post('loc_embarque'),
+            'desconto'                => $this->input->post('desconto'),
+            'ultima_viagem'           => $this->input->post('ultima_viagem'),
+            'destino_ultv'            => $this->input->post('destino_ultv')
+        );
+        $this->db->insert('tb_reservs', $data);
+    }
+
+    function GetAutocomplete($options = array())
+    {
+        $this->db->select('nome');
+        $this->db->like('nome', $options['keyword'], 'after');
+        $query = $this->db->get('tb_clients');
+        return $query->result();
+    }
+    
+    public function addViagem() {
+        $data = array(
+            'destino' => $this->input->post('destino')
+        );
+        $this->db->insert('tb_viagem', $data);
+    }
+    
+    public function editarViagem() {
+        $data = array(
+            'destino' => $this->input->post('destino')
+        );
+        $this->db->where('id_viagem', $this->input->post('id_viagem'));
+        $this->db->update('tb_viagem', $data);
+    }
 
 }

@@ -110,8 +110,7 @@
                                                             tb_tour.data_retorno,tb_tour.destino,tb_tour.tipo,tb_tour.status 
                                                             FROM tb_tour
                                                             JOIN tb_cars on tb_cars.id_cars=tb_tour.id_car
-                                                            JOIN tb_drivers on tb_drivers.id_drivers=tb_tour.id_motorista
-                                                            JOIN tb_clients on tb_clients.id_clients=tb_tour.id_client");
+                                                            JOIN tb_drivers on tb_drivers.id_drivers=tb_tour.id_motorista");
                                 foreach ($query->result() as $row) {
                                     $data_saida = implode("/", array_reverse(explode("-", $row->data_saida)));
                                     $data_retorno = implode("/", array_reverse(explode("-", $row->data_retorno)));

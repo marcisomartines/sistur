@@ -11,6 +11,15 @@
         <link href="<?= base_url() ?>css/sb-admin.css" rel="stylesheet">
         <link rel="stylesheet" href="<?= base_url() ?>font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.4.3.min.css">
+        <script type="text/javascript">
+            $().ready(function() {
+                $("#course").autocomplete("home/autoComplete", {
+                    width: 260,
+                    matchContains: true,
+                    selectFirst: false
+                });
+            });
+        </script>
     </head>
 
     <body>
@@ -87,26 +96,35 @@
                         </ol>
                     </div>
                 </div><!-- /.row -->
+<!--                <div id="content">
+                    <form autocomplete="off">
+                        <p>
+                            Digite um nome:
+                            <input type="text" name="course" id="course" />
+                        </p>
+
+                    </form>
+                </div>-->
                 <div class="controls">
-                 <?php
+                    <?php
                     $this->db->where('status', 'A');
-                    $this->db->where('tipo','v');
+                    $this->db->where('tipo', 'v');
                     $query = $this->db->get('tb_tour');
                     $opcao[] = '';
                     echo form_label('Selecione a Viagem: ');
                     ?>
-                <select name="id_tour" id="id_tour">
-                    <?php
-                    foreach ($query->result() as $bus) {
-                        echo "<option value=".$bus->id_tour.">".$bus->destino . ' - ' . $bus->data_saida."</option>";
-                    }
-                 ?>
-                </select>
-                <button onclick="reserva()">OK</button>
-            </div>
-            <div id="relatorio" class=" row-fluid">
-                <!--reserva vai ser colocada aqui-->
-            </div>
+                    <select name="id_tour" id="id_tour">
+                        <?php
+                        foreach ($query->result() as $bus) {
+                            echo "<option value=" . $bus->id_tour . ">" . $bus->destino . ' - ' . $bus->data_saida . "</option>";
+                        }
+                        ?>
+                    </select>
+                    <button onclick="reserva()">OK</button>
+                </div>
+                <div id="relatorio" class=" row-fluid">
+                    <!--reserva vai ser colocada aqui-->
+                </div>
             </div><!-- /#page-wrapper -->
         </div><!-- /#wrapper -->
         <!-- JavaScript -->
@@ -119,5 +137,7 @@
         <script src="<?= base_url() ?>js/tablesorter/jquery.tablesorter.js"></script>
         <script src="<?= base_url() ?>js/tablesorter/tables.js"></script>
         <script src="<?= base_url() ?>js/funcao.js"></script>
+        <script src="<?= base_url() ?>js/jquery-ui.js"></script>
+        <script src="<?= base_url() ?>js/jquery.autocomplete.js"></script>
     </body>
 </html>

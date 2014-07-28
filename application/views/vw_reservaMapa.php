@@ -63,18 +63,85 @@ if (empty($onibus)) {
                 <div class="panel-body">
                     <div class="table-responsive">
                         <table class="table table-bordered table-hover table-striped tablesorter">
-                            <?php
-                            $j = 1;
-                            for ($i = 0; $i < ($dados['nr_poltrona'] / 4); $i++) {
-                                echo "<tr>";
-                                echo "<td class='success' data-toggle='modal' data-target='#myModal'>" . $j++ . "</td>";
-                                echo "<td class='success' data-toggle='modal' data-target='#myModal'>" . $j++ . "</td>";
-                                echo "<td></td>";
-                                echo "<td class='success' data-toggle='modal' data-target='#myModal'>" . $j++ . "</td>";
-                                echo "<td class='success' data-toggle='modal' data-target='#myModal'>" . $j++ . "</td>";
-                                echo "</tr>";
-                            }
-                            ?>
+                            <tr>
+                                <td class="success" data-toggle="modal" data-target="#myModal">1</td>
+                                <td class="success">2</td>
+                                <td rowspan="13">Corredor</td>
+                                <td class="success">3</td>
+                                <td class="success">4</td>
+                            </tr>
+                            <tr>
+                                <td class="success">1</td>
+                                <td class="success">2</td>
+                                <td class="success">3</td>
+                                <td class="success">4</td>
+                            </tr>
+                            <tr>
+                                <td class="success">1</td>
+                                <td class="success">2</td>
+                                <td class="success">3</td>
+                                <td class="success">4</td>
+                            </tr>
+                            <tr>
+                                <td class="success">1</td>
+                                <td class="success">2</td>
+                                <td class="success">3</td>
+                                <td class="success">4</td>
+                            </tr>
+                            <tr>
+                                <td class="success">1</td>
+                                <td class="success">2</td>
+                                <td class="success">3</td>
+                                <td class="success">4</td>
+                            </tr>
+                            <tr>
+                                <td class="success" data-toggle="modal" data-target="#myModal">1</td>
+                                <td class="success">2</td>
+                                <td class="success">3</td>
+                                <td class="success">4</td>
+                            </tr>
+                            <tr>
+                                <td class="success">1</td>
+                                <td class="success">2</td>
+                                <td class="success">3</td>
+                                <td class="success">4</td>
+                            </tr>
+                            <tr>
+                                <td class="success">1</td>
+                                <td class="success">2</td>
+                                <td class="success">3</td>
+                                <td class="success">4</td>
+                            </tr>
+                            <tr>
+                                <td class="success">1</td>
+                                <td class="success">2</td>
+                                <td class="success">3</td>
+                                <td class="success">4</td>
+                            </tr>
+                            <tr>
+                                <td class="success">1</td>
+                                <td class="danger">2</td>
+                                <td class="success">3</td>
+                                <td class="success">4</td>
+                            </tr>
+                            <tr>
+                                <td class="success">1</td>
+                                <td class="success">2</td>
+                                <td class="success">3</td>
+                                <td class="success">4</td>
+                            </tr>
+                            <tr>
+                                <td class="success">1</td>
+                                <td class="success">2</td>
+                                <td class="success">3</td>
+                                <td class="success">4</td>
+                            </tr>
+                            <tr>
+                                <td class="success">1</td>
+                                <td class="success">2</td>
+                                <td class="success">3</td>
+                                <td class="success">4</td>
+                            </tr>
                         </table>
                     </div>
                 </div>
@@ -92,60 +159,55 @@ if (empty($onibus)) {
                 </div>
                 <div class="modal-body">
                     <?php
-                    echo form_open('home/cadastroValidacaoOnibus');
+                    echo form_open('home/cadastroValidacaoReserva');
 
                     echo validation_errors();
 
-                    echo form_label('Código: ');
-                    echo form_input(['name' => 'codigo', 'id' => 'codigo', 'class' => 'form-control input-sm datepicker']);
+                    echo form_label('Cliente: ');
+                    echo form_input(['name' => 'cliente', 'id' => 'cliente', 'class' => 'form-control input-sm']);
                     echo '<br>';
-                    echo form_label('Montadora: ');
-                    echo form_input(['name' => 'montadora', 'id' => 'montadora', 'class' => 'form-control input-sm']);
+                    $opcao = array(
+                        'i' => 'Somente Ida',
+                        'v' => 'Somente Volta',
+                        'd' => 'Ida/Volta'
+                    );
+                    echo form_label('Tipo: ');
+                    echo form_dropdown('tipo', $opcao, 'd', 'class=form-control');
                     echo '<br>';
-                    echo form_label('Modelo: ');
-                    echo form_input(['name' => 'modelo', 'id' => 'modelo', 'class' => 'form-control input-sm datepicker']);
+                    echo form_label('Desconto: ');
+                    echo form_input(['name' => 'desconto', 'id' => 'desconto', 'class' => 'form-control input-sm datepicker']);
                     echo '<br>';
-                    echo form_label('Ano: ');
-                    echo form_input(['name' => 'ano', 'id' => 'ano', 'class' => 'form-control input-sm']);
+                    echo form_label('Local de Embarque: ');
+                    echo form_input(['name' => 'loc_embarque', 'id' => 'loc_embarque', 'class' => 'form-control input-sm']);
                     echo '<br>';
-                    echo form_label('Placa: ');
-                    echo form_input(['name' => 'placa', 'id' => 'placa', 'class' => 'form-control input-sm']);
-                    echo '<br>';
-                    echo form_label('Chassis: ');
-                    echo form_input(['name' => 'chassis', 'id' => 'chassis', 'class' => 'form-control input-sm']);
-                    echo '<br>';
-                    echo form_label('N° Poltronas: ');
-                    echo form_input(['name' => 'nr_poltrona', 'id' => 'nr_poltrona', 'class' => 'form-control input-sm']);
-                    echo '<br>';
-                    echo form_label('ANTT/CRF: ');
-                    echo form_input(['name' => 'antt', 'id' => 'antt', 'class' => 'form-control input-sm col-sx-3']);
-                    echo '<br>';
-                    echo form_label('Agepan: ');
-                    echo form_input(['name' => 'agepan', 'id' => 'agepan', 'class' => 'form-control input-sm col-sx-3']);
-                    echo '<br>';
-                    echo form_label('Vistec: ');
-                    echo form_input(['name' => 'vistec', 'id' => 'vistec', 'class' => 'form-control input-sm col-sx-3']);
-                    echo '<br>';
-                    echo form_label('INMETRO: ');
-                    echo form_input(['name' => 'inmetro', 'id' => 'inmetro', 'class' => 'form-control input-sm col-sx-3']);
-                    echo '<br>';
-                    echo form_label('Seguro: ');
-                    echo form_input(['name' => 'seguro_inicio', 'id' => 'seguro_inicio', 'class' => 'form-control input-sm']);
-                    echo form_input(['name' => 'seguro_final', 'id' => 'seguro_final', 'class' => 'form-control input-sm']);
+                    echo form_hidden('id_tour', $onibus);
+                    echo form_hidden('ultima_viagem', $dados['data_saida']);
+                    echo form_hidden('destino_ultv', $dados['destino']);
+                    echo form_hidden('nr_poltrona', $poltrona);
 
                     echo "<br />";
-                    echo '<input type="submit" class="btn btn-primary" value="Cadastrar">';
-
+                    echo '<div class="modal-footer">';
+                    echo '<input type="submit" class="btn btn-primary" value="Salvar">';
+                    echo '<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>';
+                    echo '</div';
                     echo form_close();
                     ?>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-                    <button type="button" class="btn btn-primary">Salvar</button>
                 </div>
             </div>
         </div>
     </div>
+    <script src="http://localhost/sistur/js/jquery-ui.js"></script>
+    <script src="<?= base_url() ?>js/jquery.autocomplete.js"></script>
+    <script type="text/javascript">
+            $().ready(function() {
+                $("#cliente").autocomplete("autoComplete.php", {
+                    width: 260,
+                    matchContains: true,
+                    selectFirst: false
+                });
+            });
+        </script>
+
     <?php
 }
 ?>
