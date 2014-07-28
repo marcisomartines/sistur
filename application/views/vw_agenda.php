@@ -37,24 +37,16 @@
                         <li><a href="<?php echo base_url() . "index.php/home/cliente" ?>"><i class="fa fa-users "></i> Cliente</a></li>
                         <li class="active"><a href="<?php echo base_url() . "index.php/home/agenda" ?>"><i class="fa fa-calendar"></i> Agendamento</a></li>
                         <li><a href="<?php echo base_url() . "index.php/home/onibus" ?>"><i class="fa fa-truck"></i> Ônibus</a></li>
-                        <li><a href="<?php echo base_url() . "index.php/home/produto" ?>"><i class="fa fa-money"></i> Financeiro</a></li>
+                        <li><a href="<?php echo base_url() . "index.php/home/viagem" ?>"><i class="fa fa-tasks"></i> Viagem</a></li>
                         <li><a href="<?php echo base_url() . "index.php/home/motorista" ?>"><i class="fa fa-car"></i> Motorista</a></li>
                         <li><a href="<?php echo base_url() . "index.php/home/usuario" ?>"><i class="fa fa-user"></i> Usuário</a></li>
                         <li><a href="bootstrap-grid.html"><i class="fa fa-wrench"></i> Configurações</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bar-chart-o"></i> Relatórios <b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a href="<?php echo base_url() . "index.php/home/cadastroCategoria" ?>"><i class="fa fa-money"></i> Vendas</a></li>
-                                <li><a href="<?php echo base_url() . "index.php/home/cadastroPessoa" ?>"><i class="fa fa-shopping-cart"></i> Estoque</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cog"></i> Cadastros <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="<?php echo base_url() . "index.php/home/cadastroCategoria" ?>">Categoria</a></li>
-                                <li><a href="<?php echo base_url() . "index.php/home/cadastroPessoa" ?>">Funcionário</a></li>
-                                <li><a href="<?php echo base_url() . "index.php/home/cadastroMesa" ?>">Mesa</a></li>
-                                <li><a href="<?php echo base_url() . "index.php/home/cadastroProduto" ?>">Produtos</a></li>
+                                <li><a href="<?php echo base_url() . "index.php/home/relatorioCliente" ?>"> Clientes</a></li>
+                                <li><a href="<?php echo base_url() . "index.php/home/relatorioOnibus" ?>"> Ônibus</a></li>
+                                <li><a href="<?php echo base_url() . "index.php/home/relatorioViagem" ?>"> Viagem</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -95,30 +87,37 @@
                     </ul>
                     <div id="myTabContent" class="tab-content">
                         <div class="tab-pane fade in active" id="listagem"><!--Listagem de agendamentos-->
-                            <table class="table">
-                                <tr>
-                                    <th>Cod.</th>
-                                    <th>Ônibus</th>
-                                    <th>Destino</th>
-                                    <th>Saída</th>
-                                    <th>Retorno</th>
-                                    <th>Tipo</th>
-                                    <th align="center">Ação</th>
-                                </tr>
+                            <table class="table tablesorter">
+                                <thead>
+                                    <tr>
+                                        <th>Cod. <i class="fa fa-sort"></i></th>
+                                        <th>Ônibus <i class="fa fa-sort"></i></th>
+                                        <th>Destino <i class="fa fa-sort"></i></th>
+                                        <th>Saída <i class="fa fa-sort"></i></th>
+                                        <th>Retorno <i class="fa fa-sort"></i></th>
+                                        <th>Tipo <i class="fa fa-sort"></i></th>
+                                        <th align="center">Ação</th>
+                                    </tr>
+                                </thead>
                                 <?php
                                 $query = $this->db->query("SELECT tb_tour.id_tour,tb_cars.codigo,tb_cars.modelo,tb_tour.data_saida,
-                                                            tb_tour.data_retorno,tb_tour.destino,tb_tour.tipo,tb_tour.status 
+                                                            tb_tour.data_retorno,tb_tour.id_viagem,tb_tour.tipo,tb_tour.status 
                                                             FROM tb_tour
                                                             JOIN tb_cars on tb_cars.id_cars=tb_tour.id_car
                                                             JOIN tb_drivers on tb_drivers.id_drivers=tb_tour.id_motorista");
                                 foreach ($query->result() as $row) {
                                     $data_saida = implode("/", array_reverse(explode("-", $row->data_saida)));
                                     $data_retorno = implode("/", array_reverse(explode("-", $row->data_retorno)));
+                                    $this->db->where('id_viagem', $row->id_viagem);
+                                    $v = $this->db->get('tb_viagem');
+                                    foreach ($v->result() as $vi) {
+                                        $destino = $vi->destino;
+                                    }
                                     ?>
                                     <tr>
                                         <td><?= $row->codigo ?></td>
                                         <td><?= $row->modelo ?></td>
-                                        <td><?= $row->destino ?></td>
+                                        <td><?= $destino ?></td>
                                         <td><?= $data_saida ?></td>
                                         <td><?= $data_retorno ?></td>
                                         <td><?= ($row->status == 'A' ? "Ativo" : "Inativo") ?></td>

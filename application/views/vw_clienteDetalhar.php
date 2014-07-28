@@ -44,24 +44,16 @@ $lusuario = array('class' => 'form-control');
                         <li class="active"><a href="<?php echo base_url() . "index.php/home/cliente" ?>"><i class="fa fa-users "></i> Cliente</a></li>
                         <li><a href="<?php echo base_url() . "index.php/home/agenda" ?>"><i class="fa fa-calendar"></i> Agendamento</a></li>
                         <li><a href="<?php echo base_url() . "index.php/home/onibus" ?>"><i class="fa fa-truck"></i> Ônibus</a></li>
-                        <li><a href="<?php echo base_url() . "index.php/home/produto" ?>"><i class="fa fa-money"></i> Financeiro</a></li>
+                        <li><a href="<?php echo base_url() . "index.php/home/viagem" ?>"><i class="fa fa-tasks"></i> Viagem</a></li>
                         <li><a href="<?php echo base_url() . "index.php/home/motorista" ?>"><i class="fa fa-car"></i> Motorista</a></li>
                         <li><a href="<?php echo base_url() . "index.php/home/usuario" ?>"><i class="fa fa-user"></i> Usuário</a></li>
                         <li><a href="bootstrap-grid.html"><i class="fa fa-wrench"></i> Configurações</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bar-chart-o"></i> Relatórios <b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a href="<?php echo base_url() . "index.php/home/cadastroCategoria" ?>"><i class="fa fa-money"></i> Vendas</a></li>
-                                <li><a href="<?php echo base_url() . "index.php/home/cadastroPessoa" ?>"><i class="fa fa-shopping-cart"></i> Estoque</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cog"></i> Cadastros <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="<?php echo base_url() . "index.php/home/cadastroCategoria" ?>">Categoria</a></li>
-                                <li><a href="<?php echo base_url() . "index.php/home/cadastroPessoa" ?>">Funcionário</a></li>
-                                <li><a href="<?php echo base_url() . "index.php/home/cadastroMesa" ?>">Mesa</a></li>
-                                <li><a href="<?php echo base_url() . "index.php/home/cadastroProduto" ?>">Produtos</a></li>
+                                <li><a href="<?php echo base_url() . "index.php/home/relatorioCliente" ?>"> Clientes</a></li>
+                                <li><a href="<?php echo base_url() . "index.php/home/relatorioOnibus" ?>"> Ônibus</a></li>
+                                <li><a href="<?php echo base_url() . "index.php/home/relatorioViagem" ?>"> Viagem</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -107,58 +99,58 @@ $lusuario = array('class' => 'form-control');
                     <table class="table table-striped">
                         <tr>
                             <th>Nome: </th>
-                            <td><?=$clienteDados['nome']?></td>
+                            <td><?= $clienteDados['nome'] ?></td>
                         </tr>
                         <tr>
                             <th>Data Nascimento: </th>
-                            <td><?=$data_nascimento?></td>
+                            <td><?= $data_nascimento ?></td>
                         </tr>
                         <tr>
                             <th>RG: </th>
-                            <td><?=$clienteDados['rg']?></td>
+                            <td><?= $clienteDados['rg'] ?></td>
                         </tr>
                         <tr>
                             <th>CPF: </th>
-                            <td><?=$clienteDados['cpf']?></td>
+                            <td><?= $clienteDados['cpf'] ?></td>
                         </tr>
                         <tr>
                             <th>E-mail: </th>
-                            <td><?=$clienteDados['email']?></td>
+                            <td><?= $clienteDados['email'] ?></td>
                         </tr>
                         <tr>
                             <th>Telefone: </th>
-                            <td><?=$clienteDados['telefone']?></td>
+                            <td><?= $clienteDados['telefone'] ?></td>
                         </tr>
                         <tr>
                             <th>Celular: </th>
-                            <td><?=$clienteDados['celular']?></td>
+                            <td><?= $clienteDados['celular'] ?></td>
                         </tr>
                         <tr>
                             <th>Rua: </th>
-                            <td><?=$clienteDados['rua']?></td>
+                            <td><?= $clienteDados['rua'] ?></td>
                         </tr>
                         <tr>
                             <th>Bairro: </th>
-                            <td><?=$clienteDados['bairro']?></td>
+                            <td><?= $clienteDados['bairro'] ?></td>
                         </tr>
                         <tr>
                             <th>Cidade: </th>
-                            <td><?=$clienteDados['cidade']?></td>
+                            <td><?= $clienteDados['cidade'] ?></td>
                         </tr>
                         <tr>
                             <th>Local de Embarque: </th>
-                            <td><?=$clienteDados['loc_embarque']?></td>
+                            <td><?= $clienteDados['loc_embarque'] ?></td>
                         </tr>
                         <tr>
                             <th>Última Viagem: </th>
-                            <td><?=$clienteDados['ult_viagem']?></td>
+                            <td><?= $clienteDados['ult_viagem'] ?></td>
                         </tr>
                         <tr>
                             <th>Observação: </th>
-                            <td><?=$clienteDados['observacao']?></td>
+                            <td><?= $clienteDados['observacao'] ?></td>
                         </tr>
                     </table>
-                    <a href="<?php echo base_url()."index.php/home/cliente"?>" class="btn btn-primary" role="button">Voltar</a>
+                    <a href="<?php echo base_url() . "index.php/home/cliente" ?>" class="btn btn-primary" role="button">Voltar</a>
                     <!--Fim da Panel verde-->
                 </div>
             </div><!-- /#page-wrapper -->

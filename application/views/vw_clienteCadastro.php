@@ -44,24 +44,16 @@ $lusuario = array('class' => 'form-control');
                         <li class="active"><a href="<?php echo base_url() . "index.php/home/cliente" ?>"><i class="fa fa-users "></i> Cliente</a></li>
                         <li><a href="<?php echo base_url() . "index.php/home/agenda" ?>"><i class="fa fa-calendar"></i> Agendamento</a></li>
                         <li><a href="<?php echo base_url() . "index.php/home/onibus" ?>"><i class="fa fa-truck"></i> Ônibus</a></li>
-                        <li><a href="<?php echo base_url() . "index.php/home/produto" ?>"><i class="fa fa-money"></i> Financeiro</a></li>
+                        <li><a href="<?php echo base_url() . "index.php/home/viagem" ?>"><i class="fa fa-tasks"></i> Viagem</a></li>
                         <li><a href="<?php echo base_url() . "index.php/home/motorista" ?>"><i class="fa fa-car"></i> Motorista</a></li>
                         <li><a href="<?php echo base_url() . "index.php/home/usuario" ?>"><i class="fa fa-user"></i> Usuário</a></li>
                         <li><a href="bootstrap-grid.html"><i class="fa fa-wrench"></i> Configurações</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bar-chart-o"></i> Relatórios <b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a href="<?php echo base_url() . "index.php/home/cadastroCategoria" ?>"><i class="fa fa-money"></i> Vendas</a></li>
-                                <li><a href="<?php echo base_url() . "index.php/home/cadastroPessoa" ?>"><i class="fa fa-shopping-cart"></i> Estoque</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cog"></i> Cadastros <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="<?php echo base_url() . "index.php/home/cadastroCategoria" ?>">Categoria</a></li>
-                                <li><a href="<?php echo base_url() . "index.php/home/cadastroPessoa" ?>">Funcionário</a></li>
-                                <li><a href="<?php echo base_url() . "index.php/home/cadastroMesa" ?>">Mesa</a></li>
-                                <li><a href="<?php echo base_url() . "index.php/home/cadastroProduto" ?>">Produtos</a></li>
+                                <li><a href="<?php echo base_url() . "index.php/home/relatorioCliente" ?>"> Clientes</a></li>
+                                <li><a href="<?php echo base_url() . "index.php/home/relatorioOnibus" ?>"> Ônibus</a></li>
+                                <li><a href="<?php echo base_url() . "index.php/home/relatorioViagem" ?>"> Viagem</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -162,10 +154,10 @@ $lusuario = array('class' => 'form-control');
         <script src="<?= base_url() ?>js/jquery-ui.js"></script>
         <script type="text/javascript">
             $(function() {
-                $('#cpf').mask('000.000.000-00',{placeholder: "___.___.___-__"});
-                $('#telefone').mask('(00)0000-0000',{placeholder: "(__)____-____"});
-                $('#celular').mask('(00)0000-0000',{placeholder: "(__)____-____"});
-                $('#data_nascimento').mask('00/00/0000',{placeholder: "__/__/____"});
+                $('#cpf').mask('000.000.000-00', {placeholder: "___.___.___-__"});
+                $('#telefone').mask('(00)0000-0000', {placeholder: "(__)____-____"});
+                $('#celular').mask('(00)0000-0000', {placeholder: "(__)____-____"});
+                $('#data_nascimento').mask('00/00/0000', {placeholder: "__/__/____"});
             });
         </script>
     </body>

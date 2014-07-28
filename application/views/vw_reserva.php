@@ -46,24 +46,16 @@
                         <li><a href="<?php echo base_url() . "index.php/home/cliente" ?>"><i class="fa fa-users "></i> Cliente</a></li>
                         <li><a href="<?php echo base_url() . "index.php/home/agenda" ?>"><i class="fa fa-calendar"></i> Agendamento</a></li>
                         <li><a href="<?php echo base_url() . "index.php/home/onibus" ?>"><i class="fa fa-truck"></i> Ônibus</a></li>
-                        <li><a href="<?php echo base_url() . "index.php/home/produto" ?>"><i class="fa fa-money"></i> Financeiro</a></li>
+                        <li><a href="<?php echo base_url() . "index.php/home/viagem" ?>"><i class="fa fa-tasks"></i> Viagem</a></li>
                         <li><a href="<?php echo base_url() . "index.php/home/motorista" ?>"><i class="fa fa-car"></i> Motorista</a></li>
                         <li><a href="<?php echo base_url() . "index.php/home/usuario" ?>"><i class="fa fa-user"></i> Usuário</a></li>
                         <li><a href="bootstrap-grid.html"><i class="fa fa-wrench"></i> Configurações</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bar-chart-o"></i> Relatórios <b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a href="<?php echo base_url() . "index.php/home/cadastroCategoria" ?>"><i class="fa fa-money"></i> Vendas</a></li>
-                                <li><a href="<?php echo base_url() . "index.php/home/cadastroPessoa" ?>"><i class="fa fa-shopping-cart"></i> Estoque</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cog"></i> Cadastros <b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="<?php echo base_url() . "index.php/home/cadastroCategoria" ?>">Categoria</a></li>
-                                <li><a href="<?php echo base_url() . "index.php/home/cadastroPessoa" ?>">Funcionário</a></li>
-                                <li><a href="<?php echo base_url() . "index.php/home/cadastroMesa" ?>">Mesa</a></li>
-                                <li><a href="<?php echo base_url() . "index.php/home/cadastroProduto" ?>">Produtos</a></li>
+                                <li><a href="<?php echo base_url() . "index.php/home/relatorioCliente" ?>"> Clientes</a></li>
+                                <li><a href="<?php echo base_url() . "index.php/home/relatorioOnibus" ?>"> Ônibus</a></li>
+                                <li><a href="<?php echo base_url() . "index.php/home/relatorioViagem" ?>"> Viagem</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -96,27 +88,28 @@
                         </ol>
                     </div>
                 </div><!-- /.row -->
-<!--                <div id="content">
-                    <form autocomplete="off">
-                        <p>
-                            Digite um nome:
-                            <input type="text" name="course" id="course" />
-                        </p>
-
-                    </form>
-                </div>-->
+                <!--                <div id="content">
+                                    <form autocomplete="off">
+                                        <p>
+                                            Digite um nome:
+                                            <input type="text" name="course" id="course" />
+                                        </p>
+                
+                                    </form>
+                                </div>-->
                 <div class="controls">
                     <?php
-                    $this->db->where('status', 'A');
-                    $this->db->where('tipo', 'v');
-                    $query = $this->db->get('tb_tour');
+                    $query = $this->db->query("SELECT * FROM tb_tour
+                                            JOIN tb_viagem ON tb_tour.id_viagem=tb_viagem.id_viagem
+                                            WHERE tb_tour.status = 'A' AND tb_tour.tipo='v'");
                     $opcao[] = '';
                     echo form_label('Selecione a Viagem: ');
                     ?>
                     <select name="id_tour" id="id_tour">
                         <?php
                         foreach ($query->result() as $bus) {
-                            echo "<option value=" . $bus->id_tour . ">" . $bus->destino . ' - ' . $bus->data_saida . "</option>";
+                            $dataSaida = implode("/", array_reverse(explode("-", $bus->data_saida)));
+                            echo "<option value=" . $bus->id_tour . ">" . $bus->destino . ' - ' . $dataSaida . "</option>";
                         }
                         ?>
                     </select>

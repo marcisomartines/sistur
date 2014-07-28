@@ -1,9 +1,10 @@
 <?php
 $onibus = $_GET['nome'];
-$query = $this->db->query("select * from tb_tour
-                            join tb_drivers on tb_drivers.id_drivers=tb_tour.id_motorista
-                            join tb_cars on tb_cars.id_cars=tb_tour.id_car
-                            where tb_tour.id_tour=" . $onibus);
+$query = $this->db->query("SELECT * FROM tb_tour
+                            JOIN tb_drivers ON tb_drivers.id_drivers=tb_tour.id_motorista
+                            JOIN tb_viagem ON tb_tour.id_viagem=tb_viagem.id_viagem
+                            JOIN tb_cars ON tb_cars.id_cars=tb_tour.id_car
+                            WHERE tb_tour.id_tour=" . $onibus);
 if (empty($onibus)) {
     echo "Nenhuma viagem selecionada";
 } else {

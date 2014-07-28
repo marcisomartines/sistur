@@ -43,21 +43,12 @@
             <li><a href="<?php echo base_url()."index.php/home/viagem" ?>"><i class="fa fa-tasks"></i> Viagem</a></li>
             <li><a href="<?php echo base_url()."index.php/home/motorista" ?>"><i class="fa fa-car"></i> Motorista</a></li>
             <li><a href="<?php echo base_url()."index.php/home/usuario"?>"><i class="fa fa-user"></i> Usuário</a></li>
-            <li><a href="bootstrap-grid.html"><i class="fa fa-wrench"></i> Configurações</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bar-chart-o"></i> Relatórios <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a href="<?php echo base_url() . "index.php/home/cadastroCategoria" ?>"><i class="fa fa-money"></i> Vendas</a></li>
-                <li><a href="<?php echo base_url() . "index.php/home/cadastroPessoa" ?>"><i class="fa fa-shopping-cart"></i> Estoque</a></li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cog"></i> Cadastros <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="<?php echo base_url()."index.php/home/cadastroCategoria"?>">Categoria</a></li>
-                <li><a href="<?php echo base_url()."index.php/home/cadastroPessoa"?>">Funcionário</a></li>
-                <li><a href="<?php echo base_url()."index.php/home/cadastroMesa"?>">Mesa</a></li>
-                <li><a href="<?php echo base_url()."index.php/home/cadastroProduto"?>">Produtos</a></li>
+                <li><a href="<?php echo base_url() . "index.php/home/relatorioCliente" ?>"> Clientes</a></li>
+                <li><a href="<?php echo base_url() . "index.php/home/relatorioOnibus" ?>"> Ônibus</a></li>
+                <li><a href="<?php echo base_url() . "index.php/home/relatorioViagem" ?>"> Viagem</a></li>
               </ul>
             </li>
           </ul>
@@ -115,6 +106,10 @@
                     <i class="fa fa-truck"></i> Onibus 1
                     <span class="label label-warning"> Fretado</span>
                   </a>
+                    <a href="#" class="list-group-item">
+                    <i class="fa fa-truck"></i> Onibus 1
+                    <span class="label label-warning"> Fretado</span>
+                  </a>
                 </div>
               </div>
             </div>
@@ -129,61 +124,27 @@
                   <table class="table table-bordered table-hover table-striped tablesorter">
                     <thead>
                       <tr>
-                        <th>Onibus<i class="fa fa-sort"></i></th>
-                        <th>Ultimo Viagem <i class="fa fa-sort"></i></th>
-                        <th>Hora Saida <i class="fa fa-sort"></i></th>
-                        <th>Valor Total <i class="fa fa-sort"></i></th>
+                        <th>Ônibus<i class="fa fa-sort"></i></th>
+                        <th>Destino<i class="fa fa-sort"></i></th>
+                        <th>Data Saída<i class="fa fa-sort"></i></th>
+                        <th>Valor Passagem <i class="fa fa-sort"></i></th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>3326</td>
-                        <td>10/21/2013</td>
-                        <td>3:29 PM</td>
-                        <td>$321.33</td>
-                      </tr>
-                      <tr>
-                        <td>3325</td>
-                        <td>10/21/2013</td>
-                        <td>3:20 PM</td>
-                        <td>$234.34</td>
-                      </tr>
-                      <tr>
-                        <td>3324</td>
-                        <td>10/21/2013</td>
-                        <td>3:03 PM</td>
-                        <td>$724.17</td>
-                      </tr>
-                      <tr>
-                        <td>3323</td>
-                        <td>10/21/2013</td>
-                        <td>3:00 PM</td>
-                        <td>$23.71</td>
-                      </tr>
-                      <tr>
-                        <td>3322</td>
-                        <td>10/21/2013</td>
-                        <td>2:49 PM</td>
-                        <td>$8345.23</td>
-                      </tr>
-                      <tr>
-                        <td>3321</td>
-                        <td>10/21/2013</td>
-                        <td>2:23 PM</td>
-                        <td>$245.12</td>
-                      </tr>
-                      <tr>
-                        <td>3320</td>
-                        <td>10/21/2013</td>
-                        <td>2:15 PM</td>
-                        <td>$5663.54</td>
-                      </tr>
-                      <tr>
-                        <td>3319</td>
-                        <td>10/21/2013</td>
-                        <td>2:13 PM</td>
-                        <td>$943.45</td>
-                      </tr>
+                        <?php
+                        $query = $this->db->query("SELECT * FROM tb_tour
+                                            JOIN tb_viagem ON tb_tour.id_viagem=tb_viagem.id_viagem
+                                            JOIN tb_cars ON tb_tour.id_car=tb_cars.id_cars
+                                            WHERE tb_tour.status = 'A' AND tb_tour.tipo='v'");
+                        foreach($query->result() as $linha){
+                            echo "<tr>";
+                            echo "<td>".$linha->modelo."</td>";
+                            echo "<td>".$linha->destino."</td>";
+                            echo "<td>".$linha->data_saida."</td>";
+                            echo "<td>".$linha->preco."</td>";
+                            echo "</tr>";
+                        }
+                        ?>
                     </tbody>
                   </table>
                 </div>

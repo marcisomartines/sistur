@@ -97,7 +97,7 @@ class Md_users extends CI_Model {
         $data = array('id_client'   => $this->input->post('id_client'),
             'id_car'                => $this->input->post('id_car'),
             'id_user'               => $this->input->post('id_user'),
-            'destino'               => $this->input->post('destino'),
+            'id_viagem'             => $this->input->post('id_viagem'),
             'data_saida'            => $data_saida,
             'data_retorno'          => $data_retorno,
             'id_motorista'          => $this->input->post('id_motorista'),
