@@ -535,6 +535,30 @@ class Home extends CI_Controller {
             $this->load->view('vw_login');
         }
     }
+    
+    public function relatorioCliente(){
+        if($this->session->userdata('is_logged_in')==1){
+            $this->load->view('vw_relatorioCliente');
+        } else {
+            $this->load->view('vw_login');
+        }
+    }
+    
+    public function relatorioViagem(){
+        if($this->session->userdata('is_logged_in')==1){
+            $this->load->view('vw_relatorioViagem');
+        } else {
+            $this->load->view('vw_login');
+        }
+    }
+    
+    public function relatorioOnibus(){
+        if($this->session->userdata('is_logged_in')==1){
+            $this->load->view('vw_relatorioOnibus');
+        } else {
+            $this->load->view('vw_login');
+        }
+    }
 
 //    function autoComplete() {
 //        $q = strtolower($_GET["q"]);
