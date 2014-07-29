@@ -65,83 +65,75 @@ if (empty($onibus)) {
                     <div class="table-responsive">
                         <table class="table table-bordered table-hover table-striped tablesorter">
                             <tr>
-                                <td class="success" data-toggle="modal" data-target="#myModal">1</td>
-                                <td class="success">2</td>
-                                <td rowspan="13">Corredor</td>
-                                <td class="success">3</td>
-                                <td class="success">4</td>
+                                <td class="success" data-toggle="modal" data-target="#myModal1">01</td>
+                                <td class="success" data-toggle="modal" data-target="#myModal2">02</td>
+                                <td rowspan="13" align="center">CORREDOR</td>
+                                <td class="success" data-toggle="modal" data-target="#myModal4">04</td>
+                                <td class="success" data-toggle="modal" data-target="#myModal3">03</td>
                             </tr>
                             <tr>
-                                <td class="success">1</td>
-                                <td class="success">2</td>
-                                <td class="success">3</td>
-                                <td class="success">4</td>
+                                <td class="success" data-toggle="modal" data-target="#myModal5">05</td>
+                                <td class="success" data-toggle="modal" data-target="#myModal6">06</td>
+                                <td colspan="2" align="center">ESCADA</td>
                             </tr>
                             <tr>
-                                <td class="success">1</td>
-                                <td class="success">2</td>
-                                <td class="success">3</td>
-                                <td class="success">4</td>
+                                <td class="success" data-toggle="modal" data-target="#myModal">09</td>
+                                <td class="success" data-toggle="modal" data-target="#myModal">10</td>
+                                <td class="success" data-toggle="modal" data-target="#myModal">08</td>
+                                <td class="success" data-toggle="modal" data-target="#myModal">07</td>
                             </tr>
                             <tr>
-                                <td class="success">1</td>
-                                <td class="success">2</td>
-                                <td class="success">3</td>
-                                <td class="success">4</td>
+                                <td class="success" data-toggle="modal" data-target="#myModal">13</td>
+                                <td class="success" data-toggle="modal" data-target="#myModal">14</td>
+                                <td class="success" data-toggle="modal" data-target="#myModal">12</td>
+                                <td class="success" data-toggle="modal" data-target="#myModal">11</td>
                             </tr>
                             <tr>
-                                <td class="success">1</td>
-                                <td class="success">2</td>
-                                <td class="success">3</td>
-                                <td class="success">4</td>
+                                <td class="success" data-toggle="modal" data-target="#myModal">17</td>
+                                <td class="success" data-toggle="modal" data-target="#myModal">18</td>
+                                <td class="success" data-toggle="modal" data-target="#myModal">16</td>
+                                <td class="success" data-toggle="modal" data-target="#myModal">15</td>
                             </tr>
                             <tr>
-                                <td class="success" data-toggle="modal" data-target="#myModal">1</td>
-                                <td class="success">2</td>
-                                <td class="success">3</td>
-                                <td class="success">4</td>
+                                <td class="success" data-toggle="modal" data-target="#myModal">21</td>
+                                <td class="success" data-toggle="modal" data-target="#myModal">22</td>
+                                <td class="success" data-toggle="modal" data-target="#myModal">20</td>
+                                <td class="success" data-toggle="modal" data-target="#myModal">19</td>
                             </tr>
                             <tr>
-                                <td class="success">1</td>
-                                <td class="success">2</td>
-                                <td class="success">3</td>
-                                <td class="success">4</td>
+                                <td class="success" data-toggle="modal" data-target="#myModal25">25</td>
+                                <td class="success" data-toggle="modal" data-target="#myModal26">26</td>
+                                <td class="success" data-toggle="modal" data-target="#myModal24">24</td>
+                                <td class="success" data-toggle="modal" data-target="#myModal23">23</td>
                             </tr>
                             <tr>
-                                <td class="success">1</td>
-                                <td class="success">2</td>
-                                <td class="success">3</td>
-                                <td class="success">4</td>
+                                <td class="success" data-toggle="modal" data-target="#myModal29">29</td>
+                                <td class="success" data-toggle="modal" data-target="#myModal30">30</td>
+                                <td class="success" data-toggle="modal" data-target="#myModal28">28</td>
+                                <td class="success" data-toggle="modal" data-target="#myModal27">27</td>
                             </tr>
                             <tr>
-                                <td class="success">1</td>
-                                <td class="success">2</td>
-                                <td class="success">3</td>
-                                <td class="success">4</td>
+                                <td class="success" data-toggle="modal" data-target="#myModal33">33</td>
+                                <td class="success" data-toggle="modal" data-target="#myModal34">34</td>
+                                <td class="success" data-toggle="modal" data-target="#myModal32">32</td>
+                                <td class="success" data-toggle="modal" data-target="#myModal31">31</td>
                             </tr>
                             <tr>
-                                <td class="success">1</td>
-                                <td class="danger">2</td>
-                                <td class="success">3</td>
-                                <td class="success">4</td>
+                                <td class="success" data-toggle="modal" data-target="#myModal37">37</td>
+                                <td class="success" data-toggle="modal" data-target="#myModal38">38</td>
+                                <td class="success" data-toggle="modal" data-target="#myModal36">36</td>
+                                <td class="success" data-toggle="modal" data-target="#myModal35">35</td>
                             </tr>
                             <tr>
-                                <td class="success">1</td>
-                                <td class="success">2</td>
-                                <td class="success">3</td>
-                                <td class="success">4</td>
+                                <td class="success" data-toggle="modal" data-target="#myModal41">41</td>
+                                <td class="success" data-toggle="modal" data-target="#myModal42">42</td>
+                                <td class="success" data-toggle="modal" data-target="#myModal40">40</td>
+                                <td class="success" data-toggle="modal" data-target="#myModal39">39</td>
                             </tr>
                             <tr>
-                                <td class="success">1</td>
-                                <td class="success">2</td>
-                                <td class="success">3</td>
-                                <td class="success">4</td>
-                            </tr>
-                            <tr>
-                                <td class="success">1</td>
-                                <td class="success">2</td>
-                                <td class="success">3</td>
-                                <td class="success">4</td>
+                                <td class="success" data-toggle="modal" data-target="#myModal43">43</td>
+                                <td class="success" data-toggle="modal" data-target="#myModal44">44</td>
+                                <td colspan="2" align="center">BANHEIRO</td>
                             </tr>
                         </table>
                     </div>
@@ -151,12 +143,15 @@ if (empty($onibus)) {
     </div>
     <!--aqui termina as tabelas-->
     <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+    <?php
+    for($i=1;$i<=$dados['nr_poltrona'];$i++){
+    ?>
+    <div class="modal fade" id="myModal<?=$i?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog<?=$i?>">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Reservar Poltrona</h4>
+                    <h4 class="modal-title" id="myModalLabel">Reservar Poltrona Nº<?=$i?></h4>
                 </div>
                 <div class="modal-body">
                     <?php
@@ -197,6 +192,9 @@ if (empty($onibus)) {
             </div>
         </div>
     </div>
+    <?php
+    }
+    ?>
     <script src="http://localhost/sistur/js/jquery-ui.js"></script>
     <script src="<?= base_url() ?>js/jquery.autocomplete.js"></script>
     <script type="text/javascript">

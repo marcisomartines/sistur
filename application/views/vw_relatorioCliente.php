@@ -87,15 +87,6 @@
                         </ol>
                     </div>
                 </div><!-- /.row -->
-                <!--                <div id="content">
-                                    <form autocomplete="off">
-                                        <p>
-                                            Digite um nome:
-                                            <input type="text" name="course" id="course" />
-                                        </p>
-                
-                                    </form>
-                                </div>-->
                 <div class="controls">
                     <?php
                     $query = $this->db->query("SELECT * FROM tb_tour
