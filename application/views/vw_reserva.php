@@ -87,32 +87,26 @@
                         </ol>
                     </div>
                 </div><!-- /.row -->
-                <!--                <div id="content">
-                                    <form autocomplete="off">
-                                        <p>
-                                            Digite um nome:
-                                            <input type="text" name="course" id="course" />
-                                        </p>
-                
-                                    </form>
-                                </div>-->
                 <div class="controls">
                     <?php
+                    echo form_open('home/reservaMapa');
+                    
                     $query = $this->db->query("SELECT * FROM tb_tour
                                             JOIN tb_viagem ON tb_tour.id_viagem=tb_viagem.id_viagem
                                             WHERE tb_tour.status = 'A' AND tb_tour.tipo='v'");
-                    $opcao[] = '';
+                    $viagem[] = '';
+                    foreach ($query->result() as $vig) {
+                        $dataSaida = implode("/", array_reverse(explode("-",$vig->data_saida)));
+                        $viagem[$vig->id_tour] = $vig->destino.' - '.$dataSaida;
+                    }
                     echo form_label('Selecione a Viagem: ');
+                    echo form_dropdown('id_tour', $viagem, 'v', 'class=form-control');
+
+                    echo "<br />";
+                    echo '<input type="submit" class="btn btn-primary" value="OK">';
+                    echo "<br />";
+                    echo form_close();
                     ?>
-                    <select name="id_tour" id="id_tour">
-                        <?php
-                        foreach ($query->result() as $bus) {
-                            $dataSaida = implode("/", array_reverse(explode("-", $bus->data_saida)));
-                            echo "<option value=" . $bus->id_tour . ">" . $bus->destino . ' - ' . $dataSaida . "</option>";
-                        }
-                        ?>
-                    </select>
-                    <button onclick="reserva()">OK</button>
                 </div>
                 <div id="relatorio" class=" row-fluid">
                     <!--reserva vai ser colocada aqui-->
