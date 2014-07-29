@@ -285,22 +285,18 @@
 
                                     echo validation_errors();
 
-                                    echo form_label('Cliente: ');
+                                    echo form_label('Combustivel: ');
                                     echo form_input(['name' => 'cliente', 'id' => 'cliente', 'class' => 'form-control input-sm']);
                                     echo '<br>';
-                                    $opcao = array(
-                                        'i' => 'Somente Ida',
-                                        'v' => 'Somente Volta',
-                                        'd' => 'Ida/Volta'
-                                    );
-                                    echo form_label('Tipo: ');
-                                    echo form_dropdown('tipo', $opcao, 'd', 'class=form-control');
+                                    
+                                    echo form_label('Alimentação: ');
+                                    echo form_input(['name' => 'alimentacao', 'id' => 'alimentacao', 'class' => 'form-control input-sm']);
                                     echo '<br>';
-                                    echo form_label('Desconto: ');
-                                    echo form_input(['name' => 'desconto', 'id' => 'desconto', 'class' => 'form-control input-sm datepicker']);
+                                    echo form_label('Outros: ');
+                                    echo form_input(['name' => 'outros', 'id' => 'outros', 'class' => 'form-control input-sm datepicker']);
                                     echo '<br>';
-                                    echo form_label('Local de Embarque: ');
-                                    echo form_input(['name' => 'loc_embarque', 'id' => 'loc_embarque', 'class' => 'form-control input-sm']);
+                                    echo form_label('Total: ');
+                                    echo form_input(['name' => 'total', 'id' => 'total', 'class' => 'form-control input-sm']);
                                     echo '<br>';
                                     echo form_hidden('id_tour', $this->input->post('id_tour'));
                                     echo "<br />";
