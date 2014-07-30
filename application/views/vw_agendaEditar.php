@@ -124,8 +124,13 @@ $lusuario = array('class' => 'form-control');
                     echo form_label('Tipo: ');
                     echo form_dropdown('tipo', $opcao, $agendaDados['tipo'], 'class=form-control');
                     echo '<br>';
+                    $query = $this->db->get('tb_viagem');
+                    $viagem[] = '';
+                    foreach ($query->result() as $vig) {
+                        $viagem[$vig->id_viagem] = $vig->destino;
+                    }
                     echo form_label('Destino: ');
-                    echo form_input(['name' => 'destino', 'id' => 'destino', 'class' => 'form-control input-sm', 'value' => $agendaDados['destino']]);
+                    echo form_dropdown('id_viagem', $viagem, $agendaDados['id_viagem'], 'class=form-control');
                     echo '<br>';
                     echo form_label('Data Saida: ');
                     echo form_input(['name' => 'data_saida', 'id' => 'data_saida', 'class' => 'form-control input-sm', 'value' => $data_saida]);
@@ -216,7 +221,7 @@ $lusuario = array('class' => 'form-control');
         </script>
         <script type="text/javascript">
             $(function() {
-                $('#preco').mask('000.000.000.000.000,00', {reverse: true});
+                $('#preco').mask('0000000.00', {reverse: true});
             });
         </script>
     </body>

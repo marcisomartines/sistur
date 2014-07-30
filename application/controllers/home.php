@@ -453,12 +453,26 @@ class Home extends CI_Controller {
 
     public function reservaMapa() {
         if ($this->session->userdata('is_logged_in') == 1) {
-            $this->load->view('vw_reservaMapa');
+            $this->load->library('form_validation');
+
+            $this->form_validation->set_rules('id_tour', 'id_tour', 'required|trim'); //cliente
+
+            if ($this->form_validation->run()) {
+                $this->load->view('vw_reservaMapa');
+            } else {
+                $this->load->view('vw_reserva');
+            }
         } else {
             $this->load->view('vw_login');
         }
     }
-
+    
+    public function cadastroValidacaoGastosViagem(){
+        $this->load->model('md_users');
+        $this->md_users->upViagem();
+        $this->load->view('vw_reserva');
+    }
+    
     public function cadastroValidacaoReserva() {
         $this->load->library('form_validation');
 
@@ -473,7 +487,7 @@ class Home extends CI_Controller {
             $this->load->view('vw_reserva');
         }
     }
-    
+
     public function viagem() {
         if ($this->session->userdata('is_logged_in') == 1) {
             $this->load->view('vw_viagem');
@@ -481,7 +495,7 @@ class Home extends CI_Controller {
             $this->load->view('vw_login');
         }
     }
-    
+
     public function viagemCadastro() {
         if ($this->session->userdata('is_logged_in') == 1) {
             $this->load->view('vw_viagemCadastro');
@@ -489,15 +503,15 @@ class Home extends CI_Controller {
             $this->load->view('vw_login');
         }
     }
-    
-    public function editarViagem(){
-        if($this->session->userdata('is_logged_in')==1){
+
+    public function editarViagem() {
+        if ($this->session->userdata('is_logged_in') == 1) {
             $this->load->view('vw_viagemEditar');
         } else {
             $this->load->view('vw_login');
         }
     }
-    
+
     public function cadastroValidacaoViagem() {
         $this->load->library('form_validation');
 
@@ -511,7 +525,7 @@ class Home extends CI_Controller {
             $this->load->view('vw_viagemCadastro');
         }
     }
-    
+
     public function editarValidacaoViagem() {
         $this->load->library('form_validation');
 
@@ -525,7 +539,7 @@ class Home extends CI_Controller {
             $this->load->view('vw_viagemEditar');
         }
     }
-    
+
     public function excluirViagem() {
         if ($this->session->userdata('is_logged_in') == 1) {
             $this->db->where('id_viagem', $this->input->post('id_viagem'));
@@ -535,25 +549,25 @@ class Home extends CI_Controller {
             $this->load->view('vw_login');
         }
     }
-    
-    public function relatorioCliente(){
-        if($this->session->userdata('is_logged_in')==1){
+
+    public function relatorioCliente() {
+        if ($this->session->userdata('is_logged_in') == 1) {
             $this->load->view('vw_relatorioCliente');
         } else {
             $this->load->view('vw_login');
         }
     }
-    
-    public function relatorioViagem(){
-        if($this->session->userdata('is_logged_in')==1){
+
+    public function relatorioViagem() {
+        if ($this->session->userdata('is_logged_in') == 1) {
             $this->load->view('vw_relatorioViagem');
         } else {
             $this->load->view('vw_login');
         }
     }
-    
-    public function relatorioOnibus(){
-        if($this->session->userdata('is_logged_in')==1){
+
+    public function relatorioOnibus() {
+        if ($this->session->userdata('is_logged_in') == 1) {
             $this->load->view('vw_relatorioOnibus');
         } else {
             $this->load->view('vw_login');

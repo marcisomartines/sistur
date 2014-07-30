@@ -223,6 +223,17 @@ class Md_users extends CI_Model {
         );
         $this->db->insert('tb_reservs', $data);
     }
+    
+    public function upViagem() {
+        $data = array('alimentacao'     => $this->input->post('alimentacao'),
+            'combustivel'               => $this->input->post('combustivel'),
+            'outros'                    => $this->input->post('outros'),
+            'total'                     => $this->input->post('total'),
+            'status'                    => 'F'
+        );
+        $this->db->where('id_tour', $this->input->post('id_tour'));
+        $this->db->update('tb_tour', $data);
+    }
 
     function GetAutocomplete($options = array())
     {

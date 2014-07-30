@@ -18,8 +18,7 @@
                     matchContains: true,
                     selectFirst: false
                 });
-            });
-        </script>
+            });</script>
     </head>
 
     <body>
@@ -281,29 +280,27 @@
                                 </div>
                                 <div class="modal-body">
                                     <?php
-                                    echo form_open('home/cadastroValidacaoReserva');
+                                    echo form_open('home/cadastroValidacaoGastosViagem');
 
                                     echo validation_errors();
 
                                     echo form_label('Combustivel: ');
-                                    echo form_input(['name' => 'cliente', 'id' => 'cliente', 'class' => 'form-control input-sm']);
+                                    echo form_input(['name' => 'combustivel', 'id' => 'combustivel', 'class' => 'form-control input-sm calc']);
                                     echo '<br>';
-                                    
+
                                     echo form_label('Alimentação: ');
-                                    echo form_input(['name' => 'alimentacao', 'id' => 'alimentacao', 'class' => 'form-control input-sm']);
+                                    echo form_input(['name' => 'alimentacao', 'id' => 'alimentacao', 'class' => 'form-control input-sm calc']);
                                     echo '<br>';
                                     echo form_label('Outros: ');
-                                    echo form_input(['name' => 'outros', 'id' => 'outros', 'class' => 'form-control input-sm datepicker']);
+                                    echo form_input(['name' => 'outros', 'id' => 'outros', 'class' => 'form-control input-sm calc']);
                                     echo '<br>';
                                     echo form_label('Total: ');
-                                    echo form_input(['name' => 'total', 'id' => 'total', 'class' => 'form-control input-sm']);
+                                    echo form_input(['name' => 'total', 'id' => 'total', 'class' => 'form-control input-sm result']);
                                     echo '<br>';
                                     echo form_hidden('id_tour', $this->input->post('id_tour'));
                                     echo "<br />";
-                                    echo '<div class="modal-footer">';
                                     echo '<input type="submit" class="btn btn-primary" value="Salvar">';
                                     echo '<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>';
-                                    echo '</div';
                                     echo form_close();
                                     ?>
                                 </div>
@@ -314,16 +311,21 @@
                     <!-- Modal -->
                     <script src="http://localhost/sistur/js/jquery-ui.js"></script>
                     <script src="<?= base_url() ?>js/jquery.autocomplete.js"></script>
+                    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
                     <script type="text/javascript">
-            $().ready(function() {
-                $("#cliente").autocomplete("autoComplete.php", {
-                    width: 260,
-                    matchContains: true,
-                    selectFirst: false
-                });
-            });
-                    </script>
+                    $(document).ready(function() {
+                        //Quando o valor do campo mudar...
+                        $('.calc').change(function() {
+                            var combustivel = parseFloat($('#combustivel').val()) || 0.0;
+                            var alimentacao = parseFloat($('#alimentacao').val()) || 0.0;
+                            var outros = parseFloat($('#outros').val()) || 0.0;
 
+                            var total = alimentacao + combustivel + outros;
+
+                            $('#total').val(total);
+                        });
+                    });
+                    </script>
                 </div>
                 <div id="relatorio" class=" row-fluid">
                     <!--reserva vai ser colocada aqui-->
@@ -342,5 +344,14 @@
         <script src="<?= base_url() ?>js/funcao.js"></script>
         <script src="<?= base_url() ?>js/jquery-ui.js"></script>
         <script src="<?= base_url() ?>js/jquery.autocomplete.js"></script>
+        <script src="<?= base_url() ?>js/jquery.mask.min.js"></script>
+        <script type="text/javascript">
+            $(function() {
+                $('#combustivel').mask('000000000000000.00', {reverse: true});
+                $('#alimentacao').mask('000000000000000.00', {reverse: true});
+                $('#outros').mask('000000000000000.00', {reverse: true});
+                $('#total').mask('000000000000000.00', {reverse: true});
+            });
+        </script>
     </body>
 </html>

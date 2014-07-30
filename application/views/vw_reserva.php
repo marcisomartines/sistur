@@ -87,14 +87,16 @@
                         </ol>
                     </div>
                 </div><!-- /.row -->
-                <div class="controls">
+                 <div class="row col-sm-4">
                     <?php
                     echo form_open('home/reservaMapa');
+                    
+                    echo validation_errors();
                     
                     $query = $this->db->query("SELECT * FROM tb_tour
                                             JOIN tb_viagem ON tb_tour.id_viagem=tb_viagem.id_viagem
                                             WHERE tb_tour.status = 'A' AND tb_tour.tipo='v'");
-                    $viagem[] = '';
+                    //$viagem[] = '';
                     foreach ($query->result() as $vig) {
                         $dataSaida = implode("/", array_reverse(explode("-",$vig->data_saida)));
                         $viagem[$vig->id_tour] = $vig->destino.' - '.$dataSaida;
