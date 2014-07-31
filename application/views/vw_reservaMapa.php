@@ -194,74 +194,210 @@
                                     <div class="table-responsive">
                                         <table class="table table-bordered table-hover table-striped tablesorter">
                                             <tr>
-                                                <td class="success">01</td>
-                                                <td class="success">02</td>
+                                                <td class="success"><?= form_open('home/editarReserva') ?>
+                                                    <input type="hidden" name="nr_poltrona" value="1" />
+                                                    <input type="hidden" name="id_tour" value="<?=$this->input->post('id_tour')?>" />
+                                                    <input type="submit" class="btn btn-success btn-xs pull-right" value="01">
+                                                    </form>
+                                                </td>
+                                                <td class="success"><?= form_open('home/editarReserva') ?>
+                                                    <input type="hidden" name="id_reservs" value="2" />
+                                                    <input type="submit" class="btn btn-success btn-xs pull-right" value="02">
+                                                    </form></td>
                                                 <td rowspan="13" align="center">CORREDOR</td>
-                                                <td class="success">04</td>
-                                                <td class="success">03</td>
+                                                <td class="success"><?= form_open('home/editarReserva') ?>
+                                                    <input type="hidden" name="id_reservs" value="4" />
+                                                    <input type="submit" class="btn btn-success btn-xs pull-right" value="04">
+                                                    </form>
+                                                </td>
+                                                <td class="success"><?= form_open('home/editarReserva') ?>
+                                                    <input type="hidden" name="id_reservs" value="3" />
+                                                    <input type="submit" class="btn btn-success btn-xs pull-right" value="03">
+                                                    </form>
+                                                </td>
                                             </tr>
                                             <tr>
-                                                <td class="success">05</td>
-                                                <td class="success">06</td>
+                                                <td class="success"><?= form_open('home/editarReserva') ?>
+                                                    <input type="hidden" name="id_reservs" value="5" />
+                                                    <input type="submit" class="btn btn-success btn-xs pull-right" value="05">
+                                                    </form></td>
+                                                <td class="success"><?= form_open('home/editarReserva') ?>
+                                                    <input type="hidden" name="id_reservs" value="6" />
+                                                    <input type="submit" class="btn btn-success btn-xs pull-right" value="06">
+                                                    </form></td>
                                                 <td colspan="2" align="center">ESCADA</td>
                                             </tr>
                                             <tr>
-                                                <td class="success">09</td>
-                                                <td class="success">10</td>
-                                                <td class="success">08</td>
-                                                <td class="success">07</td>
+                                                <td class="success"><?= form_open('home/editarReserva') ?>
+                                                    <input type="hidden" name="id_reservs" value="9" />
+                                                    <input type="submit" class="btn btn-success btn-xs pull-right" value="09">
+                                                    </form></td>
+                                                <td class="success"><?= form_open('home/editarReserva') ?>
+                                                    <input type="hidden" name="id_reservs" value="10" />
+                                                    <input type="submit" class="btn btn-success btn-xs pull-right" value="10">
+                                                    </form></td>
+                                                <td class="success"><?= form_open('home/editarReserva') ?>
+                                                    <input type="hidden" name="id_reservs" value="8" />
+                                                    <input type="submit" class="btn btn-success btn-xs pull-right" value="08">
+                                                    </form></td>
+                                                <td class="success"><?= form_open('home/editarReserva') ?>
+                                                    <input type="hidden" name="id_reservs" value="7" />
+                                                    <input type="submit" class="btn btn-success btn-xs pull-right" value="07">
+                                                    </form></td>
                                             </tr>
                                             <tr>
-                                                <td class="success">13</td>
-                                                <td class="success">14</td>
-                                                <td class="success">12</td>
-                                                <td class="success">11</td>
+                                                <td class="success"><?= form_open('home/editarReserva') ?>
+                                                    <input type="hidden" name="id_reservs" value="13" />
+                                                    <input type="submit" class="btn btn-success btn-xs pull-right" value="13">
+                                                    </form></td>
+                                                <td class="success"><?= form_open('home/editarReserva') ?>
+                                                    <input type="hidden" name="id_reservs" value="14" />
+                                                    <input type="submit" class="btn btn-success btn-xs pull-right" value="14">
+                                                    </form></td>
+                                                <td class="success"><?= form_open('home/editarReserva') ?>
+                                                    <input type="hidden" name="id_reservs" value="12" />
+                                                    <input type="submit" class="btn btn-success btn-xs pull-right" value="12">
+                                                    </form></td>
+                                                <td class="success"><?= form_open('home/editarReserva') ?>
+                                                    <input type="hidden" name="id_reservs" value="11" />
+                                                    <input type="submit" class="btn btn-success btn-xs pull-right" value="11">
+                                                    </form></td>
                                             </tr>
                                             <tr>
-                                                <td class="success">17</td>
-                                                <td class="success">18</td>
-                                                <td class="success">16</td>
-                                                <td class="success">15</td>
+                                                <td class="success"><?= form_open('home/editarReserva') ?>
+                                                    <input type="hidden" name="id_reservs" value="17" />
+                                                    <input type="submit" class="btn btn-success btn-xs pull-right" value="17">
+                                                    </form></td>
+                                                <td class="success"><?= form_open('home/editarReserva') ?>
+                                                    <input type="hidden" name="id_reservs" value="18" />
+                                                    <input type="submit" class="btn btn-success btn-xs pull-right" value="18">
+                                                    </form></td>
+                                                <td class="success"><?= form_open('home/editarReserva') ?>
+                                                    <input type="hidden" name="id_reservs" value="16" />
+                                                    <input type="submit" class="btn btn-success btn-xs pull-right" value="16">
+                                                    </form></td>
+                                                <td class="success"><?= form_open('home/editarReserva') ?>
+                                                    <input type="hidden" name="id_reservs" value="15" />
+                                                    <input type="submit" class="btn btn-success btn-xs pull-right" value="15">
+                                                    </form></td>
                                             </tr>
                                             <tr>
-                                                <td class="success">21</td>
-                                                <td class="success">22</td>
-                                                <td class="success">20</td>
-                                                <td class="success">19</td>
+                                                <td class="success"><?= form_open('home/editarReserva') ?>
+                                                    <input type="hidden" name="id_reservs" value="21" />
+                                                    <input type="submit" class="btn btn-success btn-xs pull-right" value="21">
+                                                    </form></td>
+                                                <td class="success"><?= form_open('home/editarReserva') ?>
+                                                    <input type="hidden" name="id_reservs" value="22" />
+                                                    <input type="submit" class="btn btn-success btn-xs pull-right" value="22">
+                                                    </form></td>
+                                                <td class="success"><?= form_open('home/editarReserva') ?>
+                                                    <input type="hidden" name="id_reservs" value="20" />
+                                                    <input type="submit" class="btn btn-success btn-xs pull-right" value="20">
+                                                    </form></td>
+                                                <td class="success"><?= form_open('home/editarReserva') ?>
+                                                    <input type="hidden" name="id_reservs" value="19" />
+                                                    <input type="submit" class="btn btn-success btn-xs pull-right" value="19">
+                                                    </form></td>
                                             </tr>
                                             <tr>
-                                                <td class="success">25</td>
-                                                <td class="success">26</td>
-                                                <td class="success">24</td>
-                                                <td class="success">23</td>
+                                                <td class="success"><?= form_open('home/editarReserva') ?>
+                                                    <input type="hidden" name="id_reservs" value="25" />
+                                                    <input type="submit" class="btn btn-success btn-xs pull-right" value="25">
+                                                    </form></td>
+                                                <td class="success"><?= form_open('home/editarReserva') ?>
+                                                    <input type="hidden" name="id_reservs" value="26" />
+                                                    <input type="submit" class="btn btn-success btn-xs pull-right" value="26">
+                                                    </form></td>
+                                                <td class="success"><?= form_open('home/editarReserva') ?>
+                                                    <input type="hidden" name="id_reservs" value="24" />
+                                                    <input type="submit" class="btn btn-success btn-xs pull-right" value="24">
+                                                    </form></td>
+                                                <td class="success"><?= form_open('home/editarReserva') ?>
+                                                    <input type="hidden" name="id_reservs" value="23" />
+                                                    <input type="submit" class="btn btn-success btn-xs pull-right" value="23">
+                                                    </form></td>
                                             </tr>
                                             <tr>
-                                                <td class="success">29</td>
-                                                <td class="success">30</td>
-                                                <td class="success">28</td>
-                                                <td class="success">27</td>
+                                                <td class="success"><?= form_open('home/editarReserva') ?>
+                                                    <input type="hidden" name="id_reservs" value="29" />
+                                                    <input type="submit" class="btn btn-success btn-xs pull-right" value="29">
+                                                    </form></td>
+                                                <td class="success"><?= form_open('home/editarReserva') ?>
+                                                    <input type="hidden" name="id_reservs" value="30" />
+                                                    <input type="submit" class="btn btn-success btn-xs pull-right" value="30">
+                                                    </form></td>
+                                                <td class="success"><?= form_open('home/editarReserva') ?>
+                                                    <input type="hidden" name="id_reservs" value="01" />
+                                                    <input type="submit" class="btn btn-success btn-xs pull-right" value="28">
+                                                    </form></td>
+                                                <td class="success"><?= form_open('home/editarReserva') ?>
+                                                    <input type="hidden" name="id_reservs" value="01" />
+                                                    <input type="submit" class="btn btn-success btn-xs pull-right" value="27">
+                                                    </form></td>
                                             </tr>
                                             <tr>
-                                                <td class="success">33</td>
-                                                <td class="success">34</td>
-                                                <td class="success">32</td>
-                                                <td class="success">31</td>
+                                                <td class="success"><?= form_open('home/editarReserva') ?>
+                                                    <input type="hidden" name="id_reservs" value="33" />
+                                                    <input type="submit" class="btn btn-success btn-xs pull-right" value="33">
+                                                    </form></td>
+                                                <td class="success"><?= form_open('home/editarReserva') ?>
+                                                    <input type="hidden" name="id_reservs" value="34" />
+                                                    <input type="submit" class="btn btn-success btn-xs pull-right" value="34">
+                                                    </form></td>
+                                                <td class="success"><?= form_open('home/editarReserva') ?>
+                                                    <input type="hidden" name="id_reservs" value="32" />
+                                                    <input type="submit" class="btn btn-success btn-xs pull-right" value="32">
+                                                    </form></td>
+                                                <td class="success"><?= form_open('home/editarReserva') ?>
+                                                    <input type="hidden" name="id_reservs" value="31" />
+                                                    <input type="submit" class="btn btn-success btn-xs pull-right" value="31">
+                                                    </form></td>
                                             </tr>
                                             <tr>
-                                                <td class="success">37</td>
-                                                <td class="success">38</td>
-                                                <td class="success">36</td>
-                                                <td class="success">35</td>
+                                                <td class="success"><?= form_open('home/editarReserva') ?>
+                                                    <input type="hidden" name="id_reservs" value="37" />
+                                                    <input type="submit" class="btn btn-success btn-xs pull-right" value="37">
+                                                    </form></td>
+                                                <td class="success"><?= form_open('home/editarReserva') ?>
+                                                    <input type="hidden" name="id_reservs" value="38" />
+                                                    <input type="submit" class="btn btn-success btn-xs pull-right" value="38">
+                                                    </form></td>
+                                                <td class="success"><?= form_open('home/editarReserva') ?>
+                                                    <input type="hidden" name="id_reservs" value="36" />
+                                                    <input type="submit" class="btn btn-success btn-xs pull-right" value="36">
+                                                    </form></td>
+                                                <td class="success"><?= form_open('home/editarReserva') ?>
+                                                    <input type="hidden" name="id_reservs" value="35" />
+                                                    <input type="submit" class="btn btn-success btn-xs pull-right" value="35">
+                                                    </form></td>
                                             </tr>
                                             <tr>
-                                                <td class="success">41</td>
-                                                <td class="success">42</td>
-                                                <td class="success">40</td>
-                                                <td class="success">39</td>
+                                                <td class="success"><?= form_open('home/editarReserva') ?>
+                                                    <input type="hidden" name="id_reservs" value="41" />
+                                                    <input type="submit" class="btn btn-success btn-xs pull-right" value="41">
+                                                    </form></td>
+                                                <td class="success"><?= form_open('home/editarReserva') ?>
+                                                    <input type="hidden" name="id_reservs" value="42" />
+                                                    <input type="submit" class="btn btn-success btn-xs pull-right" value="42">
+                                                    </form></td>
+                                                <td class="success"><?= form_open('home/editarReserva') ?>
+                                                    <input type="hidden" name="id_reservs" value="40" />
+                                                    <input type="submit" class="btn btn-success btn-xs pull-right" value="40">
+                                                    </form></td>
+                                                <td class="success"><?= form_open('home/editarReserva') ?>
+                                                    <input type="hidden" name="id_reservs" value="39" />
+                                                    <input type="submit" class="btn btn-success btn-xs pull-right" value="39">
+                                                    </form></td>
                                             </tr>
                                             <tr>
-                                                <td class="success">43</td>
-                                                <td class="success">44</td>
+                                                <td class="success"><?= form_open('home/editarReserva') ?>
+                                                    <input type="hidden" name="id_reservs" value="43" />
+                                                    <input type="submit" class="btn btn-success btn-xs pull-right" value="43">
+                                                    </form></td>
+                                                <td class="success"><?= form_open('home/editarReserva') ?>
+                                                    <input type="hidden" name="id_reservs" value="44" />
+                                                    <input type="submit" class="btn btn-success btn-xs pull-right" value="44">
+                                                    </form></td>
                                                 <td colspan="2" align="center">BANHEIRO</td>
                                             </tr>
                                         </table>
