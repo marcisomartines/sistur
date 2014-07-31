@@ -23,7 +23,6 @@ $lusuario = array('class' => 'form-control');
     <body>
 
         <div id="wrapper">
-
             <!-- barra lateral -->
             <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 
@@ -199,7 +198,7 @@ $lusuario = array('class' => 'form-control');
         </script>
         <script type="text/javascript">
             $(function() {
-                $('#preco').mask('000.000.000.000.000,00', {reverse: true});
+                $('#preco').mask('000000000.00', {reverse: true});
             });</script>
     </body>
 </html>

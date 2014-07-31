@@ -59,22 +59,6 @@ class Home extends CI_Controller {
         redirect('home/index');
     }
 
-    public function cadastroValidacaoMesa() {
-        $this->load->library('form_validation');
-
-        $this->form_validation->set_rules('mesa', 'Mesa', 'required|trim');
-        $this->form_validation->set_rules('nrmesa', 'NrMesa', 'required|trim');
-        $this->form_validation->set_rules('senha', 'Senha', 'required|trim');
-
-        if ($this->form_validation->run()) {
-            $this->load->model('model_users');
-            $this->model_users->addMesa();
-            $this->load->view('vw_mesa');
-        } else {
-            $this->load->view('vw_cadastroMesa');
-        }
-    }
-
     public function cadastroValidacaoPessoal() {
         $this->load->library('form_validation');
 
@@ -482,9 +466,9 @@ class Home extends CI_Controller {
         if ($this->form_validation->run()) {
             $this->load->model('md_users');
             $this->md_users->addReserva();
-            $this->load->view('vw_reserva');
+            $this->load->view('vw_reservaMapa');
         } else {
-            $this->load->view('vw_reserva');
+            $this->load->view('vw_reservaMapa');
         }
     }
 
@@ -569,6 +553,14 @@ class Home extends CI_Controller {
     public function relatorioOnibus() {
         if ($this->session->userdata('is_logged_in') == 1) {
             $this->load->view('vw_relatorioOnibus');
+        } else {
+            $this->load->view('vw_login');
+        }
+    }
+    
+    public function listaPassageiros(){
+        if($this->session->userdata('is_logged_in')==1){
+            $this->load->view('vw_listaPassageiros');
         } else {
             $this->load->view('vw_login');
         }

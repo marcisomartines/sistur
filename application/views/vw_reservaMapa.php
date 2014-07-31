@@ -265,7 +265,8 @@
                                                 <td colspan="2" align="center">BANHEIRO</td>
                                             </tr>
                                         </table>
-                                        <button type="button" class="btn btn-primary"><i class="fa fa-list"></i> Lista Passageiros</button> <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal"><i class="fa fa-check"></i> Finalizar Viagem</button><!--Modal para fechar a viagem-->
+                                        <a class="btn btn-primary" href="" onClick="window.open('<?php echo base_url() . "index.php/home/listaPassageiros?id=".$this->input->post('id_tour') ?>','Janela','toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=900,height=800,left=0,top=0'); return false;"><i class="fa fa-list"></i> Lista Passageiros</a>
+                                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal"><i class="fa fa-check"></i> Finalizar Viagem</button><!--Modal para fechar a viagem-->
                                     </div>
                                 </div>
                             </div>
@@ -351,6 +352,7 @@
                 $('#alimentacao').mask('000000000000000.00', {reverse: true});
                 $('#outros').mask('000000000000000.00', {reverse: true});
                 $('#total').mask('000000000000000.00', {reverse: true});
+                $('#desconto').mask('000000000000000.00', {reverse: true});
             });
         </script>
     </body>

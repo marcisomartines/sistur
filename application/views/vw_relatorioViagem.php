@@ -7,11 +7,19 @@
         <meta name="author" content="Marciso Gonzalez Martines">
 
         <title>Pantanal Sul - Turismo</title>
-
         <link href="<?= base_url() ?>css/bootstrap.css" rel="stylesheet">
         <link href="<?= base_url() ?>css/sb-admin.css" rel="stylesheet">
         <link rel="stylesheet" href="<?= base_url() ?>font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.4.3.min.css">
+        <script type="text/javascript">
+            $().ready(function() {
+                $("#course").autocomplete("home/autoComplete", {
+                    width: 260,
+                    matchContains: true,
+                    selectFirst: false
+                });
+            });
+        </script>
     </head>
 
     <body>
@@ -34,10 +42,10 @@
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav side-nav">
                         <li><a href="<?php echo base_url() . "index.php/home/" ?>"><i class="fa fa-dashboard"></i> Geral</a></li>
-                        <li><a href="<?php echo base_url() . "index.php/home/reserva" ?>"><i class="fa fa-ticket"></i> Reserva</a></li>
+                        <li class="active"><a href="<?php echo base_url() . "index.php/home/reserva" ?>"><i class="fa fa-ticket"></i> Reserva</a></li>
                         <li><a href="<?php echo base_url() . "index.php/home/cliente" ?>"><i class="fa fa-users "></i> Cliente</a></li>
                         <li><a href="<?php echo base_url() . "index.php/home/agenda" ?>"><i class="fa fa-calendar"></i> Agendamento</a></li>
-                        <li class="active"><a href="<?php echo base_url() . "index.php/home/onibus" ?>"><i class="fa fa-truck"></i> Ônibus</a></li>
+                        <li><a href="<?php echo base_url() . "index.php/home/onibus" ?>"><i class="fa fa-truck"></i> Ônibus</a></li>
                         <li><a href="<?php echo base_url() . "index.php/home/viagem" ?>"><i class="fa fa-tasks"></i> Viagem</a></li>
                         <li><a href="<?php echo base_url() . "index.php/home/motorista" ?>"><i class="fa fa-car"></i> Motorista</a></li>
                         <li><a href="<?php echo base_url() . "index.php/home/usuario" ?>"><i class="fa fa-user"></i> Usuário</a></li>
@@ -73,50 +81,35 @@
             <div id="page-wrapper">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1>Ônibus <small>Listagem</small></h1>
-                        <ol class="breadcrumb">
-                            <li class="active"><i class="fa fa-truck"></i> Ônibus</li>
-                            <li class="pull-right"><a href="<?php echo base_url() . "index.php/home/onibusCadastro" ?>" class="btn btn-primary btn-xs" role="button">Novo Ônibus</a></li>
-                        </ol>
+                        <h1>Relatório <small>Viagem</small></h1>
+<!--                        <ol class="breadcrumb">
+                            <li class="active"><i class="fa fa-ticket"></i> Reserva</li>
+                        </ol>-->
                     </div>
                 </div><!-- /.row -->
-
-                <table class="table tablesorter">
-                    <thead>
-                        <tr>
-                            <th>Modelo <i class="fa fa-sort"></i></th>
-                            <th>Código <i class="fa fa-sort"></i></th>
-                            <th>N° Poltronas <i class="fa fa-sort"></i></th>
-                            <th>Placa <i class="fa fa-sort"></i></th>
-                            <th>Situação <i class="fa fa-sort"></i></th>
-                            <th align="center">Ação</th>
-                        </tr>
-                    </thead>
+                 <div class="row col-sm-4">
                     <?php
-                    $query = $this->db->get('tb_cars');
-                    foreach ($query->result() as $row) {
-                        ?>
-                        <tr>
-                            <td><?= $row->modelo ?></td>
-                            <td><?= $row->codigo ?></td>
-                            <td><?= $row->nr_poltrona ?></td>
-                            <td><?= $row->placa ?></td>
-                            <td><?= ($row->status == 'A' ? "Ativo" : "Inativo") ?></td>
-                            <td width='180px'><?= form_open('home/excluirOnibus') ?>
-                                <input type="hidden" name="id_cars" value="<?= $row->id_cars ?>" />
-                                <input type="submit" class="btn btn-danger btn-xs pull-right" value="Excluir">
-                                </form><?= form_open('home/editarOnibus') ?>
-                                <input type="hidden" name="id_cars" value="<?= $row->id_cars ?>" />
-                                <input type="submit" class="btn btn-warning btn-xs pull-right" value="Editar">
-                                </form><?= form_open('home/detalharOnibus') ?>
-                                <input type="hidden" name="id_cars" value="<?= $row->id_cars ?>" />
-                                <input type="submit" class="btn btn-success btn-xs pull-right" value="Detalhar">
-                                </form></td>
-                        </tr>
-                        <?php
-                    }
+                    echo form_open('home/relatorioViagem');
+                    
+                    echo validation_errors();
+                    
+                    echo form_label('Periodo Inicial: ');
+                    echo form_input();
+                    echo form_label('Periodo Final: ');
+                    echo form_input();
+                    echo form_label('Destino: ');
+                    echo form_input();
+                    echo form_label('Situação: ');
+                    
+                    echo "<br />";
+                    echo '<input type="submit" class="btn btn-primary" value="OK">';
+                    echo "<br />";
+                    echo form_close();
                     ?>
-                </table>
+                </div>
+                <div id="relatorio" class=" row-fluid">
+                    <!--reserva vai ser colocada aqui-->
+                </div>
             </div><!-- /#page-wrapper -->
         </div><!-- /#wrapper -->
         <!-- JavaScript -->
@@ -128,5 +121,8 @@
         <script src="<?= base_url() ?>js/morris/chart-data-morris.js"></script>
         <script src="<?= base_url() ?>js/tablesorter/jquery.tablesorter.js"></script>
         <script src="<?= base_url() ?>js/tablesorter/tables.js"></script>
+        <script src="<?= base_url() ?>js/funcao.js"></script>
+        <script src="<?= base_url() ?>js/jquery-ui.js"></script>
+        <script src="<?= base_url() ?>js/jquery.autocomplete.js"></script>
     </body>
 </html>
