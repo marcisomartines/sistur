@@ -450,6 +450,24 @@ class Home extends CI_Controller {
         }
     }
     
+    public function editarReserva() {
+        if ($this->session->userdata('is_logged_in') == 1) {
+            $this->load->view('vw_reservaEditar');
+        } else {
+            $this->load->view('vw_login');
+        }
+    }
+    
+    public function excluirReserva() {
+        if ($this->session->userdata('is_logged_in') == 1) {
+            $this->db->where('id_reservs', $this->input->post('id_reservs'));
+            $this->db->delete('tb_reservs');
+            $this->load->view('vw_reservaMapa');
+        } else {
+            $this->load->view('vw_login');
+        }
+    }
+    
     public function cadastroValidacaoGastosViagem(){
         $this->load->model('md_users');
         $this->md_users->upViagem();
