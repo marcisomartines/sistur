@@ -115,7 +115,7 @@ class Md_users extends CI_Model {
         $data = array('id_client'   => $this->input->post('id_client'),
             'id_car'                => $this->input->post('id_car'),
             'id_user'               => $this->input->post('id_user'),
-            'destino'               => $this->input->post('destino'),
+            'id_viagem'             => $this->input->post('id_viagem'),
             'data_saida'            => $data_saida,
             'data_retorno'          => $data_retorno,
             'id_motorista'          => $this->input->post('id_motorista'),
@@ -233,14 +233,6 @@ class Md_users extends CI_Model {
         );
         $this->db->where('id_tour', $this->input->post('id_tour'));
         $this->db->update('tb_tour', $data);
-    }
-
-    function GetAutocomplete($options = array())
-    {
-        $this->db->select('nome');
-        $this->db->like('nome', $options['keyword'], 'after');
-        $query = $this->db->get('tb_clients');
-        return $query->result();
     }
     
     public function addViagem() {

@@ -339,8 +339,7 @@ class Home extends CI_Controller {
 
     public function editarValidacaoAgenda() {
         $this->load->library('form_validation');
-
-//        $this->form_validation->set_rules('id_client', 'id_client', 'required|trim');//cliente
+        
         $this->form_validation->set_rules('id_car', 'id_car', 'required|trim'); //onibus
         $this->form_validation->set_rules('tipo', 'tipo', 'required|trim'); //tipo de agendamento
 
