@@ -193,17 +193,52 @@
                                 <div class="panel-body">
                                     <div class="table-responsive">
                                         <table class="table table-bordered table-hover table-striped tablesorter">
-                                            <tr>
+                                            <tr><!--COMECO DA VERIFICACAO--><?php
+                                            $this->db->where('id_tour',$this->input->post('id_tour'));
+                                            $this->db->where('nr_poltrona',1);
+                                            $query=$this->db->get('tb_reservs');
+                                            if($query->num_rows()>0){
+                                            ?>
+                                                <td class="danger"><?= form_open('home/editarReserva') ?>
+                                                    <input type="hidden" name="nr_poltrona" value="1" />
+                                                    <input type="hidden" name="id_tour" value="<?=$this->input->post('id_tour')?>" />
+                                                    <input type="submit" class="btn btn-danger btn-xs pull-right" value="01">
+                                                    </form>
+                                                </td>
+                                                <?php
+                                            } else {
+                                                ?>
                                                 <td class="success"><?= form_open('home/editarReserva') ?>
                                                     <input type="hidden" name="nr_poltrona" value="1" />
                                                     <input type="hidden" name="id_tour" value="<?=$this->input->post('id_tour')?>" />
                                                     <input type="submit" class="btn btn-success btn-xs pull-right" value="01">
                                                     </form>
                                                 </td>
+                                            <?php  }?>
+                                                <!--FIM DA VERIFICACAO-->
+                                                <!--COMECO DA VERIFICACAO--><?php
+                                            $this->db->where('id_tour',$this->input->post('id_tour'));
+                                            $this->db->where('nr_poltrona',2);
+                                            $query=$this->db->get('tb_reservs');
+                                            if($query->num_rows()>0){
+                                            ?>
+                                                <td class="danger"><?= form_open('home/editarReserva') ?>
+                                                    <input type="hidden" name="nr_poltrona" value="2" />
+                                                    <input type="hidden" name="id_tour" value="<?=$this->input->post('id_tour')?>" />
+                                                    <input type="submit" class="btn btn-danger btn-xs pull-right" value="02">
+                                                    </form>
+                                                </td>
+                                                <?php
+                                            } else {
+                                                ?>
                                                 <td class="success"><?= form_open('home/editarReserva') ?>
-                                                    <input type="hidden" name="id_reservs" value="2" />
+                                                    <input type="hidden" name="nr_poltrona" value="2" />
+                                                    <input type="hidden" name="id_tour" value="<?=$this->input->post('id_tour')?>" />
                                                     <input type="submit" class="btn btn-success btn-xs pull-right" value="02">
-                                                    </form></td>
+                                                    </form>
+                                                </td>
+                                            <?php  }?>
+                                                <!--FIM DA VERIFICACAO-->
                                                 <td rowspan="13" align="center">CORREDOR</td>
                                                 <td class="success"><?= form_open('home/editarReserva') ?>
                                                     <input type="hidden" name="id_reservs" value="4" />
