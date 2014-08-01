@@ -92,7 +92,7 @@ $lusuario = array('class' => 'form-control');
                     echo validation_errors();
 
                     echo form_label('Destino: ');
-                    echo form_input(['name' => 'destino', 'id' => 'destino', 'class' => 'form-control input-sm']);
+                    echo form_input(['name' => 'destino', 'id' => 'destino', 'class' => 'form-control input-sm']).'<b class="warning">*</b>';
                     echo "<br />";
                     echo '<input type="submit" class="btn btn-primary" value="Cadastrar">';
                     //echo '<p>';

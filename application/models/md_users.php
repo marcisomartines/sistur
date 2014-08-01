@@ -94,6 +94,7 @@ class Md_users extends CI_Model {
     public function addAgenda() {
         $data_saida = implode("-", array_reverse(explode("/", $this->input->post('data_saida'))));
         $data_retorno = implode("-", array_reverse(explode("/", $this->input->post('data_retorno'))));
+        $preco=str_replace(',','.',$this->input->post('preco'));
         $data = array('id_client'   => $this->input->post('id_client'),
             'id_car'                => $this->input->post('id_car'),
             'id_user'               => $this->input->post('id_user'),
@@ -101,7 +102,7 @@ class Md_users extends CI_Model {
             'data_saida'            => $data_saida,
             'data_retorno'          => $data_retorno,
             'id_motorista'          => $this->input->post('id_motorista'),
-            'preco'                 => $this->input->post('preco'),
+            'preco'                 => $preco,
             'tipo'                  => $this->input->post('tipo'),
             'observacao'            => $this->input->post('observacao'),
             'status'                => 'A'
@@ -112,6 +113,8 @@ class Md_users extends CI_Model {
     public function editarAgenda() {
         $data_saida = implode("-", array_reverse(explode("/", $this->input->post('data_saida'))));
         $data_retorno = implode("-", array_reverse(explode("/", $this->input->post('data_retorno'))));
+        $preco=$this->input->post('preco');
+        $preco=str_replace(',','.',$preco);
         $data = array('id_client'   => $this->input->post('id_client'),
             'id_car'                => $this->input->post('id_car'),
             'id_user'               => $this->input->post('id_user'),
@@ -119,7 +122,7 @@ class Md_users extends CI_Model {
             'data_saida'            => $data_saida,
             'data_retorno'          => $data_retorno,
             'id_motorista'          => $this->input->post('id_motorista'),
-            'preco'                 => $this->input->post('preco'),
+            'preco'                 => $preco,
             'tipo'                  => $this->input->post('tipo'),
             'observacao'            => $this->input->post('observacao'),
             'status'                => $this->input->post('status')

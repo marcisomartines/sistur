@@ -79,20 +79,6 @@ class Home extends CI_Controller {
         }
     }
 
-    public function cadastroValidacaoCategoria() {
-        $this->load->library('form_validation');
-
-        $this->form_validation->set_rules('nome', 'Categoria', 'required|trim');
-
-        if ($this->form_validation->run()) {
-            $this->load->model('md_users');
-            $this->md_users->addCategoria();
-            $this->load->view('vw_categoria');
-        } else {
-            $this->load->view('vw_cadastroCategoria');
-        }
-    }
-
     public function usuario() {
         if ($this->session->userdata('is_logged_in') == 1) {
             $this->load->view("vw_usuario");
@@ -201,7 +187,6 @@ class Home extends CI_Controller {
         $this->load->library('form_validation');
 
         $this->form_validation->set_rules('nome', 'nome', 'required|trim');
-        $this->form_validation->set_rules('telefone', 'telefone', 'required|trim');
 
         if ($this->form_validation->run()) {
             $this->load->model('md_users');
@@ -316,7 +301,6 @@ class Home extends CI_Controller {
     public function cadastroValidacaoAgenda() {
         $this->load->library('form_validation');
 
-//        $this->form_validation->set_rules('id_client', 'id_client', 'required|trim');//cliente
         $this->form_validation->set_rules('id_car', 'id_car', 'required|trim'); //onibus
         $this->form_validation->set_rules('tipo', 'tipo', 'required|trim'); //tipo de agendamento
 
