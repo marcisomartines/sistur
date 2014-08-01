@@ -95,21 +95,24 @@ $lusuario = array('class' => 'form-control');
                     <h1>Editar Usuário</h1>
                     <?php
                     echo form_open('home/editarValidacaoReserva', $form);
-                    //$this->db->where('id_reservs', $this->input->post('id_reservs'));
-                    $this->db->select('*');
+
+                    $this->db->select('tb_reservs.id_reservs , tb_reservs.nr_poltrona,tb_reservs.tipo,tb_reservs.id_tour,
+                                        tb_reservs.id_client,tb_reservs.loc_embarque as embarquer,tb_reservs.desconto,
+                                        tb_clients.nome, tb_clients.loc_embarque as embarquec');
                     $this->db->from('tb_reservs');
                     $this->db->join('tb_clients', 'tb_clients.id_clients=tb_reservs.id_client');
                     $this->db->where('tb_reservs.id_tour', $this->input->post('id_tour'));
                     $this->db->where('tb_reservs.nr_poltrona', $this->input->post('nr_poltrona'));
                     $query = $this->db->get();
-                    foreach ($query->result_array() as $row) {
+                    
+                    foreach ($query->result() as $row) {
                         $reservaDados = $row;
                     }
-                    echo print_r($query->result());
+
                     echo validation_errors();
 
                     echo form_label('Cliente: ', 'cliente');
-                    echo form_input(['name' => 'cliente', 'id' => 'cliente', 'class' => 'form-control input-sm', 'value' => $reservaDados['nome']]);
+                    echo form_input(['name' => 'cliente', 'id' => 'cliente', 'class' => 'form-control input-sm', 'value' => $reservaDados->nome]);
                     echo '<br>';
                     $opcao = array(
                         'i' => 'Somente Ida',
@@ -117,25 +120,28 @@ $lusuario = array('class' => 'form-control');
                         'd' => 'Ida/Volta'
                     );
                     echo form_label('Tipo: ');
-                    echo form_dropdown('tipo', $opcao, $reservaDados['tipo'], 'class=form-control');
+                    echo form_dropdown('tipo', $opcao, $reservaDados->tipo, 'class=form-control');
                     echo '<br>';
                     echo form_label('Desconto: ');
-                    echo form_input(['name' => 'desconto', 'id' => 'desconto', 'class' => 'form-control input-sm', 'value' => $reservaDados['email']]);
+                    echo form_input(['name' => 'desconto', 'id' => 'desconto', 'class' => 'form-control input-sm', 'value' => $reservaDados->desconto]);
                     echo '<br>';
                     echo form_label('Local de Embarque: ');
-                    echo form_input(['name' => 'loc_embarque', 'id' => 'loc_embarque', 'class' => 'form-control input-sm', 'value' => $reservaDados['loc_embarque']]);
+                    if(!empty($reservaDados->embarquer)){
+                        echo form_input(['name' => 'loc_embarque', 'id' => 'loc_embarque', 'class' => 'form-control input-sm', 'value' => $reservaDados->embarquer]);
+                    }else{
+                        echo form_input(['name' => 'loc_embarque', 'id' => 'loc_embarque', 'class' => 'form-control input-sm', 'value' => $reservaDados->embarquec]);
+                    }
                     echo '<br>';
                     echo form_label('Nr. Poltrona: ');
-                    echo form_input(['name' => 'nr_poltrona', 'id' => 'nr_poltrona', 'class' => 'form-control input-sm', 'value' => $reservaDados['nr_poltrona']]);
+                    echo form_input(['name' => 'nr_poltrona', 'id' => 'nr_poltrona', 'class' => 'form-control input-sm', 'value' => $reservaDados->nr_poltrona]);
 
                     echo form_hidden('id_reservs', $this->input->post('id_reservs'));
 
                     echo "<br>";
                     echo '<input type="submit" class="btn btn-primary" value="Editar">';
                     echo form_close();
-                    ?>
-                    <?= form_open('home/excluirReserva') ?>
-                    <input type="hidden" name="id_reservs" value="<?= $reservaDados['id_reservs'] ?>" />
+                    echo form_open('home/excluirReserva') ?>
+                    <input type="hidden" name="id_reservs" value="<?= $reservaDados->id_reservs ?>" />
                     <input type="submit" class="btn btn-danger" value="Excluir">
                     </form>
                     <!--Fim da Panel verde-->
