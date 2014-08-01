@@ -51,12 +51,17 @@
                         </tr>
                     </thead>
                     <?php
+                    $query = $this->db->query("SELECT tb_reservs.nr_poltrona,tb_clients.nome,tb_clients.celular,tb_clients.loc_embarque as embarquec, tb_reservs.loc_embarque as embarquer
+                                                FROM tb_reservs
+                                                JOIN tb_tour on tb_tour.id_tour=tb_reservs.id_tour
+                                                JOIN tb_clients on tb_clients.id_clients=tb_reservs.id_client
+                                                JOIN tb_cars on tb_tour.id_car=tb_cars.id_cars
+                                                WHERE tb_reservs.id_tour=".$_GET['id']." ORDER BY tb_reservs.nr_poltrona");
                     foreach ($query->result() as $row) {
-                        $data_nascimento = implode("/", array_reverse(explode("-", $row->data_nascimento)));
                         ?>
                         <tr>
                             <td><?= $row->nr_poltrona ?></td>
-                            <td><?= $row->nome ?> / <?= $row->celular ?> / <?= $row->loc_embarque ?></td>
+                            <td><?= $row->nome ?> / <?= $row->celular ?> / <?php if(!empty($row->embarquer)) echo $row->embarquer; else echo $row->embarquec ?></td>
                         </tr>
                         <?php
                     }

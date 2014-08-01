@@ -458,22 +458,6 @@ class Home extends CI_Controller {
         }
     }
     
-    public function excluirReserva() {
-        if ($this->session->userdata('is_logged_in') == 1) {
-            $this->db->where('id_reservs', $this->input->post('id_reservs'));
-            $this->db->delete('tb_reservs');
-            $this->load->view('vw_reservaMapa');
-        } else {
-            $this->load->view('vw_login');
-        }
-    }
-    
-    public function cadastroValidacaoGastosViagem(){
-        $this->load->model('md_users');
-        $this->md_users->upViagem();
-        $this->load->view('vw_reserva');
-    }
-    
     public function cadastroValidacaoReserva() {
         $this->load->library('form_validation');
 
@@ -487,6 +471,32 @@ class Home extends CI_Controller {
         } else {
             $this->load->view('vw_reservaMapa');
         }
+    }
+    
+    public function editarValidacaoReserva() {
+         if ($this->session->userdata('is_logged_in') == 1) {
+            $this->load->model('md_users');
+            $this->md_users->editarReserva();
+            $this->load->view('vw_reserva');
+        }else {
+            $this->load->view('vw_login');
+        }
+    }
+    
+    public function excluirReserva() {
+        if ($this->session->userdata('is_logged_in') == 1) {
+            $this->db->where('id_reservs', $this->input->post('id_reservs'));
+            $this->db->delete('tb_reservs');
+            $this->load->view('vw_reserva');
+        } else {
+            $this->load->view('vw_login');
+        }
+    }
+    
+    public function cadastroValidacaoGastosViagem(){
+        $this->load->model('md_users');
+        $this->md_users->upViagem();
+        $this->load->view('vw_reserva');
     }
 
     public function viagem() {

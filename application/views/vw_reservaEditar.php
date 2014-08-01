@@ -126,11 +126,7 @@ $lusuario = array('class' => 'form-control');
                     echo form_input(['name' => 'desconto', 'id' => 'desconto', 'class' => 'form-control input-sm', 'value' => $reservaDados->desconto]);
                     echo '<br>';
                     echo form_label('Local de Embarque: ');
-                    if(!empty($reservaDados->embarquer)){
-                        echo form_input(['name' => 'loc_embarque', 'id' => 'loc_embarque', 'class' => 'form-control input-sm', 'value' => $reservaDados->embarquer]);
-                    }else{
-                        echo form_input(['name' => 'loc_embarque', 'id' => 'loc_embarque', 'class' => 'form-control input-sm', 'value' => $reservaDados->embarquec]);
-                    }
+                    echo form_input(['name' => 'loc_embarque', 'id' => 'loc_embarque', 'class' => 'form-control input-sm', 'value' => $reservaDados->embarquer]);
                     echo '<br>';
                     echo form_label('Nr. Poltrona: ');
                     echo form_input(['name' => 'nr_poltrona', 'id' => 'nr_poltrona', 'class' => 'form-control input-sm', 'value' => $reservaDados->nr_poltrona]);

@@ -224,6 +224,16 @@ class Md_users extends CI_Model {
         $this->db->insert('tb_reservs', $data);
     }
     
+    public function editarReserva() {
+        $data = array('id_client'   => $this->input->post('cliente'),
+            'tipo'                  => $this->input->post('tipo'),
+            'desconto'              => $this->input->post('desconto'),
+            'loc_embarque'          => $this->input->post('loc_embarque')
+        );
+        $this->db->where('id_reservs', $this->input->post('id_reservs'));
+        $this->db->update('tb_reservs', $data);
+    }
+    
     public function upViagem() {
         $data = array('alimentacao'     => $this->input->post('alimentacao'),
             'combustivel'               => $this->input->post('combustivel'),
