@@ -1,3 +1,8 @@
+<?php
+$form = array('id' => 'form-login', 'class' => 'form-horizontal', 'role' => 'form');
+$usuario = array('name' => 'nome', 'id' => 'nome', 'class' => 'form-control');
+$lusuario = array('class' => 'form-control');
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -93,9 +98,9 @@
                     //$this->db->where('id_reservs', $this->input->post('id_reservs'));
                     $this->db->select('*');
                     $this->db->from('tb_reservs');
-                    $this->db->join('tb_clients','tb_clients.id_clients=tb_reservs.id_client');
-                    $this->db->where('tb_reservs.id_tour',$this->input->post('id_tour'));
-                    $this->db->where('tb_reservs.nr_poltrona',$this->input->post('nr_poltrona'));
+                    $this->db->join('tb_clients', 'tb_clients.id_clients=tb_reservs.id_client');
+                    $this->db->where('tb_reservs.id_tour', $this->input->post('id_tour'));
+                    $this->db->where('tb_reservs.nr_poltrona', $this->input->post('nr_poltrona'));
                     $query = $this->db->get();
                     foreach ($query->result_array() as $row) {
                         $reservaDados = $row;
