@@ -104,10 +104,10 @@ $lusuario = array('class' => 'form-control');
                     echo form_password(['name' => 'senha', 'id' => 'senha', 'class' => 'form-control input-sm']);
                     echo '<br>';
                     echo form_label('Telefone: ');
-                    echo form_input(['name' => 'telefone', 'id' => 'telefone', 'class' => 'form-control input-sm']);
+                    echo form_input(['name' => 'telefone', 'id' => 'telefone', 'class' => 'form-control input-sm','value'=>'67 ']);
                     echo '<br>';
                     echo form_label('Celular: ');
-                    echo form_input(['name' => 'celular', 'id' => 'celular', 'class' => 'form-control input-sm']);
+                    echo form_input(['name' => 'celular', 'id' => 'celular', 'class' => 'form-control input-sm','value'=>'67 ']);
 
                     echo "<br />";
                     echo '<input type="submit" class="btn btn-primary" value="Cadastrar">';
@@ -130,5 +130,13 @@ $lusuario = array('class' => 'form-control');
         <script src="<?= base_url() ?>js/morris/chart-data-morris.js"></script>
         <script src="<?= base_url() ?>js/tablesorter/jquery.tablesorter.js"></script>
         <script src="<?= base_url() ?>js/tablesorter/tables.js"></script>
+        <script src="<?= base_url() ?>js/jquery.mask.min.js"></script>
+        <script src="<?= base_url() ?>js/jquery-ui.js"></script>
+        <script type="text/javascript">
+            $(function() {
+                $('#telefone').mask('(00)0000-0000', {placeholder: "(__)____-____"});
+                $('#celular').mask('(00)0000-0000', {placeholder: "(__)____-____"});
+            });
+        </script>
     </body>
 </html>
