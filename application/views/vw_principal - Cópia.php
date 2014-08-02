@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -14,8 +15,11 @@
         <link rel="stylesheet" href="<?= base_url() ?>font-awesome/css/font-awesome.css">
         <link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.4.3.min.css">
     </head>
+
     <body>
+
         <div id="wrapper">
+
             <!-- barra lateral -->
             <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 
@@ -75,12 +79,13 @@
                         <ol class="breadcrumb">
                             <li class="active"><i class="fa fa-dashboard"></i> Informações gerais</li>
                         </ol>
-<!--                        <div class="alert alert-success alert-dismissable">Usar essa div para mostra alarmes, pedidos e chamados de garçom
+                        <div class="alert alert-success alert-dismissable"><!--Usar essa div para mostra alarmes, pedidos e chamados de garçom-->
                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                             Welcome to SB Admin by <a class="alert-link" href="http://startbootstrap.com">Start Bootstrap</a>! Feel free to use this template for your admin needs! We are using a few different plugins to handle the dynamic tables and charts, so make sure you check out the necessary documentation links provided.
-                        </div>-->
+                        </div>
                     </div>
                 </div><!-- /.row -->
+
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="panel panel-primary">
@@ -89,33 +94,26 @@
                             </div>
                             <div class="panel-body">
                                 <div class="list-group">
-                                    <?php
-                                    $this->db->select('*');
-                                    $this->db->from('tb_tour');
-                                    $this->db->join('tb_cars', 'tb_cars.id_cars=tb_tour.id_car');
-                                    $this->db->join('tb_viagem', 'tb_viagem.id_viagem=tb_tour.id_viagem');
-                                    $this->db->where('tipo', 'v');
-                                    $this->db->where('tb_tour.status', 'A');
-                                    $query = $this->db->get();
-                                    foreach ($query->result() as $row) {
-                                        $this->db->where('id_tour', $row->id_tour);
-                                        $this->db->from('tb_reservs');
-                                        $reserva = $this->db->count_all_results();
-                                        $data_saida = implode("/", array_reverse(explode("-", $row->data_saida)));
-                                        ?>
-                                        <a href="#" class="list-group-item">
-                                            <i class="fa fa-calendar"></i> <?= $row->destino ?> - <?= $data_saida ?>
-                                            <?php
-                                            if ($row->nr_poltrona - $reserva > 0) {
-                                                echo '<span class="label label-success"> Disponivel</span>';
-                                            } else {
-                                                echo '<span class="label label-danger"> Esgotado</span>';
-                                            }
-                                            ?>
-                                        </a>
+                                    <a href="#" class="list-group-item">
                                         <?php
-                                    }
-                                    ?>
+                                        $this->db->where('id_tour', 4);
+                                        $this->db->from('tb_reservs');
+                                        echo $this->db->count_all_results();
+                                        ?>
+                                        <i class="fa fa-calendar"></i> Viagem 1 Saida - 21/06/2014
+                                        <span class="label label-success"> Disponivel</span>
+                                    </a>
+                                    <a href="#" class="list-group-item">
+                                        <i class="fa fa-calendar"></i> Viagem 2 Saida - 22/06/2014
+                                        <span class="label label-danger"> Esgotado</span>
+                                    </a>
+                                    <a href="#" class="list-group-item">
+                                        <i class="fa fa-truck"></i> Onibus 1
+                                        <span class="label label-warning"> Fretado</span>
+                                    </a>
+                                    <a href="#" class="list-group-item">
+                                        <i class="fa fa-truck"></i> Onibus 1
+                                        <span class="label label-warning"> Fretado</span>
                                     </a>
                                 </div>
                             </div>
