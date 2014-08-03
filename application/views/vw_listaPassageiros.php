@@ -15,60 +15,63 @@
     </head>
     <body>
 
-<!--        <div id="wrapper">-->
-            <div id="page-wrapper">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <table>
-                            <tr>
-                                <?php
-                                $query = $this->db->query("SELECT * FROM tb_reservs
+        <!--        <div id="wrapper">-->
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <table>
+                        <tr>
+                            <?php
+                            $query = $this->db->query("SELECT * FROM tb_reservs
                                                 JOIN tb_tour on tb_tour.id_tour=tb_reservs.id_tour
                                                 JOIN tb_clients on tb_clients.id_clients=tb_reservs.id_client
                                                 JOIN tb_cars on tb_tour.id_car=tb_cars.id_cars
-                                                WHERE tb_reservs.id_tour=".$_GET['id']." ORDER BY tb_reservs.nr_poltrona");
+                                                WHERE tb_reservs.id_tour=" . $_GET['id'] . " ORDER BY tb_reservs.nr_poltrona");
+                            if ($query->num_rows() > 0) {
                                 foreach ($query->result() as $row) {
-                                    $result=$row;
+                                    $result = $row;
                                 }
                                 $data_saida = implode("/", array_reverse(explode("-", $result->data_saida)));
-                                ?>
-                                <td><img src="<?=base_url()?>img/logo_relatorio.png"></td>
-                                <td>Pantanal Sul Turismo (67) 3351-2520 - Campo Grande, MS <br>
-                                    Destino: <small><?=$result->destino_ultv?></small> - Data de Saída: <small><?=$data_saida?></small><br>
-                                    Onibus: <small><?=$result->modelo?></small><br>
-                                    Assitanura Responsavel:________________________
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </div><!-- /.row -->
-
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th width="75px">Nr.</th>
-                            <th>Informaçoes</th>                          
+                            }
+                            ?>
+                            <td><img src="<?= base_url() ?>img/logo_relatorio.png"></td>
+                            <td>Pantanal Sul Turismo (67) 3351-2520 - Campo Grande, MS <br>
+                                Destino: <small><?php if (!empty($result->destino_ultv)) echo $result->destino_ultv; ?></small> - Data de Saída: <small><?php if (!empty($data_saida)) echo $data_saida; ?></small><br>
+                                Onibus: <small><?php if (!empty($result->modelo)) echo $result->modelo; ?></small><br>
+                                Assitanura Responsavel:________________________
+                            </td>
                         </tr>
-                    </thead>
-                    <?php
-                    $query = $this->db->query("SELECT tb_reservs.nr_poltrona,tb_clients.nome,tb_clients.celular,tb_clients.loc_embarque as embarquec, tb_reservs.loc_embarque as embarquer
+                    </table>
+                </div>
+            </div><!-- /.row -->
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th width="75px">Nr.</th>
+                        <th>Informaçoes</th>                          
+                    </tr>
+                </thead>
+                <?php
+                $query = $this->db->query("SELECT tb_reservs.nr_poltrona,tb_clients.nome,tb_clients.celular,tb_clients.loc_embarque as embarquec, tb_reservs.loc_embarque as embarquer
                                                 FROM tb_reservs
                                                 JOIN tb_tour on tb_tour.id_tour=tb_reservs.id_tour
                                                 JOIN tb_clients on tb_clients.id_clients=tb_reservs.id_client
                                                 JOIN tb_cars on tb_tour.id_car=tb_cars.id_cars
-                                                WHERE tb_reservs.id_tour=".$_GET['id']." ORDER BY tb_reservs.nr_poltrona");
-                    foreach ($query->result() as $row) {
-                        ?>
-                        <tr>
-                            <td><?= $row->nr_poltrona ?></td>
-                            <td><?= $row->nome ?> / <?= $row->celular ?> / <?php if(!empty($row->embarquer)) echo $row->embarquer; else echo $row->embarquec ?></td>
-                        </tr>
-                        <?php
-                    }
+                                                WHERE tb_reservs.id_tour=" . $_GET['id'] . " ORDER BY tb_reservs.nr_poltrona");
+                foreach ($query->result() as $row) {
                     ?>
-                </table>
-            </div><!-- /#page-wrapper -->
-<!--        </div> /#wrapper -->
+                    <tr>
+                        <td><?php if (!empty($row->nr_poltrona)) echo $row->nr_poltrona; ?></td>
+                        <td><?php if (!empty($row->nome)) echo $row->nome; ?> / RG:<?php if (!empty($row->rg)) echo $row->rg; ?> / Cel.:<?php if (!empty($row->celular)) echo $row->celular; ?> / Loc. Embarque:<?php if (!empty($row->embarquer)) echo $row->embarquer;
+                else if (!empty($row->embarquec)) echo $row->embarquec; ?></td>
+                    </tr>
+                    <?php
+                }
+                ?>
+            </table>
+        </div><!-- /#page-wrapper -->
+        <!--        </div> /#wrapper -->
         <!-- JavaScript -->
         <script src="<?= base_url() ?>js/jquery-1.10.2.js"></script>
         <script src="<?= base_url() ?>js/bootstrap.js"></script>

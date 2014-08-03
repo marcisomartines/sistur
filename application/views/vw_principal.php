@@ -94,7 +94,9 @@
                                     $this->db->from('tb_tour');
                                     $this->db->join('tb_cars', 'tb_cars.id_cars=tb_tour.id_car');
                                     $this->db->join('tb_viagem', 'tb_viagem.id_viagem=tb_tour.id_viagem');
-                                    $this->db->where('tipo', 'v');
+                                    $this->db->where('tipo', 'v');//viagem
+                                    $this->db->or_where('tipo', 't');//turismo
+                                    $this->db->or_where('tipo', 'e');//excursão
                                     $this->db->where('tb_tour.status', 'A');
                                     $query = $this->db->get();
                                     foreach ($query->result() as $row) {
@@ -142,7 +144,7 @@
                                             $query = $this->db->query("SELECT * FROM tb_tour
                                             JOIN tb_viagem ON tb_tour.id_viagem=tb_viagem.id_viagem
                                             JOIN tb_cars ON tb_tour.id_car=tb_cars.id_cars
-                                            WHERE tb_tour.status = 'A' AND tb_tour.tipo='v'");
+                                            WHERE tb_tour.status = 'A' AND tb_tour.tipo='v' OR tb_tour.tipo='t' OR tb_tour.tipo='e'");
                                             foreach ($query->result() as $linha) {
                                                 echo "<tr>";
                                                 echo "<td>" . $linha->modelo . "</td>";
