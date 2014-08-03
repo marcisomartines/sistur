@@ -92,7 +92,7 @@ $lusuario = array('class' => 'form-control');
                     </div>
                 </div><!-- /.row -->
                 <div class="row col-sm-4">
-                    <h1>Editar Usuário</h1>
+                    <h1>Editar Reserva</h1>
                     <?php
                     echo form_open('home/editarValidacaoReserva', $form);
 
@@ -104,15 +104,20 @@ $lusuario = array('class' => 'form-control');
                     $this->db->where('tb_reservs.id_tour', $this->input->post('id_tour'));
                     $this->db->where('tb_reservs.nr_poltrona', $this->input->post('nr_poltrona'));
                     $query = $this->db->get();
-                    
+
                     foreach ($query->result() as $row) {
                         $reservaDados = $row;
                     }
 
                     echo validation_errors();
 
-                    echo form_label('Cliente: ', 'cliente');
-                    echo form_input(['name' => 'cliente', 'id' => 'cliente', 'class' => 'form-control input-sm', 'value' => $reservaDados->nome]);
+                    $query = $this->db->get('tb_clients');
+                    $cliente[] = '';
+                    foreach ($query->result() as $clt) {
+                        $cliente[$clt->id_clients] = $clt->nome;
+                    }
+                    echo form_label('Cliente: ');
+                    echo form_dropdown('cliente', $cliente, $reservaDados->id_client, 'class=form-control');
                     echo '<br>';
                     $opcao = array(
                         'i' => 'Somente Ida',
@@ -131,15 +136,24 @@ $lusuario = array('class' => 'form-control');
                     echo form_label('Nr. Poltrona: ');
                     echo form_input(['name' => 'nr_poltrona', 'id' => 'nr_poltrona', 'class' => 'form-control input-sm', 'value' => $reservaDados->nr_poltrona]);
 
-                    echo form_hidden('id_reservs', $this->input->post('id_reservs'));
+                    echo form_hidden('id_reservs', $reservaDados->id_reservs);
 
                     echo "<br>";
+                    echo "<table>";
+                    echo "<tr>";
+                    echo "<td>";
                     echo '<input type="submit" class="btn btn-primary" value="Editar">';
                     echo form_close();
-                    echo form_open('home/excluirReserva') ?>
+                    echo "</td>";
+                    echo "<td>";
+                    echo form_open('home/excluirReserva')
+                    ?>
                     <input type="hidden" name="id_reservs" value="<?= $reservaDados->id_reservs ?>" />
                     <input type="submit" class="btn btn-danger" value="Excluir">
                     </form>
+                    </td>
+                    </tr>
+                    </table>
                     <!--Fim da Panel verde-->
                 </div>
                 <div id="relatorio" class=" row-fluid"><!--mater isso escondido aqui-->
