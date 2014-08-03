@@ -112,7 +112,7 @@ $lusuario = array('class' => 'form-control');
                     $opcao = array(
                         'v' => 'Viagem',
                         'f' => 'Fretamento',
-                        't' => 'Tourismo',
+                        't' => 'Turismo',
                         'e' => 'Escursão',
                     );
                     echo form_label('Tipo: ');

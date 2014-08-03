@@ -95,6 +95,7 @@
                                         <th>Saída <i class="fa fa-sort"></i></th>
                                         <th>Retorno <i class="fa fa-sort"></i></th>
                                         <th>Tipo <i class="fa fa-sort"></i></th>
+                                        <th>Situação <i class="fa fa-sort"></i></th>
                                         <th align="center">Ação</th>
                                     </tr>
                                 </thead>
@@ -119,7 +120,17 @@
                                         <td><?= $destino ?></td>
                                         <td><?= $data_saida ?></td>
                                         <td><?= $data_retorno ?></td>
-                                        <td><?= ($row->status == 'A' ? "Ativo" : "Inativo") ?></td>
+                                        <td><?php
+                                        if($row->tipo=='v')
+                                            echo "Viagem";
+                                        elseif($row->tipo=='f')
+                                            echo "Fretado";
+                                        elseif($row->tipo=='t')
+                                            echo "Turismo";
+                                        elseif($row->tipo=='e')
+                                            echo "Excursão";
+                                        ?></td>
+                                        <td><?= ($row->status == 'A' ? "Ativo" : "Fanalizado") ?></td>
                                         <td width='180px'><?= form_open('home/excluirAgenda') ?>
                                             <input type="hidden" name="id_tour" value="<?= $row->id_tour ?>" />
                                             <input type="submit" class="btn btn-danger btn-xs pull-right" value="Excluir">
