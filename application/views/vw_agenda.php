@@ -121,22 +121,25 @@
                                         <td><?= $data_saida ?></td>
                                         <td><?= $data_retorno ?></td>
                                         <td><?php
-                                        if($row->tipo=='v')
-                                            echo "Viagem";
-                                        elseif($row->tipo=='f')
-                                            echo "Fretado";
-                                        elseif($row->tipo=='t')
-                                            echo "Turismo";
-                                        elseif($row->tipo=='e')
-                                            echo "Excursão";
-                                        ?></td>
-                                        <td><?= ($row->status == 'A' ? "Ativo" : "Fanalizado") ?></td>
+                                            if ($row->tipo == 'v')
+                                                echo "Viagem";
+                                            elseif ($row->tipo == 'f')
+                                                echo "Fretado";
+                                            elseif ($row->tipo == 't')
+                                                echo "Turismo";
+                                            elseif ($row->tipo == 'e')
+                                                echo "Excursão";
+                                            ?></td>
+                                        <td><?= ($row->status == 'A' ? "Ativo" : "Finalizado") ?></td>
                                         <td width='180px'><?= form_open('home/excluirAgenda') ?>
                                             <input type="hidden" name="id_tour" value="<?= $row->id_tour ?>" />
                                             <input type="submit" class="btn btn-danger btn-xs pull-right" value="Excluir">
                                             </form><?= form_open('home/editarAgenda') ?>
                                             <input type="hidden" name="id_tour" value="<?= $row->id_tour ?>" />
                                             <input type="submit" class="btn btn-warning btn-xs pull-right" value="Editar">
+                                            </form><?= form_open('home/detalharAgenda') ?>
+                                            <input type="hidden" name="id_tour" value="<?= $row->id_tour ?>" />
+                                            <input type="submit" class="btn btn-success btn-xs pull-right" value="Detalhar">
                                             </form></td>
                                     </tr>
                                     <?php

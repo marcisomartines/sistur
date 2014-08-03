@@ -297,6 +297,14 @@ class Home extends CI_Controller {
             $this->load->view('vw_login');
         }
     }
+    
+    public function detalharAgenda() {
+        if ($this->session->userdata('is_logged_in') == 1) {
+            $this->load->view('vw_agendaDetalhar');
+        } else {
+            $this->load->view('vw_login');
+        }
+    }
 
     public function cadastroValidacaoAgenda() {
         $this->load->library('form_validation');
