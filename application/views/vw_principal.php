@@ -164,7 +164,7 @@
                                             $query = $this->db->query("SELECT * FROM tb_tour
                                             JOIN tb_viagem ON tb_tour.id_viagem=tb_viagem.id_viagem
                                             JOIN tb_cars ON tb_tour.id_car=tb_cars.id_cars
-                                            WHERE tb_tour.status = 'A' AND tb_tour.tipo='v' OR tb_tour.tipo='t' OR tb_tour.tipo='e'");
+                                            WHERE tb_tour.status = 'A' AND tb_tour.tipo='v' OR tb_tour.tipo='t' OR tb_tour.tipo='e' OR tb_tour.tipo='f'");
                                             foreach ($query->result() as $linha) {
                                                 $data_saida = implode("/", array_reverse(explode("-", $linha->data_saida)));
                                                 $data_retorno = implode("/", array_reverse(explode("-", $linha->data_retorno)));
