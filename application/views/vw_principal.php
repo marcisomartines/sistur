@@ -75,10 +75,10 @@
                         <ol class="breadcrumb">
                             <li class="active"><i class="fa fa-dashboard"></i> Informações gerais</li>
                         </ol>
-<!--                        <div class="alert alert-success alert-dismissable">Usar essa div para mostra alarmes, pedidos e chamados de garçom
-                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                            Welcome to SB Admin by <a class="alert-link" href="http://startbootstrap.com">Start Bootstrap</a>! Feel free to use this template for your admin needs! We are using a few different plugins to handle the dynamic tables and charts, so make sure you check out the necessary documentation links provided.
-                        </div>-->
+                        <!--                        <div class="alert alert-success alert-dismissable">Usar essa div para mostra alarmes, pedidos e chamados de garçom
+                                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                                    Welcome to SB Admin by <a class="alert-link" href="http://startbootstrap.com">Start Bootstrap</a>! Feel free to use this template for your admin needs! We are using a few different plugins to handle the dynamic tables and charts, so make sure you check out the necessary documentation links provided.
+                                                </div>-->
                     </div>
                 </div><!-- /.row -->
                 <div class="row">
@@ -89,14 +89,16 @@
                             </div>
                             <div class="panel-body">
                                 <div class="list-group">
+                                    <table class="table table-bordered table-hover table-striped">
                                     <?php
                                     $this->db->select('*');
                                     $this->db->from('tb_tour');
                                     $this->db->join('tb_cars', 'tb_cars.id_cars=tb_tour.id_car');
                                     $this->db->join('tb_viagem', 'tb_viagem.id_viagem=tb_tour.id_viagem');
-                                    $this->db->where('tipo', 'v');//viagem
-                                    $this->db->or_where('tipo', 't');//turismo
-                                    $this->db->or_where('tipo', 'e');//excursão
+                                    $this->db->where('tipo', 'v'); //viagem
+                                    $this->db->or_where('tipo', 't'); //turismo
+                                    $this->db->or_where('tipo', 'e'); //excursão
+                                    $this->db->or_where('tipo', 'f'); //fretado
                                     $this->db->where('tb_tour.status', 'A');
                                     $query = $this->db->get();
                                     foreach ($query->result() as $row) {
@@ -105,20 +107,36 @@
                                         $reserva = $this->db->count_all_results();
                                         $data_saida = implode("/", array_reverse(explode("-", $row->data_saida)));
                                         ?>
-                                        <a href="#" class="list-group-item">
-                                            <i class="fa fa-calendar"></i> <?= $row->destino ?> - <?= $data_saida ?>
+                                        <tr>
+                                            <td>
+<!--                                        <a href="#" class="list-group-item">-->
+                                            <i class="fa fa-calendar"></i> <?= $row->destino ?> - <?php
+                                            if ($row->tipo == 'v')
+                                                echo "Viagem";
+                                            elseif ($row->tipo == 'f')
+                                                echo "Fretado";
+                                            elseif ($row->tipo == 't')
+                                                echo "Turismo";
+                                            elseif ($row->tipo == 'e')
+                                                echo "Excursão";
+                                            ?> - <?= $data_saida ?>
+                                            </td>
+                                            <td>
                                             <?php
                                             if ($row->nr_poltrona - $reserva > 0) {
-                                                echo '<span class="label label-success"> Disponivel</span>';
+                                                echo form_open('home/reservaMapa').'<input type="hidden" name="id_tour" value="'.$row->id_tour.'"><input type="submit" class="btn btn-success btn-xs" value="Disponivel"></form>';
                                             } else {
                                                 echo '<span class="label label-danger"> Esgotado</span>';
                                             }
                                             ?>
-                                        </a>
+                                            </td>
+                                             </tr>
+<!--                                        </a>-->
                                         <?php
                                     }
                                     ?>
-                                    </a>
+                                       
+                                    </table>
                                 </div>
                             </div>
                         </div>
@@ -136,7 +154,9 @@
                                                 <th>Ônibus<i class="fa fa-sort"></i></th>
                                                 <th>Destino<i class="fa fa-sort"></i></th>
                                                 <th>Data Saída<i class="fa fa-sort"></i></th>
-                                                <th>Valor Passagem <i class="fa fa-sort"></i></th>
+                                                <th>Data Retorno<i class="fa fa-sort"></i></th>
+                                                <th>Tipo<i class="fa fa-sort"></i></th>
+                                                <th>Valor<i class="fa fa-sort"></i></th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -146,11 +166,24 @@
                                             JOIN tb_cars ON tb_tour.id_car=tb_cars.id_cars
                                             WHERE tb_tour.status = 'A' AND tb_tour.tipo='v' OR tb_tour.tipo='t' OR tb_tour.tipo='e'");
                                             foreach ($query->result() as $linha) {
+                                                $data_saida = implode("/", array_reverse(explode("-", $linha->data_saida)));
+                                                $data_retorno = implode("/", array_reverse(explode("-", $linha->data_retorno)));
                                                 echo "<tr>";
                                                 echo "<td>" . $linha->modelo . "</td>";
                                                 echo "<td>" . $linha->destino . "</td>";
-                                                echo "<td>" . $linha->data_saida . "</td>";
-                                                echo "<td>" . $linha->preco . "</td>";
+                                                echo "<td>" . $data_saida . "</td>";
+                                                echo "<td>" . $data_retorno ."</td>";
+                                                echo "<td>";
+                                                if ($linha->tipo == 'v')
+                                                    echo "Viagem";
+                                                elseif ($linha->tipo == 'f')
+                                                    echo "Fretado";
+                                                elseif ($linha->tipo == 't')
+                                                    echo "Turismo";
+                                                elseif ($linha->tipo == 'e')
+                                                    echo "Excursão";
+                                                echo "</td>";
+                                                echo "<td>R$" . $linha->preco . "</td>";
                                                 echo "</tr>";
                                             }
                                             ?>
