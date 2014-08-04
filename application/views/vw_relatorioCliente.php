@@ -11,21 +11,10 @@
         <link href="<?= base_url() ?>css/sb-admin.css" rel="stylesheet">
         <link rel="stylesheet" href="<?= base_url() ?>font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.4.3.min.css">
-        <script type="text/javascript">
-            $().ready(function() {
-                $("#course").autocomplete("home/autoComplete", {
-                    width: 260,
-                    matchContains: true,
-                    selectFirst: false
-                });
-            });
-        </script>
+        <link rel="stylesheet" href="<?= base_url() ?>css/jquery-ui.css">
     </head>
-
     <body>
-
         <div id="wrapper">
-
             <!-- barra lateral -->
             <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 
@@ -38,7 +27,6 @@
                     </button>
                     <a class="navbar-brand" href="">Pantanal Sul Turismo</a>
                 </div>
-
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav side-nav">
                         <li><a href="<?php echo base_url() . "index.php/home/" ?>"><i class="fa fa-dashboard"></i> Geral</a></li>
@@ -88,22 +76,43 @@
                     </div>
                 </div><!-- /.row -->
                 <div class="controls">
-                    <?php
-                    $query = $this->db->query("SELECT * FROM tb_tour
-                                            JOIN tb_viagem ON tb_tour.id_viagem=tb_viagem.id_viagem
-                                            WHERE tb_tour.status = 'A' AND tb_tour.tipo='v'");
-                    $opcao[] = '';
-                    echo form_label('Selecione a Viagem: ');
-                    ?>
-                    <select name="id_tour" id="id_tour">
-                        <?php
-                        foreach ($query->result() as $bus) {
-                            $dataSaida = implode("/", array_reverse(explode("-", $bus->data_saida)));
-                            echo "<option value=" . $bus->id_tour . ">" . $bus->destino . ' - ' . $dataSaida . "</option>";
-                        }
-                        ?>
-                    </select>
-                    <button onclick="reserva()">OK</button>
+                    <table>
+                        <tr>
+                            <td><?php
+                                $query = $this->db->get('tb_clients');
+                                $opcao[] = '';
+                                echo form_label('Cliente: ');
+                                ?>
+                            </td>
+                            <td>                    
+                                <select name="id_client" id="id_client" class="form-control input-sm">
+                                    <?php
+                                    foreach ($query->result() as $bus) {
+                                        echo "<option value=" . $bus->id_clients . ">" . $bus->nome . "</option>";
+                                    }
+                                    ?>
+                                </select>
+                            </td>
+                            <td> <label for="data_inicial">Periodo Inicial: </label></td><td><input type="text" id="data_inicio" class="form-control input-sm"></td><td><label for="data_final"> Periodo Final: </label></td><td><input type="text" id="data_final" class="form-control input-sm"></td>
+                            <td><?php
+                                $query = $this->db->get('tb_viagem');
+                                $opcao[] = '';
+                                echo form_label('Destino: ');
+                                ?></td>
+                            <td>                    
+                                <select name="id_viagem" id="id_viagem" class="form-control input-sm">
+                                    <?php
+                                    foreach ($query->result() as $bus) {
+                                        echo "<option value=" . $bus->id_viagem . ">" . $bus->destino . "</option>";
+                                    }
+                                    ?>
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+                    <br>
+                    <a class="btn btn-primary" href="" onClick="window.open('<?php echo base_url() . "index.php/home/listaRelatorioCliente?id=&data_saida=&data_retorno&destino=" . $this->input->post('id_tour') ?>', 'Janela', 'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=900,height=800,left=0,top=0');
+                            return false;"><i class="fa fa-list"></i> Gerar Relatório</a>
                 </div>
                 <div id="relatorio" class=" row-fluid">
                     <!--reserva vai ser colocada aqui-->
@@ -121,6 +130,35 @@
         <script src="<?= base_url() ?>js/tablesorter/tables.js"></script>
         <script src="<?= base_url() ?>js/funcao.js"></script>
         <script src="<?= base_url() ?>js/jquery-ui.js"></script>
-        <script src="<?= base_url() ?>js/jquery.autocomplete.js"></script>
+        <script src="<?= base_url() ?>js/jquery.mask.min.js"></script>
+        <script src="<?= base_url() ?>js/jquery-ui.js"></script>
+        <script>
+                        $(function() {
+                            $("#data_inicio").datepicker({
+                                dateFormat: 'dd/mm/yy',
+                                dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo'],
+                                dayNamesMin: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S', 'D'],
+                                dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],
+                                monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+                                monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+                                changeMonth: true,
+                                changeYear: true
+                            });
+                        });
+        </script>
+        <script>
+            $(function() {
+                $("#data_final").datepicker({
+                    dateFormat: 'dd/mm/yy',
+                    dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo'],
+                    dayNamesMin: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S', 'D'],
+                    dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],
+                    monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+                    monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+                    changeMonth: true,
+                    changeYear: true
+                });
+            });
+        </script>
     </body>
 </html>
