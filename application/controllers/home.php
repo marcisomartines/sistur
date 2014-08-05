@@ -560,6 +560,14 @@ class Home extends CI_Controller {
             $this->load->view('vw_login');
         }
     }
+    
+    public function relatorioListaCliente() {
+        if ($this->session->userdata('is_logged_in') == 1) {
+            $this->load->view('vw_listaRelatorioCliente');
+        } else {
+            $this->load->view('vw_login');
+        }
+    }
 
     public function relatorioViagem() {
         if ($this->session->userdata('is_logged_in') == 1) {
@@ -568,10 +576,26 @@ class Home extends CI_Controller {
             $this->load->view('vw_login');
         }
     }
+    
+    public function relatorioListaViagem() {
+        if ($this->session->userdata('is_logged_in') == 1) {
+            $this->load->view('vw_listaRelatorioViagem');
+        } else {
+            $this->load->view('vw_login');
+        }
+    }
 
     public function relatorioOnibus() {
         if ($this->session->userdata('is_logged_in') == 1) {
             $this->load->view('vw_relatorioOnibus');
+        } else {
+            $this->load->view('vw_login');
+        }
+    }
+    
+    public function relatorioListaOnibus() {
+        if ($this->session->userdata('is_logged_in') == 1) {
+            $this->load->view('vw_listaRelatorioOnibus');
         } else {
             $this->load->view('vw_login');
         }
