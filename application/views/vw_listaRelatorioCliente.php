@@ -76,7 +76,7 @@
                     </div>
                 </div><!-- /.row -->
                 <div class="controls">
-                    <?= form_open('home/relatorioListaCliente') ?>
+                    <?=form_open('home/relatorioListaCliente')?>
                     <table>
                         <tr>
                             <td><?php
@@ -94,7 +94,7 @@
                                     ?>
                                 </select>
                             </td>
-                            <td> <label>Periodo Inicial: </label></td><td><input type="text" id="data_inicio" name="data_inicio" class="form-control input-sm"></td><td><label for="data_final"> Periodo Final: </label></td><td><input type="text" id="data_final" name="data_final" class="form-control input-sm"></td>
+                            <td> <label>Periodo Inicial: </label></td><td><input type="text" id="data_inicio" name="data_inicio" class="form-control input-sm" value="<?=$this->input->post('data_inicio')?>"></td><td><label for="data_final"> Periodo Final: </label></td><td><input type="text" id="data_final" name="data_final" class="form-control input-sm" value="<?=$this->input->post('data_final')?>"></td>
                             <td><?php
                                 $query = $this->db->get('tb_viagem');
                                 $opcao[] = '';
@@ -133,16 +133,14 @@
                         $query = $this->db->get();
                     }
                     if (!empty($data_final) and empty($destino)) {//busca todos os destino mas em um periodo
-                        $this->db->select('*');
-                        $this->db->from('tb_clients');
-                        $this->db->join('tb_reservs', 'tb_reservs.id_client=tb_clients.id_clients');
-                        $this->db->join('tb_tour', 'tb_tour.id_tour=tb_reservs.id_tour');
-                        $this->db->join('tb_viagem', 'tb_viagem.id_viagem=tb_tour.id_viagem');
-                        $this->db->where('tb_clients.id_clients', $cliente);
-                        $this->db->where('tb_tour.data_saida BETWEEN ' . $data_inicio . ' AND ' . $data_final);
-                        $query = $this->db->get();
+                        $query=$this->db->query("SELECT * FROM tb_clients
+                                        JOIN tb_reservs on tb_reservs.id_client=tb_clients.id_clients
+                                        JOIN tb_tour on tb_tour.id_tour=tb_reservs.id_tour
+                                        JOIN tb_viagem on tb_viagem.id_viagem=tb_tour.id_viagem
+                                        WHERE tb_clients.id_clients=".$cliente." AND tb_tour.data_saida BETWEEN '" . $data_inicio . "' AND '" . $data_final . "'");
+                        //$query = $this->db->get();
                     }
-                    if (empty($data_final) and !empty($destino)) {//busca um destino mas em um periodo
+                    if (empty($data_final) and ! empty($destino)) {//busca um destino mas em um periodo
                         $this->db->select('*');
                         $this->db->from('tb_clients');
                         $this->db->join('tb_reservs', 'tb_reservs.id_client=tb_clients.id_clients');
@@ -150,19 +148,16 @@
                         $this->db->join('tb_viagem', 'tb_viagem.id_viagem=tb_tour.id_viagem');
                         $this->db->where('tb_clients.id_clients', $cliente);
                         $this->db->where('tb_tour.data_saida >', $data_inicio);
-                        $this->db->where('tb_tour.id_viagem',$destino);
+                        $this->db->where('tb_tour.id_viagem', $destino);
                         $query = $this->db->get();
                     }
-                    if (!empty($data_final) and !empty($destino)) {//busca um destino mas em um periodo
-                        $this->db->select('*');
-                        $this->db->from('tb_clients');
-                        $this->db->join('tb_reservs', 'tb_reservs.id_client=tb_clients.id_clients');
-                        $this->db->join('tb_tour', 'tb_tour.id_tour=tb_reservs.id_tour');
-                        $this->db->join('tb_viagem', 'tb_viagem.id_viagem=tb_tour.id_viagem');
-                        $this->db->where('tb_clients.id_clients', $cliente);
-                        $this->db->where('tb_tour.data_saida BETWEEN ' . $data_inicio . ' AND ' . $data_final);
-                        $this->db->where('tb_tour.id_viagem',$destino);
-                        $query = $this->db->get();
+                    if (!empty($data_final) and ! empty($destino)) {//busca um destino mas em um periodo
+                        $query=$this->db->query("SELECT * FROM tb_clients
+                                        JOIN tb_reservs on tb_reservs.id_client=tb_clients.id_clients
+                                        JOIN tb_tour on tb_tour.id_tour=tb_reservs.id_tour
+                                        JOIN tb_viagem on tb_viagem.id_viagem=tb_tour.id_viagem
+                                        WHERE tb_clients.id_clients=".$cliente." AND tb_tour.id_viagem=".$destino." AND tb_tour.data_saida BETWEEN '" . $data_inicio . "' AND '" . $data_final . "'");
+                        //$query = $this->db->get();
                     }
                     ?>
 
