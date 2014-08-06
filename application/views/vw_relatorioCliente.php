@@ -76,6 +76,7 @@
                     </div>
                 </div><!-- /.row -->
                 <div class="controls">
+                    <?=form_open('home/relatorioListaCliente')?>
                     <table>
                         <tr>
                             <td><?php
@@ -93,14 +94,14 @@
                                     ?>
                                 </select>
                             </td>
-                            <td> <label for="data_inicial">Periodo Inicial: </label></td><td><input type="text" id="data_inicio" class="form-control input-sm"></td><td><label for="data_final"> Periodo Final: </label></td><td><input type="text" id="data_final" class="form-control input-sm"></td>
+                            <td> <label>Periodo Inicial: </label></td><td><input type="text" id="data_inicio" name="data_inicio" class="form-control input-sm"></td><td><label for="data_final"> Periodo Final: </label></td><td><input type="text" id="data_final" name="data_final" class="form-control input-sm"></td>
                             <td><?php
                                 $query = $this->db->get('tb_viagem');
                                 $opcao[] = '';
                                 echo form_label('Destino: ');
                                 ?></td>
                             <td>                    
-                                <select name="id_viagem" id="id_viagem" class="form-control input-sm">
+                                <select name="id_viagem" id="id_viagem" name="id_viagem" class="form-control input-sm">
                                     <?php
                                     foreach ($query->result() as $bus) {
                                         echo "<option value=" . $bus->id_viagem . ">" . $bus->destino . "</option>";
@@ -111,8 +112,8 @@
                         </tr>
                     </table>
                     <br>
-                    <a class="btn btn-primary" href="" onClick="window.open('<?php echo base_url() . "index.php/home/listaRelatorioCliente?id=&data_saida=&data_retorno&destino=" . $this->input->post('id_tour') ?>', 'Janela', 'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=900,height=800,left=0,top=0');
-                            return false;"><i class="fa fa-list"></i> Gerar Relatório</a>
+                    <input type="submit" class="btn btn-primary" value="Gerar Relatório">
+                    <?=form_close()?>
                 </div>
                 <div id="relatorio" class=" row-fluid">
                     <!--reserva vai ser colocada aqui-->
