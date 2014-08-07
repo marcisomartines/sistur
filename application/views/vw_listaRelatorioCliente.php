@@ -76,7 +76,7 @@
                     </div>
                 </div><!-- /.row -->
                 <div class="controls">
-                    <?=form_open('home/relatorioListaCliente')?>
+                    <?= form_open('home/relatorioListaCliente') ?>
                     <table>
                         <tr>
                             <td><?php
@@ -94,7 +94,7 @@
                                     ?>
                                 </select>
                             </td>
-                            <td> <label>Periodo Inicial: </label></td><td><input type="text" id="data_inicio" name="data_inicio" class="form-control input-sm" value="<?=$this->input->post('data_inicio')?>"></td><td><label for="data_final"> Periodo Final: </label></td><td><input type="text" id="data_final" name="data_final" class="form-control input-sm" value="<?=$this->input->post('data_final')?>"></td>
+                            <td> <label>Periodo Inicial: </label></td><td><input type="text" id="data_inicio" name="data_inicio" class="form-control input-sm" value="<?= $this->input->post('data_inicio') ?>"></td><td><label for="data_final"> Periodo Final: </label></td><td><input type="text" id="data_final" name="data_final" class="form-control input-sm" value="<?= $this->input->post('data_final') ?>"></td>
                             <td><?php
                                 $query = $this->db->get('tb_viagem');
                                 $opcao[] = '';
@@ -133,11 +133,11 @@
                         $query = $this->db->get();
                     }
                     if (!empty($data_final) and empty($destino)) {//busca todos os destino mas em um periodo
-                        $query=$this->db->query("SELECT * FROM tb_clients
+                        $query = $this->db->query("SELECT * FROM tb_clients
                                         JOIN tb_reservs on tb_reservs.id_client=tb_clients.id_clients
                                         JOIN tb_tour on tb_tour.id_tour=tb_reservs.id_tour
                                         JOIN tb_viagem on tb_viagem.id_viagem=tb_tour.id_viagem
-                                        WHERE tb_clients.id_clients=".$cliente." AND tb_tour.data_saida BETWEEN '" . $data_inicio . "' AND '" . $data_final . "'");
+                                        WHERE tb_clients.id_clients=" . $cliente . " AND tb_tour.data_saida BETWEEN '" . $data_inicio . "' AND '" . $data_final . "'");
                         //$query = $this->db->get();
                     }
                     if (empty($data_final) and ! empty($destino)) {//busca um destino mas em um periodo
@@ -152,15 +152,16 @@
                         $query = $this->db->get();
                     }
                     if (!empty($data_final) and ! empty($destino)) {//busca um destino mas em um periodo
-                        $query=$this->db->query("SELECT * FROM tb_clients
+                        $query = $this->db->query("SELECT * FROM tb_clients
                                         JOIN tb_reservs on tb_reservs.id_client=tb_clients.id_clients
                                         JOIN tb_tour on tb_tour.id_tour=tb_reservs.id_tour
                                         JOIN tb_viagem on tb_viagem.id_viagem=tb_tour.id_viagem
-                                        WHERE tb_clients.id_clients=".$cliente." AND tb_tour.id_viagem=".$destino." AND tb_tour.data_saida BETWEEN '" . $data_inicio . "' AND '" . $data_final . "'");
+                                        WHERE tb_clients.id_clients=" . $cliente . " AND tb_tour.id_viagem=" . $destino . " AND tb_tour.data_saida BETWEEN '" . $data_inicio . "' AND '" . $data_final . "'");
                         //$query = $this->db->get();
                     }
                     ?>
-
+                    <a class="btn btn-primary btn-xs pull-right" href="" onClick="window.open('<?php echo base_url() . "index.php/home/gerarRelatorioViagem?destino=" . $destino ?>&data_inicio=<?= $data_inicio ?>&data_final=<?= $data_final ?>', 'Janela', 'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=900,height=800,left=0,top=0');
+        return false;">Imprimir Relatório</a>
                     <table class="table table-striped">
                         <tr>
                             <th>Destino</th>
@@ -195,18 +196,18 @@
         <script src="<?= base_url() ?>js/jquery.mask.min.js"></script>
         <script src="<?= base_url() ?>js/jquery-ui.js"></script>
         <script>
-            $(function() {
-                $("#data_inicio").datepicker({
-                    dateFormat: 'dd/mm/yy',
-                    dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo'],
-                    dayNamesMin: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S', 'D'],
-                    dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],
-                    monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
-                    monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
-                    changeMonth: true,
-                    changeYear: true
-                });
-            });
+    $(function() {
+        $("#data_inicio").datepicker({
+            dateFormat: 'dd/mm/yy',
+            dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo'],
+            dayNamesMin: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S', 'D'],
+            dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],
+            monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+            monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+            changeMonth: true,
+            changeYear: true
+        });
+    });
         </script>
         <script>
             $(function() {

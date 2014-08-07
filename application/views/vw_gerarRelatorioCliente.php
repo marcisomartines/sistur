@@ -17,15 +17,6 @@
     $destino = $_GET['destino'];
     $data_inicio2 = implode("/", array_reverse(explode("-", $_GET['data_inicio'])));
     $data_final2 = implode("/", array_reverse(explode("-", $_GET['data_final'])));
-    if($destino>0){
-        $this->db->where('id_viagem',$destino);
-        $query=$this->db->get('tb_viagem');
-        foreach($query->result() as $des){
-            $cidade=$des;
-        }
-    } else{
-        $cidade='';
-    }
     ?>
     <body>
         <!--        <div id="wrapper">-->
@@ -39,7 +30,7 @@
                     </table>
                     <table>
                         <tr>
-                            <td align='right'><strong>Período: </strong><?= $data_inicio2 ?> à <?= $data_final2 ?> <strong>Destino: </strong> <?=$cidade->destino?></td>
+                            <td align='right'><strong>Período: </strong><?= $data_inicio2 ?> à <?= $data_final2 ?></td>
                         </tr>
                     </table>
                 </div>
