@@ -76,7 +76,7 @@
                     </div>
                 </div><!-- /.row -->
                 <div class="controls">
-                    <?=form_open('home/relatorioListaViagem')?>
+                    <?= form_open('home/relatorioListaViagem') ?>
                     <table>
                         <tr>
                             <td><?php
@@ -89,9 +89,9 @@
                                 ?>
                             </td>
                             <td>                    
-                                <?=form_dropdown('id_viagem', $opcao, $this->input->post('id_viagem'), 'class=form-control')?>
+                                <?= form_dropdown('id_viagem', $opcao, $this->input->post('id_viagem'), 'class=form-control') ?>
                             </td>
-                            <td> <label>Periodo Inicial: </label></td><td><input type="text" id="data_inicio" name="data_inicio" class="form-control input-sm" value="<?=$this->input->post('data_inicio')?>"></td><td><label for="data_final"> Periodo Final: </label></td><td><input type="text" id="data_final" name="data_final" class="form-control input-sm" value="<?=$this->input->post('data_final')?>"></td>
+                            <td> <label>Periodo Inicial: </label></td><td><input type="text" id="data_inicio" name="data_inicio" class="form-control input-sm" value="<?= $this->input->post('data_inicio') ?>"></td><td><label for="data_final"> Periodo Final: </label></td><td><input type="text" id="data_final" name="data_final" class="form-control input-sm" value="<?= $this->input->post('data_final') ?>"></td>
                         </tr>
                     </table>
                     <br>
@@ -113,10 +113,10 @@
                         $query = $this->db->get();
                     }
                     if (!empty($data_final) and empty($destino)) {//busca todos os destino mas em um periodo
-                        $query=$this->db->query("SELECT * FROM tb_tour
+                        $query = $this->db->query("SELECT * FROM tb_tour
                                                 JOIN tb_viagem on tb_viagem.id_viagem=tb_tour.id_viagem
                                                 JOIN tb_cars on tb_cars.id_cars=tb_tour.id_car
-                                                where data_saida BETWEEN '".$data_inicio."' AND '".$data_final."'");
+                                                where data_saida BETWEEN '" . $data_inicio . "' AND '" . $data_final . "'");
                         //$query = $this->db->get();
                     }
                     if (empty($data_final) and ! empty($destino)) {//busca um destino mas em um periodo
@@ -129,10 +129,10 @@
                         $query = $this->db->get();
                     }
                     if (!empty($data_final) and ! empty($destino)) {//busca um destino mas em um periodo
-                        $query=$this->db->query("SELECT * FROM tb_tour
+                        $query = $this->db->query("SELECT * FROM tb_tour
                                                 JOIN tb_viagem on tb_viagem.id_viagem=tb_tour.id_viagem
                                                 JOIN tb_cars on tb_cars.id_cars=tb_tour.id_car
-                                                where tb_tour.id_viagem=".$destino." AND tb_tour.data_saida BETWEEN '".$data_inicio."' AND '".$data_final."'");
+                                                where tb_tour.id_viagem=" . $destino . " AND tb_tour.data_saida BETWEEN '" . $data_inicio . "' AND '" . $data_final . "'");
                         //$query = $this->db->get();
                     }
                     ?>
@@ -142,28 +142,45 @@
                             <th>Cód.</th>
                             <th>Ônibus</th>
                             <th>Data Saída</th>
+                            <th>Data Retorno</th>
                             <th>Poltr. Total</th>
                             <th>Poltr. Usadas</th>
+                            <th>Preço</th>
                             <th>Alimentação</th>
                             <th>Combustível</th>
                             <th>Outros</th>
                             <th>Total</th>
+                            <th>Lista</th>
                         </tr>
                         <?php
                         foreach ($query->result() as $rel) {
                             $data_saida = implode("/", array_reverse(explode("-", $rel->data_saida)));
-                            $poltronas=0;
-                            $total=($poltronas*$rel->preco)-($rel->alimentacao+$rel->combustivel+$rel->outros);
-                            echo "<tr>";
+                            $data_retorno = implode("/", array_reverse(explode("-", $rel->data_retorno)));
+                            $this->db->where('id_tour', $rel->id_tour);
+                            $p = $this->db->get('tb_reservs');
+                            $poltronas = $p->num_rows();
+                            $total = ($poltronas * $rel->preco) - ($rel->alimentacao + $rel->combustivel + $rel->outros);
+                            if ($total < 0) {
+                                echo '<tr class="danger">';
+                            } else {
+                                echo "<tr>";
+                            }
                             echo "<td>" . $rel->codigo . "</td>";
-                            echo "<td>" . $rel->modelo. "</td>";
+                            echo "<td>" . $rel->modelo . "</td>";
                             echo "<td>" . $data_saida . "</td>";
-                            echo "<td>" . $rel->nr_poltrona."</td>";
-                            echo "<td>" . $poltronas ."</td>";
-                            echo "<td>" . $rel->alimentacao . "</td>";
-                            echo "<td>" . $rel->combustivel . "</td>";
-                            echo "<td>" . $rel->outros . "</td>";
-                            echo "<td>" . $total . "</td>";
+                            echo "<td>" . $data_retorno . "</td>";
+                            echo "<td>" . $rel->nr_poltrona . "</td>";
+                            echo "<td>" . $poltronas . "</td>";
+                            echo "<td>R$" . $rel->preco . "</td>";
+                            echo "<td>R$" . $rel->alimentacao . "</td>";
+                            echo "<td>R$" . $rel->combustivel . "</td>";
+                            echo "<td>R$" . $rel->outros . "</td>";
+                            echo "<td>R$" . $total . "</td>";
+                            echo '<td>';
+                            ?><a class="btn btn-primary btn-xs" href="" onClick="window.open('<?php echo base_url() . "index.php/home/listaPassageiros?id=" . $rel->id_tour ?>', 'Janela', 'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=900,height=800,left=0,top=0');
+                                        return false;">Lista</a>
+                            <?php
+                            echo '</td>';
                             echo "</tr>";
                         }
                         ?>
@@ -185,18 +202,18 @@
         <script src="<?= base_url() ?>js/jquery.mask.min.js"></script>
         <script src="<?= base_url() ?>js/jquery-ui.js"></script>
         <script>
-            $(function() {
-                $("#data_inicio").datepicker({
-                    dateFormat: 'dd/mm/yy',
-                    dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo'],
-                    dayNamesMin: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S', 'D'],
-                    dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],
-                    monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
-                    monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
-                    changeMonth: true,
-                    changeYear: true
-                });
-            });
+                                $(function() {
+                                    $("#data_inicio").datepicker({
+                                        dateFormat: 'dd/mm/yy',
+                                        dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo'],
+                                        dayNamesMin: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S', 'D'],
+                                        dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],
+                                        monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+                                        monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+                                        changeMonth: true,
+                                        changeYear: true
+                                    });
+                                });
         </script>
         <script>
             $(function() {
