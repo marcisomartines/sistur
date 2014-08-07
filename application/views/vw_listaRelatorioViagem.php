@@ -69,9 +69,9 @@
             <div id="page-wrapper">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1>Relatório <small>Cliente</small></h1>
+                        <h1>Relatório <small>Viagem</small></h1>
                         <ol class="breadcrumb">
-                            <li class="active"><i class="fa fa-ticket"></i> Viagem</li>
+                            <li class="active"><i class="fa fa-calendar"></i> Viagem</li>
                         </ol>
                     </div>
                 </div><!-- /.row -->
@@ -82,7 +82,7 @@
                             <td><?php
                                 $query = $this->db->get('tb_viagem');
                                 $opcao[] = '';
-                                echo form_label('Cliente: ');
+                                echo form_label('Destino: ');
                                 foreach ($query->result() as $bus) {
                                     $opcao[$bus->id_viagem] = $bus->destino;
                                 }
@@ -101,44 +101,38 @@
                 <br>
                 <div id="relatorio" class=" row-fluid">
                     <?php
-                    $destino = $this->input->post('id_client');
-                    $data_inicio = implode("-", array_reverse(explode("/", $this->input->post('data_saida'))));
+                    $destino = $this->input->post('id_viagem');
+                    $data_inicio = implode("-", array_reverse(explode("/", $this->input->post('data_inicio'))));
                     $data_final = implode("-", array_reverse(explode("/", $this->input->post('data_final'))));
                     if (empty($data_final) and empty($destino)) {//busca todo resultado
                         $this->db->select('*');
-                        $this->db->from('tb_clients');
-                        $this->db->join('tb_reservs', 'tb_reservs.id_client=tb_clients.id_clients');
-                        $this->db->join('tb_tour', 'tb_tour.id_tour=tb_reservs.id_tour');
+                        $this->db->from('tb_tour');
                         $this->db->join('tb_viagem', 'tb_viagem.id_viagem=tb_tour.id_viagem');
-                        $this->db->where('tb_clients.id_clients', $destino);
+                        $this->db->join('tb_cars', 'tb_cars.id_cars=tb_tour.id_car');
                         $this->db->where('tb_tour.data_saida >', $data_inicio);
                         $query = $this->db->get();
                     }
                     if (!empty($data_final) and empty($destino)) {//busca todos os destino mas em um periodo
-                        $query=$this->db->query("SELECT * FROM tb_clients
-                                        JOIN tb_reservs on tb_reservs.id_client=tb_clients.id_clients
-                                        JOIN tb_tour on tb_tour.id_tour=tb_reservs.id_tour
-                                        JOIN tb_viagem on tb_viagem.id_viagem=tb_tour.id_viagem
-                                        WHERE tb_clients.id_clients=".$cliente." AND tb_tour.data_saida BETWEEN '" . $data_inicio . "' AND '" . $data_final . "'");
+                        $query=$this->db->query("SELECT * FROM tb_tour
+                                                JOIN tb_viagem on tb_viagem.id_viagem=tb_tour.id_viagem
+                                                JOIN tb_cars on tb_cars.id_cars=tb_tour.id_car
+                                                where data_saida BETWEEN '".$data_inicio."' AND '".$data_final."'");
                         //$query = $this->db->get();
                     }
                     if (empty($data_final) and ! empty($destino)) {//busca um destino mas em um periodo
                         $this->db->select('*');
-                        $this->db->from('tb_clients');
-                        $this->db->join('tb_reservs', 'tb_reservs.id_client=tb_clients.id_clients');
-                        $this->db->join('tb_tour', 'tb_tour.id_tour=tb_reservs.id_tour');
+                        $this->db->from('tb_tour');
                         $this->db->join('tb_viagem', 'tb_viagem.id_viagem=tb_tour.id_viagem');
-                        $this->db->where('tb_clients.id_clients', $cliente);
+                        $this->db->join('tb_cars', 'tb_cars.id_cars=tb_tour.id_car');
                         $this->db->where('tb_tour.data_saida >', $data_inicio);
                         $this->db->where('tb_tour.id_viagem', $destino);
                         $query = $this->db->get();
                     }
                     if (!empty($data_final) and ! empty($destino)) {//busca um destino mas em um periodo
-                        $query=$this->db->query("SELECT * FROM tb_clients
-                                        JOIN tb_reservs on tb_reservs.id_client=tb_clients.id_clients
-                                        JOIN tb_tour on tb_tour.id_tour=tb_reservs.id_tour
-                                        JOIN tb_viagem on tb_viagem.id_viagem=tb_tour.id_viagem
-                                        WHERE tb_clients.id_clients=".$cliente." AND tb_tour.id_viagem=".$destino." AND tb_tour.data_saida BETWEEN '" . $data_inicio . "' AND '" . $data_final . "'");
+                        $query=$this->db->query("SELECT * FROM tb_tour
+                                                JOIN tb_viagem on tb_viagem.id_viagem=tb_tour.id_viagem
+                                                JOIN tb_cars on tb_cars.id_cars=tb_tour.id_car
+                                                where tb_tour.id_viagem=".$destino." AND tb_tour.data_saida BETWEEN '".$data_inicio."' AND '".$data_final."'");
                         //$query = $this->db->get();
                     }
                     ?>
@@ -158,10 +152,18 @@
                         <?php
                         foreach ($query->result() as $rel) {
                             $data_saida = implode("/", array_reverse(explode("-", $rel->data_saida)));
+                            $poltronas=0;
+                            $total=($poltronas*$rel->preco)-($rel->alimentacao+$rel->combustivel+$rel->outros);
                             echo "<tr>";
-                            echo "<td>" . $rel->destino . "</td>";
+                            echo "<td>" . $rel->codigo . "</td>";
+                            echo "<td>" . $rel->modelo. "</td>";
                             echo "<td>" . $data_saida . "</td>";
-                            echo "<td>" . $rel->preco . "</td>";
+                            echo "<td>" . $rel->nr_poltrona."</td>";
+                            echo "<td>" . $poltronas ."</td>";
+                            echo "<td>" . $rel->alimentacao . "</td>";
+                            echo "<td>" . $rel->combustivel . "</td>";
+                            echo "<td>" . $rel->outros . "</td>";
+                            echo "<td>" . $total . "</td>";
                             echo "</tr>";
                         }
                         ?>

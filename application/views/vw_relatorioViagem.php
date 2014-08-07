@@ -71,7 +71,7 @@
                     <div class="col-lg-12">
                         <h1>Relatório <small>Viagem</small></h1>
                         <ol class="breadcrumb">
-                            <li class="active"><i class="fa fa-calendar"></i> Viagens</li>
+                            <li class="active"><i class="fa fa-calendar"></i> Viagem</li>
                         </ol>
                     </div>
                 </div><!-- /.row -->
