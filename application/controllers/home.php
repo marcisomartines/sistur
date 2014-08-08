@@ -635,7 +635,15 @@ class Home extends CI_Controller {
     
      public function listaAniversariantes(){
         if($this->session->userdata('is_logged_in')==1){
-            $this->load->view('vw_listaAniversariantes');
+            $this->load->view('vw_listaRelatorioAniversariantes');
+        } else {
+            $this->load->view('vw_login');
+        }
+    }
+    
+    public function gerarRelatorioAniversariantes(){
+        if($this->session->userdata('is_logged_in')==1){
+            $this->load->view('vw_gerarRelatorioAniversariantes');
         } else {
             $this->load->view('vw_login');
         }

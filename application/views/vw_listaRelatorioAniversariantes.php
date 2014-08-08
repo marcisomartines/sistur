@@ -109,9 +109,9 @@
                 </div>
                 <div id="relatorio" class=" row-fluid">
                     <?php
-                        $query=$this->db->query("SELECT * FROM tb_clients WHERE Month(data_nascimento)=".$this->input->post('mes'));
+                        $query=$this->db->query("SELECT * FROM tb_clients WHERE Month(data_nascimento)=".$this->input->post('mes')." ORDER BY data_nascimento");
                     ?>
-                    <a class="btn btn-primary btn-xs pull-right" href="" onClick="window.open('<?php echo base_url() . "index.php/home/gerarRelatorioCliente?mes=" . $this->input->post('mes') ?>', 'Janela', 'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=900,height=800,left=0,top=0');
+                    <a class="btn btn-primary btn-xs pull-right" href="" onClick="window.open('<?php echo base_url() . "index.php/home/gerarRelatorioAniversariantes?mes=" . $this->input->post('mes') ?>', 'Janela', 'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=900,height=800,left=0,top=0');
                                         return false;">Imprimir Relatório</a>
                     <table class="table table-striped">
                         <tr>
@@ -122,7 +122,7 @@
                             <th>E-mail</th>
                             <th>Tel.</th>
                             <th>Cel.</th>
-                            <th>Endereço</th>
+<!--                            <th>Endereço</th>-->
                         </tr>
                         <?php
                         foreach ($query->result() as $rel) {
@@ -135,7 +135,6 @@
                             echo "<td>".$rel->email."</td>";
                             echo "<td>".$rel->telefone."</td>";
                             echo "<td>".$rel->celular."</td>";
-                            echo "<td>" . $rel->rua .", ".$rua->bairro." - ".$rel->cidade."</td>";
                             echo "</tr>";
                         }
                         ?>
