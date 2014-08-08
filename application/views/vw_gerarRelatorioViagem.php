@@ -24,7 +24,7 @@
             $cidade=$des;
         }
     } else{
-        $cidade='';
+        $cidade='Todos';
     }
     ?>
     <body>
@@ -39,7 +39,7 @@
                     </table>
                     <table>
                         <tr>
-                            <td align='right'><strong>Período: </strong><?= $data_inicio2 ?> à <?= $data_final2 ?> <strong>Destino: </strong> <?=$cidade->destino?></td>
+                            <td align='right'><strong>Período: </strong><?= $data_inicio2 ?> à <?= $data_final2 ?> <strong>Destino: </strong> <?php if(empty($cidade->destino)) echo $cidade; else echo $cidade->destino; ?></td>
                         </tr>
                     </table>
                 </div>

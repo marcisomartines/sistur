@@ -83,31 +83,25 @@
                                 $query = $this->db->get('tb_clients');
                                 $opcao[] = '';
                                 echo form_label('Cliente: ');
+                                foreach ($query->result() as $bus) {
+                                    $opcao[$bus->id_clients] = $bus->nome;
+                                }
                                 ?>
                             </td>
                             <td>                    
-                                <select name="id_client" id="id_client" class="form-control input-sm">
-                                    <?php
-                                    foreach ($query->result() as $bus) {
-                                        echo "<option value=" . $bus->id_clients . ">" . $bus->nome . "</option>";
-                                    }
-                                    ?>
-                                </select>
+                                 <?= form_dropdown('id_client', $opcao, $this->input->post('id_client'), 'class=form-control') ?>
                             </td>
                             <td> <label>Periodo Inicial: </label></td><td><input type="text" id="data_inicio" name="data_inicio" class="form-control input-sm" value="<?= $this->input->post('data_inicio') ?>"></td><td><label for="data_final"> Periodo Final: </label></td><td><input type="text" id="data_final" name="data_final" class="form-control input-sm" value="<?= $this->input->post('data_final') ?>"></td>
                             <td><?php
                                 $query = $this->db->get('tb_viagem');
-                                $opcao[] = '';
+                                $opcao2[] = '';
                                 echo form_label('Destino: ');
+                                foreach ($query->result() as $bus) {
+                                    $opcao2[$bus->id_viagem] = $bus->destino;
+                                }
                                 ?></td>
                             <td>                    
-                                <select name="id_viagem" id="id_viagem" name="id_viagem" class="form-control input-sm">
-                                    <?php
-                                    foreach ($query->result() as $bus) {
-                                        echo "<option value=" . $bus->id_viagem . ">" . $bus->destino . "</option>";
-                                    }
-                                    ?>
-                                </select>
+                                <?= form_dropdown('id_viagem', $opcao2, $this->input->post('id_viagem'), 'class=form-control') ?>
                             </td>
                         </tr>
                     </table>
@@ -119,10 +113,20 @@
                 <div id="relatorio" class=" row-fluid">
                     <?php
                     $cliente = $this->input->post('id_client');
-                    $data_inicio = implode("-", array_reverse(explode("/", $this->input->post('data_saida'))));
+                    $data_inicio = implode("-", array_reverse(explode("/", $this->input->post('data_inicio'))));
                     $data_final = implode("-", array_reverse(explode("/", $this->input->post('data_final'))));
                     $destino = $this->input->post('id_viagem');
-                    if (empty($data_final) and empty($destino)) {//busca todo resultado
+                    if (empty($data_final) and empty($destino) and empty($cliente)) {//busca todo resultado
+                        $this->db->select('*');
+                        $this->db->from('tb_clients');
+                        $this->db->join('tb_reservs', 'tb_reservs.id_client=tb_clients.id_clients');
+                        $this->db->join('tb_tour', 'tb_tour.id_tour=tb_reservs.id_tour');
+                        $this->db->join('tb_viagem', 'tb_viagem.id_viagem=tb_tour.id_viagem');
+                        //$this->db->where('tb_clients.id_clients', $cliente);
+                        $this->db->where('tb_tour.data_saida >', $data_inicio);
+                        $query = $this->db->get();
+                    }
+                     if (empty($data_final) and !empty($destino) and !empty($cliente)) {//busca todo resultado
                         $this->db->select('*');
                         $this->db->from('tb_clients');
                         $this->db->join('tb_reservs', 'tb_reservs.id_client=tb_clients.id_clients');
@@ -132,15 +136,15 @@
                         $this->db->where('tb_tour.data_saida >', $data_inicio);
                         $query = $this->db->get();
                     }
-                    if (!empty($data_final) and empty($destino)) {//busca todos os destino mas em um periodo
+                    if (!empty($data_final) and empty($destino) and empty($cliente)) {//busca todos os destino e todos os clientes mas em um periodo
                         $query = $this->db->query("SELECT * FROM tb_clients
                                         JOIN tb_reservs on tb_reservs.id_client=tb_clients.id_clients
                                         JOIN tb_tour on tb_tour.id_tour=tb_reservs.id_tour
                                         JOIN tb_viagem on tb_viagem.id_viagem=tb_tour.id_viagem
-                                        WHERE tb_clients.id_clients=" . $cliente . " AND tb_tour.data_saida BETWEEN '" . $data_inicio . "' AND '" . $data_final . "'");
+                                        WHERE tb_tour.data_saida BETWEEN '" . $data_inicio . "' AND '" . $data_final . "'");
                         //$query = $this->db->get();
                     }
-                    if (empty($data_final) and ! empty($destino)) {//busca um destino mas em um periodo
+                    if (empty($data_final) and empty($destino) and !empty($cliente)) {//busca todos os destinos de um cliente
                         $this->db->select('*');
                         $this->db->from('tb_clients');
                         $this->db->join('tb_reservs', 'tb_reservs.id_client=tb_clients.id_clients');
@@ -148,10 +152,19 @@
                         $this->db->join('tb_viagem', 'tb_viagem.id_viagem=tb_tour.id_viagem');
                         $this->db->where('tb_clients.id_clients', $cliente);
                         $this->db->where('tb_tour.data_saida >', $data_inicio);
+                        $query = $this->db->get();
+                    }
+                    if (empty($data_final) and !empty($destino) and empty($cliente)) {//busca por apenas um destino
+                        $this->db->select('*');
+                        $this->db->from('tb_clients');
+                        $this->db->join('tb_reservs', 'tb_reservs.id_client=tb_clients.id_clients');
+                        $this->db->join('tb_tour', 'tb_tour.id_tour=tb_reservs.id_tour');
+                        $this->db->join('tb_viagem', 'tb_viagem.id_viagem=tb_tour.id_viagem');
+                        $this->db->where('tb_tour.data_saida >', $data_inicio);
                         $this->db->where('tb_tour.id_viagem', $destino);
                         $query = $this->db->get();
                     }
-                    if (!empty($data_final) and ! empty($destino)) {//busca um destino mas em um periodo
+                    if (!empty($data_final) and ! empty($destino) and !empty($cliente)) {//busca um destino mas em um periodo
                         $query = $this->db->query("SELECT * FROM tb_clients
                                         JOIN tb_reservs on tb_reservs.id_client=tb_clients.id_clients
                                         JOIN tb_tour on tb_tour.id_tour=tb_reservs.id_tour
@@ -160,11 +173,17 @@
                         //$query = $this->db->get();
                     }
                     ?>
-                    <a class="btn btn-primary btn-xs pull-right" href="" onClick="window.open('<?php echo base_url() . "index.php/home/gerarRelatorioViagem?destino=" . $destino ?>&data_inicio=<?= $data_inicio ?>&data_final=<?= $data_final ?>', 'Janela', 'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=900,height=800,left=0,top=0');
-        return false;">Imprimir Relatório</a>
+                    <a class="btn btn-primary btn-xs pull-right" href="" onClick="window.open('<?php echo base_url() . "index.php/home/gerarRelatorioCliente?destino=" . $destino ?>&cliente=<?=$cliente?>&data_inicio=<?=$data_inicio?>&data_final=<?=$data_final?>', 'Janela', 'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=900,height=800,left=0,top=0');
+                                        return false;">Imprimir Relatório</a>
                     <table class="table table-striped">
                         <tr>
+                            <th>Nome</th>
                             <th>Destino</th>
+                            <th>RG</th>
+                            <th>CPF</th>
+                            <th>E-mail</th>
+                            <th>Tel.</th>
+                            <th>Cel.</th>
                             <th>Data</th>
                             <th>Valor</th>
                         </tr>
@@ -172,7 +191,13 @@
                         foreach ($query->result() as $rel) {
                             $data_saida = implode("/", array_reverse(explode("-", $rel->data_saida)));
                             echo "<tr>";
+                            echo "<td>".$rel->nome."</td>";
                             echo "<td>" . $rel->destino . "</td>";
+                            echo "<td>".$rel->rg."</td>";
+                            echo "<td>".$rel->cpf."</td>";
+                            echo "<td>".$rel->email."</td>";
+                            echo "<td>".$rel->telefone."</td>";
+                            echo "<td>".$rel->celular."</td>";
                             echo "<td>" . $data_saida . "</td>";
                             echo "<td>" . $rel->preco . "</td>";
                             echo "</tr>";

@@ -83,31 +83,25 @@
                                 $query = $this->db->get('tb_clients');
                                 $opcao[] = '';
                                 echo form_label('Cliente: ');
+                                foreach ($query->result() as $bus) {
+                                    $opcao[$bus->id_clients] = $bus->nome;
+                                }
                                 ?>
                             </td>
                             <td>                    
-                                <select name="id_client" id="id_client" class="form-control input-sm">
-                                    <?php
-                                    foreach ($query->result() as $bus) {
-                                        echo "<option value=" . $bus->id_clients . ">" . $bus->nome . "</option>";
-                                    }
-                                    ?>
-                                </select>
+                                <?= form_dropdown('id_client', $opcao, $this->input->post('id_client'), 'class=form-control') ?>
                             </td>
                             <td> <label>Periodo Inicial: </label></td><td><input type="text" id="data_inicio" name="data_inicio" class="form-control input-sm"></td><td><label for="data_final"> Periodo Final: </label></td><td><input type="text" id="data_final" name="data_final" class="form-control input-sm"></td>
                             <td><?php
                                 $query = $this->db->get('tb_viagem');
-                                $opcao[] = '';
+                                $opcao2[] = '';
                                 echo form_label('Destino: ');
+                                foreach ($query->result() as $bus) {
+                                    $opcao2[$bus->id_viagem] = $bus->destino;
+                                }
                                 ?></td>
                             <td>                    
-                                <select name="id_viagem" id="id_viagem" name="id_viagem" class="form-control input-sm">
-                                    <?php
-                                    foreach ($query->result() as $bus) {
-                                        echo "<option value=" . $bus->id_viagem . ">" . $bus->destino . "</option>";
-                                    }
-                                    ?>
-                                </select>
+                                <?= form_dropdown('id_viagem', $opcao2, $this->input->post('id_viagem'), 'class=form-control') ?>
                             </td>
                         </tr>
                     </table>

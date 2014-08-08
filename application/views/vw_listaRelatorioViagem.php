@@ -136,7 +136,7 @@
                         //$query = $this->db->get();
                     }
                     ?>
-<a class="btn btn-primary btn-xs pull-right" href="" onClick="window.open('<?php echo base_url() . "index.php/home/gerarRelatorioViagem?destino=" . $destino ?>&data_inicio=<?=$data_inicio?>&data_final=<?=$data_final?>', 'Janela', 'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=900,height=800,left=0,top=0');
+                    <a class="btn btn-primary btn-xs pull-right" href="" onClick="window.open('<?php echo base_url() . "index.php/home/gerarRelatorioViagem?destino=" . $destino ?>&data_inicio=<?= $data_inicio ?>&data_final=<?= $data_final ?>', 'Janela', 'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=900,height=800,left=0,top=0');
                                         return false;">Imprimir Relatório</a>
                     <table class="table table-striped">
                         <tr>
