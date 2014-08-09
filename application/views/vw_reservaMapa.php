@@ -11,6 +11,13 @@
         <link href="<?= base_url() ?>css/sb-admin.css" rel="stylesheet">
         <link rel="stylesheet" href="<?= base_url() ?>font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.4.3.min.css">
+        <script type="text/javascript">
+            $(function(){
+  $("#birds").autocomplete({
+    source: "home/get_cliente" // path to the get_birds method
+  });
+});
+            </script>
     </head>
 
     <body>
@@ -145,8 +152,8 @@
                                                 $cliente[$clt->id_clients] = $clt->nome;
                                             }
                                             echo "<td width='180px'>" . form_label('Cliente: ') . "</td>";
-                                            echo "<td>" . form_dropdown('cliente', $cliente, 'v', 'class=form-control') . "</td>";
-                                            //echo '<td>' . form_input(['name' => 'cliente', 'id' => 'cliente', 'class' => 'form-control input-sm']) . "</td>";
+                                            //echo "<td>" . form_dropdown('cliente', $cliente, 'v', 'class=form-control') . "</td>";
+                                            echo '<td>' . form_input(['name' => 'cliente', 'id' => 'cliente', 'class' => 'form-control input-sm']) . "</td>";
                                             echo '</tr>';
                                             $opcao = array(
                                                 'i' => 'Somente Ida',
@@ -187,7 +194,7 @@
                         <div class="col-lg-6">
                             <div class="panel panel-primary">
                                 <div class="panel-heading">
-                                    <h3 class="panel-title"><i class="fa fa-map-marker"></i> Mapa Ônibus</h3>
+                                    <h3 class="panel-title"><i class="fa fa-map-marker"></i> Mapa Ônibus<span class="label label-success pull-right">LIVRE</span><span class="label label-warning pull-right">IDA</span><span class="label label-info pull-right">VOLTA</span><span class="label label-danger pull-right">IDA/VOLTA</span></h3>
                                 </div>
                                 <div class="panel-body">
                                     <div class="table-responsive">
@@ -350,7 +357,7 @@
                                                 if ($query->num_rows() > 0) {
                                                     ?>
                                                     <td class="danger"><?= form_open('home/editarReserva') ?>
-                                                       <?php
+                                                        <?php
                                                         foreach ($query->result() as $rel) {
                                                             if ($rel->tipo == 'v') {
                                                                 ?>
@@ -452,7 +459,7 @@
                                                 if ($query->num_rows() > 0) {
                                                     ?>
                                                     <td class="danger"><?= form_open('home/editarReserva') ?>
-                                                       <?php
+                                                        <?php
                                                         foreach ($query->result() as $rel) {
                                                             if ($rel->tipo == 'v') {
                                                                 ?>
@@ -655,7 +662,7 @@
                                                 if ($query->num_rows() > 0) {
                                                     ?>
                                                     <td class="danger"><?= form_open('home/editarReserva') ?>
-                                                       <?php
+                                                        <?php
                                                         foreach ($query->result() as $rel) {
                                                             if ($rel->tipo == 'v') {
                                                                 ?>
@@ -1009,7 +1016,7 @@
                                                 if ($query->num_rows() > 0) {
                                                     ?>
                                                     <td class="danger"><?= form_open('home/editarReserva') ?>
-                                                       <?php
+                                                        <?php
                                                         foreach ($query->result() as $rel) {
                                                             if ($rel->tipo == 'v') {
                                                                 ?>
@@ -1665,7 +1672,7 @@
                                                 if ($query->num_rows() > 0) {
                                                     ?>
                                                     <td class="danger"><?= form_open('home/editarReserva') ?>
-                                                       <?php
+                                                        <?php
                                                         foreach ($query->result() as $rel) {
                                                             if ($rel->tipo == 'v') {
                                                                 ?>
@@ -1817,7 +1824,7 @@
                                                 if ($query->num_rows() > 0) {
                                                     ?>
                                                     <td class="danger"><?= form_open('home/editarReserva') ?>
-                                                       <?php
+                                                        <?php
                                                         foreach ($query->result() as $rel) {
                                                             if ($rel->tipo == 'v') {
                                                                 ?>
@@ -2271,7 +2278,7 @@
                                                 if ($query->num_rows() > 0) {
                                                     ?>
                                                     <td class="danger"><?= form_open('home/editarReserva') ?>
-                                                       <?php
+                                                        <?php
                                                         foreach ($query->result() as $rel) {
                                                             if ($rel->tipo == 'v') {
                                                                 ?>
@@ -2475,7 +2482,8 @@
             </div><!-- /#page-wrapper -->
         </div><!-- /#wrapper -->
         <!-- JavaScript -->
-        <script src="<?= base_url() ?>js/jquery-1.10.2.js"></script>
+<!--<script src="<?= base_url() ?>js/jquery-1.10.2.js"></script>-->
+<script src="<?= base_url() ?>js/jquery-1.11.1.js"></script>
         <script src="<?= base_url() ?>js/bootstrap.js"></script>
         <!-- Page Specific Plugins -->
         <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>

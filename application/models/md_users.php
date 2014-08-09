@@ -262,5 +262,18 @@ class Md_users extends CI_Model {
         $this->db->where('id_viagem', $this->input->post('id_viagem'));
         $this->db->update('tb_viagem', $data);
     }
+    
+    function get_cliente($q){
+    $this->db->select('*');
+    $this->db->like('nome', $q);
+    $query = $this->db->get('tb_clients');
+    if($query->num_rows > 0){
+      foreach ($query->result_array() as $row){
+        $new_row['label']=htmlentities(stripslashes($row['nome']));
+        $row_set[] = $new_row; //build an array
+      }
+      echo json_encode($row_set); //format the array into json data
+    }
+  }
    
 }

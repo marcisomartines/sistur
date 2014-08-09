@@ -648,5 +648,21 @@ class Home extends CI_Controller {
             $this->load->view('vw_login');
         }
     }
-
+    
+    public function autocomplete(){
+        if($this->session->userdata('is_logged_in')==1){
+            $this->load->view('autocomplete');
+        } else {
+            $this->load->view('vw_login');
+        }
+    }
+    
+    function get_birds(){
+    $this->load->model('md_users');
+    if (isset($_GET['term'])){
+      $q = strtolower($_GET['term']);
+      $this->md_users->get_cliente($q);
+    }
+  }
+    
 }
