@@ -47,6 +47,7 @@
                                 <li><a href="<?php echo base_url() . "index.php/home/relatorioCliente" ?>"> Clientes</a></li>
                                 <li><a href="<?php echo base_url() . "index.php/home/relatorioOnibus" ?>"> Ônibus</a></li>
                                 <li><a href="<?php echo base_url() . "index.php/home/relatorioViagem" ?>"> Viagem</a></li>
+                                <li><a href="<?php echo base_url() . "index.php/home/aniversariantes" ?>"> Aniversariantes</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -89,6 +90,7 @@
                         </tr>
                     </thead>
                     <?php
+                    $this->db->order_by("destino", "asc");
                     $query = $this->db->get('tb_viagem');
                     foreach ($query->result() as $row) {
                         ?>

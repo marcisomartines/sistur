@@ -43,6 +43,7 @@
                                 <li><a href="<?php echo base_url() . "index.php/home/relatorioCliente" ?>"> Clientes</a></li>
                                 <li><a href="<?php echo base_url() . "index.php/home/relatorioOnibus" ?>"> Ônibus</a></li>
                                 <li><a href="<?php echo base_url() . "index.php/home/relatorioViagem" ?>"> Viagem</a></li>
+                                <li><a href="<?php echo base_url() . "index.php/home/aniversariantes" ?>"> Aniversariantes</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -109,7 +110,7 @@
                         $this->db->from('tb_tour');
                         $this->db->join('tb_viagem', 'tb_viagem.id_viagem=tb_tour.id_viagem');
                         $this->db->join('tb_cars', 'tb_cars.id_cars=tb_tour.id_car');
-                        $this->db->where('tb_tour.data_saida >', $data_inicio);
+                        $this->db->where('tb_tour.data_saida >=', $data_inicio);
                         $query = $this->db->get();
                     }
                     if (!empty($data_final) and empty($destino)) {//busca todos os destino mas em um periodo
@@ -124,7 +125,7 @@
                         $this->db->from('tb_tour');
                         $this->db->join('tb_viagem', 'tb_viagem.id_viagem=tb_tour.id_viagem');
                         $this->db->join('tb_cars', 'tb_cars.id_cars=tb_tour.id_car');
-                        $this->db->where('tb_tour.data_saida >', $data_inicio);
+                        $this->db->where('tb_tour.data_saida >=', $data_inicio);
                         $this->db->where('tb_tour.id_viagem', $destino);
                         $query = $this->db->get();
                     }

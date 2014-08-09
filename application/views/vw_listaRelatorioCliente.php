@@ -43,6 +43,7 @@
                                 <li><a href="<?php echo base_url() . "index.php/home/relatorioCliente" ?>"> Clientes</a></li>
                                 <li><a href="<?php echo base_url() . "index.php/home/relatorioOnibus" ?>"> Ônibus</a></li>
                                 <li><a href="<?php echo base_url() . "index.php/home/relatorioViagem" ?>"> Viagem</a></li>
+                                <li><a href="<?php echo base_url() . "index.php/home/aniversariantes" ?>"> Aniversariantes</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -123,7 +124,7 @@
                         $this->db->join('tb_tour', 'tb_tour.id_tour=tb_reservs.id_tour');
                         $this->db->join('tb_viagem', 'tb_viagem.id_viagem=tb_tour.id_viagem');
                         //$this->db->where('tb_clients.id_clients', $cliente);
-                        $this->db->where('tb_tour.data_saida >', $data_inicio);
+                        $this->db->where('tb_tour.data_saida >=', $data_inicio);
                         $query = $this->db->get();
                     }
                      if (empty($data_final) and !empty($destino) and !empty($cliente)) {//busca todo resultado
@@ -133,7 +134,7 @@
                         $this->db->join('tb_tour', 'tb_tour.id_tour=tb_reservs.id_tour');
                         $this->db->join('tb_viagem', 'tb_viagem.id_viagem=tb_tour.id_viagem');
                         $this->db->where('tb_clients.id_clients', $cliente);
-                        $this->db->where('tb_tour.data_saida >', $data_inicio);
+                        $this->db->where('tb_tour.data_saida >=', $data_inicio);
                         $query = $this->db->get();
                     }
                     if (!empty($data_final) and empty($destino) and empty($cliente)) {//busca todos os destino e todos os clientes mas em um periodo
@@ -151,7 +152,7 @@
                         $this->db->join('tb_tour', 'tb_tour.id_tour=tb_reservs.id_tour');
                         $this->db->join('tb_viagem', 'tb_viagem.id_viagem=tb_tour.id_viagem');
                         $this->db->where('tb_clients.id_clients', $cliente);
-                        $this->db->where('tb_tour.data_saida >', $data_inicio);
+                        $this->db->where('tb_tour.data_saida >=', $data_inicio);
                         $query = $this->db->get();
                     }
                     if (empty($data_final) and !empty($destino) and empty($cliente)) {//busca por apenas um destino
@@ -160,7 +161,7 @@
                         $this->db->join('tb_reservs', 'tb_reservs.id_client=tb_clients.id_clients');
                         $this->db->join('tb_tour', 'tb_tour.id_tour=tb_reservs.id_tour');
                         $this->db->join('tb_viagem', 'tb_viagem.id_viagem=tb_tour.id_viagem');
-                        $this->db->where('tb_tour.data_saida >', $data_inicio);
+                        $this->db->where('tb_tour.data_saida >=', $data_inicio);
                         $this->db->where('tb_tour.id_viagem', $destino);
                         $query = $this->db->get();
                     }

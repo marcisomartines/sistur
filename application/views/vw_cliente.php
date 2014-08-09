@@ -47,6 +47,7 @@
                                 <li><a href="<?php echo base_url() . "index.php/home/relatorioCliente" ?>"> Clientes</a></li>
                                 <li><a href="<?php echo base_url() . "index.php/home/relatorioOnibus" ?>"> Ônibus</a></li>
                                 <li><a href="<?php echo base_url() . "index.php/home/relatorioViagem" ?>"> Viagem</a></li>
+                                <li><a href="<?php echo base_url() . "index.php/home/aniversariantes" ?>"> Aniversariantes</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -94,6 +95,7 @@
                         </tr>
                     </thead>
                     <?php
+                    $this->db->order_by("nome", "asc"); 
                     $query = $this->db->get('tb_clients');
                     foreach ($query->result() as $row) {
                         $data_nascimento = implode("/", array_reverse(explode("-", $row->data_nascimento)));
