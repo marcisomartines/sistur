@@ -76,10 +76,8 @@
                         <ol class="breadcrumb">
                             <li class="active"><i class="fa fa-dashboard"></i> Informações gerais</li>
                         </ol>
-                                                <div class="alert alert-danger alert-dismissable">Usar essa div para mostra alarmes, pedidos e chamados de garçom
-                                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                                    Welcome to SB Admin by <a class="alert-link" href="http://startbootstrap.com">Start Bootstrap</a>! Feel free to use this template for your admin needs! We are using a few different plugins to handle the dynamic tables and charts, so make sure you check out the necessary documentation links provided.
-                                                </div>
+                        <?php include 'vw_avisoDocumentoOnibus.php';?>
+                        <?php include 'vw_avisoDocumentoMotorista.php';?>
                     </div>
                 </div><!-- /.row -->
                 <div class="row">
