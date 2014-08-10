@@ -1,5 +1,5 @@
 <?php
-$antt = $this->db->query("SELECT * FROM tb_cars WHERE Month(antt)=Month(Now()) and Year(antt)=Year(Now())");
+$antt = $this->db->query("SELECT * FROM tb_cars WHERE Month(antt)=Month(Now()) and Year(antt)=Year(Now()) AND status='A'");
 if ($antt->num_rows() > 0) {
     foreach ($antt->result() as $res) {
         ?>

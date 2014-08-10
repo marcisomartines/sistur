@@ -1,5 +1,5 @@
 <?php
-$motorista = $this->db->query("SELECT * FROM tb_drivers WHERE Month(validade_cnh)=Month(Now()) AND Year(validade_cnh)=Year(Now())");
+$motorista = $this->db->query("SELECT * FROM tb_drivers WHERE Month(validade_cnh)=Month(Now()) AND Year(validade_cnh)=Year(Now()) AND status='A'");
 if ($motorista->num_rows() > 0) {
     foreach ($motorista->result() as $res) {
         ?>
