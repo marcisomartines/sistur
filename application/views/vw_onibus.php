@@ -45,7 +45,7 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bar-chart-o"></i> Relatórios <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="<?php echo base_url() . "index.php/home/relatorioCliente" ?>"> Clientes</a></li>
-                                <li><a href="<?php echo base_url() . "index.php/home/relatorioOnibus" ?>"> Ônibus</a></li>
+<!--                                <li><a href="<?php echo base_url() . "index.php/home/relatorioOnibus" ?>"> Ônibus</a></li>-->
                                 <li><a href="<?php echo base_url() . "index.php/home/relatorioViagem" ?>"> Viagem</a></li>
                                 <li><a href="<?php echo base_url() . "index.php/home/aniversariantes" ?>"> Aniversariantes</a></li>
                             </ul>
@@ -85,8 +85,8 @@
                 <table class="table tablesorter">
                     <thead>
                         <tr>
-                            <th>Modelo <i class="fa fa-sort"></i></th>
                             <th>Código <i class="fa fa-sort"></i></th>
+                            <th>Modelo <i class="fa fa-sort"></i></th>
                             <th>N° Poltronas <i class="fa fa-sort"></i></th>
                             <th>Placa <i class="fa fa-sort"></i></th>
                             <th>Situação <i class="fa fa-sort"></i></th>
@@ -99,8 +99,8 @@
                     foreach ($query->result() as $row) {
                         ?>
                         <tr>
-                            <td><?= $row->modelo ?></td>
                             <td><?= $row->codigo ?></td>
+                            <td><?= $row->modelo ?></td>
                             <td><?= $row->nr_poltrona ?></td>
                             <td><?= $row->placa ?></td>
                             <td><?= ($row->status == 'A' ? "Ativo" : "Inativo") ?></td>

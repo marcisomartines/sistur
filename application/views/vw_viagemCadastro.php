@@ -50,7 +50,7 @@ $lusuario = array('class' => 'form-control');
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bar-chart-o"></i> Relatórios <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="<?php echo base_url() . "index.php/home/relatorioCliente" ?>"> Clientes</a></li>
-                                <li><a href="<?php echo base_url() . "index.php/home/relatorioOnibus" ?>"> Ônibus</a></li>
+<!--                                <li><a href="<?php echo base_url() . "index.php/home/relatorioOnibus" ?>"> Ônibus</a></li>-->
                                 <li><a href="<?php echo base_url() . "index.php/home/relatorioViagem" ?>"> Viagem</a></li>
                                 <li><a href="<?php echo base_url() . "index.php/home/aniversariantes" ?>"> Aniversariantes</a></li>
                             </ul>
@@ -93,7 +93,7 @@ $lusuario = array('class' => 'form-control');
                     echo validation_errors();
 
                     echo form_label('Destino: ');
-                    echo form_input(['name' => 'destino', 'id' => 'destino', 'class' => 'form-control input-sm']).'<b class="warning">*</b>';
+                    echo form_input(['name' => 'destino', 'id' => 'destino', 'class' => 'form-control input-sm']).'<b class="warning"></b>';
                     echo "<br />";
                     echo '<input type="submit" class="btn btn-primary" value="Cadastrar">';
                     //echo '<p>';

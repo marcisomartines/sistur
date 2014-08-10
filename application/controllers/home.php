@@ -201,7 +201,6 @@ class Home extends CI_Controller {
         $this->load->library('form_validation');
 
         $this->form_validation->set_rules('nome', 'nome', 'required|trim');
-        $this->form_validation->set_rules('telefone', 'telefone', 'required|trim');
 
         if ($this->form_validation->run()) {
             $this->load->model('md_users');
@@ -453,7 +452,7 @@ class Home extends CI_Controller {
     public function cadastroValidacaoReserva() {
         $this->load->library('form_validation');
 
-        $this->form_validation->set_rules('cliente', 'cliente', 'required|trim'); //cliente
+        $this->form_validation->set_rules('course', 'cliente', 'required|trim'); //cliente
         $this->form_validation->set_rules('tipo', 'tipo', 'required|trim'); //tipo de agendamento
 
         if ($this->form_validation->run()) {
@@ -649,20 +648,11 @@ class Home extends CI_Controller {
         }
     }
     
-    public function autocomplete(){
-        if($this->session->userdata('is_logged_in')==1){
-            $this->load->view('autocomplete');
-        } else {
-            $this->load->view('vw_login');
-        }
+    public function teste(){
+        $this->load->view('teste');
     }
     
-    function get_birds(){
-    $this->load->model('md_users');
-    if (isset($_GET['term'])){
-      $q = strtolower($_GET['term']);
-      $this->md_users->get_cliente($q);
+    public function autoComplete(){
+        $this->load->view('autoComplete');
     }
-  }
-    
 }

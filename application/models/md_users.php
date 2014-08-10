@@ -214,10 +214,14 @@ class Md_users extends CI_Model {
     }
     
     public function addReserva() {
+        $query=$this->db->query("SELECT * FROM tb_clients WHERE nome='".$this->input->post('course')."'");
+        foreach($query->result() as $e){
+            $cliente=$e;
+        }
         $data = array('nr_poltrona'   => $this->input->post('nr_poltrona'),
             'tipo'                    => $this->input->post('tipo'),
             'id_tour'                 => $this->input->post('id_tour'),//onibus
-            'id_client'               => $this->input->post('cliente'),
+            'id_client'               => $cliente->id_clients,
             //'id_movfinan'          => $this->input->post('id_motorista'),
             'loc_embarque'            => $this->input->post('loc_embarque'),
             'desconto'                => $this->input->post('desconto'),
@@ -238,10 +242,14 @@ class Md_users extends CI_Model {
     }
     
     public function upViagem() {
-        $data = array('alimentacao'     => $this->input->post('alimentacao'),
-            'combustivel'               => $this->input->post('combustivel'),
-            'outros'                    => $this->input->post('outros'),
-            'total'                     => $this->input->post('total'),
+        $alimentacao=str_replace(',','.',$this->input->post('alimentacao'));
+        $combustivel=str_replace(',','.',$this->input->post('combustivel'));;
+        $outros=str_replace(',','.',$this->input->post('outros'));;
+        $total=str_replace(',','.',$this->input->post('total'));;
+        $data = array('alimentacao'     => $alimentacao,
+            'combustivel'               => $combustivel,
+            'outros'                    => $outros,
+            'total'                     => $total,
             'status'                    => 'F'
         );
         $this->db->where('id_tour', $this->input->post('id_tour'));
@@ -262,18 +270,5 @@ class Md_users extends CI_Model {
         $this->db->where('id_viagem', $this->input->post('id_viagem'));
         $this->db->update('tb_viagem', $data);
     }
-    
-    function get_cliente($q){
-    $this->db->select('*');
-    $this->db->like('nome', $q);
-    $query = $this->db->get('tb_clients');
-    if($query->num_rows > 0){
-      foreach ($query->result_array() as $row){
-        $new_row['label']=htmlentities(stripslashes($row['nome']));
-        $row_set[] = $new_row; //build an array
-      }
-      echo json_encode($row_set); //format the array into json data
-    }
-  }
    
 }

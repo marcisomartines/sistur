@@ -43,7 +43,7 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bar-chart-o"></i> Relatórios <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="<?php echo base_url() . "index.php/home/relatorioCliente" ?>"> Clientes</a></li>
-                                <li><a href="<?php echo base_url() . "index.php/home/relatorioOnibus" ?>"> Ônibus</a></li>
+<!--                                <li><a href="<?php echo base_url() . "index.php/home/relatorioOnibus" ?>"> Ônibus</a></li>-->
                                 <li><a href="<?php echo base_url() . "index.php/home/relatorioViagem" ?>"> Viagem</a></li>
                                 <li><a href="<?php echo base_url() . "index.php/home/aniversariantes" ?>"> Aniversariantes</a></li>
                             </ul>
@@ -76,10 +76,10 @@
                         <ol class="breadcrumb">
                             <li class="active"><i class="fa fa-dashboard"></i> Informações gerais</li>
                         </ol>
-                        <!--                        <div class="alert alert-success alert-dismissable">Usar essa div para mostra alarmes, pedidos e chamados de garçom
+                                                <div class="alert alert-danger alert-dismissable">Usar essa div para mostra alarmes, pedidos e chamados de garçom
                                                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                                                     Welcome to SB Admin by <a class="alert-link" href="http://startbootstrap.com">Start Bootstrap</a>! Feel free to use this template for your admin needs! We are using a few different plugins to handle the dynamic tables and charts, so make sure you check out the necessary documentation links provided.
-                                                </div>-->
+                                                </div>
                     </div>
                 </div><!-- /.row -->
                 <div class="row">
@@ -170,7 +170,7 @@
                                                 $data_saida = implode("/", array_reverse(explode("-", $linha->data_saida)));
                                                 $data_retorno = implode("/", array_reverse(explode("-", $linha->data_retorno)));
                                                 echo "<tr>";
-                                                echo "<td>" . $linha->modelo . "</td>";
+                                                echo "<td>" . $linha->codigo . "</td>";
                                                 echo "<td>" . $linha->destino . "</td>";
                                                 echo "<td>" . $data_saida . "</td>";
                                                 echo "<td>" . $data_retorno ."</td>";

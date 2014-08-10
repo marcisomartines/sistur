@@ -41,7 +41,7 @@
                             <a href="#" class="dropdown-toggle active" data-toggle="dropdown"><i class="fa fa-bar-chart-o"></i> Relatórios <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="<?php echo base_url() . "index.php/home/relatorioCliente" ?>"> Clientes</a></li>
-                                <li><a href="<?php echo base_url() . "index.php/home/relatorioOnibus" ?>"> Ônibus</a></li>
+<!--                                <li><a href="<?php echo base_url() . "index.php/home/relatorioOnibus" ?>"> Ônibus</a></li>-->
                                 <li><a href="<?php echo base_url() . "index.php/home/relatorioViagem" ?>"> Viagem</a></li>
                                 <li><a href="<?php echo base_url() . "index.php/home/aniversariantes" ?>"> Aniversariantes</a></li>
                             </ul>
@@ -77,10 +77,11 @@
                     </div>
                 </div><!-- /.row -->
                 <div class="controls">
-                    <?=form_open('home/relatorioListaCliente')?>
+                    <?= form_open('home/relatorioListaCliente') ?>
                     <table>
                         <tr>
                             <td><?php
+                                $this->db->order_by('nome','asc');
                                 $query = $this->db->get('tb_clients');
                                 $opcao[] = '';
                                 echo form_label('Cliente: ');
@@ -90,7 +91,7 @@
                                 ?>
                             </td>
                             <td>                    
-                                <?= form_dropdown('id_client', $opcao, $this->input->post('id_client'), 'class=form-control') ?>
+                                <?=form_dropdown('id_client', $opcao, $this->input->post('id_client'), 'class=form-control')?>
                             </td>
                             <td> <label>Periodo Inicial: </label></td><td><input type="text" id="data_inicio" name="data_inicio" class="form-control input-sm"></td><td><label for="data_final"> Periodo Final: </label></td><td><input type="text" id="data_final" name="data_final" class="form-control input-sm"></td>
                             <td><?php
@@ -108,7 +109,7 @@
                     </table>
                     <br>
                     <input type="submit" class="btn btn-primary" value="Gerar Relatório">
-                    <?=form_close()?>
+                    <?= form_close() ?>
                 </div>
                 <div id="relatorio" class=" row-fluid">
                     <!--reserva vai ser colocada aqui-->
@@ -116,7 +117,7 @@
             </div><!-- /#page-wrapper -->
         </div><!-- /#wrapper -->
         <!-- JavaScript -->
-        <script src="<?= base_url() ?>js/jquery-1.10.2.js"></script>
+        <script src="<?= base_url() ?>js/jquery-1.11.1.js"></script>
         <script src="<?= base_url() ?>js/bootstrap.js"></script>
         <!-- Page Specific Plugins -->
         <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
@@ -126,21 +127,20 @@
         <script src="<?= base_url() ?>js/tablesorter/tables.js"></script>
         <script src="<?= base_url() ?>js/funcao.js"></script>
         <script src="<?= base_url() ?>js/jquery-ui.js"></script>
-        <script src="<?= base_url() ?>js/jquery.mask.min.js"></script>
-        <script src="<?= base_url() ?>js/jquery-ui.js"></script>
+        <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
         <script>
-                        $(function() {
-                            $("#data_inicio").datepicker({
-                                dateFormat: 'dd/mm/yy',
-                                dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo'],
-                                dayNamesMin: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S', 'D'],
-                                dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],
-                                monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
-                                monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
-                                changeMonth: true,
-                                changeYear: true
-                            });
-                        });
+            $(function() {
+                $("#data_inicio").datepicker({
+                    dateFormat: 'dd/mm/yy',
+                    dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo'],
+                    dayNamesMin: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S', 'D'],
+                    dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],
+                    monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+                    monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+                    changeMonth: true,
+                    changeYear: true
+                });
+            });
         </script>
         <script>
             $(function() {

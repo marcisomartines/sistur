@@ -11,13 +11,6 @@
         <link href="<?= base_url() ?>css/sb-admin.css" rel="stylesheet">
         <link rel="stylesheet" href="<?= base_url() ?>font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.4.3.min.css">
-        <script type="text/javascript">
-            $(function(){
-  $("#birds").autocomplete({
-    source: "home/get_cliente" // path to the get_birds method
-  });
-});
-            </script>
     </head>
 
     <body>
@@ -51,7 +44,7 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bar-chart-o"></i> Relatórios <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="<?php echo base_url() . "index.php/home/relatorioCliente" ?>"> Clientes</a></li>
-                                <li><a href="<?php echo base_url() . "index.php/home/relatorioOnibus" ?>"> Ônibus</a></li>
+<!--                                <li><a href="<?php echo base_url() . "index.php/home/relatorioOnibus" ?>"> Ônibus</a></li>-->
                                 <li><a href="<?php echo base_url() . "index.php/home/relatorioViagem" ?>"> Viagem</a></li>
                                 <li><a href="<?php echo base_url() . "index.php/home/aniversariantes" ?>"> Aniversariantes</a></li>
                             </ul>
@@ -111,7 +104,7 @@
                                     <table class="table table-bordered table-hover table-striped tablesorter">
                                         <tr>
                                             <th width='180px'>Ônibus: </th>
-                                            <td><?= $dados['modelo'] ?></td>
+                                            <td><?= $dados['codigo'] ?></td>
                                         </tr>
                                         <tr>
                                             <th>Destino: </th>
@@ -142,7 +135,6 @@
                                         <table class="table table-bordered table-hover table-striped">
                                             <?php
                                             echo form_open('home/cadastroValidacaoReserva');
-
                                             echo validation_errors();
 
                                             echo "<tr>";
@@ -152,8 +144,10 @@
                                                 $cliente[$clt->id_clients] = $clt->nome;
                                             }
                                             echo "<td width='180px'>" . form_label('Cliente: ') . "</td>";
-                                            //echo "<td>" . form_dropdown('cliente', $cliente, 'v', 'class=form-control') . "</td>";
-                                            echo '<td>' . form_input(['name' => 'cliente', 'id' => 'cliente', 'class' => 'form-control input-sm']) . "</td>";
+
+                                            echo '<td>';
+                                            include 'teste.php';
+                                            "</td>";
                                             echo '</tr>';
                                             $opcao = array(
                                                 'i' => 'Somente Ida',
@@ -2457,7 +2451,7 @@
                                     echo form_label('Outros: ');
                                     echo form_input(['name' => 'outros', 'id' => 'outros', 'class' => 'form-control input-sm calc']);
                                     echo '<br>';
-                                    echo form_label('Total: ');
+                                    echo form_label('Frete: ');//usando o campo total do banco para não precisar alterar a estrutura do banco
                                     echo form_input(['name' => 'total', 'id' => 'total', 'class' => 'form-control input-sm result']);
                                     echo '<br>';
                                     echo form_hidden('id_tour', $this->input->post('id_tour'));
@@ -2470,11 +2464,6 @@
                             </div>
                         </div>
                     </div>
-                    <!--aqui termina as tabelas-->
-                    <!-- Modal -->
-                    <script src="http://localhost/sistur/js/jquery-ui.js"></script>
-                    <script src="<?= base_url() ?>js/jquery.autocomplete.js"></script>
-                    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
                 </div>
                 <div id="relatorio" class=" row-fluid">
                     <!--reserva vai ser colocada aqui-->
@@ -2483,7 +2472,7 @@
         </div><!-- /#wrapper -->
         <!-- JavaScript -->
 <!--<script src="<?= base_url() ?>js/jquery-1.10.2.js"></script>-->
-<script src="<?= base_url() ?>js/jquery-1.11.1.js"></script>
+<!--        <script src="<?= base_url() ?>js/jquery-1.11.1.js"></script>-->
         <script src="<?= base_url() ?>js/bootstrap.js"></script>
         <!-- Page Specific Plugins -->
         <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
@@ -2491,18 +2480,18 @@
         <script src="<?= base_url() ?>js/morris/chart-data-morris.js"></script>
         <script src="<?= base_url() ?>js/tablesorter/jquery.tablesorter.js"></script>
         <script src="<?= base_url() ?>js/tablesorter/tables.js"></script>
-        <script src="<?= base_url() ?>js/funcao.js"></script>
+<!--        <script src="<?= base_url() ?>js/funcao.js"></script>
         <script src="<?= base_url() ?>js/jquery-ui.js"></script>
         <script src="<?= base_url() ?>js/jquery.autocomplete.js"></script>
         <script src="<?= base_url() ?>js/jquery.mask.min.js"></script>
         <script type="text/javascript">
-                                            $(function() {
-                                                $('#combustivel').mask('000000000000000.00', {reverse: true});
-                                                $('#alimentacao').mask('000000000000000.00', {reverse: true});
-                                                $('#outros').mask('000000000000000.00', {reverse: true});
-                                                $('#total').mask('000000000000000.00', {reverse: true});
-                                                $('#desconto').mask('000000000000000.00', {reverse: true});
-                                            });
-        </script>
+            $(function() {
+                $('#combustivel').mask('000000000000000.00', {reverse: true});
+                $('#alimentacao').mask('000000000000000.00', {reverse: true});
+                $('#outros').mask('000000000000000.00', {reverse: true});
+                $('#total').mask('000000000000000.00', {reverse: true});
+                $('#desconto').mask('000000000000000.00', {reverse: true});
+            });
+        </script>-->
     </body>
 </html>

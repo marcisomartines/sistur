@@ -91,6 +91,7 @@
                     <th>Alimen.</th>
                     <th>Combus.</th>
                     <th>Outros</th>
+                    <th>Frete</th>
                     <th>Total</th>
                 </tr>
                 <?php
@@ -116,6 +117,7 @@
                     echo "<td>R$" . $rel->alimentacao . "</td>";
                     echo "<td>R$" . $rel->combustivel . "</td>";
                     echo "<td>R$" . $rel->outros . "</td>";
+                    echo "<td>R$" . $rel->total . "</td>";
                     echo "<td>R$" . $total . "</td>";
                     echo "</tr>";
                 }

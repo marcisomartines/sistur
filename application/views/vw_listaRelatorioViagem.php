@@ -41,7 +41,7 @@
                             <a href="#" class="dropdown-toggle active" data-toggle="dropdown"><i class="fa fa-bar-chart-o"></i> Relatórios <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="<?php echo base_url() . "index.php/home/relatorioCliente" ?>"> Clientes</a></li>
-                                <li><a href="<?php echo base_url() . "index.php/home/relatorioOnibus" ?>"> Ônibus</a></li>
+<!--                                <li><a href="<?php echo base_url() . "index.php/home/relatorioOnibus" ?>"> Ônibus</a></li>-->
                                 <li><a href="<?php echo base_url() . "index.php/home/relatorioViagem" ?>"> Viagem</a></li>
                                 <li><a href="<?php echo base_url() . "index.php/home/aniversariantes" ?>"> Aniversariantes</a></li>
                             </ul>
@@ -151,6 +151,7 @@
                             <th>Alimentação</th>
                             <th>Combustível</th>
                             <th>Outros</th>
+                            <th>Frete</th>
                             <th>Total</th>
                             <th>Lista</th>
                         </tr>
@@ -161,7 +162,7 @@
                             $this->db->where('id_tour', $rel->id_tour);
                             $p = $this->db->get('tb_reservs');
                             $poltronas = $p->num_rows();
-                            $total = ($poltronas * $rel->preco) - ($rel->alimentacao + $rel->combustivel + $rel->outros);
+                            $total = ($poltronas * $rel->preco + $rel->total) - ($rel->alimentacao + $rel->combustivel + $rel->outros);
                             if ($total < 0) {
                                 echo '<tr class="danger">';
                             } else {
@@ -176,7 +177,8 @@
                             echo "<td>R$" . $rel->preco . "</td>";
                             echo "<td>R$" . $rel->alimentacao . "</td>";
                             echo "<td>R$" . $rel->combustivel . "</td>";
-                            echo "<td>R$" . $rel->outros . "</td>";
+                            echo "<td>R$" . $rel->outros . "</td>";//valor do frete
+                            echo "<td>R$" . $rel->total . "</td>";
                             echo "<td>R$" . $total . "</td>";
                             echo '<td>';
                             ?><a class="btn btn-primary btn-xs" href="" onClick="window.open('<?php echo base_url() . "index.php/home/listaPassageiros?id=" . $rel->id_tour ?>', 'Janela', 'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=900,height=800,left=0,top=0');

@@ -37,7 +37,7 @@
                             <td><img src="<?= base_url() ?>img/logo_relatorio.png"></td>
                             <td>Pantanal Sul Turismo (67) 3351-2520 - Campo Grande, MS <br>
                                 Destino: <small><?php if (!empty($result->destino_ultv)) echo $result->destino_ultv; ?></small> - Data de Saída: <small><?php if (!empty($data_saida)) echo $data_saida; ?></small><br>
-                                Onibus: <small><?php if (!empty($result->modelo)) echo $result->modelo; ?></small><br>
+                                Onibus: <small><?php if (!empty($result->codigo)) echo $result->codigo; ?></small><br>
                                 Assitanura Responsavel:________________________
                             </td>
                         </tr>
@@ -53,7 +53,7 @@
                     </tr>
                 </thead>
                 <?php
-                $query = $this->db->query("SELECT tb_reservs.nr_poltrona,tb_clients.nome,tb_clients.celular,tb_clients.loc_embarque as embarquec, tb_reservs.loc_embarque as embarquer,tb_reservs.tipo
+                $query = $this->db->query("SELECT tb_reservs.nr_poltrona,tb_clients.nome,tb_clients.celular,tb_clients.loc_embarque as embarquec, tb_reservs.loc_embarque as embarquer,tb_reservs.tipo,tb_clients.rg
                                                 FROM tb_reservs
                                                 JOIN tb_tour on tb_tour.id_tour=tb_reservs.id_tour
                                                 JOIN tb_clients on tb_clients.id_clients=tb_reservs.id_client
