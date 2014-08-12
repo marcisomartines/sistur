@@ -13,7 +13,7 @@
                         <input type="hidden" name="nr_poltrona" value="1" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" class="btn btn-info btn-xs pull-right" title="Marciso" value="01">
+                        <input type="submit" class="btn btn-info btn-xs pull-right" value="01">
                         </form>
                         <?php
                     }

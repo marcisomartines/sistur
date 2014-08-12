@@ -160,14 +160,14 @@
                                             echo "</tr>";
                                             echo "<tr>";
                                             echo "<td>" . form_label('Desconto: ') . "</td>";
-                                            echo "<td>" . form_input(['name' => 'desconto', 'id' => 'desconto', 'class' => 'form-control input-sm datepicker']) . "</td>";
+                                            echo "<td><input type='text' name='desconto' id='desconto' class='form-control input-sm'></td>";
                                             echo "<tr>";
                                             echo "<td>" . form_label('Local de Embarque: ') . "</td>";
-                                            echo "<td>" . form_input(['name' => 'loc_embarque', 'id' => 'loc_embarque', 'class' => 'form-control input-sm']) . "</td>";
+                                            echo "<td><input type='text' name='loc_embarque' id='loc_embarque' class='form-control input-sm'></td>";
                                             echo "</tr>";
                                             echo "<tr>";
                                             echo "<td>" . form_label('Nr. Poltrona: ') . "</td>";
-                                            echo "<td>" . form_input(['name' => 'nr_poltrona', 'id' => 'nr_poltrona', 'class' => 'form-control input-sm']) . "</td>";
+                                            echo "<td><input type='text' name='nr_poltrona' id='nr_poltrono' class='form-control input-sm'></td>";
                                             echo "</tr>";
                                             echo form_hidden('id_tour', $this->input->post('id_tour'));
                                             echo form_hidden('ultima_viagem', $dados['data_saida']);
@@ -192,66 +192,27 @@
                                 </div>
                                 <div class="panel-body">
                                     <div class="table-responsive">
-                                        <?php 
-                                        if($dados['nr_poltrona']==42)
+                                        <?php
+                                        if ($dados['nr_poltrona'] == 42)
                                             include 'vw_onibus42.php';
-                                        if($dados['nr_poltrona']==44)
-                                            include 'vw_onibus44.php'; 
+                                        if ($dados['nr_poltrona'] == 44)
+                                            include 'vw_onibus44.php';
                                         ?>
                                         <a class="btn btn-primary" href="" onClick="window.open('<?php echo base_url() . "index.php/home/listaPassageiros?id=" . $this->input->post('id_tour') ?>', 'Janela', 'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=900,height=800,left=0,top=0');
                                                 return false;"><i class="fa fa-list"></i> Lista Passageiros</a>
-                                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal"><i class="fa fa-check"></i> Finalizar Viagem</button><!--Modal para fechar a viagem-->
+                                        <a href="<?php echo base_url() . "index.php/home/fechamentoReserva" ?>" class="btn btn-success" role="button"><i class="fa fa-check"></i> Finalizar Viagem</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                                    <h4 class="modal-title" id="myModalLabel">Gastos com a Viagem</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <?php
-                                    echo form_open('home/cadastroValidacaoGastosViagem');
-
-                                    echo validation_errors();
-
-                                    echo form_label('Combustivel: ');
-                                    echo form_input(['name' => 'combustivel', 'id' => 'combustivel', 'class' => 'form-control input-sm calc']);
-                                    echo '<br>';
-
-                                    echo form_label('Alimentação: ');
-                                    echo form_input(['name' => 'alimentacao', 'id' => 'alimentacao', 'class' => 'form-control input-sm calc']);
-                                    echo '<br>';
-                                    echo form_label('Outros: ');
-                                    echo form_input(['name' => 'outros', 'id' => 'outros', 'class' => 'form-control input-sm calc']);
-                                    echo '<br>';
-                                    echo form_label('Frete: ');//usando o campo total do banco para não precisar alterar a estrutura do banco
-                                    echo form_input(['name' => 'total', 'id' => 'total', 'class' => 'form-control input-sm result']);
-                                    echo '<br>';
-                                    echo form_hidden('id_tour', $this->input->post('id_tour'));
-                                    echo "<br />";
-                                    echo '<input type="submit" class="btn btn-primary" value="Salvar">';
-                                    echo '<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>';
-                                    echo form_close();
-                                    ?>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div id="relatorio" class=" row-fluid">
-                    <!--reserva vai ser colocada aqui-->
                 </div>
             </div><!-- /#page-wrapper -->
         </div><!-- /#wrapper -->
         <!-- JavaScript -->
 <!--<script src="<?= base_url() ?>js/jquery-1.10.2.js"></script>-->
 <!--        <script src="<?= base_url() ?>js/jquery-1.11.1.js"></script>-->
-        <script src="<?= base_url() ?>js/bootstrap.js"></script>
+<!--        <script src="<?= base_url() ?>js/bootstrap.js"></script>-->
         <!-- Page Specific Plugins -->
         <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
         <script src="http://cdn.oesmith.co.uk/morris-0.4.3.min.js"></script>

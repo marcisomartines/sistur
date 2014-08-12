@@ -134,10 +134,10 @@ $lusuario = array('class' => 'form-control');
                     echo form_dropdown('id_viagem', $viagem, $agendaDados['id_viagem'], 'class=form-control');
                     echo '<br>';
                     echo form_label('Data Saida: ');
-                    echo form_input(['name' => 'data_saida', 'id' => 'data_saida', 'class' => 'form-control input-sm', 'value' => $data_saida]);
+                    echo "<td><input type='text' name='data_saida' id='data_saida' class='form-control input-sm' value='".$data_saida."'></td>";
                     echo '<br>';
                     echo form_label('Data Retorno: ');
-                    echo form_input(['name' => 'data_retorno', 'id' => 'data_retorno', 'class' => 'form-control input-sm', 'value' => $data_retorno]);
+                    echo "<td><input type='text' name='data_retorno' id='data_retorno' class='form-control input-sm' value='".$data_retorno."'></td>";
                     echo '<br>';
                     $this->db->where('status', 'A');
                     $query = $this->db->get('tb_drivers');
@@ -149,10 +149,10 @@ $lusuario = array('class' => 'form-control');
                     echo form_dropdown('id_motorista', $opcao2, $agendaDados['id_motorista'], 'class=form-control');
                     echo '<br>';
                     echo form_label('Preço: ');
-                    echo form_input(['name' => 'preco', 'id' => 'preco', 'class' => 'form-control input-sm', 'value' => $agendaDados['preco']]);
+                    echo "<td><input type='text' name='preco' id='preco' class='form-control input-sm' value='".$agendaDados['preco']."'></td>";
                     echo '<br>';
                     echo form_label('Observação: ');
-                    echo form_input(['name' => 'observacao', 'id' => 'observacao', 'class' => 'form-control input-sm', 'value' => $agendaDados['observacao']]);
+                    echo "<td><input type='text' name='observacao' id='observacao' class='form-control input-sm' value='".$agendaDados['observacao']."'></td>";
                     echo '<br>';
                     $ativo = array(
                         'name' => 'status',

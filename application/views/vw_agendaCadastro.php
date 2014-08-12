@@ -128,10 +128,10 @@ $lusuario = array('class' => 'form-control');
                     echo form_dropdown('id_viagem', $viagem, 'v', 'class=form-control');
                     echo '<br>';
                     echo form_label('Data Saida: ');
-                    echo form_input(['name' => 'data_saida', 'id' => 'data_saida', 'class' => 'form-control input-sm']);
+                    echo "<td><input type='text' name='data_saida' id='data_saida' class='form-control input-sm'></td>";
                     echo '<br>';
                     echo form_label('Data Retorno: ');
-                    echo form_input(['name' => 'data_retorno', 'id' => 'data_retorno', 'class' => 'form-control input-sm']);
+                    echo "<td><input type='text' name='data_retorno' id='data_retorno' class='form-control input-sm'></td>";
                     echo '<br>';
                     $this->db->where('status', 'A');
                     $query = $this->db->get('tb_drivers');
@@ -143,10 +143,10 @@ $lusuario = array('class' => 'form-control');
                     echo form_dropdown('id_motorista', $opcao2, 'v', 'class=form-control');
                     echo '<br>';
                     echo form_label('Preço: ');
-                    echo form_input(['name' => 'preco', 'id' => 'preco', 'class' => 'form-control input-sm']);
+                    echo "<td><input type='text' name='preco' id='preco' class='form-control input-sm'></td>";
                     echo '<br>';
                     echo form_label('Observação: ');
-                    echo form_input(['name' => 'observacao', 'id' => 'observacao', 'class' => 'form-control input-sm']);
+                    echo "<td><input type='text' name='observacao' id='observacao' class='form-control input-sm'></td>";
 
                     echo form_hidden('id_user', $us[0]->id_users);
 

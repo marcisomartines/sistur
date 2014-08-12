@@ -17,7 +17,6 @@ $lusuario = array('class' => 'form-control');
         <link href="<?= base_url() ?>css/sb-admin.css" rel="stylesheet">
         <link rel="stylesheet" href="<?= base_url() ?>font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.4.3.min.css">
-        <link rel="stylesheet" href="<?= base_url() ?>css/jquery-ui.css">
     </head>
 
     <body>
@@ -40,8 +39,8 @@ $lusuario = array('class' => 'form-control');
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav side-nav">
                         <li><a href="<?php echo base_url() . "index.php/home/" ?>"><i class="fa fa-dashboard"></i> Geral</a></li>
-                        <li><a href="<?php echo base_url() . "index.php/home/reserva" ?>"><i class="fa fa-ticket"></i> Reserva</a></li>
-                        <li class="active"><a href="<?php echo base_url() . "index.php/home/cliente" ?>"><i class="fa fa-users "></i> Cliente</a></li>
+                        <li class="active"><a href="<?php echo base_url() . "index.php/home/reserva" ?>"><i class="fa fa-ticket"></i> Reserva</a></li>
+                        <li><a href="<?php echo base_url() . "index.php/home/cliente" ?>"><i class="fa fa-users "></i> Cliente</a></li>
                         <li><a href="<?php echo base_url() . "index.php/home/agenda" ?>"><i class="fa fa-calendar"></i> Agendamento</a></li>
                         <li><a href="<?php echo base_url() . "index.php/home/onibus" ?>"><i class="fa fa-truck"></i> Ônibus</a></li>
                         <li><a href="<?php echo base_url() . "index.php/home/viagem" ?>"><i class="fa fa-tasks"></i> Destino</a></li>
@@ -80,67 +79,35 @@ $lusuario = array('class' => 'form-control');
             <div id="page-wrapper">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1>Cliente <small>Editar</small></h1>
+                        <h1>Reserva <small>fechamento</small></h1>
                         <ol class="breadcrumb">
-                            <li class="active"><i class="fa fa-users"></i><a href="<?php echo base_url() . "index.php/home/cliente" ?>"> Cliente</a> / Editar</li>
+                            <li class="active"><i class="fa fa-ticket"></i><a href="<?php echo base_url() . "index.php/home/reserva" ?>"> Reserva</a> / Fechamento</li>
                         </ol>
                     </div>
                 </div><!-- /.row -->
                 <div class="row col-sm-4">
-                    <h3>Editar Cliente</h3>
+                    <h1>Fechamento de Viagem</h1>
                     <?php
-                    echo form_open('home/editarValidacaoCliente');
-                    $this->db->where('id_clients', $this->input->post('id_clients'));
-                    $query = $this->db->get('tb_clients');
-                    foreach ($query->result_array() as $row) {
-                        $clienteDados = $row;
-                    }
+                    echo form_open('home/cadastroValidacaoGastosViagem');
+
                     echo validation_errors();
-                    $data_nascimento = implode("/", array_reverse(explode("-", $clienteDados['data_nascimento'])));
-                    echo form_label('Nome: ');
-                    echo "<td><input type='text' name='nome' id='nome' class='form-control input-sm' value='".$clienteDados['nome']."'></td>";
-                    echo '<br>';
-                    echo form_label('Data Nascimento: ');
-                    echo "<td><input type='text' name='data_nascimento' id='data_nascimento' class='form-control input-sm' value='".$data_nascimento."'></td>";
-                    echo '<br>';
-                    echo form_label('RG: ');
-                    echo "<td><input type='text' name='rg' id='rg' class='form-control input-sm' value='".$clienteDados['rg']."'></td>";
-                    echo '<br>';
-                    echo form_label('CPF: ');
-                    echo "<td><input type='text' name='cpf' id='cpf' class='form-control input-sm' value='".$clienteDados['cpf']."'></td>";
-                    echo '<br>';
-                    echo form_label('E-mail: ');
-                    echo "<td><input type='text' name='email' id='email' class='form-control input-sm' value='".$clienteDados['email']."'></td>";
-                    echo '<br>';
-                    echo form_label('Telefone: ');
-                    echo "<td><input type='text' name='telefone' id='telefone' class='form-control input-sm' value='".$clienteDados['telefone']."'></td>";
-                    echo '<br>';
-                    echo form_label('Celular: ');
-                    echo "<td><input type='text' name='celular' id='celular' class='form-control input-sm' value='".$clienteDados['celular']."'></td>";
-                    echo '<br>';
-                    echo form_label('Rua: ');
-                    echo "<td><input type='text' name='rua' id='rua' class='form-control input-sm' value='".$clienteDados['rua']."'></td>";
-                    echo '<br>';
-                    echo form_label('Bairro: ');
-                    echo "<td><input type='text' name='bairro' id='bairro' class='form-control input-sm' value='".$clienteDados['bairro']."'></td>";
-                    echo '<br>';
-                    echo form_label('Cidade: ');
-                    echo "<td><input type='text' name='cidade' id='cidade' class='form-control input-sm' value='".$clienteDados['cidade']."'></td>";
-                    echo '<br>';
-                    echo form_label('Local de Embarque: ');
-                    echo "<td><input type='text' name='loc_embarque' id='loc_embarque' class='form-control input-sm' value='".$clienteDados['loc_embarque']."'></td>";
-                    echo '<br>';
-                    echo form_label('Última Viagem: ');
-                    echo "<td><input type='text' name='ult_viagem' id='ult_viagem' class='form-control input-sm' value='".$clienteDados['ult_viagem']."'></td>";
-                    echo '<br>';
-                    echo form_label('Observação: ');
-                    echo "<td><input type='text' name='observacao' id='observacao' class='form-control input-sm' value='".$clienteDados['observacao']."'></td>";
 
-                    echo form_hidden('id_clients', $this->input->post('id_clients'));
+                    echo form_label('Combustivel: ');
+                    echo "<td><input type='text' name='combustivel' id='combustivel' class='form-control input-sm'></td>";
+                    echo '<br>';
 
+                    echo form_label('Alimentação: ');
+                    echo "<td><input type='text' name='alimentacao' id='alimentacao' class='form-control input-sm'></td>";
+                    echo '<br>';
+                    echo form_label('Outros: ');
+                    echo "<td><input type='text' name='outros' id='outros' class='form-control input-sm'></td>";
+                    echo '<br>';
+                    echo form_label('Frete: '); //usando o campo total do banco para não precisar alterar a estrutura do banco
+                    echo "<td><input type='text' name='total' id='total' class='form-control input-sm'></td>";
+                    echo '<br>';
+                    echo form_hidden('id_tour', $this->input->post('id_tour'));
                     echo "<br />";
-                    echo '<input type="submit" class="btn btn-primary" value="Editar">';
-
+                    echo '<input type="submit" class="btn btn-primary" value="Salvar">';
                     echo form_close();
                     ?>
                     <!--Fim da Panel verde-->
@@ -160,10 +127,8 @@ $lusuario = array('class' => 'form-control');
         <script src="<?= base_url() ?>js/jquery-ui.js"></script>
         <script type="text/javascript">
             $(function() {
-                $('#cpf').mask('000.000.000-00', {placeholder: "___.___.___-__"});
                 $('#telefone').mask('(00)0000-0000', {placeholder: "(__)____-____"});
                 $('#celular').mask('(00)0000-0000', {placeholder: "(__)____-____"});
-                $('#data_nascimento').mask('00/00/0000', {placeholder: "__/__/____"});
             });
         </script>
     </body>
