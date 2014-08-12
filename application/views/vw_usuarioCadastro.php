@@ -93,22 +93,22 @@ $lusuario = array('class' => 'form-control');
                     echo validation_errors();
 
                     echo form_label('Nome: ');
-                    echo form_input(['name' => 'nome', 'id' => 'nome', 'class' => 'form-control input-sm']);
+                    echo "<td><input type='text' name='nome' id='nome' class='form-control input-sm'></td>";
                     echo '<br>';
                     echo form_label('Nome de Usuario: ');
-                    echo form_input(['name' => 'usuario', 'id' => 'usuario', 'class' => 'form-control input-sm']);
+                    echo "<td><input type='text' name='usuario' id='usuario' class='form-control input-sm'></td>";
                     echo '<br>';
                     echo form_label('E-mail: ');
-                    echo form_input(['name' => 'email', 'id' => 'email', 'class' => 'form-control input-sm']);
+                    echo "<td><input type='text' name='email' id='email' class='form-control input-sm'></td>";
                     echo '<br>';
                     echo form_label('Senha');
-                    echo form_password(['name' => 'senha', 'id' => 'senha', 'class' => 'form-control input-sm']);
+                    echo "<td><input type='password' name='senha' id='senha' class='form-control input-sm'></td>";
                     echo '<br>';
                     echo form_label('Telefone: ');
-                    echo form_input(['name' => 'telefone', 'id' => 'telefone', 'class' => 'form-control input-sm','value'=>'67 ']);
+                    echo "<td><input type='text' name='telefone' id='telefone' class='form-control input-sm' value='67 '></td>";
                     echo '<br>';
                     echo form_label('Celular: ');
-                    echo form_input(['name' => 'celular', 'id' => 'celular', 'class' => 'form-control input-sm','value'=>'67 ']);
+                    echo "<td><input type='text' name='celular' id='celular' class='form-control input-sm' value='67 '></td>";
 
                     echo "<br />";
                     echo '<input type="submit" class="btn btn-primary" value="Cadastrar">';

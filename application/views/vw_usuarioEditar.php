@@ -97,22 +97,22 @@ $lusuario = array('class' => 'form-control');
                     echo validation_errors();
 
                     echo form_label('Nome: ', 'nome');
-                    echo form_input(['name' => 'nome', 'id' => 'nome', 'class' => 'form-control input-sm', 'value' => $usuarioDados['nome_comp']]);
+                    echo "<td><input type='text' name='nome' id='nome' class='form-control input-sm' value='".$usuarioDados['nome_comp']."'></td>";
                     echo '<br>';
                     echo form_label('Nome de Usuario: ', 'nomeUsuario');
-                    echo form_input(['name' => 'usuario', 'id' => 'usuario', 'class' => 'form-control input-sm', 'value' => $usuarioDados['nome_user']]);
+                    echo "<td><input type='text' name='usuario' id='usuario' class='form-control input-sm' value='".$usuarioDados['nome_user']."'></td>";
                     echo '<br>';
                     echo form_label('E-mail: ', 'email');
-                    echo form_input(['name' => 'email', 'id' => 'email', 'class' => 'form-control input-sm', 'value' => $usuarioDados['email'], 'placeholder' => 'Email']);
+                    echo "<td><input type='text' name='email' id='email' class='form-control input-sm' value='".$usuarioDados['email']."'></td>";
                     echo '<br>';
                     echo form_label('Senha: ', 'senha');
-                    echo form_password(['name' => 'senha', 'id' => 'senha', 'class' => 'form-control input-sm', 'placeholder' => 'Password']);
+                    echo "<td><input type='password' name='senha' id='senha' class='form-control input-sm'></td>";
                     echo '<br>';
                     echo form_label('Telefone: ', 'telefone');
-                    echo form_input(['name' => 'telefone', 'id' => 'telefone', 'class' => 'form-control input-sm', 'value' => $usuarioDados['telefone'], 'placeholder' => 'Telefone']);
+                    echo "<td><input type='text' name='telefone' id='telefone' class='form-control input-sm' value='".$usuarioDados['telefone']."'></td>";
                     echo '<br>';
                     echo form_label('Celular: ', 'celular');
-                    echo form_input(['name' => 'celular', 'id' => 'celular', 'class' => 'form-control input-sm', 'value' => $usuarioDados['celular'], 'placeholder' => 'Celular']);
+                    echo "<td><input type='text' name='celular' id='celular' class='form-control input-sm' value='".$usuarioDados['celular']."'></td>";
                     echo '<br>';
                     $ativo = array(
                         'name' => 'status',

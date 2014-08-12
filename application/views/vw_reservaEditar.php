@@ -129,13 +129,13 @@ $lusuario = array('class' => 'form-control');
                     echo form_dropdown('tipo', $opcao, $reservaDados->tipo, 'class=form-control');
                     echo '<br>';
                     echo form_label('Desconto: ');
-                    echo form_input(['name' => 'desconto', 'id' => 'desconto', 'class' => 'form-control input-sm', 'value' => $reservaDados->desconto]);
+                    echo "<td><input type='text' name='desconto' id='desconto' class='form-control input-sm' value='".$reservaDados->desconto."'></td>";
                     echo '<br>';
                     echo form_label('Local de Embarque: ');
-                    echo form_input(['name' => 'loc_embarque', 'id' => 'loc_embarque', 'class' => 'form-control input-sm', 'value' => $reservaDados->embarquer]);
+                    echo "<td><input type='text' name='loc_embarque' id='loc_embarque' class='form-control input-sm' value='".$reservaDados->embarque."'></td>";
                     echo '<br>';
                     echo form_label('Nr. Poltrona: ');
-                    echo form_input(['name' => 'nr_poltrona', 'id' => 'nr_poltrona', 'class' => 'form-control input-sm', 'value' => $reservaDados->nr_poltrona]);
+                    echo "<td><input type='text' name='nr_poltrona' id='nr_poltrona' class='form-control input-sm' value='".$reservaDados->nr_poltrona."'></td>";
 
                     echo form_hidden('id_reservs', $reservaDados->id_reservs);
 
