@@ -89,7 +89,7 @@ $lusuario = array('class' => 'form-control');
                 <div class="row col-sm-4">
                     <h3>Detalhar Agendamento</h3>
                     <?php
-                    $this->db->select('tb_tour.id_client,tb_tour.data_saida,tb_tour.data_retorno,tb_tour.tipo,tb_tour.preco,tb_tour.observacao,'
+                    $this->db->select('tb_tour.id_client,tb_tour.data_saida,tb_tour.data_retorno,tb_tour.tipo,tb_tour.preco,tb_tour.preco_un,tb_tour.observacao,'
                             . 'tb_tour.status,tb_tour.tipo,tb_cars.codigo,tb_cars.modelo,tb_drivers.nome as motorista, tb_viagem.destino');
                     $this->db->from('tb_tour');
                     $this->db->join('tb_cars', 'tb_cars.id_cars=tb_tour.id_car');
@@ -155,6 +155,10 @@ $lusuario = array('class' => 'form-control');
                         <tr>
                             <th>Preço: </th>
                             <td>R$<?= $agendaDados['preco'] ?></td>
+                        </tr>
+                        <tr>
+                            <th>Preço Ida ou Volta : </th>
+                            <td>R$<?= $agendaDados['preco_un'] ?></td>
                         </tr>
                         <tr>
                             <th>Situação: </th>
