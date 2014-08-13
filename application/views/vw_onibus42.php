@@ -5,10 +5,10 @@
         $query = $this->db->get('tb_reservs');
         if ($query->num_rows() > 0) {
             ?>
-            <td class="danger"><?= form_open('home/editarReserva') ?>
+            <td class="danger">
                 <?php
                 foreach ($query->result() as $rel) {
-                    if ($rel->tipo == 'v') {
+                     if ($rel->tipo == 'v') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="1" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -17,7 +17,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'i') {
+                     if ($rel->tipo == 'i') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="1" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -26,7 +26,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'd') {
+                     if ($rel->tipo == 'd') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="1" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -55,10 +55,10 @@
         $query = $this->db->get('tb_reservs');
         if ($query->num_rows() > 0) {
             ?>
-            <td class="danger"><?= form_open('home/editarReserva') ?>
+            <td class="danger">
                 <?php
                 foreach ($query->result() as $rel) {
-                    if ($rel->tipo == 'v') {
+                     if ($rel->tipo == 'v') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="2" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -67,7 +67,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'i') {
+                     if ($rel->tipo == 'i') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="2" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -76,7 +76,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'd') {
+                     if ($rel->tipo == 'd') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="2" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -106,10 +106,10 @@
         $query = $this->db->get('tb_reservs');
         if ($query->num_rows() > 0) {
             ?>
-            <td class="danger"><?= form_open('home/editarReserva') ?>
+            <td class="danger">
                 <?php
                 foreach ($query->result() as $rel) {
-                    if ($rel->tipo == 'v') {
+                     if ($rel->tipo == 'v') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="4" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -118,7 +118,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'i') {
+                     if ($rel->tipo == 'i') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="4" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -127,7 +127,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'd') {
+                     if ($rel->tipo == 'd') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="4" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -156,10 +156,10 @@
         $query = $this->db->get('tb_reservs');
         if ($query->num_rows() > 0) {
             ?>
-            <td class="danger"><?= form_open('home/editarReserva') ?>
+            <td class="danger">
                 <?php
                 foreach ($query->result() as $rel) {
-                    if ($rel->tipo == 'v') {
+                     if ($rel->tipo == 'v') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="3" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -168,7 +168,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'i') {
+                     if ($rel->tipo == 'i') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="3" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -177,7 +177,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'd') {
+                     if ($rel->tipo == 'd') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="3" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -208,10 +208,10 @@
         $query = $this->db->get('tb_reservs');
         if ($query->num_rows() > 0) {
             ?>
-            <td class="danger"><?= form_open('home/editarReserva') ?>
+            <td class="danger">
                 <?php
                 foreach ($query->result() as $rel) {
-                    if ($rel->tipo == 'v') {
+                     if ($rel->tipo == 'v') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="5" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -220,7 +220,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'i') {
+                     if ($rel->tipo == 'i') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="5" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -229,7 +229,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'd') {
+                     if ($rel->tipo == 'd') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="5" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -258,10 +258,10 @@
         $query = $this->db->get('tb_reservs');
         if ($query->num_rows() > 0) {
             ?>
-            <td class="danger"><?= form_open('home/editarReserva') ?>
+            <td class="danger">
                 <?php
                 foreach ($query->result() as $rel) {
-                    if ($rel->tipo == 'v') {
+                     if ($rel->tipo == 'v') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="6" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -270,7 +270,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'i') {
+                     if ($rel->tipo == 'i') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="6" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -279,7 +279,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'd') {
+                     if ($rel->tipo == 'd') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="6" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -311,10 +311,10 @@
         $query = $this->db->get('tb_reservs');
         if ($query->num_rows() > 0) {
             ?>
-            <td class="danger"><?= form_open('home/editarReserva') ?>
+            <td class="danger">
                 <?php
                 foreach ($query->result() as $rel) {
-                    if ($rel->tipo == 'v') {
+                     if ($rel->tipo == 'v') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="9" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -323,7 +323,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'i') {
+                     if ($rel->tipo == 'i') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="9" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -332,7 +332,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'd') {
+                     if ($rel->tipo == 'd') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="9" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -361,10 +361,10 @@
         $query = $this->db->get('tb_reservs');
         if ($query->num_rows() > 0) {
             ?>
-            <td class="danger"><?= form_open('home/editarReserva') ?>
+            <td class="danger">
                 <?php
                 foreach ($query->result() as $rel) {
-                    if ($rel->tipo == 'v') {
+                     if ($rel->tipo == 'v') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="10" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -373,7 +373,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'i') {
+                     if ($rel->tipo == 'i') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="10" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -382,7 +382,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'd') {
+                     if ($rel->tipo == 'd') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="10" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -411,10 +411,10 @@
         $query = $this->db->get('tb_reservs');
         if ($query->num_rows() > 0) {
             ?>
-            <td class="danger"><?= form_open('home/editarReserva') ?>
+            <td class="danger">
                 <?php
                 foreach ($query->result() as $rel) {
-                    if ($rel->tipo == 'v') {
+                     if ($rel->tipo == 'v') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="8" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -423,7 +423,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'i') {
+                     if ($rel->tipo == 'i') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="8" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -432,7 +432,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'd') {
+                     if ($rel->tipo == 'd') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="8" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -461,10 +461,10 @@
         $query = $this->db->get('tb_reservs');
         if ($query->num_rows() > 0) {
             ?>
-            <td class="danger"><?= form_open('home/editarReserva') ?>
+            <td class="danger">
                 <?php
                 foreach ($query->result() as $rel) {
-                    if ($rel->tipo == 'v') {
+                     if ($rel->tipo == 'v') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="7" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -473,7 +473,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'i') {
+                     if ($rel->tipo == 'i') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="7" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -482,7 +482,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'd') {
+                     if ($rel->tipo == 'd') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="7" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -513,10 +513,10 @@
         $query = $this->db->get('tb_reservs');
         if ($query->num_rows() > 0) {
             ?>
-            <td class="danger"><?= form_open('home/editarReserva') ?>
+            <td class="danger">
                 <?php
                 foreach ($query->result() as $rel) {
-                    if ($rel->tipo == 'v') {
+                     if ($rel->tipo == 'v') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="13" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -525,7 +525,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'i') {
+                     if ($rel->tipo == 'i') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="13" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -534,7 +534,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'd') {
+                     if ($rel->tipo == 'd') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="13" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -563,10 +563,10 @@
         $query = $this->db->get('tb_reservs');
         if ($query->num_rows() > 0) {
             ?>
-            <td class="danger"><?= form_open('home/editarReserva') ?>
+            <td class="danger">
                 <?php
                 foreach ($query->result() as $rel) {
-                    if ($rel->tipo == 'v') {
+                     if ($rel->tipo == 'v') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="14" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -575,7 +575,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'i') {
+                     if ($rel->tipo == 'i') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="14" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -584,7 +584,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'd') {
+                     if ($rel->tipo == 'd') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="14" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -613,10 +613,10 @@
         $query = $this->db->get('tb_reservs');
         if ($query->num_rows() > 0) {
             ?>
-            <td class="danger"><?= form_open('home/editarReserva') ?>
+            <td class="danger">
                 <?php
                 foreach ($query->result() as $rel) {
-                    if ($rel->tipo == 'v') {
+                     if ($rel->tipo == 'v') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="12" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -625,7 +625,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'i') {
+                     if ($rel->tipo == 'i') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="12" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -634,7 +634,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'd') {
+                     if ($rel->tipo == 'd') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="12" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -663,10 +663,10 @@
         $query = $this->db->get('tb_reservs');
         if ($query->num_rows() > 0) {
             ?>
-            <td class="danger"><?= form_open('home/editarReserva') ?>
+            <td class="danger">
                 <?php
                 foreach ($query->result() as $rel) {
-                    if ($rel->tipo == 'v') {
+                     if ($rel->tipo == 'v') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="11" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -675,7 +675,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'i') {
+                     if ($rel->tipo == 'i') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="11" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -684,7 +684,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'd') {
+                     if ($rel->tipo == 'd') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="11" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -715,10 +715,10 @@
         $query = $this->db->get('tb_reservs');
         if ($query->num_rows() > 0) {
             ?>
-            <td class="danger"><?= form_open('home/editarReserva') ?>
+            <td class="danger">
                 <?php
                 foreach ($query->result() as $rel) {
-                    if ($rel->tipo == 'v') {
+                     if ($rel->tipo == 'v') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="17" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -727,7 +727,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'i') {
+                     if ($rel->tipo == 'i') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="17" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -736,7 +736,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'd') {
+                     if ($rel->tipo == 'd') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="17" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -765,10 +765,10 @@
         $query = $this->db->get('tb_reservs');
         if ($query->num_rows() > 0) {
             ?>
-            <td class="danger"><?= form_open('home/editarReserva') ?>
+            <td class="danger">
                 <?php
                 foreach ($query->result() as $rel) {
-                    if ($rel->tipo == 'v') {
+                     if ($rel->tipo == 'v') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="18" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -777,7 +777,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'i') {
+                     if ($rel->tipo == 'i') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="18" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -786,7 +786,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'd') {
+                     if ($rel->tipo == 'd') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="18" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -815,10 +815,10 @@
         $query = $this->db->get('tb_reservs');
         if ($query->num_rows() > 0) {
             ?>
-            <td class="danger"><?= form_open('home/editarReserva') ?>
+            <td class="danger">
                 <?php
                 foreach ($query->result() as $rel) {
-                    if ($rel->tipo == 'v') {
+                     if ($rel->tipo == 'v') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="16" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -827,7 +827,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'i') {
+                     if ($rel->tipo == 'i') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="16" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -836,7 +836,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'd') {
+                     if ($rel->tipo == 'd') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="16" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -865,10 +865,10 @@
         $query = $this->db->get('tb_reservs');
         if ($query->num_rows() > 0) {
             ?>
-            <td class="danger"><?= form_open('home/editarReserva') ?>
+            <td class="danger">
                 <?php
                 foreach ($query->result() as $rel) {
-                    if ($rel->tipo == 'v') {
+                     if ($rel->tipo == 'v') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="15" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -877,7 +877,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'i') {
+                     if ($rel->tipo == 'i') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="15" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -886,7 +886,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'd') {
+                     if ($rel->tipo == 'd') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="15" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -917,10 +917,10 @@
         $query = $this->db->get('tb_reservs');
         if ($query->num_rows() > 0) {
             ?>
-            <td class="danger"><?= form_open('home/editarReserva') ?>
+            <td class="danger">
                 <?php
                 foreach ($query->result() as $rel) {
-                    if ($rel->tipo == 'v') {
+                     if ($rel->tipo == 'v') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="21" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -929,7 +929,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'i') {
+                     if ($rel->tipo == 'i') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="21" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -938,7 +938,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'd') {
+                     if ($rel->tipo == 'd') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="21" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -967,10 +967,10 @@
         $query = $this->db->get('tb_reservs');
         if ($query->num_rows() > 0) {
             ?>
-            <td class="danger"><?= form_open('home/editarReserva') ?>
+            <td class="danger">
                 <?php
                 foreach ($query->result() as $rel) {
-                    if ($rel->tipo == 'v') {
+                     if ($rel->tipo == 'v') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="22" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -979,7 +979,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'i') {
+                     if ($rel->tipo == 'i') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="22" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -988,7 +988,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'd') {
+                     if ($rel->tipo == 'd') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="22" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -1017,10 +1017,10 @@
         $query = $this->db->get('tb_reservs');
         if ($query->num_rows() > 0) {
             ?>
-            <td class="danger"><?= form_open('home/editarReserva') ?>
+            <td class="danger">
                 <?php
                 foreach ($query->result() as $rel) {
-                    if ($rel->tipo == 'v') {
+                     if ($rel->tipo == 'v') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="20" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -1029,7 +1029,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'i') {
+                     if ($rel->tipo == 'i') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="20" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -1038,7 +1038,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'd') {
+                     if ($rel->tipo == 'd') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="20" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -1067,10 +1067,10 @@
         $query = $this->db->get('tb_reservs');
         if ($query->num_rows() > 0) {
             ?>
-            <td class="danger"><?= form_open('home/editarReserva') ?>
+            <td class="danger">
                 <?php
                 foreach ($query->result() as $rel) {
-                    if ($rel->tipo == 'v') {
+                     if ($rel->tipo == 'v') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="19" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -1079,7 +1079,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'i') {
+                     if ($rel->tipo == 'i') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="19" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -1088,7 +1088,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'd') {
+                     if ($rel->tipo == 'd') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="19" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -1119,10 +1119,10 @@
         $query = $this->db->get('tb_reservs');
         if ($query->num_rows() > 0) {
             ?>
-            <td class="danger"><?= form_open('home/editarReserva') ?>
+            <td class="danger">
                 <?php
                 foreach ($query->result() as $rel) {
-                    if ($rel->tipo == 'v') {
+                     if ($rel->tipo == 'v') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="25" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -1131,7 +1131,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'i') {
+                     if ($rel->tipo == 'i') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="25" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -1140,7 +1140,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'd') {
+                     if ($rel->tipo == 'd') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="25" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -1169,10 +1169,10 @@
         $query = $this->db->get('tb_reservs');
         if ($query->num_rows() > 0) {
             ?>
-            <td class="danger"><?= form_open('home/editarReserva') ?>
+            <td class="danger">
                 <?php
                 foreach ($query->result() as $rel) {
-                    if ($rel->tipo == 'v') {
+                     if ($rel->tipo == 'v') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="26" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -1181,7 +1181,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'i') {
+                     if ($rel->tipo == 'i') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="26" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -1190,7 +1190,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'd') {
+                     if ($rel->tipo == 'd') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="26" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -1219,10 +1219,10 @@
         $query = $this->db->get('tb_reservs');
         if ($query->num_rows() > 0) {
             ?>
-            <td class="danger"><?= form_open('home/editarReserva') ?>
+            <td class="danger">
                 <?php
                 foreach ($query->result() as $rel) {
-                    if ($rel->tipo == 'v') {
+                     if ($rel->tipo == 'v') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="24" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -1231,7 +1231,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'i') {
+                     if ($rel->tipo == 'i') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="24" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -1240,7 +1240,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'd') {
+                     if ($rel->tipo == 'd') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="24" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -1269,10 +1269,10 @@
         $query = $this->db->get('tb_reservs');
         if ($query->num_rows() > 0) {
             ?>
-            <td class="danger"><?= form_open('home/editarReserva') ?>
+            <td class="danger">
                 <?php
                 foreach ($query->result() as $rel) {
-                    if ($rel->tipo == 'v') {
+                     if ($rel->tipo == 'v') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="23" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -1281,7 +1281,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'i') {
+                     if ($rel->tipo == 'i') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="23" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -1290,7 +1290,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'd') {
+                     if ($rel->tipo == 'd') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="23" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -1321,10 +1321,10 @@
         $query = $this->db->get('tb_reservs');
         if ($query->num_rows() > 0) {
             ?>
-            <td class="danger"><?= form_open('home/editarReserva') ?>
+            <td class="danger">
                 <?php
                 foreach ($query->result() as $rel) {
-                    if ($rel->tipo == 'v') {
+                     if ($rel->tipo == 'v') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="29" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -1333,7 +1333,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'i') {
+                     if ($rel->tipo == 'i') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="29" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -1342,7 +1342,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'd') {
+                     if ($rel->tipo == 'd') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="29" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -1371,10 +1371,10 @@
         $query = $this->db->get('tb_reservs');
         if ($query->num_rows() > 0) {
             ?>
-            <td class="danger"><?= form_open('home/editarReserva') ?>
+            <td class="danger">
                 <?php
                 foreach ($query->result() as $rel) {
-                    if ($rel->tipo == 'v') {
+                     if ($rel->tipo == 'v') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="30" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -1383,7 +1383,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'i') {
+                     if ($rel->tipo == 'i') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="30" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -1392,7 +1392,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'd') {
+                     if ($rel->tipo == 'd') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="30" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -1421,10 +1421,10 @@
         $query = $this->db->get('tb_reservs');
         if ($query->num_rows() > 0) {
             ?>
-            <td class="danger"><?= form_open('home/editarReserva') ?>
+            <td class="danger">
                 <?php
                 foreach ($query->result() as $rel) {
-                    if ($rel->tipo == 'v') {
+                     if ($rel->tipo == 'v') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="28" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -1433,7 +1433,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'i') {
+                     if ($rel->tipo == 'i') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="28" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -1442,7 +1442,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'd') {
+                     if ($rel->tipo == 'd') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="28" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -1471,10 +1471,10 @@
         $query = $this->db->get('tb_reservs');
         if ($query->num_rows() > 0) {
             ?>
-            <td class="danger"><?= form_open('home/editarReserva') ?>
+            <td class="danger">
                 <?php
                 foreach ($query->result() as $rel) {
-                    if ($rel->tipo == 'v') {
+                     if ($rel->tipo == 'v') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="27" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -1483,7 +1483,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'i') {
+                     if ($rel->tipo == 'i') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="27" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -1492,7 +1492,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'd') {
+                     if ($rel->tipo == 'd') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="27" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -1523,10 +1523,10 @@
         $query = $this->db->get('tb_reservs');
         if ($query->num_rows() > 0) {
             ?>
-            <td class="danger"><?= form_open('home/editarReserva') ?>
+            <td class="danger">
                 <?php
                 foreach ($query->result() as $rel) {
-                    if ($rel->tipo == 'v') {
+                     if ($rel->tipo == 'v') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="33" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -1535,7 +1535,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'i') {
+                     if ($rel->tipo == 'i') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="33" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -1544,7 +1544,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'd') {
+                     if ($rel->tipo == 'd') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="33" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -1573,10 +1573,10 @@
         $query = $this->db->get('tb_reservs');
         if ($query->num_rows() > 0) {
             ?>
-            <td class="danger"><?= form_open('home/editarReserva') ?>
+            <td class="danger">
                 <?php
                 foreach ($query->result() as $rel) {
-                    if ($rel->tipo == 'v') {
+                     if ($rel->tipo == 'v') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="34" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -1585,7 +1585,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'i') {
+                     if ($rel->tipo == 'i') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="34" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -1594,7 +1594,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'd') {
+                     if ($rel->tipo == 'd') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="34" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -1623,10 +1623,10 @@
         $query = $this->db->get('tb_reservs');
         if ($query->num_rows() > 0) {
             ?>
-            <td class="danger"><?= form_open('home/editarReserva') ?>
+            <td class="danger">
                 <?php
                 foreach ($query->result() as $rel) {
-                    if ($rel->tipo == 'v') {
+                     if ($rel->tipo == 'v') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="32" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -1635,7 +1635,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'i') {
+                     if ($rel->tipo == 'i') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="32" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -1644,7 +1644,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'd') {
+                     if ($rel->tipo == 'd') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="32" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -1673,10 +1673,10 @@
         $query = $this->db->get('tb_reservs');
         if ($query->num_rows() > 0) {
             ?>
-            <td class="danger"><?= form_open('home/editarReserva') ?>
+            <td class="danger">
                 <?php
                 foreach ($query->result() as $rel) {
-                    if ($rel->tipo == 'v') {
+                     if ($rel->tipo == 'v') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="31" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -1685,7 +1685,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'i') {
+                     if ($rel->tipo == 'i') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="31" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -1694,7 +1694,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'd') {
+                     if ($rel->tipo == 'd') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="31" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -1725,10 +1725,10 @@
         $query = $this->db->get('tb_reservs');
         if ($query->num_rows() > 0) {
             ?>
-            <td class="danger"><?= form_open('home/editarReserva') ?>
+            <td class="danger">
                 <?php
                 foreach ($query->result() as $rel) {
-                    if ($rel->tipo == 'v') {
+                     if ($rel->tipo == 'v') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="37" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -1737,7 +1737,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'i') {
+                     if ($rel->tipo == 'i') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="37" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -1746,7 +1746,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'd') {
+                     if ($rel->tipo == 'd') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="37" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -1775,10 +1775,10 @@
         $query = $this->db->get('tb_reservs');
         if ($query->num_rows() > 0) {
             ?>
-            <td class="danger"><?= form_open('home/editarReserva') ?>
+            <td class="danger">
                 <?php
                 foreach ($query->result() as $rel) {
-                    if ($rel->tipo == 'v') {
+                     if ($rel->tipo == 'v') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="38" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -1787,7 +1787,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'i') {
+                     if ($rel->tipo == 'i') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="38" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -1796,7 +1796,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'd') {
+                     if ($rel->tipo == 'd') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="38" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -1825,10 +1825,10 @@
         $query = $this->db->get('tb_reservs');
         if ($query->num_rows() > 0) {
             ?>
-            <td class="danger"><?= form_open('home/editarReserva') ?>
+            <td class="danger">
                 <?php
                 foreach ($query->result() as $rel) {
-                    if ($rel->tipo == 'v') {
+                     if ($rel->tipo == 'v') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="36" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -1837,7 +1837,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'i') {
+                     if ($rel->tipo == 'i') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="36" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -1846,7 +1846,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'd') {
+                     if ($rel->tipo == 'd') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="36" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -1875,10 +1875,10 @@
         $query = $this->db->get('tb_reservs');
         if ($query->num_rows() > 0) {
             ?>
-            <td class="danger"><?= form_open('home/editarReserva') ?>
+            <td class="danger">
                 <?php
                 foreach ($query->result() as $rel) {
-                    if ($rel->tipo == 'v') {
+                     if ($rel->tipo == 'v') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="35" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -1887,7 +1887,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'i') {
+                     if ($rel->tipo == 'i') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="35" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -1896,7 +1896,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'd') {
+                     if ($rel->tipo == 'd') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="35" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -1927,10 +1927,10 @@
         $query = $this->db->get('tb_reservs');
         if ($query->num_rows() > 0) {
             ?>
-            <td class="danger"><?= form_open('home/editarReserva') ?>
+            <td class="danger">
                 <?php
                 foreach ($query->result() as $rel) {
-                    if ($rel->tipo == 'v') {
+                     if ($rel->tipo == 'v') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="41" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -1939,7 +1939,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'i') {
+                     if ($rel->tipo == 'i') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="41" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -1948,7 +1948,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'd') {
+                     if ($rel->tipo == 'd') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="41" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -1977,10 +1977,10 @@
         $query = $this->db->get('tb_reservs');
         if ($query->num_rows() > 0) {
             ?>
-            <td class="danger"><?= form_open('home/editarReserva') ?>
+            <td class="danger">
                 <?php
                 foreach ($query->result() as $rel) {
-                    if ($rel->tipo == 'v') {
+                     if ($rel->tipo == 'v') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="42" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -1989,7 +1989,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'i') {
+                     if ($rel->tipo == 'i') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="42" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -1998,7 +1998,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'd') {
+                     if ($rel->tipo == 'd') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="42" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -2027,10 +2027,10 @@
         $query = $this->db->get('tb_reservs');
         if ($query->num_rows() > 0) {
             ?>
-            <td class="danger"><?= form_open('home/editarReserva') ?>
+            <td class="danger">
                 <?php
                 foreach ($query->result() as $rel) {
-                    if ($rel->tipo == 'v') {
+                     if ($rel->tipo == 'v') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="40" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -2039,7 +2039,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'i') {
+                     if ($rel->tipo == 'i') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="40" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -2048,7 +2048,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'd') {
+                     if ($rel->tipo == 'd') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="40" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -2077,10 +2077,10 @@
         $query = $this->db->get('tb_reservs');
         if ($query->num_rows() > 0) {
             ?>
-            <td class="danger"><?= form_open('home/editarReserva') ?>
+            <td class="danger">
                 <?php
                 foreach ($query->result() as $rel) {
-                    if ($rel->tipo == 'v') {
+                     if ($rel->tipo == 'v') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="39" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -2089,7 +2089,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'i') {
+                     if ($rel->tipo == 'i') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="39" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
@@ -2098,7 +2098,7 @@
                         </form>
                         <?php
                     }
-                    if ($rel->tipo == 'd') {
+                     if ($rel->tipo == 'd') { echo form_open('home/editarReserva');
                         ?>
                         <input type="hidden" name="nr_poltrona" value="39" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />

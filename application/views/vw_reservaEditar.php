@@ -104,6 +104,7 @@ $lusuario = array('class' => 'form-control');
                     $this->db->join('tb_clients', 'tb_clients.id_clients=tb_reservs.id_client');
                     $this->db->where('tb_reservs.id_tour', $this->input->post('id_tour'));
                     $this->db->where('tb_reservs.nr_poltrona', $this->input->post('nr_poltrona'));
+                    $this->db->where('tb_reservs.id_reservs',$this->input->post('id_reservs'));
                     $query = $this->db->get();
 
                     foreach ($query->result() as $row) {
@@ -132,7 +133,7 @@ $lusuario = array('class' => 'form-control');
                     echo "<td><input type='text' name='desconto' id='desconto' class='form-control input-sm' value='".$reservaDados->desconto."'></td>";
                     echo '<br>';
                     echo form_label('Local de Embarque: ');
-                    echo "<td><input type='text' name='loc_embarque' id='loc_embarque' class='form-control input-sm' value='".$reservaDados->embarque."'></td>";
+                    echo "<td><input type='text' name='loc_embarque' id='loc_embarque' class='form-control input-sm' value='".$reservaDados->embarquer."'></td>";
                     echo '<br>';
                     echo form_label('Nr. Poltrona: ');
                     echo "<td><input type='text' name='nr_poltrona' id='nr_poltrona' class='form-control input-sm' value='".$reservaDados->nr_poltrona."'></td>";

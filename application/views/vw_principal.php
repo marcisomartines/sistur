@@ -90,16 +90,20 @@
                                 <div class="list-group">
                                     <table class="table table-bordered table-hover table-striped">
                                     <?php
-                                    $this->db->select('*');
-                                    $this->db->from('tb_tour');
-                                    $this->db->join('tb_cars', 'tb_cars.id_cars=tb_tour.id_car');
-                                    $this->db->join('tb_viagem', 'tb_viagem.id_viagem=tb_tour.id_viagem');
-                                    $this->db->where('tipo', 'v'); //viagem
-                                    $this->db->or_where('tipo', 't'); //turismo
-                                    $this->db->or_where('tipo', 'e'); //excursão
-                                    $this->db->or_where('tipo', 'f'); //fretado
-                                    $this->db->where('tb_tour.status', 'A');
-                                    $query = $this->db->get();
+                                    $query = $this->db->query("SELECT * FROM tb_tour
+                                            JOIN tb_viagem ON tb_tour.id_viagem=tb_viagem.id_viagem
+                                            JOIN tb_cars ON tb_cars.id_cars=tb_tour.id_car
+                                            WHERE tb_tour.status='A' AND (tb_tour.tipo='v' OR tb_tour.tipo='t' OR tb_tour.tipo='e' OR tb_tour.tipo='f')");
+//                                    $this->db->select('*');
+//                                    $this->db->from('tb_tour');
+//                                    $this->db->join('tb_cars', 'tb_cars.id_cars=tb_tour.id_car');
+//                                    $this->db->join('tb_viagem', 'tb_viagem.id_viagem=tb_tour.id_viagem');
+//                                    $this->db->where('tb_tour.status', 'A');
+//                                    $this->db->where('tipo', 'v'); //viagem
+//                                    $this->db->or_where('tipo', 't'); //turismo
+//                                    $this->db->or_where('tipo', 'e'); //excursão
+//                                    $this->db->or_where('tipo', 'f'); //fretado
+//                                    $query = $this->db->get();
                                     foreach ($query->result() as $row) {
                                         $this->db->where('id_tour', $row->id_tour);
                                         $this->db->from('tb_reservs');
@@ -162,8 +166,8 @@
                                             <?php
                                             $query = $this->db->query("SELECT * FROM tb_tour
                                             JOIN tb_viagem ON tb_tour.id_viagem=tb_viagem.id_viagem
-                                            JOIN tb_cars ON tb_tour.id_car=tb_cars.id_cars
-                                            WHERE tb_tour.status = 'A' AND tb_tour.tipo='v' OR tb_tour.tipo='t' OR tb_tour.tipo='e' OR tb_tour.tipo='f'");
+                                            JOIN tb_cars ON tb_cars.id_cars=tb_tour.id_car
+                                            WHERE tb_tour.status='A' AND (tb_tour.tipo='v' OR tb_tour.tipo='t' OR tb_tour.tipo='e' OR tb_tour.tipo='f')");
                                             foreach ($query->result() as $linha) {
                                                 $data_saida = implode("/", array_reverse(explode("-", $linha->data_saida)));
                                                 $data_retorno = implode("/", array_reverse(explode("-", $linha->data_retorno)));

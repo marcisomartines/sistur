@@ -198,9 +198,16 @@
                                         if ($dados['nr_poltrona'] == 44)
                                             include 'vw_onibus44.php';
                                         ?>
-                                        <a class="btn btn-primary" href="" onClick="window.open('<?php echo base_url() . "index.php/home/listaPassageiros?id=" . $this->input->post('id_tour') ?>', 'Janela', 'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=900,height=800,left=0,top=0');
-                                                return false;"><i class="fa fa-list"></i> Lista Passageiros</a>
-                                        <a href="<?php echo base_url() . "index.php/home/fechamentoReserva" ?>" class="btn btn-success" role="button"><i class="fa fa-check"></i> Finalizar Viagem</a>
+                                        <table>
+                                            <tr>
+                                                <td><a class="btn btn-primary" href="" onClick="window.open('<?php echo base_url() . "index.php/home/listaPassageiros?id=" . $this->input->post('id_tour') ?>', 'Janela', 'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=900,height=800,left=0,top=0');
+                                                return false;"><i class="fa fa-list"></i> Lista Passageiros</a></td>
+                                                <td> <?= form_open('home/fechamentoReserva') ?>
+                                <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
+                                <input type="submit" class="btn btn-success" value="Finalizar Viagem">
+                                </form></td>
+                                            </tr>
+                                        </table>
                                     </div>
                                 </div>
                             </div>

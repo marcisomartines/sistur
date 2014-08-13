@@ -145,6 +145,9 @@ $lusuario = array('class' => 'form-control');
                     echo form_label('Preço: ');
                     echo "<td><input type='text' name='preco' id='preco' class='form-control input-sm'></td>";
                     echo '<br>';
+                    echo form_label('Preço Ida ou Volta: ');
+                    echo "<td><input type='text' name='preco_un' id='preco_un' class='form-control input-sm'></td>";
+                    echo'<br>';
                     echo form_label('Observação: ');
                     echo "<td><input type='text' name='observacao' id='observacao' class='form-control input-sm'></td>";
 
