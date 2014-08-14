@@ -204,7 +204,7 @@
                                                 return false;"><i class="fa fa-list"></i> Lista Passageiros</a></td>
                                                 <td> <?= form_open('home/fechamentoReserva') ?>
                                 <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                                <input type="submit" class="btn btn-success" value="Finalizar Viagem">
+                                <button type="submit" class="btn btn-success"><i class="fa fa-check"></i> Finalizar Viagem</button>
                                 </form></td>
                                             </tr>
                                         </table>
