@@ -138,7 +138,7 @@
                     }
                     ?>
                     <a class="btn btn-primary btn-xs pull-right" href="" onClick="window.open('<?php echo base_url() . "index.php/home/gerarRelatorioViagem?destino=" . $destino ?>&data_inicio=<?= $data_inicio ?>&data_final=<?= $data_final ?>', 'Janela', 'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=900,height=800,left=0,top=0');
-                                        return false;">Imprimir Relatório</a>
+                            return false;">Imprimir Relatório</a>
                     <table class="table table-striped">
                         <tr>
                             <th>Cód.</th>
@@ -146,8 +146,8 @@
                             <th>Data Saída</th>
                             <th>Data Retorno</th>
                             <th>Poltr. Total</th>
-                            <th>Poltr. Usadas</th>
                             <th>Preço</th>
+                            <th>Poltronas</th>
                             <th>Alimentação</th>
                             <th>Combustível</th>
                             <th>Outros</th>
@@ -161,8 +161,21 @@
                             $data_retorno = implode("/", array_reverse(explode("-", $rel->data_retorno)));
                             $this->db->where('id_tour', $rel->id_tour);
                             $p = $this->db->get('tb_reservs');
-                            $poltronas = $p->num_rows();
-                            $total = ($poltronas * $rel->preco + $rel->total) - ($rel->alimentacao + $rel->combustivel + $rel->outros);
+//                            $poltronas = $p->num_rows();
+                            //conta a quantidade de poltronas cheias e somente ida ou volta
+                            $poltronas = 0;
+                            $polUnica = 0;
+                            foreach ($p->result() as $pol) {
+                                if ($pol->tipo == 'i' || $pol->tipo == 'v') {
+                                    $polUnica++;
+                                }
+                                if ($pol->tipo == 'd') {
+                                    $poltronas++;
+                                }
+                            }
+                            //$rel->total é o frete ganho com a viagem
+                            $totalPoltrona=($poltronas * $rel->preco) + ($polUnica * $rel->preco_un);
+                            $total = (($poltronas * $rel->preco) + ($polUnica * $rel->preco_un) + $rel->total) - ($rel->alimentacao + $rel->combustivel + $rel->outros);
                             if ($total < 0) {
                                 echo '<tr class="danger">';
                             } else {
@@ -173,21 +186,21 @@
                             echo "<td>" . $data_saida . "</td>";
                             echo "<td>" . $data_retorno . "</td>";
                             echo "<td>" . $rel->nr_poltrona . "</td>";
-                            echo "<td>" . $poltronas . "</td>";
                             echo "<td>R$" . $rel->preco . "</td>";
+                            echo "<td>R$" . $totalPoltrona . "</td>";
                             echo "<td>R$" . $rel->alimentacao . "</td>";
                             echo "<td>R$" . $rel->combustivel . "</td>";
-                            echo "<td>R$" . $rel->outros . "</td>";//valor do frete
+                            echo "<td>R$" . $rel->outros . "</td>"; //valor do frete
                             echo "<td>R$" . $rel->total . "</td>";
                             echo "<td>R$" . $total . "</td>";
                             echo '<td>';
                             ?><a class="btn btn-primary btn-xs" href="" onClick="window.open('<?php echo base_url() . "index.php/home/listaPassageiros?id=" . $rel->id_tour ?>', 'Janela', 'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=900,height=800,left=0,top=0');
                                         return false;">Lista</a>
-                            <?php
-                            echo '</td>';
-                            echo "</tr>";
-                        }
-                        ?>
+                               <?php
+                               echo '</td>';
+                               echo "</tr>";
+                           }
+                           ?>
                     </table>
                 </div>
             </div><!-- /#page-wrapper -->
