@@ -17,9 +17,9 @@
     <body>
         <div id="content">
 <!--            <form autocomplete="off">-->
-                <p>
+<!--                <p>-->
                     <input type="text" name="course" id="course" class="form-control" />
-                </p>
+<!--                </p>-->
 <!--            </form>-->
         </div>
 </body>

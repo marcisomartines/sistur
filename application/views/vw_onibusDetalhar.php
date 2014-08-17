@@ -155,7 +155,16 @@ $lusuario = array('class' => 'form-control');
                             <td><?= $onibusDados['observacao'] ?></td>
                         </tr>
                     </table>
-                    <a href="<?php echo base_url() . "index.php/home/onibus" ?>" class="btn btn-primary" role="button">Voltar</a>
+                    <table>
+                        <tr>
+                            <td><a href="<?php echo base_url() . "index.php/home/onibus" ?>" class="btn btn-primary" role="button">Voltar</a></td>
+                            <td><?= form_open('home/editarOnibus') ?>
+                                <input type="hidden" name="id_cars" value="<?= $this->input->post('id_cars') ?>" />
+                                <input type="submit" class="btn btn-warning" value="Editar">
+                                </form></td>
+                        </tr>
+                    </table>
+
                     <!--Fim da Panel verde-->
                 </div>
             </div><!-- /#page-wrapper -->

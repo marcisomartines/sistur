@@ -114,8 +114,7 @@ $lusuario = array('class' => 'form-control');
                                         $cliente = $row;
                                     }
                                     echo $cliente->nome;
-                                }
-                                else
+                                } else
                                     echo "";
                                 ?></td>
                         </tr>
@@ -169,7 +168,17 @@ $lusuario = array('class' => 'form-control');
                             <td><?= $agendaDados['observacao'] ?></td>
                         </tr>
                     </table>
-                    <a href="<?php echo base_url() . "index.php/home/agenda" ?>" class="btn btn-primary" role="button">Voltar</a>
+                    <table>
+                        <tr>
+                            <td><a href="<?php echo base_url() . "index.php/home/agenda" ?>" class="btn btn-primary" role="button">Voltar</a></td>
+                            <td><?= form_open('home/editarAgenda') ?>
+                                <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
+                                <input type="submit" class="btn btn-warning" value="Editar">
+                                </form></td>
+                        </tr>
+                    </table>
+
+
                     <!--Fim da Panel verde-->
                 </div>
             </div><!-- /#page-wrapper -->

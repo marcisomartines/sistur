@@ -155,7 +155,15 @@ $lusuario = array('class' => 'form-control');
                             <td><?= $motoristaDados['observacao'] ?></td>
                         </tr>
                     </table>
-                    <a href="<?php echo base_url() . "index.php/home/motorista" ?>" class="btn btn-primary" role="button">Voltar</a>
+                    <table>
+                        <tr>
+                            <td><a href="<?php echo base_url() . "index.php/home/motorista" ?>" class="btn btn-primary" role="button">Voltar</a></td>
+                            <td><?= form_open('home/editarMotorista') ?>
+                                <input type="hidden" name="id_drivers" value="<?= $this->input->post('id_drivers') ?>" />
+                                <input type="submit" class="btn btn-warning" value="Editar">
+                                </form></td>
+                        </tr>
+                    </table>
                     <!--Fim da Panel verde-->
                 </div>
             </div><!-- /#page-wrapper -->

@@ -150,7 +150,17 @@ $lusuario = array('class' => 'form-control');
                             <td><?= $clienteDados['observacao'] ?></td>
                         </tr>
                     </table>
-                    <a href="<?php echo base_url() . "index.php/home/cliente" ?>" class="btn btn-primary" role="button">Voltar</a>
+                    <table>
+                        <tr>
+                            <td><a href="<?php echo base_url() . "index.php/home/cliente" ?>" class="btn btn-primary" role="button">Voltar</a></td>
+                            <td><?= form_open('home/editarCliente') ?>
+                                <input type="hidden" name="id_clients" value="<?= $this->input->post('id_clients') ?>" />
+                                <input type="submit" class="btn btn-warning" value="Editar">
+                                </form></td>
+                        </tr>
+                    </table>
+
+
                     <!--Fim da Panel verde-->
                 </div>
             </div><!-- /#page-wrapper -->
