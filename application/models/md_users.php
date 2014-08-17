@@ -95,6 +95,7 @@ class Md_users extends CI_Model {
         $data_saida = implode("-", array_reverse(explode("/", $this->input->post('data_saida'))));
         $data_retorno = implode("-", array_reverse(explode("/", $this->input->post('data_retorno'))));
         $preco=str_replace(',','.',$this->input->post('preco'));
+        $preco_un=str_replace(',','.',$this->input->post('preco_un'));
         $data = array('id_client'   => $this->input->post('id_client'),
             'id_car'                => $this->input->post('id_car'),
             'id_user'               => $this->input->post('id_user'),
@@ -103,6 +104,7 @@ class Md_users extends CI_Model {
             'data_retorno'          => $data_retorno,
             'id_motorista'          => $this->input->post('id_motorista'),
             'preco'                 => $preco,
+            'preco_un'              => $preco_un,
             'tipo'                  => $this->input->post('tipo'),
             'observacao'            => $this->input->post('observacao'),
             'status'                => 'A'
@@ -115,6 +117,8 @@ class Md_users extends CI_Model {
         $data_retorno = implode("-", array_reverse(explode("/", $this->input->post('data_retorno'))));
         $preco=$this->input->post('preco');
         $preco=str_replace(',','.',$preco);
+        $preco_un=$this->input->post('preco_un');
+        $preco_un=str_replace(',','.',$preco_un);
         $data = array('id_client'   => $this->input->post('id_client'),
             'id_car'                => $this->input->post('id_car'),
             'id_user'               => $this->input->post('id_user'),
@@ -123,6 +127,7 @@ class Md_users extends CI_Model {
             'data_retorno'          => $data_retorno,
             'id_motorista'          => $this->input->post('id_motorista'),
             'preco'                 => $preco,
+            'preco_un'              => $preco_un,
             'tipo'                  => $this->input->post('tipo'),
             'observacao'            => $this->input->post('observacao'),
             'status'                => $this->input->post('status')
@@ -270,5 +275,4 @@ class Md_users extends CI_Model {
         $this->db->where('id_viagem', $this->input->post('id_viagem'));
         $this->db->update('tb_viagem', $data);
     }
-   
 }

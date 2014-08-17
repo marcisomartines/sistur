@@ -17,14 +17,14 @@
     $destino = $_GET['destino'];
     $data_inicio2 = implode("/", array_reverse(explode("-", $_GET['data_inicio'])));
     $data_final2 = implode("/", array_reverse(explode("-", $_GET['data_final'])));
-    if($destino>0){
-        $this->db->where('id_viagem',$destino);
-        $query=$this->db->get('tb_viagem');
-        foreach($query->result() as $des){
-            $cidade=$des;
+    if ($destino > 0) {
+        $this->db->where('id_viagem', $destino);
+        $query = $this->db->get('tb_viagem');
+        foreach ($query->result() as $des) {
+            $cidade = $des;
         }
-    } else{
-        $cidade='Todos';
+    } else {
+        $cidade = 'Todos';
     }
     ?>
     <body>
@@ -39,7 +39,8 @@
                     </table>
                     <table>
                         <tr>
-                            <td align='right'><strong>Período: </strong><?= $data_inicio2 ?> à <?= $data_final2 ?> <strong>Destino: </strong> <?php if(empty($cidade->destino)) echo $cidade; else echo $cidade->destino; ?></td>
+                            <td align='right'><strong>Período: </strong><?= $data_inicio2 ?> à <?= $data_final2 ?> <strong>Destino: </strong> <?php if (empty($cidade->destino)) echo $cidade;
+    else echo $cidade->destino; ?></td>
                         </tr>
                     </table>
                 </div>
@@ -83,13 +84,13 @@
                 <tr>
                     <th>Cód.</th>
                     <th>Ônibus</th>
-                    <th>Dt. Saída</th>
-                    <th>Dt. Retorno</th>
-                    <th>Ptr. Total</th>
-                    <th>Ptr. Usadas</th>
+                    <th>Data Saída</th>
+                    <th>Data Retorno</th>
+                    <th>Poltr.</th>
                     <th>Preço</th>
-                    <th>Alimen.</th>
-                    <th>Combus.</th>
+                    <th>Poltronas</th>
+                    <th>Alimentação</th>
+                    <th>Combustível</th>
                     <th>Outros</th>
                     <th>Frete</th>
                     <th>Total</th>
@@ -100,25 +101,37 @@
                     $data_retorno = implode("/", array_reverse(explode("-", $rel->data_retorno)));
                     $this->db->where('id_tour', $rel->id_tour);
                     $p = $this->db->get('tb_reservs');
-                    $poltronas = $p->num_rows();
-                    $total = ($poltronas * $rel->preco) - ($rel->alimentacao + $rel->combustivel + $rel->outros);
-                    if ($total < 0) {
-                        echo '<tr class="danger">';
-                    } else {
-                        echo "<tr>";
-                    }
-                    echo "<td>" . $rel->codigo . "</td>";
-                    echo "<td>" . $rel->modelo . "</td>";
-                    echo "<td>" . $data_saida . "</td>";
-                    echo "<td>" . $data_retorno . "</td>";
-                    echo "<td>" . $rel->nr_poltrona . "</td>";
-                    echo "<td>" . $poltronas . "</td>";
-                    echo "<td>R$" . $rel->preco . "</td>";
-                    echo "<td>R$" . $rel->alimentacao . "</td>";
-                    echo "<td>R$" . $rel->combustivel . "</td>";
-                    echo "<td>R$" . $rel->outros . "</td>";
-                    echo "<td>R$" . $rel->total . "</td>";
-                    echo "<td>R$" . $total . "</td>";
+                    //$poltronas = $p->num_rows();
+                    $poltronas = 0;
+                            $polUnica = 0;
+                            foreach ($p->result() as $pol) {
+                                if ($pol->tipo == 'i' || $pol->tipo == 'v') {
+                                    $polUnica++;
+                                }
+                                if ($pol->tipo == 'd') {
+                                    $poltronas++;
+                                }
+                            }
+                            //$rel->total é o frete ganho com a viagem
+                            $totalPoltrona=($poltronas * $rel->preco) + ($polUnica * $rel->preco_un);
+                            $total = (($poltronas * $rel->preco) + ($polUnica * $rel->preco_un) + $rel->total) - ($rel->alimentacao + $rel->combustivel + $rel->outros);
+                            if ($total < 0) {
+                                echo '<tr class="danger">';
+                            } else {
+                                echo "<tr>";
+                            }
+                            echo "<td>" . $rel->codigo . "</td>";
+                            echo "<td>" . $rel->modelo . "</td>";
+                            echo "<td>" . $data_saida . "</td>";
+                            echo "<td>" . $data_retorno . "</td>";
+                            echo "<td>" . $rel->nr_poltrona . "</td>";
+                            echo "<td>R$" . $rel->preco . "</td>";
+                            echo "<td>R$" . $totalPoltrona . "</td>";
+                            echo "<td>R$" . $rel->alimentacao . "</td>";
+                            echo "<td>R$" . $rel->combustivel . "</td>";
+                            echo "<td>R$" . $rel->outros . "</td>"; //valor do frete
+                            echo "<td>R$" . $rel->total . "</td>";
+                            echo "<td>R$" . $total . "</td>";
                     echo "</tr>";
                 }
                 ?>

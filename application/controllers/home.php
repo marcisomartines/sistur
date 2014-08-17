@@ -449,6 +449,14 @@ class Home extends CI_Controller {
         }
     }
     
+    public function fechamentoReserva() {
+        if ($this->session->userdata('is_logged_in') == 1) {
+            $this->load->view('vw_reservaFechamento');
+        } else {
+            $this->load->view('vw_login');
+        }
+    }
+    
     public function cadastroValidacaoReserva() {
         $this->load->library('form_validation');
 

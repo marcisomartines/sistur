@@ -145,7 +145,7 @@
                             <th>Ônibus</th>
                             <th>Data Saída</th>
                             <th>Data Retorno</th>
-                            <th>Poltr. Total</th>
+                            <th>Poltr.</th>
                             <th>Preço</th>
                             <th>Poltronas</th>
                             <th>Alimentação</th>
