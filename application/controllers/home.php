@@ -663,4 +663,12 @@ class Home extends CI_Controller {
     public function autoComplete(){
         $this->load->view('autoComplete');
     }
+    
+    public function relatorio(){
+        if($this->session->userdata('is_logged_in')==1){
+            $this->load->view('vw_relatorio');
+        } else {
+            $this->load->view('vw_login');
+        }
+    }
 }
