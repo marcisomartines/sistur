@@ -671,4 +671,12 @@ class Home extends CI_Controller {
             $this->load->view('vw_login');
         }
     }
+    
+    public function email(){
+        if($this->session->userdata('is_logged_in')==1){
+            $this->load->view('vw_email');
+        } else {
+            $this->load->view('vw_login');
+        }
+    }
 }
