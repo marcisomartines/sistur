@@ -12,7 +12,7 @@
         <link href="<?= base_url() ?>css/sb-admin.css" rel="stylesheet">
         <link rel="stylesheet" href="<?= base_url() ?>font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" href="<?= base_url() ?>font-awesome/css/font-awesome.css">
-        <link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.4.3.min.css">
+        <link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.4.3.min.css>"
     </head>
     <body>
         <div id="wrapper">
@@ -52,7 +52,11 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?= $query[0]->nome_user ?> <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#"><i class="fa fa-user"></i> Perfil</a></li>
-                                <li><a href="#"><i class="fa fa-gear"></i> Configurações</a></li>
+                                <li><?= form_open('home/editarUsuario') ?>
+                                <input type="hidden" name="id_users" value="<?= $query[0]->id_users ?>" />
+                                <button type="submit" class="btn btn-link"><i class="fa fa-gear"></i> Configurações</button>
+                                </form></li>
+<!--                                <li><a href="<?php echo base_url() . "index.php/home/editarUsuario" ?>"><i class="fa fa-gear"></i> Configurações</a></li>-->
                                 <li class="divider"></li>
                                 <li><a href="<?php echo base_url() . "index.php/home/logout" ?>"><i class="fa fa-power-off"></i> Sair</a></li>
                             </ul>
@@ -86,20 +90,31 @@
                                             JOIN tb_viagem ON tb_tour.id_viagem=tb_viagem.id_viagem
                                             JOIN tb_cars ON tb_cars.id_cars=tb_tour.id_car
                                             WHERE tb_tour.status='A' AND (tb_tour.tipo='v' OR tb_tour.tipo='t' OR tb_tour.tipo='e' OR tb_tour.tipo='f')");
-//                                    $this->db->select('*');
-//                                    $this->db->from('tb_tour');
-//                                    $this->db->join('tb_cars', 'tb_cars.id_cars=tb_tour.id_car');
-//                                    $this->db->join('tb_viagem', 'tb_viagem.id_viagem=tb_tour.id_viagem');
-//                                    $this->db->where('tb_tour.status', 'A');
-//                                    $this->db->where('tipo', 'v'); //viagem
-//                                    $this->db->or_where('tipo', 't'); //turismo
-//                                    $this->db->or_where('tipo', 'e'); //excursão
-//                                    $this->db->or_where('tipo', 'f'); //fretado
-//                                    $query = $this->db->get();
+
                                     foreach ($query->result() as $row) {
-                                        $this->db->where('id_tour', $row->id_tour);
-                                        $this->db->from('tb_reservs');
-                                        $reserva = $this->db->count_all_results();
+//                                        $this->db->where('id_tour', $row->id_tour);
+//                                        $this->db->from('tb_reservs');
+//                                        $reserva = $this->db->count_all_results();
+                                        $reserva=0;
+                                        $un_res=0;
+                                        for($i=1;$i<=$row->nr_poltrona;$i++){
+                                            $this->db->where('id_tour',$row->id_tour);
+                                            $this->db->where('nr_poltrona',$i);
+                                            $livre=$this->db->get('tb_reservs');
+                                            if($livre->num_rows()>0){
+                                                foreach($livre->result() as $livre)
+                                                if($livre->tipo=='i' || $livre->tipo=='v'){
+                                                    $un_res++;
+                                                    if($un_res==2){
+                                                        $reserva++;
+                                                        $un_res=0;
+                                                    }
+                                                }
+                                                if($livre->tipo=='d'){
+                                                    $reserva++;
+                                                }
+                                            }
+                                        }
                                         $data_saida = implode("/", array_reverse(explode("-", $row->data_saida)));
                                         ?>
                                         <tr>
