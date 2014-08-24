@@ -56,7 +56,6 @@
                                 <input type="hidden" name="id_users" value="<?= $query[0]->id_users ?>" />
                                 <button type="submit" class="btn btn-link"><i class="fa fa-gear"></i> Configurações</button>
                                 </form></li>
-<!--                                <li><a href="<?php echo base_url() . "index.php/home/editarUsuario" ?>"><i class="fa fa-gear"></i> Configurações</a></li>-->
                                 <li class="divider"></li>
                                 <li><a href="<?php echo base_url() . "index.php/home/logout" ?>"><i class="fa fa-power-off"></i> Sair</a></li>
                             </ul>
