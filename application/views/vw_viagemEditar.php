@@ -92,11 +92,9 @@ $lusuario = array('class' => 'form-control');
                     echo validation_errors();
 
                     echo form_label('Destino: ', 'destino');
-                    echo "<td><input type='text' name='destino' id='destino' class='form-control input-sm' value='".$viagemDados['destino']."'></td>";
+                    echo "<input type='text' name='destino' id='destino' class='form-control input-sm' value='".$viagemDados['destino']."'>";
                     echo '<br>';
-
                     echo form_hidden('id_viagem', $this->input->post('id_viagem'));
-
                     echo '<input type="submit" class="btn btn-primary" value="Editar">';
 
                     echo form_close();

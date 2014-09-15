@@ -99,41 +99,48 @@ $lusuario = array('class' => 'form-control');
                     foreach ($query->result() as $clt) {
                         $cliente[$clt->id_clients] = $clt->nome;
                     }
+                    echo "<div>";
                     echo form_label('Cliente: ');
                     echo form_dropdown('id_client', $cliente, $agendaDados['id_client'], 'class=form-control');
-                    echo '<br>';
+                    echo "</div>";
                     $this->db->where('status', 'A');
                     $query = $this->db->get('tb_cars');
                     $opcao[] = '';
                     foreach ($query->result() as $bus) {
                         $opcao[$bus->id_cars] = $bus->codigo . ' - ' . $bus->modelo;
                     }
+                    echo "<div>";
                     echo form_label('Ônibus: ');
                     echo form_dropdown('id_car', $opcao, $agendaDados['id_car'], 'class=form-control');
-                    echo '<br>';
+                    echo "</div>";
                     $opcao = array(
                         'v' => 'Viagem',
                         'f' => 'Fretamento',
                         't' => 'Turismo',
                         'e' => 'Escursão',
                     );
+                    echo "<div>";
                     echo form_label('Tipo: ');
                     echo form_dropdown('tipo', $opcao, $agendaDados['tipo'], 'class=form-control');
-                    echo '<br>';
+                    echo "</div>";
                     $query = $this->db->get('tb_viagem');
                     $viagem[] = '';
                     foreach ($query->result() as $vig) {
                         $viagem[$vig->id_viagem] = $vig->destino;
                     }
+                    echo "<div>";
                     echo form_label('Destino: ');
                     echo form_dropdown('id_viagem', $viagem, $agendaDados['id_viagem'], 'class=form-control');
-                    echo '<br>';
+                    echo "</div>";
+                    echo "<div>";
                     echo form_label('Data Saida: ');
-                    echo "<td><input type='text' name='data_saida' id='data_saida' class='form-control input-sm' value='".$data_saida."'></td>";
-                    echo '<br>';
+                    echo "<input type='text' name='data_saida' id='data_saida' class='form-control input-sm' value='".$data_saida."'>";
+                    echo "</div>";
+                    echo "<div>";
                     echo form_label('Data Retorno: ');
-                    echo "<td><input type='text' name='data_retorno' id='data_retorno' class='form-control input-sm' value='".$data_retorno."'></td>";
-                    echo '<br>';
+                    echo "<input type='text' name='data_retorno' id='data_retorno' class='form-control input-sm' value='".$data_retorno."'>";
+                    echo "</div>";
+                    echo "<div>";
                     $this->db->where('status', 'A');
                     $query = $this->db->get('tb_drivers');
                     $opcao2[] = '';
@@ -142,16 +149,19 @@ $lusuario = array('class' => 'form-control');
                     }
                     echo form_label('Motorista: ');
                     echo form_dropdown('id_motorista', $opcao2, $agendaDados['id_motorista'], 'class=form-control');
-                    echo '<br>';
+                    echo "</div>";
+                    echo "<div>";
                     echo form_label('Preço: ');
-                    echo "<td><input type='text' name='preco' id='preco' class='form-control input-sm' value='".$agendaDados['preco']."'></td>";
-                    echo '<br>';
+                    echo "<input type='text' name='preco' id='preco' class='form-control input-sm' value='".$agendaDados['preco']."'>";
+                    echo "</div>";
+                    echo "<div>";
                     echo form_label('Preço Ida ou Volta: ');
-                    echo "<td><input type='text' name='preco_un' id='preco_un' class='form-control input-sm' value='".$agendaDados['preco_un']."'></td>";
-                    echo '<br>';
+                    echo "<input type='text' name='preco_un' id='preco_un' class='form-control input-sm' value='".$agendaDados['preco_un']."'>";
+                    echo "</div>";
+                    echo "<div>";
                     echo form_label('Observação: ');
-                    echo "<td><input type='text' name='observacao' id='observacao' class='form-control input-sm' value='".$agendaDados['observacao']."'></td>";
-                    echo '<br>';
+                    echo "<input type='text' name='observacao' id='observacao' class='form-control input-sm' value='".$agendaDados['observacao']."'>";
+                    echo "</div>";
                     $ativo = array(
                         'name' => 'status',
                         'id' => 'status',
@@ -164,13 +174,12 @@ $lusuario = array('class' => 'form-control');
                         'value' => 'I',
                         'checked' => ($agendaDados['status'] == 'I' ? TRUE : FALSE),
                     );
+                    echo "<div>";
                     echo form_label('Situação: ');
                     echo "Ativo " . form_radio($ativo);
                     echo " Inativo " . form_radio($inativo);
-
                     echo form_hidden('id_tour', $this->input->post('id_tour'));
-
-                    echo "<br />";
+                    echo "</div>";
                     echo '<input type="submit" class="btn btn-primary" value="Editar">';
 
                     echo form_close();
