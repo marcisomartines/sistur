@@ -81,7 +81,7 @@ $lusuario = array('class' => 'form-control');
                     </div>
                 </div><!-- /.row -->
                 <div class="row col-sm-4">
-                    <h1>Cadastrar Destino</h1>
+                    <h3>Cadastrar Destino</h3>
                     <?php
                     echo form_open('home/cadastroValidacaoViagem');
 

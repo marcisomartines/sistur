@@ -60,7 +60,7 @@ $lusuario = array('class' => 'form-control');
                             <ul class="dropdown-menu">
                                 <li><a href="#"><i class="fa fa-user"></i> Perfil</a></li>
                                 <li><?= form_open('home/editarUsuario') ?>
-                                <input type="hidden" name="id_users" value="<?= $query[0]->id_users ?>" />
+                                <input type="hidden" name="id_users" value="<?=$us[0]->id_users?>" />
                                 <button type="submit" class="btn btn-link"><i class="fa fa-gear"></i> Configurações</button>
                                 </form></li>
                                 <li class="divider"></li>
@@ -85,7 +85,7 @@ $lusuario = array('class' => 'form-control');
 
                     <?php
                     echo form_open('home/cadastroValidacaoAgenda');
-
+                    echo "<div>";
                     echo validation_errors();
                     $query = $this->db->get('tb_clients');
                     $cliente[] = '';
@@ -94,8 +94,8 @@ $lusuario = array('class' => 'form-control');
                     }
                     echo form_label('Cliente: ');
                     echo form_dropdown('id_client', $cliente, 'v', 'class=form-control');
-                    //echo form_input(['name' => 'nome', 'id' => 'nome', 'class' => 'form-control input-sm']);
-                    echo '<br>';
+                    echo '</div>';
+                    echo "<div>";
                     $this->db->where('status', 'A');
                     $query = $this->db->get('tb_cars');
                     $opcao[] = '';
@@ -104,53 +104,59 @@ $lusuario = array('class' => 'form-control');
                     }
                     echo form_label('Ônibus: ');
                     echo form_dropdown('id_car', $opcao, 'v', 'class=form-control');
-                    echo '<br>';
+                    echo '</div>';
                     $opcao = array(
                         'v' => 'Viagem',
                         'f' => 'Fretamento',
                         't' => 'Turismo',
                         'e' => 'Escursão',
                     );
+                    echo "<div>";
                     echo form_label('Tipo: ');
                     echo form_dropdown('tipo', $opcao, 'v', 'class=form-control');
-                    echo '<br>';
+                    echo '</div>';
                     $query = $this->db->get('tb_viagem');
                     $viagem[] = '';
                     foreach ($query->result() as $vig) {
                         $viagem[$vig->id_viagem] = $vig->destino;
                     }
+                    echo "<div>";
                     echo form_label('Destino: ');
                     echo form_dropdown('id_viagem', $viagem, 'v', 'class=form-control');
-                    echo '<br>';
+                    echo '</div>';
+                    echo "<div>";
                     echo form_label('Data Saida: ');
-                    echo "<td><input type='text' name='data_saida' id='data_saida' class='form-control input-sm'></td>";
-                    echo '<br>';
+                    echo "<input type='text' name='data_saida' id='data_saida' class='form-control input-sm'>";
+                    echo '</div>';
+                    echo "<div>";
                     echo form_label('Data Retorno: ');
-                    echo "<td><input type='text' name='data_retorno' id='data_retorno' class='form-control input-sm'></td>";
-                    echo '<br>';
+                    echo "<input type='text' name='data_retorno' id='data_retorno' class='form-control input-sm'>";
+                    echo '</div>';
                     $this->db->where('status', 'A');
                     $query = $this->db->get('tb_drivers');
                     $opcao2[] = '';
                     foreach ($query->result() as $driver) {
                         $opcao2[$driver->id_drivers] = $driver->nome;
                     }
+                    echo "<div>";
                     echo form_label('Motorista: ');
                     echo form_dropdown('id_motorista', $opcao2, 'v', 'class=form-control');
-                    echo '<br>';
+                    echo '</div>';
+                    echo "<div>";
                     echo form_label('Preço: ');
-                    echo "<td><input type='text' name='preco' id='preco' class='form-control input-sm'></td>";
-                    echo '<br>';
+                    echo "<input type='text' name='preco' id='preco' class='form-control input-sm'>";
+                    echo '</div>';
+                    echo "<div>";
                     echo form_label('Preço Ida ou Volta: ');
-                    echo "<td><input type='text' name='preco_un' id='preco_un' class='form-control input-sm'></td>";
-                    echo'<br>';
+                    echo "<input type='text' name='preco_un' id='preco_un' class='form-control input-sm'>";
+                    echo'</div>';
+                    echo "<div>";
                     echo form_label('Observação: ');
-                    echo "<td><input type='text' name='observacao' id='observacao' class='form-control input-sm'></td>";
-
+                    echo "<input type='text' name='observacao' id='observacao' class='form-control input-sm'>";
                     echo form_hidden('id_user', $us[0]->id_users);
-
-                    echo "<br />";
+                    echo "</div>";
                     echo '<input type="submit" class="btn btn-primary" value="Cadastrar">';
-                    echo "<br />";
+
                     echo form_close();
                     ?>
                 </div>
