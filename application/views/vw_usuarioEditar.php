@@ -77,7 +77,7 @@ $lusuario = array('class' => 'form-control');
                         </ol>
                     </div>
                 </div><!-- /.row -->
-                <div class="row col-sm-4">
+                <div class="row">
                     <h3>Editar Usuário</h3>
                     <?php
                     echo form_open('home/editarValidacaoUsuario', $form);
@@ -87,31 +87,36 @@ $lusuario = array('class' => 'form-control');
                         $usuarioDados = $row;
                     }
                     echo validation_errors();
-                    echo "<div>";
+                    echo "<div class='row'>";
+                    echo "<div class='col-md-4'>";
                     echo form_label('Nome: ', 'nome');
                     echo "<input type='text' name='nome' id='nome' class='form-control input-sm' value='".$usuarioDados['nome_comp']."'>";
                     echo "</div>";
-                    echo "<div>";
+                    echo "<div class='col-md-2'>";
                     echo form_label('Nome de Usuario: ', 'nomeUsuario');
                     echo "<input type='text' name='usuario' id='usuario' class='form-control input-sm' value='".$usuarioDados['nome_user']."'>";
                     echo "</div>";
-                    echo "<div>";
+                    echo "<div class='col-md-3'>";
                     echo form_label('E-mail: ', 'email');
                     echo "<input type='text' name='email' id='email' class='form-control input-sm' value='".$usuarioDados['email']."'>";
-                    echo "</div>";
-                    echo "<div>";
+                    echo '</div>';
+                    echo '</div>';
+                    echo "<div class='row'>";
+                    echo "<div class='col-md-3'>";
                     echo form_label('Senha: ', 'senha');
                     echo "<input type='password' name='senha' id='senha' class='form-control input-sm'>";
                     echo "</div>";
-                    echo "<div>";
+                    echo "<div class='col-md-2'>";
                     echo form_label('Telefone: ', 'telefone');
                     echo "<input type='text' name='telefone' id='telefone' class='form-control input-sm' value='".$usuarioDados['telefone']."'>";
                     echo "</div>";
-                    echo "<div>";
+                    echo "<div class='col-md-2'>";
                     echo form_label('Celular: ', 'celular');
                     echo "<input type='text' name='celular' id='celular' class='form-control input-sm' value='".$usuarioDados['celular']."'>";
                     echo "</div>";
-                    echo "<div>";
+                    echo '</div>';
+                    echo "<div class='row'>";
+                    echo "<div class='col-md-2'>";
                     $ativo = array(
                         'name' => 'status',
                         'id' => 'status',
@@ -129,6 +134,8 @@ $lusuario = array('class' => 'form-control');
                     echo " Inativo " . form_radio($inativo);
                     echo form_hidden('id_users', $this->input->post('id_users'));
                     echo "</div>";
+                    echo '</div>';
+                    echo '<br>';
                     echo '<input type="submit" class="btn btn-primary" value="Editar">';
 
                     echo form_close();

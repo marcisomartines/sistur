@@ -80,36 +80,41 @@ $lusuario = array('class' => 'form-control');
                         </ol>
                     </div>
                 </div><!-- /.row -->
-                <div class="row col-sm-4">
+                <div class="row">
                     <h3>Cadastrar Usuário</h3>
                     <?php
                     echo form_open('home/cadastroValidacaoPessoal');
 
                     echo validation_errors();
-                    echo '<div>';
+                    echo "<div class='row'>";
+                    echo "<div class='col-md-4'>";
                     echo form_label('Nome: ');
                     echo "<input type='text' name='nome' id='nome' class='form-control input-sm'>";
                     echo '</div>';
-                    echo '<div>';
+                    echo "<div class='col-md-2'>";
                     echo form_label('Nome de Usuario: ');
                     echo "<input type='text' name='usuario' id='usuario' class='form-control input-sm'>";
                     echo '</div>';
-                    echo '<div>';
+                    echo "<div class='col-md-3'>";
                     echo form_label('E-mail: ');
                     echo "<input type='text' name='email' id='email' class='form-control input-sm'>";
                     echo '</div>';
-                    echo '<div>';
+                    echo '</div>';
+                    echo "<div class='row'>";
+                    echo "<div class='col-md-3'>";
                     echo form_label('Senha');
                     echo "<input type='password' name='senha' id='senha' class='form-control input-sm'>";
                     echo '</div>';
-                    echo '<div>';
+                    echo "<div class='col-md-2'>";
                     echo form_label('Telefone: ');
                     echo "<input type='text' name='telefone' id='telefone' class='form-control input-sm' value='67 '>";
                     echo '</div>';
-                    echo '<div>';
+                    echo "<div class='col-md-2'>";
                     echo form_label('Celular: ');
                     echo "<input type='text' name='celular' id='celular' class='form-control input-sm' value='67 '>";
                     echo "</div>";
+                    echo '</div>';
+                    echo '<br>';
                     echo '<input type="submit" class="btn btn-primary" value="Cadastrar">';
 
                     echo form_close();
