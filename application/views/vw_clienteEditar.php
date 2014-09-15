@@ -81,7 +81,7 @@ $lusuario = array('class' => 'form-control');
                         </ol>
                     </div>
                 </div><!-- /.row -->
-                <div class="row col-sm-4">
+                <div class="row">
                     <h3>Editar Cliente</h3>
                     <?php
                     echo form_open('home/editarValidacaoCliente');
@@ -92,60 +92,70 @@ $lusuario = array('class' => 'form-control');
                     }
                     echo validation_errors();
                     $data_nascimento = implode("/", array_reverse(explode("-", $clienteDados['data_nascimento'])));
-                    echo '<div>';
+                    echo "<div class='row'>";
+                    echo "<div class='col-md-5'>";
                     echo form_label('Nome: ');
                     echo "<input type='text' name='nome' id='nome' class='form-control input-sm' value='".$clienteDados['nome']."'>";
                     echo '</div>';
-                    echo '<div>';
-                    echo form_label('Data Nascimento: ');
+                    echo "<div class='col-md-2'>";
+                    echo form_label('Data Nasc.: ');
                     echo "<input type='text' name='data_nascimento' id='data_nascimento' class='form-control input-sm' value='".$data_nascimento."'>";
                     echo "</div>";
-                    echo '<div>';
+                    echo "<div class='col-md-2'>";
                     echo form_label('RG: ');
                     echo "<input type='text' name='rg' id='rg' class='form-control input-sm' value='".$clienteDados['rg']."'>";
                     echo "</div>";
-                    echo '<div>';
+                    echo "<div class='col-md-2'>";
                     echo form_label('CPF: ');
                     echo "<input type='text' name='cpf' id='cpf' class='form-control input-sm' value='".$clienteDados['cpf']."'>";
                     echo "</div>";
-                    echo '<div>';
+                    echo '</div>';
+                    echo "<div class='row'>";
+                    echo "<div class='col-md-3'>";
                     echo form_label('E-mail: ');
                     echo "<input type='text' name='email' id='email' class='form-control input-sm' value='".$clienteDados['email']."'>";
                     echo "</div>";
-                    echo '<div>';
+                    echo "<div class='col-md-2'>";
                     echo form_label('Telefone: ');
                     echo "<input type='text' name='telefone' id='telefone' class='form-control input-sm' value='".$clienteDados['telefone']."'>";
                     echo "</div>";
-                    echo "<div>";
+                    echo "<div class='col-md-2'>";
                     echo form_label('Celular: ');
                     echo "<input type='text' name='celular' id='celular' class='form-control input-sm' value='".$clienteDados['celular']."'>";
                     echo "</div>";
-                    echo '<div>';
+                    echo "<div class='col-md-4'>";
                     echo form_label('Rua: ');
                     echo "<input type='text' name='rua' id='rua' class='form-control input-sm' value='".$clienteDados['rua']."'>";
                     echo "</div>";
-                    echo '<div>';
+                    echo '</div>';
+                    echo "<div class='row'>";
+                    echo "<div class='col-md-3'>";
                     echo form_label('Bairro: ');
                     echo "<input type='text' name='bairro' id='bairro' class='form-control input-sm' value='".$clienteDados['bairro']."'>";
                     echo "</div>";
-                    echo '<div>';
+                    echo "<div class='col-md-2'>";
                     echo form_label('Cidade: ');
                     echo "<input type='text' name='cidade' id='cidade' class='form-control input-sm' value='".$clienteDados['cidade']."'>";
                     echo "</div>";
-                    echo '<div>';
+                    echo "<div class='col-md-3'>";
                     echo form_label('Local de Embarque: ');
                     echo "<input type='text' name='loc_embarque' id='loc_embarque' class='form-control input-sm' value='".$clienteDados['loc_embarque']."'>";
                     echo "</div>";
-                    echo '<div>';
+                    echo "</div>";
+                    echo "<div class='row'>";
+                    echo "<div class='col-md-4'>";
                     echo form_label('Última Viagem: ');
                     echo "<input type='text' name='ult_viagem' id='ult_viagem' class='form-control input-sm' value='".$clienteDados['ult_viagem']."'>";
                     echo "</div>";
-                    echo '<div>';
+                    echo "<div class='col-md-4'>";
                     echo form_label('Observação: ');
                     echo "<input type='text' name='observacao' id='observacao' class='form-control input-sm' value='".$clienteDados['observacao']."'>";
                     echo form_hidden('id_clients', $this->input->post('id_clients'));
                     echo "</div>";
+                    echo '</div>';
+                    echo '<br>';
                     echo '<input type="submit" class="btn btn-primary" value="Editar">';
+
                     echo form_close();
                     ?>
                     <!--Fim da Panel verde-->

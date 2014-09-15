@@ -77,11 +77,11 @@ $lusuario = array('class' => 'form-control');
                     <div class="col-lg-12">
                         <h1>Agendamento <small>Edição</small></h1>
                         <ol class="breadcrumb">
-                            <li class="active"><i class="fa fa-calendar"></i><a href="<?php echo base_url() . "index.php/home/agenda" ?>"> Agendamento</a> /Edição</li>
+                            <li class="active"><i class="fa fa-calendar"></i><a href="<?php echo base_url() . "index.php/home/agenda" ?>"> Agendamento</a> / Edição</li>
                         </ol>
                     </div>
                 </div><!-- /.row -->
-                <div class="row col-sm-4">
+                <div class="row">
                     <h3>Editar Agendamento</h3>
                     <?php
                     echo form_open('home/editarValidacaoAgenda');
@@ -99,7 +99,8 @@ $lusuario = array('class' => 'form-control');
                     foreach ($query->result() as $clt) {
                         $cliente[$clt->id_clients] = $clt->nome;
                     }
-                    echo "<div>";
+                    echo "<div class='row'>";
+                    echo "<div class='col-md-4'>";
                     echo form_label('Cliente: ');
                     echo form_dropdown('id_client', $cliente, $agendaDados['id_client'], 'class=form-control');
                     echo "</div>";
@@ -109,7 +110,7 @@ $lusuario = array('class' => 'form-control');
                     foreach ($query->result() as $bus) {
                         $opcao[$bus->id_cars] = $bus->codigo . ' - ' . $bus->modelo;
                     }
-                    echo "<div>";
+                    echo "<div class='col-md-2'>";
                     echo form_label('Ônibus: ');
                     echo form_dropdown('id_car', $opcao, $agendaDados['id_car'], 'class=form-control');
                     echo "</div>";
@@ -119,7 +120,7 @@ $lusuario = array('class' => 'form-control');
                         't' => 'Turismo',
                         'e' => 'Escursão',
                     );
-                    echo "<div>";
+                    echo "<div class='col-md-2'>";
                     echo form_label('Tipo: ');
                     echo form_dropdown('tipo', $opcao, $agendaDados['tipo'], 'class=form-control');
                     echo "</div>";
@@ -128,19 +129,21 @@ $lusuario = array('class' => 'form-control');
                     foreach ($query->result() as $vig) {
                         $viagem[$vig->id_viagem] = $vig->destino;
                     }
-                    echo "<div>";
+                    echo "<div class='col-md-3'>";
                     echo form_label('Destino: ');
                     echo form_dropdown('id_viagem', $viagem, $agendaDados['id_viagem'], 'class=form-control');
                     echo "</div>";
-                    echo "<div>";
+                    echo '</div>';//inicio de uma nova linha
+                    echo "<div class='row'>";
+                    echo "<div class='col-md-2'>";
                     echo form_label('Data Saida: ');
                     echo "<input type='text' name='data_saida' id='data_saida' class='form-control input-sm' value='".$data_saida."'>";
                     echo "</div>";
-                    echo "<div>";
+                    echo "<div class='col-md-2'>";
                     echo form_label('Data Retorno: ');
                     echo "<input type='text' name='data_retorno' id='data_retorno' class='form-control input-sm' value='".$data_retorno."'>";
                     echo "</div>";
-                    echo "<div>";
+                    echo "<div class='col-md-3'>";
                     $this->db->where('status', 'A');
                     $query = $this->db->get('tb_drivers');
                     $opcao2[] = '';
@@ -150,15 +153,17 @@ $lusuario = array('class' => 'form-control');
                     echo form_label('Motorista: ');
                     echo form_dropdown('id_motorista', $opcao2, $agendaDados['id_motorista'], 'class=form-control');
                     echo "</div>";
-                    echo "<div>";
+                    echo "<div class='col-md-1'>";
                     echo form_label('Preço: ');
                     echo "<input type='text' name='preco' id='preco' class='form-control input-sm' value='".$agendaDados['preco']."'>";
                     echo "</div>";
-                    echo "<div>";
-                    echo form_label('Preço Ida ou Volta: ');
+                    echo "<div class='col-md-1'>";
+                    echo form_label('Preço Un.: ');
                     echo "<input type='text' name='preco_un' id='preco_un' class='form-control input-sm' value='".$agendaDados['preco_un']."'>";
                     echo "</div>";
-                    echo "<div>";
+                    echo '</div>';
+                    echo "<div class='row'>";
+                    echo "<div class='col-md-8'>";
                     echo form_label('Observação: ');
                     echo "<input type='text' name='observacao' id='observacao' class='form-control input-sm' value='".$agendaDados['observacao']."'>";
                     echo "</div>";
@@ -174,12 +179,15 @@ $lusuario = array('class' => 'form-control');
                         'value' => 'I',
                         'checked' => ($agendaDados['status'] == 'I' ? TRUE : FALSE),
                     );
-                    echo "<div>";
+                    echo '</div>';
+                    echo "<div class='row'>";
+                    echo "<div class='col-md-2'>";
                     echo form_label('Situação: ');
                     echo "Ativo " . form_radio($ativo);
                     echo " Inativo " . form_radio($inativo);
                     echo form_hidden('id_tour', $this->input->post('id_tour'));
                     echo "</div>";
+                    echo '</div>';
                     echo '<input type="submit" class="btn btn-primary" value="Editar">';
 
                     echo form_close();

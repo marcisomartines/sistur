@@ -80,12 +80,13 @@ $lusuario = array('class' => 'form-control');
                         </ol>
                     </div>
                 </div><!-- /.row -->
-                <div class="row col-sm-4">
+                <div class="row">
                     <h3>Agendamento</h3>
 
                     <?php
                     echo form_open('home/cadastroValidacaoAgenda');
-                    echo "<div>";
+                    echo "<div class='row'>";
+                    echo "<div class='col-md-4'>";
                     echo validation_errors();
                     $query = $this->db->get('tb_clients');
                     $cliente[] = '';
@@ -95,7 +96,7 @@ $lusuario = array('class' => 'form-control');
                     echo form_label('Cliente: ');
                     echo form_dropdown('id_client', $cliente, 'v', 'class=form-control');
                     echo '</div>';
-                    echo "<div>";
+                    echo "<div class='col-md-2'>";
                     $this->db->where('status', 'A');
                     $query = $this->db->get('tb_cars');
                     $opcao[] = '';
@@ -111,7 +112,7 @@ $lusuario = array('class' => 'form-control');
                         't' => 'Turismo',
                         'e' => 'Escursão',
                     );
-                    echo "<div>";
+                    echo "<div class='col-md-2'>";
                     echo form_label('Tipo: ');
                     echo form_dropdown('tipo', $opcao, 'v', 'class=form-control');
                     echo '</div>';
@@ -120,15 +121,17 @@ $lusuario = array('class' => 'form-control');
                     foreach ($query->result() as $vig) {
                         $viagem[$vig->id_viagem] = $vig->destino;
                     }
-                    echo "<div>";
+                    echo "<div class='col-md-3'>";
                     echo form_label('Destino: ');
                     echo form_dropdown('id_viagem', $viagem, 'v', 'class=form-control');
                     echo '</div>';
-                    echo "<div>";
+                    echo '</div>';//inicio de uma nova linha
+                    echo "<div class='row'>";
+                    echo "<div class='col-md-2'>";
                     echo form_label('Data Saida: ');
                     echo "<input type='text' name='data_saida' id='data_saida' class='form-control input-sm'>";
                     echo '</div>';
-                    echo "<div>";
+                    echo "<div class='col-md-2'>";
                     echo form_label('Data Retorno: ');
                     echo "<input type='text' name='data_retorno' id='data_retorno' class='form-control input-sm'>";
                     echo '</div>';
@@ -138,23 +141,27 @@ $lusuario = array('class' => 'form-control');
                     foreach ($query->result() as $driver) {
                         $opcao2[$driver->id_drivers] = $driver->nome;
                     }
-                    echo "<div>";
+                    echo "<div class='col-md-3'>";
                     echo form_label('Motorista: ');
                     echo form_dropdown('id_motorista', $opcao2, 'v', 'class=form-control');
                     echo '</div>';
-                    echo "<div>";
+                    echo "<div class='col-md-1'>";
                     echo form_label('Preço: ');
                     echo "<input type='text' name='preco' id='preco' class='form-control input-sm'>";
                     echo '</div>';
-                    echo "<div>";
-                    echo form_label('Preço Ida ou Volta: ');
+                    echo "<div class='col-md-1'>";
+                    echo form_label('Preço Un.: ');
                     echo "<input type='text' name='preco_un' id='preco_un' class='form-control input-sm'>";
-                    echo'</div>';
-                    echo "<div>";
+                    echo '</div>';
+                    echo '</div>';
+                    echo "<div class='row'>";
+                    echo "<div class='col-md-8'>";
                     echo form_label('Observação: ');
                     echo "<input type='text' name='observacao' id='observacao' class='form-control input-sm'>";
                     echo form_hidden('id_user', $us[0]->id_users);
                     echo "</div>";
+                    echo '</div>';
+                    echo '<br>';
                     echo '<input type="submit" class="btn btn-primary" value="Cadastrar">';
 
                     echo form_close();

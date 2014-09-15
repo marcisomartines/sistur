@@ -77,69 +77,74 @@ $lusuario = array('class' => 'form-control');
                     <div class="col-lg-12">
                         <h1>Cliente <small>Cadastro</small></h1>
                         <ol class="breadcrumb">
-                            <li class="active"><i class="fa fa-users"></i><a href="<?php echo base_url() . "index.php/home/cliente" ?>"> Cliente</a>/Cadastro</li>
+                            <li class="active"><i class="fa fa-users"></i><a href="<?php echo base_url() . "index.php/home/cliente" ?>"> Cliente</a> / Cadastro</li>
                         </ol>
                     </div>
                 </div><!-- /.row -->
-                <div class="row col-sm-4">
+                <div class="row">
                     <h3>Cadastrar Cliente</h3>
                     <?php
                     echo form_open('home/cadastroValidacaoCliente');
 
                     echo validation_errors();
-                    echo "<div>";
+                    echo "<div class='row'>";
+                    echo "<div class='col-md-5'>";
                     echo form_label('Nome: ');
-                    echo "<td><input type='text' name='nome' id='nome' class='form-control input-sm'></td>";
+                    echo "<input type='text' name='nome' id='nome' class='form-control input-sm'>";
                     echo '</div>';
-                    echo "<div>";
-                    echo form_label('Data Nascimento: ');
-                    echo "<td><input type='text' name='data_nascimento' id='data_nascimento' class='form-control input-sm'></td>";
+                    echo "<div class='col-md-2'>";
+                    echo form_label('Data Nasc.: ');
+                    echo "<input type='text' name='data_nascimento' id='data_nascimento' class='form-control input-sm'>";
                     echo '</div>';
-                    echo "<div>";
+                    echo "<div class='col-md-2'>";
                     echo form_label('RG: ');
-                    echo "<td><input type='text' name='rg' id='rg' class='form-control input-sm'></td>";
+                    echo "<input type='text' name='rg' id='rg' class='form-control input-sm'>";
                     echo '</div>';
-                    echo "<div>";
+                    echo "<div class='col-md-2'>";
                     echo form_label('CPF: ');
-                    echo "<td><input type='text' name='cpf' id='cpf' class='form-control input-sm'></td>";
+                    echo "<input type='text' name='cpf' id='cpf' class='form-control input-sm'>";
                     echo '</div>';
-                    echo "<div>";
+                    echo '</div>';
+                    echo "<div class='row'>";
+                    echo "<div class='col-md-3'>";
                     echo form_label('E-mail: ');
-                    echo "<td><input type='text' name='email' id='email' class='form-control input-sm'></td>";
+                    echo "<input type='text' name='email' id='email' class='form-control input-sm'>";
                     echo '</div>';
-                    echo "<div>";
+                    echo "<div class='col-md-2'>";
                     echo form_label('Telefone: ');
-                    echo "<td><input type='text' name='telefone' id='telefone' class='form-control input-sm'></td>";
+                    echo "<input type='text' name='telefone' id='telefone' class='form-control input-sm'>";
                     echo '</div>';
-                    echo "<div>";
+                    echo "<div class='col-md-2'>";
                     echo form_label('Celular: ');
-                    echo "<td><input type='text' name='celular' id='celular' class='form-control input-sm'></td>";
+                    echo "<input type='text' name='celular' id='celular' class='form-control input-sm'>";
                     echo '</div>';
-                    echo "<div>";
+                    echo "<div class='col-md-4'>";
                     echo form_label('Rua: ');
-                    echo "<td><input type='text' name='rua' id='rua' class='form-control input-sm'></td>";
+                    echo "<input type='text' name='rua' id='rua' class='form-control input-sm'>";
                     echo '</div>';
-                    echo "<div>";
+                    echo '</div>';
+                    echo "<div class='row'>";
+                    echo "<div class='col-md-3'>";
                     echo form_label('Bairro: ');
-                    echo "<td><input type='text' name='bairro' id='bairro' class='form-control input-sm'></td>";
+                    echo "<input type='text' name='bairro' id='bairro' class='form-control input-sm'>";
                     echo '</div>';
-                    echo "<div>";
+                    echo "<div class='col-md-2'>";
                     echo form_label('Cidade: ');
-                    echo "<td><input type='text' name='cidade' id='cidade' class='form-control input-sm'></td>";
+                    echo "<input type='text' name='cidade' id='cidade' class='form-control input-sm'>";
                     echo '</div>';
-                    echo "<div>";
+                    echo "<div class='col-md-3'>";
                     echo form_label('Local de Embarque: ');
-                    echo "<td><input type='text' name='loc_embarque' id='loc_embarque' class='form-control input-sm'></td>";
+                    echo "<input type='text' name='loc_embarque' id='loc_embarque' class='form-control input-sm'>";
                     echo '</div>';
-                    echo "<div>";
-                    echo form_label('Observação: ');
-                    echo "<td><input type='text' name='observacao' id='observacao' class='form-control input-sm'></td>";
-
                     echo "</div>";
+                    echo "<div class='row'>";
+                    echo "<div class='col-md-8'>";
+                    echo form_label('Observação: ');
+                    echo "<input type='text' name='observacao' id='observacao' class='form-control input-sm'>";
+                    echo '</div>';
+                    echo "</div>";
+                    echo "<br>";
                     echo '<input type="submit" class="btn btn-primary" value="Cadastrar">';
-                    //echo '<p>';
-                    //echo form_submit('signup_submit','Cadastrar');
-                    //echo '</p>';
 
                     echo form_close();
                     ?>
