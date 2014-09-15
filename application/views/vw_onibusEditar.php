@@ -81,7 +81,7 @@ $lusuario = array('class' => 'form-control');
                         </ol>
                     </div>
                 </div><!-- /.row -->
-                <div class="row col-sm-4">
+                <div class="row">
                     <h3>Editar Ônibus</h3>
                     <?php
                     echo form_open('home/editarValidacaoOnibus');
@@ -98,59 +98,63 @@ $lusuario = array('class' => 'form-control');
                     $inmetro = implode("/", array_reverse(explode("-", $onibusDados['inmetro'])));
                     $seguro_inicio = implode("/", array_reverse(explode("-", $onibusDados['seguro_inicio'])));
                     $seguro_final = implode("/", array_reverse(explode("-", $onibusDados['seguro_final'])));
-                    echo "<div>";
+                    echo "<div class='row'>";
+                    echo "<div class='col-md-1'>";
                     echo form_label('Código: ');
                     echo "<input type='text' name='codigo' id='codigo' class='form-control input-sm' value='".$onibusDados['codigo']."'>";
                     echo "</div>";
-                    echo "<div>";
+                    echo "<div class='col-md-2'>";
                     echo form_label('Montadora: ');
                     echo "<input type='text' name='montadora' id='montadora' class='form-control input-sm' value='".$onibusDados['montadora']."'>";
                     echo "</div>";
-                    echo "<div>";
+                    echo "<div class='col-md-2'>";
                     echo form_label('Modelo: ');
                     echo "<input type='text' name='modelo' id='modelo' class='form-control input-sm' value='".$onibusDados['modelo']."'>";
                     echo "</div>";
-                    echo "<div>";
+                    echo "<div class='col-md-1'>";
                     echo form_label('Ano: ');
                     echo "<input type='text' name='ano' id='ano' class='form-control input-sm' value='".$onibusDados['ano']."'>";
                     echo "</div>";
-                    echo "<div>";
+                    echo "<div class='col-md-1'>";
                     echo form_label('Placa: ');
                     echo "<input type='text' name='placa' id='placa' class='form-control input-sm' value='".$onibusDados['placa']."'>";
                     echo "</div>";
-                    echo "<div>";
+                    echo "<div class='col-md-1'>";
                     echo form_label('Chassis: ');
                     echo "<input type='text' name='chassis' id='chassis' class='form-control input-sm' value='".$onibusDados['chassis']."'>";
                     echo "</div>";
-                    echo "<div>";
-                    echo form_label('N° Poltronas: ');
+                    echo "<div class='col-md-1'>";
+                    echo form_label('N° Poltr.: ');
                     echo "<input type='text' name='nr_poltrona' id='nr_poltrona' class='form-control input-sm' value='".$onibusDados['nr_poltrona']."'>";
                     echo "</div>";
-                    echo "<div>";
+                    echo "<div class='col-md-1'>";
                     echo form_label('ANTT/CRF: ');
                     echo "<input type='text' name='antt' id='antt' class='form-control input-sm' value='".$antt."'>";
                     echo "</div>";
-                    echo "<div>";
+                    echo "</div>";
+                    echo "<div class='row'>";
+                    echo "<div class='col-md-1'>";
                     echo form_label('Agepan: ');
                     echo "<input type='text' name='agepan' id='agepan' class='form-control input-sm' value='".$agepan."'>";
                     echo "</div>";
-                    echo "<div>";
+                    echo "<div class='col-md-1'>";
                     echo form_label('Vistec: ');
                     echo "<input type='text' name='vistec' id='vistec' class='form-control input-sm' value='".$vistec."'>";
                     echo "</div>";
-                    echo "<div>";
+                    echo "<div class='col-md-1'>";
                     echo form_label('INMETRO: ');
                     echo "<input type='text' name='inmetro' id='inmetro' class='form-control input-sm' value='".$inmetro."'>";
                     echo "</div>";
-                    echo "<div>";
-                    echo form_label('Seguro: ');
+                    echo "<div class='col-md-2'>";
+                    echo form_label('Seguro Início: ');
                     echo "<input type='text' name='seguro_inicio' id='seguro_inicio' class='form-control input-sm' value='".$seguro_inicio."'>";
+                    echo '</div>';
+                    echo "<div class='col-md-2'>";
+                    echo form_label('Seguro Final: ');
                     echo "<input type='text' name='seguro_final' id='seguro_final' class='form-control input-sm' value='".$seguro_final."'>";
                     echo "</div>";
-                    echo "<div>";
-                    echo form_label('Observação: ');
-                    echo form_input(['name' => 'observacao', 'id' => 'observacao', 'class' => 'form-control input-sm', 'value' => $onibusDados['observacao']]);
-                    echo "</div>";
+                    echo '</div>';
+                    echo "<div class='row'>";
                     $ativo = array(
                         'name' => 'status',
                         'id' => 'status',
@@ -163,12 +167,14 @@ $lusuario = array('class' => 'form-control');
                         'value' => 'I',
                         'checked' => ($onibusDados['status'] == 'I' ? TRUE : FALSE),
                     );
-                    echo "<div>";
+                    echo "<div class='col-md-2'>";
                     echo form_label('Situação: ');
                     echo "Ativo " . form_radio($ativo);
                     echo " Inativo " . form_radio($inativo);
                     echo form_hidden('id_cars', $this->input->post('id_cars'));
                     echo "</div>";
+                    echo '</div>';
+                    echo '<br>';
                     echo '<input type="submit" class="btn btn-primary" value="Editar">';
 
                     echo form_close();
