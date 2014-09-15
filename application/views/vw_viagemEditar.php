@@ -81,7 +81,7 @@ $lusuario = array('class' => 'form-control');
                     </div>
                 </div><!-- /.row -->
                 <div class="row col-sm-4">
-                    <h1>Editar Destino</h1>
+                    <h3>Editar Destino</h3>
                     <?php
                     echo form_open('home/editarValidacaoViagem', $form);
                     $this->db->where('id_viagem', $this->input->post('id_viagem'));

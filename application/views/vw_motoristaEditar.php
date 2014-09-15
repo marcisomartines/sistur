@@ -81,7 +81,7 @@ $lusuario = array('class' => 'form-control');
                         </ol>
                     </div>
                 </div><!-- /.row -->
-                <div class="row col-sm-4">
+                <div class="row">
                     <h3>Editar Motorista</h3>
                     <?php
                     echo form_open('home/editarValidacaoMotorista');
@@ -93,58 +93,66 @@ $lusuario = array('class' => 'form-control');
                     echo validation_errors();
                     $data_nascimento = implode("/", array_reverse(explode("-", $motoristaDados['data_nascimento'])));
                     $validade_cnh = implode("/", array_reverse(explode("-", $motoristaDados['validade_cnh'])));
-                    echo "<div>";
+                    echo "<div class='row'>";
+                    echo "<div class='col-md-4'>";
                     echo form_label('Nome: ');
                     echo "<input type='text' name='nome' id='nome' class='form-control input-sm' value='".$motoristaDados['nome']."'>";
                     echo "</div>";
-                    echo "<div>";
-                    echo form_label('Data Nascimento: ');
+                    echo "<div class='col-md-1'>";
+                    echo form_label('Data Nasc.: ');
                     echo "<input type='text' name='data_nascimento' id='data_nascimento' class='form-control input-sm' value='".$data_nascimento."'>";
                     echo "</div>";
-                    echo "<div>";
+                    echo "<div class='col-md-2'>";
                     echo form_label('RG: ');
                     echo "<input type='text' name='rg' id='rg' class='form-control input-sm' value='".$motoristaDados['rg']."'>";
                     echo "</div>";
-                    echo "<div>";
+                    echo "<div class='col-md-2'>";
                     echo form_label('CPF: ');
                     echo "<input type='text' name='cpf' id='cpf' class='form-control input-sm' value='".$motoristaDados['cpf']."'>";
                     echo "</div>";
-                    echo "<div>";
+                    echo "<div class='col-md-2'>";
                     echo form_label('CNH: ');
                     echo "<input type='text' name='cnh' id='cnh' class='form-control input-sm' value='".$motoristaDados['cnh']."'>";
-                    echo "</div>";
-                    echo "<div>";
+                    echo '</div>';
+                    echo '</div>';
+                    echo "<div class='row'>";
+                    echo "<div class='col-md-2'>";
                     echo form_label('Validade CNH: ');
                     echo "<input type='text' name='validade_cnh' id='validade_cnh' class='form-control input-sm' value='".$validade_cnh."'>";
                     echo "</div>";
-                    echo "<div>";
+                    echo "<div class='col-md-4'>";
                     echo form_label('E-mail: ');
                     echo "<input type='text' name='email' id='email' class='form-control input-sm' value='".$motoristaDados['email']."'>";
                     echo "</div>";
-                    echo "<div>";
+                    echo "<div class='col-md-2'>";
                     echo form_label('Telefone: ');
                     echo "<input type='text' name='telefone' id='telefone' class='form-control input-sm' value='".$motoristaDados['telefone']."'>";
                     echo "</div>";
-                    echo "<div>";
+                    echo "<div class='col-md-2'>";
                     echo form_label('Celular: ');
                     echo "<input type='text' name='celular' id='celular' class='form-control input-sm' value='".$motoristaDados['celular']."'>";
-                    echo "</div>";
-                    echo "<div>";
+                    echo '</div>';
+                    echo '</div>';
+                    echo "<div class='row'>";
+                    echo "<div class='col-md-4'>";
                     echo form_label('Rua: ');
                     echo "<input type='text' name='rua' id='rua' class='form-control input-sm' value='".$motoristaDados['rua']."'>";
                     echo "</div>";
-                    echo "<div>";
+                    echo "<div class='col-md-3'>";
                     echo form_label('Bairro: ');
                     echo "<input type='text' name='bairro' id='bairro' class='form-control input-sm' value='".$motoristaDados['bairro']."'>";
                     echo "</div>";
-                    echo "<div>";
+                    echo "<div class='col-md-3'>";
                     echo form_label('Cidade: ');
                     echo "<input type='text' name='cidade' id='cidade' class='form-control input-sm' value='".$motoristaDados['cidade']."'>";
-                    echo "</div>";
-                    echo "<div>";
+                    echo '</div>';
+                    echo '</div>';
+                    echo "<div class='row'>";
+                    echo "<div class='col-md-8'>";
                     echo form_label('Observação: ');
                     echo "<input type='text' name='observacao' id='observacao' class='form-control input-sm' value='".$motoristaDados['observacao']."'>";
                     echo "</div>";
+                    echo '</div>';
                     $ativo = array(
                         'name' => 'status',
                         'id' => 'status',
@@ -157,12 +165,15 @@ $lusuario = array('class' => 'form-control');
                         'value' => 'I',
                         'checked' => ($motoristaDados['status'] == 'A' ? FALSE : TRUE),
                     );
-                    echo "<div>";
+                    echo "<div class='row'>";
+                    echo "<div class='col-md-2'>";
                     echo form_label('Situação: ');
                     echo "Ativo " . form_radio($ativo);
                     echo " Inativo " . form_radio($inativo);
                     echo form_hidden('id_drivers', $this->input->post('id_drivers'));
                     echo "</div>";
+                    echo '</div>';
+                    echo '<br>';
                     echo '<input type="submit" class="btn btn-primary" value="Editar">';
 
                     echo form_close();
