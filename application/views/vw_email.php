@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+<?php
+$this->db->where('nome_user', $this->session->userdata('nome'));
+$query = $this->db->get('tb_users');
+$query = $query->result();
+if($query[0]->tipo > 0)
+    redirect('/home/guiaLista');
+else{
+?>
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -6,7 +14,7 @@
         <meta name="description" content="">
         <meta name="author" content="Marciso Gonzalez Martines">
 
-        <title>Pantanal Sul - Turismo</title>
+        <title><?=$query[0]->titulo?></title>
         <link href="<?= base_url() ?>css/bootstrap.css" rel="stylesheet">
         <link href="<?= base_url() ?>css/sb-admin.css" rel="stylesheet">
         <link rel="stylesheet" href="<?= base_url() ?>font-awesome/css/font-awesome.min.css">
@@ -26,7 +34,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="">Pantanal Sul Turismo</a>
+                    <a class="navbar-brand" href=""><?=$query[0]->empresa?></a>
                 </div>
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav side-nav">
@@ -34,6 +42,7 @@
                         <li><a href="<?php echo base_url() . "index.php/home/reserva" ?>"><i class="fa fa-ticket"></i> Reserva</a></li>
                         <li><a href="<?php echo base_url() . "index.php/home/cliente" ?>"><i class="fa fa-users "></i> Cliente</a></li>
                         <li><a href="<?php echo base_url() . "index.php/home/agenda" ?>"><i class="fa fa-calendar"></i> Agendamento</a></li>
+                        <li><a href="<?php echo base_url() . "index.php/home/orcamento" ?>"><i class="fa fa-file-text-o"></i> Orçamento</a></li>
                         <li><a href="<?php echo base_url() . "index.php/home/onibus" ?>"><i class="fa fa-truck"></i> Ônibus</a></li>
                         <li><a href="<?php echo base_url() . "index.php/home/viagem" ?>"><i class="fa fa-tasks"></i> Destino</a></li>
                         <li><a href="<?php echo base_url() . "index.php/home/motorista" ?>"><i class="fa fa-car"></i> Motorista</a></li>
@@ -42,11 +51,6 @@
                     </ul>
                     <!-- Menu superior alinhado a direita-->
                     <ul class="nav navbar-nav navbar-right navbar-user">
-                        <?php
-                        $this->db->where('nome_user', $this->session->userdata('nome'));
-                        $query = $this->db->get('tb_users');
-                        $query = $query->result();
-                        ?>
                         <li class="dropdown user-dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?= $query[0]->nome_user ?> <b class="caret"></b></a>
                             <ul class="dropdown-menu">
@@ -73,11 +77,12 @@
                     </div>
                 </div><!-- /.row -->
                 <div class="controls">
-                    <?= form_open('home/relatorioListaCliente') ?>
+                    <?= form_open('home/validacaoEmail') ?>
                     <table>
                         <tr>
                             <td><?php
                                 $this->db->order_by('nome', 'asc');
+                                $this->db->where('email !=','');
                                 $query = $this->db->get('tb_clients');
                                 $opcao[] = '';
                                 echo form_label('Cliente: ');
@@ -184,3 +189,6 @@
         <script src="<?= base_url() ?>charisma/js/charisma.js"></script>
     </body>
 </html>
+<?php
+}
+?>

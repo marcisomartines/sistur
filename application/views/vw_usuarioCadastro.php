@@ -2,6 +2,12 @@
 $form = array('id' => 'form-login', 'class' => 'form-horizontal', 'role' => 'form');
 $usuario = array('name' => 'nome', 'id' => 'nome', 'class' => 'form-control');
 $lusuario = array('class' => 'form-control');
+$this->db->where('nome_user', $this->session->userdata('nome'));
+$query = $this->db->get('tb_users');
+$query = $query->result();
+if($query[0]->tipo > 0)
+    redirect('/home/guiaLista');
+else{
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +17,7 @@ $lusuario = array('class' => 'form-control');
         <meta name="description" content="">
         <meta name="author" content="Marciso Gonzalez Martines">
 
-        <title>Pantanal Sul - Turismo</title>
+        <title><?=$query[0]->titulo?></title>
 
         <link href="<?= base_url() ?>css/bootstrap.css" rel="stylesheet">
         <link href="<?= base_url() ?>css/sb-admin.css" rel="stylesheet">
@@ -20,9 +26,7 @@ $lusuario = array('class' => 'form-control');
     </head>
 
     <body>
-
         <div id="wrapper">
-
             <!-- barra lateral -->
             <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 
@@ -33,7 +37,7 @@ $lusuario = array('class' => 'form-control');
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="">Pantanal Sul Turismo</a>
+                    <a class="navbar-brand" href=""><?=$query[0]->empresa?></a>
                 </div>
 
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
@@ -42,6 +46,7 @@ $lusuario = array('class' => 'form-control');
                         <li><a href="<?php echo base_url() . "index.php/home/reserva" ?>"><i class="fa fa-ticket"></i> Reserva</a></li>
                         <li><a href="<?php echo base_url() . "index.php/home/cliente" ?>"><i class="fa fa-users "></i> Cliente</a></li>
                         <li><a href="<?php echo base_url() . "index.php/home/agenda" ?>"><i class="fa fa-calendar"></i> Agendamento</a></li>
+                        <li><a href="<?php echo base_url() . "index.php/home/orcamento" ?>"><i class="fa fa-file-text-o"></i> Orçamento</a></li>
                         <li><a href="<?php echo base_url() . "index.php/home/onibus" ?>"><i class="fa fa-truck"></i> Ônibus</a></li>
                         <li><a href="<?php echo base_url() . "index.php/home/viagem" ?>"><i class="fa fa-tasks"></i> Destino</a></li>
                         <li><a href="<?php echo base_url() . "index.php/home/motorista" ?>"><i class="fa fa-car"></i> Motorista</a></li>
@@ -50,11 +55,6 @@ $lusuario = array('class' => 'form-control');
                     </ul>
                     <!-- Menu superior alinhado a direita-->
                     <ul class="nav navbar-nav navbar-right navbar-user">
-                        <?php
-                        $this->db->where('nome_user', $this->session->userdata('nome'));
-                        $query = $this->db->get('tb_users');
-                        $query = $query->result();
-                        ?>
                         <li class="dropdown user-dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?= $query[0]->nome_user ?> <b class="caret"></b></a>
                             <ul class="dropdown-menu">
@@ -89,7 +89,7 @@ $lusuario = array('class' => 'form-control');
                     echo "<div class='row'>";
                     echo "<div class='col-md-4'>";
                     echo form_label('Nome: ');
-                    echo "<input type='text' name='nome' id='nome' class='form-control input-sm'>";
+                    echo "<input type='text' name='nome' id='nome' class='form-control input-sm' required>";
                     echo '</div>';
                     echo "<div class='col-md-2'>";
                     echo form_label('Nome de Usuario: ');
@@ -112,6 +112,14 @@ $lusuario = array('class' => 'form-control');
                     echo "<div class='col-md-2'>";
                     echo form_label('Celular: ');
                     echo "<input type='text' name='celular' id='celular' class='form-control input-sm' value='67 '>";
+                    echo "</div>";
+                    $tipo = array(
+                        '0' => 'Usuário',
+                        '1' => 'Guia'
+                    );
+                    echo "<div class='col-md-2'>";
+                    echo form_label('Tipo: ');
+                    echo form_dropdown('tipo',$tipo,'0','class=form-control');
                     echo "</div>";
                     echo '</div>';
                     echo '<br>';
@@ -142,3 +150,6 @@ $lusuario = array('class' => 'form-control');
         </script>
     </body>
 </html>
+<?php
+}
+?>

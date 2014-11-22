@@ -6,7 +6,7 @@
         <meta name="description" content="">
         <meta name="author" content="Marciso Gonzalez Martines">
 
-        <title>Pantanal Sul - Turismo</title>
+        <title><?=$query[0]->titulo?></title>
 
         <link href="<?= base_url() ?>css/bootstrap.css" rel="stylesheet">
         <link href="<?= base_url() ?>css/sb-admin.css" rel="stylesheet">

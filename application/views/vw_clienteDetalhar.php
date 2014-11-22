@@ -2,6 +2,12 @@
 $form = array('id' => 'form-login', 'class' => 'form-horizontal', 'role' => 'form');
 $usuario = array('name' => 'nome', 'id' => 'nome', 'class' => 'form-control');
 $lusuario = array('class' => 'form-control');
+$this->db->where('nome_user', $this->session->userdata('nome'));
+$query = $this->db->get('tb_users');
+$query = $query->result();
+if($query[0]->tipo > 0)
+    redirect('/home/guiaLista');
+else{
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +17,7 @@ $lusuario = array('class' => 'form-control');
         <meta name="description" content="">
         <meta name="author" content="Marciso Gonzalez Martines">
 
-        <title>Pantanal Sul - Turismo</title>
+        <title><?=$query[0]->titulo?></title>
 
         <link href="<?= base_url() ?>css/bootstrap.css" rel="stylesheet">
         <link href="<?= base_url() ?>css/sb-admin.css" rel="stylesheet">
@@ -34,7 +40,7 @@ $lusuario = array('class' => 'form-control');
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="">Pantanal Sul Turismo</a>
+                    <a class="navbar-brand" href=""><?=$query[0]->empresa?></a>
                 </div>
 
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
@@ -43,6 +49,7 @@ $lusuario = array('class' => 'form-control');
                         <li><a href="<?php echo base_url() . "index.php/home/reserva" ?>"><i class="fa fa-ticket"></i> Reserva</a></li>
                         <li class="active"><a href="<?php echo base_url() . "index.php/home/cliente" ?>"><i class="fa fa-users "></i> Cliente</a></li>
                         <li><a href="<?php echo base_url() . "index.php/home/agenda" ?>"><i class="fa fa-calendar"></i> Agendamento</a></li>
+                        <li><a href="<?php echo base_url() . "index.php/home/orcamento" ?>"><i class="fa fa-file-text-o"></i> Orçamento</a></li>
                         <li><a href="<?php echo base_url() . "index.php/home/onibus" ?>"><i class="fa fa-truck"></i> Ônibus</a></li>
                         <li><a href="<?php echo base_url() . "index.php/home/viagem" ?>"><i class="fa fa-tasks"></i> Destino</a></li>
                         <li><a href="<?php echo base_url() . "index.php/home/motorista" ?>"><i class="fa fa-car"></i> Motorista</a></li>
@@ -51,11 +58,6 @@ $lusuario = array('class' => 'form-control');
                     </ul>
                     <!-- Menu superior alinhado a direita-->
                     <ul class="nav navbar-nav navbar-right navbar-user">
-                        <?php
-                        $this->db->where('nome_user', $this->session->userdata('nome'));
-                        $query = $this->db->get('tb_users');
-                        $query = $query->result();
-                        ?>
                         <li class="dropdown user-dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?= $query[0]->nome_user ?> <b class="caret"></b></a>
                             <ul class="dropdown-menu">
@@ -89,7 +91,9 @@ $lusuario = array('class' => 'form-control');
                     foreach ($query->result_array() as $row) {
                         $clienteDados = $row;
                     }
+                    if($clienteDados['tipo_cliente']==0){
                     $data_nascimento = implode("/", array_reverse(explode("-", $clienteDados['data_nascimento'])));
+                    $ult_viagem = implode("/", array_reverse(explode("-", $clienteDados['ult_viagem'])));
                     ?>
                     <table class="table table-striped">
                         <tr>
@@ -138,7 +142,7 @@ $lusuario = array('class' => 'form-control');
                         </tr>
                         <tr>
                             <th>Última Viagem: </th>
-                            <td><?= $clienteDados['ult_viagem'] ?></td>
+                            <td><?= $ult_viagem ?></td>
                         </tr>
                         <tr>
                             <th>Observação: </th>
@@ -154,8 +158,97 @@ $lusuario = array('class' => 'form-control');
                                 </form></td>
                         </tr>
                     </table>
-
-
+                    <?php 
+                    }else{
+                    ?>
+                    <table class="table table-striped">
+                        <tr>
+                            <th>Razão Social: </th>
+                            <td><?= $clienteDados['nome'] ?></td>
+                        </tr>
+                        <tr>
+                            <th>Responsável: </th>
+                            <td><?= $clienteDados['responsavel'] ?></td>
+                        </tr>
+                        <tr>
+                            <th>CNPJ: </th>
+                            <td><?= $clienteDados['cnpj'] ?></td>
+                        </tr>
+                        <tr>
+                            <th>E-mail: </th>
+                            <td><?= $clienteDados['email'] ?></td>
+                        </tr>
+                        <tr>
+                            <th>Telefone: </th>
+                            <td><?= $clienteDados['telefone'] ?></td>
+                        </tr>
+                        <tr>
+                            <th>Celular: </th>
+                            <td><?= $clienteDados['celular'] ?></td>
+                        </tr>
+                        <tr>
+                            <th>Rua: </th>
+                            <td><?= $clienteDados['rua'] ?></td>
+                        </tr>
+                        <tr>
+                            <th>Bairro: </th>
+                            <td><?= $clienteDados['bairro'] ?></td>
+                        </tr>
+                        <tr>
+                            <th>Cidade: </th>
+                            <td><?= $clienteDados['cidade'] ?></td>
+                        </tr>
+                        <tr>
+                            <th>Contatos: </th>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th>Nome 1: </th>
+                            <td><?= $clienteDados['contato1'] ?></td>
+                        </tr>
+                        <tr>
+                            <th>Telefone 1: </th>
+                            <td><?= $clienteDados['cont_tel1'] ?></td>
+                        </tr>
+                        <tr>
+                            <th>E-mail 1: </th>
+                            <td><?= $clienteDados['cont_email1'] ?></td>
+                        </tr>
+                        <tr>
+                            <th>Nome 2: </th>
+                            <td><?= $clienteDados['contato2'] ?></td>
+                        </tr>
+                        <tr>
+                            <th>Telefone 2: </th>
+                            <td><?= $clienteDados['cont_tel2'] ?></td>
+                        </tr>
+                        <tr>
+                            <th>E-mail 2: </th>
+                            <td><?= $clienteDados['cont_email2'] ?></td>
+                        </tr>
+                        <tr>
+                            <th>Nome 3: </th>
+                            <td><?= $clienteDados['contato3'] ?></td>
+                        </tr>
+                        <tr>
+                            <th>Telefone 3: </th>
+                            <td><?= $clienteDados['cont_tel3'] ?></td>
+                        </tr>
+                        <tr>
+                            <th>E-mail 3: </th>
+                            <td><?= $clienteDados['cont_email3'] ?></td>
+                        </tr>
+                    </table>
+                    <table>
+                        <tr>
+                            <td><a href="<?php echo base_url() . "index.php/home/cliente" ?>" class="btn btn-primary" role="button">Voltar</a></td>
+                            <td><?= form_open('home/editarCliente') ?>
+                                <input type="hidden" name="id_clients" value="<?= $this->input->post('id_clients') ?>" />
+                                <input type="submit" class="btn btn-warning" value="Editar">
+                                </form></td>
+                        </tr>
+                    </table>
+                    <?php } ?>
                     <!--Fim da Panel verde-->
                 </div>
             </div><!-- /#page-wrapper -->
@@ -181,3 +274,6 @@ $lusuario = array('class' => 'form-control');
         </script>
     </body>
 </html>
+<?php
+}
+?>

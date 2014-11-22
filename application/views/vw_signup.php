@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Sign Up! Page Mother fucker!</title>
+	<title>Sign Up! Page!</title>
 </head>
 <body>
 

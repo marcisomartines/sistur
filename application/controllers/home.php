@@ -196,6 +196,20 @@ class Home extends CI_Controller {
             $this->load->view('vw_clienteCadastro');
         }
     }
+    
+    public function cadastroValidacaoClienteJuridico() {
+        $this->load->library('form_validation');
+        
+        $this->form_validation->set_rules('nome','nome','required|trim');
+        
+        if($this->form_validation->run()){
+            $this->load->model('md_users');
+            $this->md_users->addClienteJuridico();
+            $this->load->view('vw_cliente');
+        } else {
+            $this->load->view('vw_cliente');
+        }
+    }
 
     public function editarValidacaoCliente() {
         $this->load->library('form_validation');
@@ -210,7 +224,64 @@ class Home extends CI_Controller {
             $this->load->view('vw_clienteEditar');
         }
     }
+    
+    public function editarValidacaoClienteJuridico(){
+        $this->load->library('form_validation');
+        
+        $this->form_validation->set_rules('nome','nome','required|trim');
+        
+        if($this->form_validation->run()){
+            $this->load->model('md_users');
+            $this->md_users->editarClienteJuridico();
+            $this->load->view('vw_cliente');
+        }else{
+            $this->load->view('vw_clienteEditar');
+        }
+    }
 
+    public function orcamento(){
+        if($this->session->userdata('is_logged_in')==1){
+            $this->load->view('vw_orcamento');
+        }else {
+            $this->load->view('vw_login');
+        }
+    }
+    
+    public function orcamentoCadastro(){
+        if($this->session->userdata('is_logged_in')==1){
+            $this->load->view('vw_orcamentoCadastro');
+        } else{
+            $this->load->view('vw_login');
+        }
+    }
+    
+    public function cadastroValidacaoOrcamento(){
+        $this->load->library('form_validation');
+        
+        $this->form_validation->set_rules('cliente','cliente','required|trim');
+        $this->form_validation->set_rules('onibus','onibus','required|trim');
+        $this->form_validation->set_rules('km_total','km_total','required|trim');
+        
+        if($this->form_validation->run()){
+            $this->load->model('md_users');
+            $this->md_users->addOrcamento();
+            $this->load->view('vw_orcamento');
+        }else{
+            $this->load->view('vw_orcamentoCadastro');
+        }
+    }
+    
+    public function excluirOrcamento() {
+        if ($this->session->userdata('is_logged_in') == 1) {
+            $this->db->where('status','A');
+            $this->db->where('id_budget', $this->input->post('id_budget'));
+            $this->db->delete('tb_budgets');
+            $this->load->view('vw_orcamento');
+        } else {
+            $this->load->view('vw_login');
+        }
+    }
+    
     public function onibus() {
         if ($this->session->userdata('is_logged_in') == 1) {
             $this->load->view('vw_onibus');
@@ -296,7 +367,7 @@ class Home extends CI_Controller {
             $this->load->view('vw_login');
         }
     }
-    
+
     public function detalharAgenda() {
         if ($this->session->userdata('is_logged_in') == 1) {
             $this->load->view('vw_agendaDetalhar');
@@ -330,7 +401,7 @@ class Home extends CI_Controller {
 
     public function editarValidacaoAgenda() {
         $this->load->library('form_validation');
-        
+
         $this->form_validation->set_rules('id_car', 'id_car', 'required|trim'); //onibus
         $this->form_validation->set_rules('tipo', 'tipo', 'required|trim'); //tipo de agendamento
 
@@ -441,6 +512,13 @@ class Home extends CI_Controller {
         }
     }
     
+    public function guiaMapa(){
+        if($this->session->userdata('is_logged_in')==1){
+            $this->load->view('vw_guiaMapa');
+        }else{
+            $this->load->view('vw_login');
+        }
+    }
     public function editarReserva() {
         if ($this->session->userdata('is_logged_in') == 1) {
             $this->load->view('vw_reservaEditar');
@@ -449,6 +527,14 @@ class Home extends CI_Controller {
         }
     }
     
+    public function guiaInfo(){
+        if($this->session->userdata('is_logged_in')==1){
+            $this->load->view('vw_guiaInfo');
+        }else{
+            $this->load->view('vw_login');
+        }
+    }
+
     public function fechamentoReserva() {
         if ($this->session->userdata('is_logged_in') == 1) {
             $this->load->view('vw_reservaFechamento');
@@ -456,12 +542,13 @@ class Home extends CI_Controller {
             $this->load->view('vw_login');
         }
     }
-    
+
     public function cadastroValidacaoReserva() {
         $this->load->library('form_validation');
 
         $this->form_validation->set_rules('course', 'cliente', 'required|trim'); //cliente
         $this->form_validation->set_rules('tipo', 'tipo', 'required|trim'); //tipo de agendamento
+        $this->form_validation->set_rules('nr_poltrona','Nr. Poltrona','required|trim');//verifica se tem a poltrona
 
         if ($this->form_validation->run()) {
             $this->load->model('md_users');
@@ -472,27 +559,44 @@ class Home extends CI_Controller {
         }
     }
     
-    public function editarValidacaoReserva() {
-         if ($this->session->userdata('is_logged_in') == 1) {
+    public function cadastroValidacaoClienteReserva() {
+        $this->load->library('form_validation');
+
+        $this->form_validation->set_rules('nome', 'nome', 'required|trim');//cliente
+        $this->form_validation->set_rules('tipo', 'tipo', 'required|trim'); //tipo de agendamento
+        $this->form_validation->set_rules('nr_poltrona','Nr. Poltrona','required|trim');//verifica se tem a poltrona
+
+        if ($this->form_validation->run()) {
             $this->load->model('md_users');
-            $this->md_users->editarReserva();
-            $this->load->view('vw_reserva');
-        }else {
-            $this->load->view('vw_login');
+            $this->md_users->addClienteReserva();
+            $this->load->view('vw_reservaMapa');
+        } else {
+            $this->load->view('vw_reservaMapa');
         }
     }
-    
-    public function excluirReserva() {
+
+    public function editarValidacaoReserva() {
         if ($this->session->userdata('is_logged_in') == 1) {
-            $this->db->where('id_reservs', $this->input->post('id_reservs'));
-            $this->db->delete('tb_reservs');
-            $this->load->view('vw_reserva');
+            $this->load->model('md_users');
+            $this->md_users->editarReserva();
+            //$this->load->view('vw_reserva');
+            $this->load->view('vw_reservaMapa');
         } else {
             $this->load->view('vw_login');
         }
     }
-    
-    public function cadastroValidacaoGastosViagem(){
+
+    public function excluirReserva() {
+        if ($this->session->userdata('is_logged_in') == 1) {
+            $this->db->where('id_reservs', $this->input->post('id_reservs'));
+            $this->db->delete('tb_reservs');
+            $this->load->view('vw_reservaMapa');
+        } else {
+            $this->load->view('vw_login');
+        }
+    }
+
+    public function cadastroValidacaoGastosViagem() {
         $this->load->model('md_users');
         $this->md_users->upViagem();
         $this->load->view('vw_reserva');
@@ -567,7 +671,7 @@ class Home extends CI_Controller {
             $this->load->view('vw_login');
         }
     }
-    
+
     public function relatorioListaCliente() {
         if ($this->session->userdata('is_logged_in') == 1) {
             $this->load->view('vw_listaRelatorioCliente');
@@ -583,7 +687,7 @@ class Home extends CI_Controller {
             $this->load->view('vw_login');
         }
     }
-    
+
     public function relatorioListaViagem() {
         if ($this->session->userdata('is_logged_in') == 1) {
             $this->load->view('vw_listaRelatorioViagem');
@@ -599,7 +703,7 @@ class Home extends CI_Controller {
             $this->load->view('vw_login');
         }
     }
-    
+
     public function relatorioListaOnibus() {
         if ($this->session->userdata('is_logged_in') == 1) {
             $this->load->view('vw_listaRelatorioOnibus');
@@ -608,75 +712,95 @@ class Home extends CI_Controller {
         }
     }
     
-    public function listaPassageiros(){
-        if($this->session->userdata('is_logged_in')==1){
+    public function guiaLista(){
+        if($this->session->userdata('is_logged_in') == 1){
+            $this->load->view('vw_guiaLista');
+        } else {
+            $this->load->view('vw_login');
+        }
+    }
+
+    public function listaPassageiros() {
+        if ($this->session->userdata('is_logged_in') == 1) {
             $this->load->view('vw_listaPassageiros');
         } else {
             $this->load->view('vw_login');
         }
     }
-    
-    public function gerarRelatorioViagem(){
-        if($this->session->userdata('is_logged_in')==1){
+
+    public function gerarRelatorioViagem() {
+        if ($this->session->userdata('is_logged_in') == 1) {
             $this->load->view('vw_gerarRelatorioViagem');
         } else {
             $this->load->view('vw_login');
         }
     }
-    
-    public function gerarRelatorioCliente(){
-        if($this->session->userdata('is_logged_in')==1){
+
+    public function gerarRelatorioCliente() {
+        if ($this->session->userdata('is_logged_in') == 1) {
             $this->load->view('vw_gerarRelatorioCliente');
         } else {
             $this->load->view('vw_login');
         }
     }
-    
-    public function aniversariantes(){
-        if($this->session->userdata('is_logged_in')==1){
+
+    public function aniversariantes() {
+        if ($this->session->userdata('is_logged_in') == 1) {
             $this->load->view('vw_aniversariantes');
         } else {
             $this->load->view('vw_login');
         }
     }
-    
-     public function listaAniversariantes(){
-        if($this->session->userdata('is_logged_in')==1){
+
+    public function listaAniversariantes() {
+        if ($this->session->userdata('is_logged_in') == 1) {
             $this->load->view('vw_listaRelatorioAniversariantes');
         } else {
             $this->load->view('vw_login');
         }
     }
-    
-    public function gerarRelatorioAniversariantes(){
-        if($this->session->userdata('is_logged_in')==1){
+
+    public function gerarRelatorioAniversariantes() {
+        if ($this->session->userdata('is_logged_in') == 1) {
             $this->load->view('vw_gerarRelatorioAniversariantes');
         } else {
             $this->load->view('vw_login');
         }
     }
-    
-    public function teste(){
+
+    public function teste() {
         $this->load->view('teste');
     }
-    
-    public function autoComplete(){
+
+    public function autoComplete() {
         $this->load->view('autoComplete');
     }
-    
-    public function relatorio(){
-        if($this->session->userdata('is_logged_in')==1){
+
+    public function relatorio() {
+        if ($this->session->userdata('is_logged_in') == 1) {
             $this->load->view('vw_relatorio');
         } else {
             $this->load->view('vw_login');
         }
     }
-    
-    public function email(){
-        if($this->session->userdata('is_logged_in')==1){
+
+    public function email() {
+        if ($this->session->userdata('is_logged_in') == 1) {
             $this->load->view('vw_email');
         } else {
             $this->load->view('vw_login');
         }
+    }
+
+    public function validacaoEmail() {
+        $this->load->library('email');
+
+        $this->email->initialize(); // Aqui carrega todo config criado anteriormente
+        $this->email->subject($subject); //assunto
+        $this->email->from($from); //quem mandou
+        $this->email->to($to); //quem recebe
+        $this->email->message($body); //corpo da mensagem
+
+        $this->email->send(); // Envia o email
     }
 }

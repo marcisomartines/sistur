@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+<?php
+$this->db->where('nome_user', $this->session->userdata('nome'));
+$query = $this->db->get('tb_users');
+$query = $query->result();
+if($query[0]->tipo > 0)
+    redirect('/home/guiaLista');
+else{
+?>
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -6,7 +14,7 @@
         <meta name="description" content="">
         <meta name="author" content="Marciso Gonzalez Martines">
 
-        <title>Pantanal Sul - Turismo</title>
+        <title><?=$query[0]->titulo?></title>
         <link href="<?= base_url() ?>css/bootstrap.css" rel="stylesheet">
         <link href="<?= base_url() ?>css/sb-admin.css" rel="stylesheet">
         <link rel="stylesheet" href="<?= base_url() ?>font-awesome/css/font-awesome.min.css">
@@ -14,9 +22,7 @@
     </head>
 
     <body>
-
         <div id="wrapper">
-
             <!-- barra lateral -->
             <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 
@@ -27,7 +33,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="">Pantanal Sul Turismo</a>
+                    <a class="navbar-brand" href=""><?=$query[0]->empresa?></a>
                 </div>
 
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
@@ -36,6 +42,7 @@
                         <li class="active"><a href="<?php echo base_url() . "index.php/home/reserva" ?>"><i class="fa fa-ticket"></i> Reserva</a></li>
                         <li><a href="<?php echo base_url() . "index.php/home/cliente" ?>"><i class="fa fa-users "></i> Cliente</a></li>
                         <li><a href="<?php echo base_url() . "index.php/home/agenda" ?>"><i class="fa fa-calendar"></i> Agendamento</a></li>
+                        <li><a href="<?php echo base_url() . "index.php/home/orcamento" ?>"><i class="fa fa-file-text-o"></i> Orçamento</a></li>
                         <li><a href="<?php echo base_url() . "index.php/home/onibus" ?>"><i class="fa fa-truck"></i> Ônibus</a></li>
                         <li><a href="<?php echo base_url() . "index.php/home/viagem" ?>"><i class="fa fa-tasks"></i> Destino</a></li>
                         <li><a href="<?php echo base_url() . "index.php/home/motorista" ?>"><i class="fa fa-car"></i> Motorista</a></li>
@@ -44,11 +51,6 @@
                     </ul>
                     <!-- Menu superior alinhado a direita-->
                     <ul class="nav navbar-nav navbar-right navbar-user">
-                        <?php
-                        $this->db->where('nome_user', $this->session->userdata('nome'));
-                        $query = $this->db->get('tb_users');
-                        $query = $query->result();
-                        ?>
                         <li class="dropdown user-dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?= $query[0]->nome_user ?> <b class="caret"></b></a>
                             <ul class="dropdown-menu">
@@ -188,10 +190,14 @@
                                 <div class="panel-body">
                                     <div class="table-responsive">
                                         <?php
+                                        if ($dados['nr_poltrona'] == 40)
+                                            include 'vw_onibus40.php';
                                         if ($dados['nr_poltrona'] == 42)
                                             include 'vw_onibus42.php';
                                         if ($dados['nr_poltrona'] == 44)
                                             include 'vw_onibus44.php';
+                                        if ($dados['nr_poltrona'] == 52)
+                                            include 'vw_onibus52.php';
                                         ?>
                                         <table>
                                             <tr>
@@ -214,7 +220,7 @@
         <!-- JavaScript -->
 <!--<script src="<?= base_url() ?>js/jquery-1.10.2.js"></script>-->
 <!--        <script src="<?= base_url() ?>js/jquery-1.11.1.js"></script>-->
-<!--        <script src="<?= base_url() ?>js/bootstrap.js"></script>-->
+        <script src="<?= base_url() ?>js/bootstrap.js"></script>
         <!-- Page Specific Plugins -->
         <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
         <script src="http://cdn.oesmith.co.uk/morris-0.4.3.min.js"></script>
@@ -224,15 +230,9 @@
 <!--        <script src="<?= base_url() ?>js/funcao.js"></script>
         <script src="<?= base_url() ?>js/jquery-ui.js"></script>
         <script src="<?= base_url() ?>js/jquery.autocomplete.js"></script>
-        <script src="<?= base_url() ?>js/jquery.mask.min.js"></script>
-        <script type="text/javascript">
-            $(function() {
-                $('#combustivel').mask('000000000000000.00', {reverse: true});
-                $('#alimentacao').mask('000000000000000.00', {reverse: true});
-                $('#outros').mask('000000000000000.00', {reverse: true});
-                $('#total').mask('000000000000000.00', {reverse: true});
-                $('#desconto').mask('000000000000000.00', {reverse: true});
-            });
-        </script>-->
+        <script src="<?= base_url() ?>js/jquery.mask.min.js"></script>-->
     </body>
 </html>
+<?php 
+}
+?>

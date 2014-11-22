@@ -6,7 +6,7 @@
         <meta name="description" content="">
         <meta name="author" content="Marciso Gonzalez Martines">
 
-        <title>Pantanal Sul - Turismo</title>
+        <title><?=$query[0]->titulo?></title>
 
         <link href="<?= base_url() ?>css/bootstrap.css" rel="stylesheet">
         <link href="<?= base_url() ?>css/sb-admin.css" rel="stylesheet">
@@ -59,12 +59,13 @@
                                                 JOIN tb_clients on tb_clients.id_clients=tb_reservs.id_client
                                                 JOIN tb_cars on tb_tour.id_car=tb_cars.id_cars
                                                 WHERE tb_reservs.id_tour=" . $_GET['id'] . " ORDER BY tb_reservs.nr_poltrona");
+                $poltrona=1;//contador
                 foreach ($query->result() as $row) {
                     ?>
                     <tr>
                         <td><?php if (!empty($row->nr_poltrona)) echo $row->nr_poltrona; ?></td>
                         <td><?php if (!empty($row->nome)) echo $row->nome; ?> / RG:<?php if (!empty($row->rg)) echo $row->rg; ?> / Cel.:<?php if (!empty($row->celular)) echo $row->celular; ?> / Loc. Embarque:<?php if (!empty($row->embarquer)) echo $row->embarquer;
-                else if (!empty($row->embarquec)) echo $row->embarquec; ?> <?php if($row->tipo=='i') echo '<span class="badge">IDA</span>'; if($row->tipo=='v') echo '<span class="badge">VOLTA</span>'; ?></td>
+                                else if (!empty($row->embarquec)) echo $row->embarquec; ?> <?php if($row->tipo=='i') echo '<span class="badge">IDA</span>'; if($row->tipo=='v') echo '<span class="badge">VOLTA</span>'; ?></td>
                     </tr>
                     <?php
                 }
