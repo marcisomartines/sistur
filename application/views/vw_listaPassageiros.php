@@ -53,7 +53,8 @@
                     </tr>
                 </thead>
                 <?php
-                $query = $this->db->query("SELECT tb_reservs.nr_poltrona,tb_clients.nome,tb_clients.celular,tb_clients.loc_embarque as embarquec, tb_reservs.loc_embarque as embarquer,tb_reservs.tipo,tb_clients.rg
+                $query = $this->db->query("SELECT tb_reservs.nr_poltrona,tb_clients.nome,tb_clients.celular,tb_clients.loc_embarque as embarquec, 
+                                                  tb_reservs.loc_embarque as embarquer,tb_reservs.tipo,tb_clients.rg,tb_clients.telefone
                                                 FROM tb_reservs
                                                 JOIN tb_tour on tb_tour.id_tour=tb_reservs.id_tour
                                                 JOIN tb_clients on tb_clients.id_clients=tb_reservs.id_client
@@ -64,7 +65,7 @@
                     ?>
                     <tr>
                         <td><?php if (!empty($row->nr_poltrona)) echo $row->nr_poltrona; ?></td>
-                        <td><?php if (!empty($row->nome)) echo $row->nome; ?> / RG:<?php if (!empty($row->rg)) echo $row->rg; ?> / Cel.:<?php if (!empty($row->celular)) echo $row->celular; ?> / Loc. Embarque:<?php if (!empty($row->embarquer)) echo $row->embarquer;
+                        <td><?php if (!empty($row->nome)) echo $row->nome; ?> / RG:<?php if (!empty($row->rg)) echo $row->rg; ?> / Cel.:<?php if (!empty($row->celular)) echo $row->celular; ?> / Tel.: <?php if (!empty($row->telefone)) echo $row->telefone; ?> / Loc. Embarque:<?php if (!empty($row->embarquer)) echo $row->embarquer;
                                 else if (!empty($row->embarquec)) echo $row->embarquec; ?> <?php if($row->tipo=='i') echo '<span class="badge">IDA</span>'; if($row->tipo=='v') echo '<span class="badge">VOLTA</span>'; ?></td>
                     </tr>
                     <?php
