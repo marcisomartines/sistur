@@ -27,12 +27,13 @@ $query = $query->result();
                     <table>
                         <tr>
                             <?php
-                            $query = $this->db->query("SELECT tb_reservs.destino_ultv,tb_cars.codigo, tb_tour.data_saida,tb_cars.nr_poltrona 
-                                                        FROM tb_reservs
-                                                        JOIN tb_tour on tb_tour.id_tour=tb_reservs.id_tour
-                                                        JOIN tb_clients on tb_clients.id_clients=tb_reservs.id_client
-                                                        JOIN tb_cars on tb_tour.id_car=tb_cars.id_cars
-                                                        WHERE tb_reservs.id_tour=" . $_GET['id']);
+                            $this->db->select('tb_reservs.destino_ultv,tb_cars.codigo, tb_tour.data_saida,tb_cars.nr_poltrona ');
+                            $this->db->from('tb_reservs');
+                            $this->db->join('tb_tour','tb_tour.id_tour=tb_reservs.id_tour');
+                            $this->db->join('tb_clients','tb_clients.id_clients=tb_reservs.id_client');
+                            $this->db->join('tb_cars','tb_tour.id_car=tb_cars.id_cars');
+                            $this->db->where('tb_reservs.id_tour',$_GET['id']);
+                            $query=$this->db->get();
                             if ($query->num_rows() > 0) {
                                 foreach ($query->result() as $row) {
                                     $result = $row;
@@ -62,14 +63,17 @@ $query = $query->result();
                 $poltrona=1;
                 $count=0;//contador
                 while($count < $result->nr_poltrona){
-                    $query = $this->db->query("SELECT tb_reservs.nr_poltrona,tb_clients.nome,tb_clients.celular,tb_clients.loc_embarque as embarquec, 
-                                                  tb_reservs.loc_embarque as embarquer,tb_reservs.tipo,tb_clients.rg,tb_clients.telefone,
-                                                  tb_cars.nr_poltrona as total_poltronas
-                                                FROM tb_reservs
-                                                JOIN tb_tour on tb_tour.id_tour=tb_reservs.id_tour
-                                                JOIN tb_clients on tb_clients.id_clients=tb_reservs.id_client
-                                                JOIN tb_cars on tb_tour.id_car=tb_cars.id_cars
-                                                WHERE tb_reservs.id_tour=" . $_GET['id'] . " AND tb_reservs.nr_poltrona= ".$poltrona." ORDER BY tb_reservs.nr_poltrona");
+                    $this->db->select('tb_reservs.nr_poltrona,tb_clients.nome,tb_clients.celular,tb_clients.loc_embarque as embarquec, 
+                                       tb_reservs.loc_embarque as embarquer,tb_reservs.tipo,tb_clients.rg,tb_clients.telefone,
+                                       tb_cars.nr_poltrona as total_poltronas');
+                    $this->db->from('tb_reservs');
+                    $this->db->join('tb_tour','tb_tour.id_tour=tb_reservs.id_tour');
+                    $this->db->join('tb_clients','tb_clients.id_clients=tb_reservs.id_client');
+                    $this->db->join('tb_cars','tb_tour.id_car=tb_cars.id_cars');
+                    $this->db->where('tb_reservs.id_tour',$_GET['id']);
+                    $this->db->where('tb_reservs.nr_poltrona',$poltrona);
+                    $this->db->order_by('tb_reservs.nr_poltrona','ASC');
+                    $query=$this->db->get();
                     if($query->num_rows() >0){
                         foreach($query->result() as $row){
                         ?>
