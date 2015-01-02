@@ -91,10 +91,14 @@ else {
                                     <div class="list-group">
                                         <table class="table table-bordered table-hover table-striped">
                                             <?php
-                                            $query = $this->db->query("SELECT * FROM tb_tour
-                                            JOIN tb_viagem ON tb_tour.id_viagem=tb_viagem.id_viagem
-                                            JOIN tb_cars ON tb_cars.id_cars=tb_tour.id_car
-                                            WHERE tb_tour.status='A' AND (tb_tour.tipo='v' OR tb_tour.tipo='t' OR tb_tour.tipo='e' OR tb_tour.tipo='f') ORDER BY tb_tour.data_saida");
+                                            $this->db->select('*');
+                                            $this->db->from('tb_tour');
+                                            $this->db->join('tb_viagem','tb_tour.id_viagem=tb_viagem.id_viagem');
+                                            $this->db->join('tb_cars','tb_cars.id_cars=tb_tour.id_car');
+                                            $this->db->where('tb_tour.status','A');
+                                            $this->db->where("(tb_tour.tipo='v' OR tb_tour.tipo='t' OR tb_tour.tipo='e' OR tb_tour.tipo='f')");
+                                            $this->db->order_by('tb_tour.data_saida','ASC');
+                                            $query=$this->db->get();
 
                                             foreach ($query->result() as $row) {
                                                 $reserva = 0;
@@ -173,10 +177,13 @@ else {
                                             </thead>
                                             <tbody>
                                                 <?php
-                                                $query = $this->db->query("SELECT * FROM tb_tour
-                                            JOIN tb_viagem ON tb_tour.id_viagem=tb_viagem.id_viagem
-                                            JOIN tb_cars ON tb_cars.id_cars=tb_tour.id_car
-                                            WHERE tb_tour.status='A' AND (tb_tour.tipo='v' OR tb_tour.tipo='t' OR tb_tour.tipo='e' OR tb_tour.tipo='f')");
+                                                $this->db->select('*');
+                                                $this->db->from('tb_tour');
+                                                $this->db->join('tb_viagem','tb_tour.id_viagem=tb_viagem.id_viagem');
+                                                $this->db->join('tb_cars','tb_cars.id_cars=tb_tour.id_car');
+                                                $this->db->where('tb_tour.status','A');
+                                                $this->db->where("(tb_tour.tipo='v' OR tb_tour.tipo='t' OR tb_tour.tipo='e' OR tb_tour.tipo='f')");
+                                                $query=$this->db->get();
                                                 foreach ($query->result() as $linha) {
                                                     $data_saida = implode("/", array_reverse(explode("-", $linha->data_saida)));
                                                     $data_retorno = implode("/", array_reverse(explode("-", $linha->data_retorno)));
@@ -237,13 +244,12 @@ else {
                 // Chart data records -- each entry in this array corresponds to a point on
                 // the chart.
                 data: [<?php
-//                    $query=$this->db->query('SELECT MONTH(tb_tour.data_saida) as mes,COUNT(*) as vendas FROM tb_reservs 
-//                                             JOIN tb_tour on tb_tour.id_tour=tb_reservs.id_tour group by MONTH(tb_tour.data_saida) 
-//                                             WHERE YEAR(tb_tour.data_saida)=YEAR(CURDATE()) group by MONTH(tb_tour.data_saida)');
-                      $query=$this->db->query('SELECT MONTH(tb_tour.data_saida) as mes,COUNT(*) as vendas  FROM tb_reservs
-JOIN tb_tour on tb_tour.id_tour=tb_reservs.id_tour 
-WHERE YEAR(tb_tour.data_saida)=YEAR(CURDATE()) group by MONTH(tb_tour.data_saida)');
-
+                      $this->db->select('MONTH(tb_tour.data_saida) as mes,COUNT(*) as vendas');
+                      $this->db->from('tb_reservs');
+                      $this->db->join('tb_tour','tb_tour.id_tour=tb_reservs.id_tour');
+                      $this->db->where('YEAR(tb_tour.data_saida)=YEAR(CURDATE())');
+                      $this->db->group_by('MONTH(tb_tour.data_saida)');
+                      $query=$this->db->get();
                     foreach($query->result() as $graf){
                         echo "{month: '$graf->mes',value: $graf->vendas},";
                     }

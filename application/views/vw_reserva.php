@@ -87,35 +87,6 @@ else {
                             </ol>
                         </div>
                     </div><!-- /.row -->
-                    <!--                 <div class="row col-sm-4">
-                    <?php
-                    echo form_open('home/reservaMapa');
-
-                    echo validation_errors();
-
-                    $query = $this->db->query("SELECT * FROM tb_tour
-                                            JOIN tb_viagem ON tb_tour.id_viagem=tb_viagem.id_viagem
-                                            WHERE tb_tour.status='A' AND (tb_tour.tipo='v' OR tb_tour.tipo='t' OR tb_tour.tipo='e' OR tb_tour.tipo='f')");
-                    //$viagem[] = '';
-                    if ($query->num_rows() > 0) {
-                        foreach ($query->result() as $vig) {
-                            $dataSaida = implode("/", array_reverse(explode("-", $vig->data_saida)));
-                            $viagem[$vig->id_tour] = $vig->destino . ' - ' . $dataSaida;
-                        }
-                    }
-                    echo form_label('Selecione a Viagem: ');
-                    //echo form_dropdown('id_tour', $viagem, 'v', 'class=form-control');
-                    if (empty($viagem)) {
-                        echo form_dropdown('id_tour', '', 'v', 'class=form-control');
-                    } else {
-                        echo form_dropdown('id_tour', $viagem, 'v', 'class=form-control');
-                    }
-                    echo "<br />";
-                    echo '<input type="submit" class="btn btn-primary" value="OK">';
-                    echo "<br />";
-                    echo form_close();
-                    ?>
-                                    </div>-->
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="panel panel-primary">
@@ -126,11 +97,15 @@ else {
                                     <div class="list-group">
                                         <table class="table table-bordered table-hover table-striped">
                                             <?php
-                                            $query = $this->db->query("SELECT * FROM tb_tour
-                                            JOIN tb_viagem ON tb_tour.id_viagem=tb_viagem.id_viagem
-                                            JOIN tb_cars ON tb_cars.id_cars=tb_tour.id_car
-                                            WHERE tb_tour.status='A' AND (tb_tour.tipo='v' OR tb_tour.tipo='t' OR tb_tour.tipo='e' OR tb_tour.tipo='f') ORDER BY tb_tour.data_saida");
-
+                                            $this->db->select('*');
+                                            $this->db->from('tb_tour');
+                                            $this->db->join('tb_viagem','tb_tour.id_viagem=tb_viagem.id_viagem');
+                                            $this->db->join('tb_cars','tb_cars.id_cars=tb_tour.id_car');
+                                            $this->db->where('tb_tour.status','A');
+                                            $this->db->where("(tb_tour.tipo='v' OR tb_tour.tipo='t' OR tb_tour.tipo='e' OR tb_tour.tipo='f')");
+                                            $this->db->order_by('tb_tour.data_saida','ASC');
+                                            $query=$this->db->get();
+                                            
                                             foreach ($query->result() as $row) {
                                                 $reserva = 0;
                                                 $un_res = 0;
@@ -156,7 +131,6 @@ else {
                                                 ?>
                                                 <tr>
                                                     <td>
-                                                        <!--                                        <a href="#" class="list-group-item">-->
                                                         <i class="fa fa-calendar"></i> <?= $row->destino ?> - <?php
                                                         if ($row->tipo == 'v')
                                                             echo "Viagem";
@@ -178,7 +152,6 @@ else {
                                                         ?>
                                                     </td>
                                                 </tr>
-                                                <!--                                        </a>-->
                                                 <?php
                                             }
                                             ?>
@@ -188,9 +161,6 @@ else {
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div id="relatorio" class=" row-fluid">
-                        <!--reserva vai ser colocada aqui-->
                     </div>
                 </div><!-- /#page-wrapper -->
             </div><!-- /#wrapper -->
