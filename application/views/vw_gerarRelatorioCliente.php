@@ -83,7 +83,6 @@
                                         JOIN tb_tour on tb_tour.id_tour=tb_reservs.id_tour
                                         JOIN tb_viagem on tb_viagem.id_viagem=tb_tour.id_viagem
                                         WHERE tb_tour.data_saida BETWEEN '" . $data_inicio . "' AND '" . $data_final . "'");
-                        //$query = $this->db->get();
                     }
                     if (empty($data_final) and empty($destino) and !empty($cliente)) {//busca todos os destinos de um cliente
                         $this->db->select('*');
