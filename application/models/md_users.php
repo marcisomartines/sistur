@@ -288,14 +288,15 @@ class Md_users extends CI_Model {
                 $cliente = $e;
             }
             $data = array('nr_poltrona' => $this->input->post('nr_poltrona'),
-                'tipo' => $this->input->post('tipo'),
-                'id_tour' => $this->input->post('id_tour'), //onibus
-                'id_client' => $cliente->id_clients,
-                //'id_movfinan'          => $this->input->post('id_motorista'),
-                'loc_embarque' => $this->input->post('loc_embarque'),
-                'desconto' => $this->input->post('desconto'),
-                'ultima_viagem' => $this->input->post('ultima_viagem'),
-                'destino_ultv' => $this->input->post('destino_ultv')
+                            'tipo'          => $this->input->post('tipo'),
+                            'id_tour'       => $this->input->post('id_tour'), //onibus
+                            'id_client'     => $cliente->id_clients,
+                            //'id_movfinan'          => $this->input->post('id_motorista'),
+                            'loc_embarque'  => $this->input->post('loc_embarque'),
+                            'desconto'      => $this->input->post('desconto'),
+                            'ultima_viagem' => $this->input->post('ultima_viagem'),
+                            'destino_ultv'  => $this->input->post('destino_ultv'),
+                            'dt_reserva'    =>date('Y-m-d H:i:s')
             );
             $this->db->insert('tb_reservs', $data);
             $sel=$this->db->query("SELECT * FROM tb_tour WHERE id_tour='" . $this->input->post('id_tour') . "'");
