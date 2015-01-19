@@ -794,13 +794,26 @@ class Home extends CI_Controller {
 
     public function validacaoEmail() {
         $this->load->library('email');
-
-        $this->email->initialize(); // Aqui carrega todo config criado anteriormente
-        $this->email->subject($subject); //assunto
-        $this->email->from($from); //quem mandou
-        $this->email->to($to); //quem recebe
-        $this->email->message($body); //corpo da mensagem
-
-        $this->email->send(); // Envia o email
+        $this->load->model('md_users');
+        $this->load->helper('date');
+        
+        $cliente=$this->md_users->listaCliente();
+        
+        $config['protocol']='smtp';
+        $config['smtp_host'] = 'ssl://smtp.gmail.com';
+        $config['smtp_user'] = '';//inserir aqui o email que ira enviar
+        $config['smtp_pass'] = '';//inserir aqui a senha do email
+        $congig['charset'] = 'utf-8';
+        $config['mailtype'] = 'html';
+        $config['newline'] = "\r\n";
+        $config['smtp_port'] = '465';
+        
+        $this->email->initialize($config);
+        
+        $this->email->from("marciso.gonzalez@gmail.com",'Pantanal Sul Turismo');
+        $this->email->to($cliente); //pode ser um array
+        $this->email->subject('Contato Pantanal Sul Turismo');
+        $this->email->message($this->input->post('textarea2'));
+        $this->email->send();
     }
 }

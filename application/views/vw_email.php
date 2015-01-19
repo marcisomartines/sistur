@@ -97,7 +97,7 @@ else{
                         </tr>
                     </table>
                     <br>
-                    <textarea class="cleditor" id="textarea2" rows="3"></textarea>
+                    <textarea class="cleditor" name="textarea2" id="textarea2" rows="3"></textarea>
                     <br>
                     <input type="submit" class="btn btn-primary" value="Enviar E-mail">
                     <?= form_close() ?>
