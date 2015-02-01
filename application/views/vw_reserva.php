@@ -103,7 +103,7 @@ else {
                                             $this->db->join('tb_cars','tb_cars.id_cars=tb_tour.id_car');
                                             $this->db->where('tb_tour.status','A');
                                             $this->db->where("(tb_tour.tipo='v' OR tb_tour.tipo='t' OR tb_tour.tipo='e' OR tb_tour.tipo='f')");
-                                            $this->db->order_by('tb_tour.data_saida','ASC');
+                                            $this->db->order_by('tb_tour.id_viagem,tb_tour.data_saida','ASC');
                                             $query=$this->db->get();
                                             
                                             foreach ($query->result() as $row) {
