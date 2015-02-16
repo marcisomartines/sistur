@@ -398,17 +398,4 @@ class Md_users extends CI_Model {
         $this->db->where('id_viagem', $this->input->post('id_viagem'));
         $this->db->update('tb_viagem', $data);
     }
-    
-    public function listaCliente(){
-        if(isset($this->input->post('id_client'))){
-            $this->db->select('email');
-            $this->db->where('id_client',$this->input->post('id_client'));
-            $cliente = $this->db->get('tb_clients')->result_array();
-            return $cliente;
-        }else{
-            $this->db->select('email');
-            $cliente = $this->db->get('tb_clients')->result_array();
-            return $cliente;
-        }
-    }
 }
