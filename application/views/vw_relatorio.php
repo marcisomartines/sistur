@@ -87,7 +87,7 @@ else{
                             <td align="center"><i class="fa fa-truck fa-3x"></i><br>Ônibus</td>
                         </tr>
                         <tr>
-                            <td align="center"><i class="fa fa-gear fa-3x"></i><br>Peças</td>
+                            <td align="center"><a href="<?php echo base_url() . "index.php/home/relatorioPassagem" ?>"><i class="fa fa-ticket fa-3x"></i><br>Passagens</a></td>
                             <td align="center"><a href="<?php echo base_url() . "index.php/home/email" ?>"><i class="fa fa-envelope fa-3x"></i><br>E-mail</a></td>
                             <td align="center"><a href="<?php echo base_url() . "index.php/home/aniversariantes" ?>"><i class="fa fa-gift fa-3x"></i><br>Aniversariantes</a></td>
                         </tr>                     
