@@ -664,6 +664,22 @@ class Home extends CI_Controller {
         }
     }
 
+    public function relatorioPassagem() {
+        if ($this->session->userdata('is_logged_in') == 1) {
+            $this->load->view('vw_relatorioPassagem');
+        } else {
+            $this->load->view('vw_login');
+        }
+    }
+    
+    public function relatorioListaPassagem() {
+        if ($this->session->userdata('is_logged_in') == 1) {
+            $this->load->view('vw_listaRelatorioPassagem');
+        } else {
+            $this->load->view('vw_login');
+        }
+    }
+    
     public function relatorioCliente() {
         if ($this->session->userdata('is_logged_in') == 1) {
             $this->load->view('vw_relatorioCliente');
