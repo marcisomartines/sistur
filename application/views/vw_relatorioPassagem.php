@@ -66,7 +66,7 @@ else{
                 </div><!-- /.navbar-collapse -->
             </nav>
             <!--fim do menu superior alinhado a direita-->
-            <div id="page-wrapper">
+            <div id="page-wrapper"> 
                 <div class="row">
                     <div class="col-lg-12">
                         <h1>Relatório <small>Passagem</small></h1>
@@ -90,10 +90,44 @@ else{
                             <td>                    
                                 <?= form_dropdown('id_viagem', $opcao2, $this->input->post('id_viagem'), 'class=form-control') ?>
                             </td>
-                            <td>&nbsp;<label>Periodo Inicial: </label></td>
-                            <td><input type="text" id="data_inicio" name="data_inicio" class="form-control input-sm"></td>
-                            <td><label for="data_final"> eriodo Final: </label></td>
-                            <td>&nbsp;<input type="text" id="data_final" name="data_final" class="form-control input-sm"></td>
+                            <td>&nbsp;<?=form_label('Ano:')?></td>
+                            <td>
+                                <?php
+                                //seleciona os anos que possuem lancamentos de reservas
+                                    $this->db->select('YEAR(tb_tour.data_saida) as ano');
+                                    $this->db->from('tb_tour');
+                                    $this->db->group_by('YEAR(tb_tour.data_saida)');
+                                    $this->db->order_by('YEAR(tb_tour.data_saida)');
+                                    $query=$this->db->get();
+                                    $opcao3[]='';
+                                    foreach($query->result_array() as $op){
+                                        $opcao3[$op['ano']] = $op['ano'];
+                                    }
+                                    echo form_dropdown('ano',$opcao3,$this->input->post('ano'),'class=form-control id="ano"');
+                                ?>
+                            </td>
+                            <td>
+                                <?php
+                                $query = $this->db->get('tb_clients');
+                                $opcao[] = '';
+                                $opcao[1] = 'Janeiro';
+                                $opcao[2] = 'Fevereiro';
+                                $opcao[3] = 'Março';
+                                $opcao[4] = 'Abril';
+                                $opcao[5] = 'Maio';
+                                $opcao[6] = 'Junho';
+                                $opcao[7] = 'Julho';
+                                $opcao[8] = 'Agosto';
+                                $opcao[9] = 'Setembro';
+                                $opcao[10] = 'Outubro';
+                                $opcao[11] = 'Novembro';
+                                $opcao[12] = 'Dezembro';
+                                echo form_label('Mês: ');
+                                ?>
+                            </td>
+                            <td>                    
+                                <?= form_dropdown('mes', $opcao, $this->input->post('mes'), 'class=form-control id="mes"') ?>
+                            </td>
                         </tr>
                     </table>
                     <br>
@@ -116,35 +150,6 @@ else{
         <script src="<?= base_url() ?>js/tablesorter/tables.js"></script>
         <script src="<?= base_url() ?>js/funcao.js"></script>
         <script src="<?= base_url() ?>js/jquery-ui.js"></script>
-        <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
-        <script>
-            $(function() {
-                $("#data_inicio").datepicker({
-                    dateFormat: 'dd/mm/yy',
-                    dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo'],
-                    dayNamesMin: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S', 'D'],
-                    dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],
-                    monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
-                    monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
-                    changeMonth: true,
-                    changeYear: true
-                });
-            });
-        </script>
-        <script>
-            $(function() {
-                $("#data_final").datepicker({
-                    dateFormat: 'dd/mm/yy',
-                    dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo'],
-                    dayNamesMin: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S', 'D'],
-                    dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],
-                    monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
-                    monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
-                    changeMonth: true,
-                    changeYear: true
-                });
-            });
-        </script>
     </body>
 </html>
 <?php

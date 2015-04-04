@@ -90,10 +90,44 @@ else{
                             <td>                    
                                 <?= form_dropdown('id_viagem', $opcao2, $this->input->post('id_viagem'), 'class=form-control') ?>
                             </td>
-                            <td>&nbsp;<label>Periodo Inicial: </label></td>
-                            <td><input type="text" id="data_inicio" name="data_inicio" class="form-control input-sm"></td>
-                            <td><label for="data_final"> eriodo Final: </label></td>
-                            <td>&nbsp;<input type="text" id="data_final" name="data_final" class="form-control input-sm"></td>
+                            <td>&nbsp;<?=form_label('Ano:')?></td>
+                            <td>
+                                <?php
+                                //seleciona os anos que possuem lancamentos de reservas
+                                    $this->db->select('YEAR(tb_tour.data_saida) as ano');
+                                    $this->db->from('tb_tour');
+                                    $this->db->group_by('YEAR(tb_tour.data_saida)');
+                                    $this->db->order_by('YEAR(tb_tour.data_saida)');
+                                    $query=$this->db->get();
+                                    $opcao3[]='';
+                                    foreach($query->result_array() as $op){
+                                        $opcao3[$op['ano']] = $op['ano'];
+                                    }
+                                    echo form_dropdown('ano',$opcao3,$this->input->post('ano'),'class=form-control id="ano"');
+                                ?>
+                            </td>
+                            <td>
+                                <?php
+                                $query = $this->db->get('tb_clients');
+                                $opcao[] = '';
+                                $opcao[1] = 'Janeiro';
+                                $opcao[2] = 'Fevereiro';
+                                $opcao[3] = 'Março';
+                                $opcao[4] = 'Abril';
+                                $opcao[5] = 'Maio';
+                                $opcao[6] = 'Junho';
+                                $opcao[7] = 'Julho';
+                                $opcao[8] = 'Agosto';
+                                $opcao[9] = 'Setembro';
+                                $opcao[10] = 'Outubro';
+                                $opcao[11] = 'Novembro';
+                                $opcao[12] = 'Dezembro';
+                                echo form_label('Mês: ');
+                                ?>
+                            </td>
+                            <td>                    
+                                <?= form_dropdown('mes', $opcao, $this->input->post('mes'), 'class=form-control id="mes"') ?>
+                            </td>
                         </tr>
                     </table>
                     <br>
@@ -103,16 +137,17 @@ else{
                 <br>
                 <div id="relatorio" class=" row-fluid">
                     <?php
-                    $cliente = $this->input->post('id_client');
-                    $data_inicio = implode("-", array_reverse(explode("/", $this->input->post('data_inicio'))));
-                    $data_final = implode("-", array_reverse(explode("/", $this->input->post('data_final'))));
+                    $mes = $this->input->post('mes');
+                    $ano = $this->input->post('ano');
                     $destino = $this->input->post('id_viagem');
-                    if (empty($data_final) and empty($destino) and empty($data_inicio)) {//busca todo resultado
-
+                    if (empty($destino) and empty($ano) and empty($mes)) {//busca todo resultado
+                        $this->db->select('*');
+                        $this->db->from('tb_tour');
+                        $this->db->join('tb_viagem','tb_viagem.id_viagem=tb_tour.id_viagem');
                         $query = $this->db->get();
                     }
                      if (empty($data_final) and !empty($destino) and empty($data_inicio)) {//busca por destino
-                        $query = $this->db->get();
+                         
                     }
                     if (!empty($data_final) and empty($destino)) {//busca todos os destino e todos os clientes mas em um periodo
                         
@@ -121,22 +156,46 @@ else{
                         
                     }
                     ?>
-                    <a class="btn btn-primary btn-xs pull-right" href="" onClick="window.open('<?php echo base_url() . "index.php/home/gerarRelatorioCliente?destino=" . $destino ?>&cliente=<?=$cliente?>&data_inicio=<?=$data_inicio?>&data_final=<?=$data_final?>', 'Janela', 'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=900,height=800,left=0,top=0');
-                                        return false;">Imprimir Relatório</a>
+<!--                    <a class="btn btn-primary btn-xs pull-right" href="" onClick="window.open('<?php echo base_url() . "index.php/home/gerarRelatorioCliente?destino=" . $destino ?>&cliente=<?=$cliente?>&data_inicio=<?=$data_inicio?>&data_final=<?=$data_final?>', 'Janela', 'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=900,height=800,left=0,top=0');
+                                        return false;">Imprimir Relatório</a>-->
                     <table class="table table-striped">
                         <tr>
                             <th>Mês</th>
-                            <th>Quantidade</th>
-                            
+                            <th>Destino</th>
+                            <th>Ida</th>
+                            <th>Volta</th>
+                            <th>Ida/Volta</th>
+                            <th>Total</th>
+<!--                            <th>Valor</th>-->
                         </tr>
                         <?php
                         foreach ($query->result() as $rel) {
-                            $data_saida = implode("/", array_reverse(explode("-", $rel->data_saida)));
+                            $poltrona=0;
+                            $polIda=0;
+                            $polVolta=0;
+                            $this->db->where('id_tour',$rel->id_tour);
+                            $res=$this->db->get('tb_reservs');
+                            foreach($res->result() as $reserva){
+                                if($reserva->tipo == 'd'){//verifica se é ida/volta
+                                    $poltrona++;
+                                }
+                                if($reserva->tipo == 'i'){//verifica se é ida
+                                    $polIda++;
+                                }
+                                if($reserva->tipo == 'v'){//verifica se é volta
+                                    $polVolta++;
+                                }
+                                $total=$poltrona+$polIda+$polVolta;
+                            }
                             echo "<tr>";
-                            echo "<td>".$data_saida."</td>";
-                            echo "<td>" . $rel->total . "</td>";
-                            
-                            echo "</tr>";
+                            echo "<td>" . $rel->data_saida . "</td>";
+                            echo "<td>" . $rel->destino . "</td>";
+                            echo "<td>" . $polIda . "</td>";
+                            echo "<td>" . $polVolta . "</td>";
+                            echo "<td>" . $poltrona . "</td>";
+                            echo "<td>" . $total . "</td>";
+//                            echo "<td>" . $totalPoltrona . "</td>";
+                            echo '</tr>';
                         }
                         ?>
                     </table>
@@ -156,34 +215,6 @@ else{
         <script src="<?= base_url() ?>js/jquery-ui.js"></script>
         <script src="<?= base_url() ?>js/jquery.mask.min.js"></script>
         <script src="<?= base_url() ?>js/jquery-ui.js"></script>
-        <script>
-    $(function() {
-        $("#data_inicio").datepicker({
-            dateFormat: 'dd/mm/yy',
-            dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo'],
-            dayNamesMin: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S', 'D'],
-            dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],
-            monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
-            monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
-            changeMonth: true,
-            changeYear: true
-        });
-    });
-        </script>
-        <script>
-            $(function() {
-                $("#data_final").datepicker({
-                    dateFormat: 'dd/mm/yy',
-                    dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo'],
-                    dayNamesMin: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S', 'D'],
-                    dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'],
-                    monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
-                    monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
-                    changeMonth: true,
-                    changeYear: true
-                });
-            });
-        </script>
     </body>
 </html>
 <?php
