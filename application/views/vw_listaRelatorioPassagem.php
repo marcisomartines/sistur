@@ -144,23 +144,42 @@ else{
                         $this->db->select('*');
                         $this->db->from('tb_tour');
                         $this->db->join('tb_viagem','tb_viagem.id_viagem=tb_tour.id_viagem');
+                        $this->db->order_by('tb_tour.data_saida');
                         $query = $this->db->get();
                     }
-                     if (empty($data_final) and !empty($destino) and empty($data_inicio)) {//busca por destino
-                         
+                     if (empty($destino) and !empty($ano) and empty($mes)) {//busca por ano
+                        $this->db->select('*');
+                        $this->db->from('tb_tour');
+                        $this->db->join('tb_viagem','tb_viagem.id_viagem=tb_tour.id_viagem');
+                        $this->db->where('YEAR(tb_tour.data_saida)',$ano);
+                        $this->db->order_by('tb_tour.data_saida');
+                        $query = $this->db->get();
                     }
-                    if (!empty($data_final) and empty($destino)) {//busca todos os destino e todos os clientes mas em um periodo
-                        
+                    if (!empty($destino) and !empty($ano) and empty($mes)) {//busca por destino em um ano
+                        $this->db->select('*');
+                        $this->db->from('tb_tour');
+                        $this->db->join('tb_viagem','tb_viagem.id_viagem=tb_tour.id_viagem');
+                        $this->db->where('tb_viagem.id_viagem',$destino);
+                        $this->db->where('YEAR(tb_tour.data_saida)',$ano);
+                        $this->db->order_by('tb_tour.data_saida');
+                        $query = $this->db->get();
                     }
-                    if (!empty($data_final) and !empty($destino)) {//buscapor um destino em um periodo
-                        
+                    if (!empty($destino) and !empty($ano) and !empty($mes)) {//busca por um destino em um ano e mes
+                        $this->db->select('*');
+                        $this->db->from('tb_tour');
+                        $this->db->join('tb_viagem','tb_viagem.id_viagem=tb_tour.id_viagem');
+                        $this->db->where('tb_viagem.id_viagem',$destino);
+                        $this->db->where('MONTH(tb_tour.data_saida)',$mes);
+                        $this->db->where('YEAR(tb_tour.data_saida)',$ano);
+                        $this->db->order_by('tb_tour.data_saida');
+                        $query = $this->db->get();
                     }
                     ?>
 <!--                    <a class="btn btn-primary btn-xs pull-right" href="" onClick="window.open('<?php echo base_url() . "index.php/home/gerarRelatorioCliente?destino=" . $destino ?>&cliente=<?=$cliente?>&data_inicio=<?=$data_inicio?>&data_final=<?=$data_final?>', 'Janela', 'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=900,height=800,left=0,top=0');
                                         return false;">Imprimir Relatório</a>-->
                     <table class="table table-striped">
                         <tr>
-                            <th>Mês</th>
+                            <th>Data</th>
                             <th>Destino</th>
                             <th>Ida</th>
                             <th>Volta</th>
@@ -187,8 +206,9 @@ else{
                                 }
                                 $total=$poltrona+$polIda+$polVolta;
                             }
+                            $data_saida = implode("/", array_reverse(explode("-", $rel->data_saida)));
                             echo "<tr>";
-                            echo "<td>" . $rel->data_saida . "</td>";
+                            echo "<td>" . $data_saida . "</td>";
                             echo "<td>" . $rel->destino . "</td>";
                             echo "<td>" . $polIda . "</td>";
                             echo "<td>" . $polVolta . "</td>";
