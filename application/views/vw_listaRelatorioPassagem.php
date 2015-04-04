@@ -147,7 +147,16 @@ else{
                         $this->db->order_by('tb_tour.data_saida');
                         $query = $this->db->get();
                     }
-                     if (empty($destino) and !empty($ano) and empty($mes)) {//busca por ano
+                    if (!empty($destino) and empty($ano) and empty($mes)) {//busca por destino
+                        $this->db->select('*');
+                        $this->db->from('tb_tour');
+                        $this->db->join('tb_viagem','tb_viagem.id_viagem=tb_tour.id_viagem');
+                        $this->db->where('tb_viagem.id_viagem',$destino);
+                        $this->db->order_by('tb_tour.data_saida');
+                        $query = $this->db->get();
+                    }
+                    
+                    if (empty($destino) and !empty($ano) and empty($mes)) {//busca por ano
                         $this->db->select('*');
                         $this->db->from('tb_tour');
                         $this->db->join('tb_viagem','tb_viagem.id_viagem=tb_tour.id_viagem');
@@ -175,8 +184,8 @@ else{
                         $query = $this->db->get();
                     }
                     ?>
-<!--                    <a class="btn btn-primary btn-xs pull-right" href="" onClick="window.open('<?php echo base_url() . "index.php/home/gerarRelatorioCliente?destino=" . $destino ?>&cliente=<?=$cliente?>&data_inicio=<?=$data_inicio?>&data_final=<?=$data_final?>', 'Janela', 'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=900,height=800,left=0,top=0');
-                                        return false;">Imprimir Relatório</a>-->
+                    <a class="btn btn-primary btn-xs pull-right" href="" onClick="window.open('<?php echo base_url() . "index.php/home/gerarRelatorioPassagem?destino=" . $destino ?>&ano=<?=$ano?>&mes=<?=$mes?>', 'Janela', 'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=900,height=800,left=0,top=0');
+                                        return false;">Imprimir Relatório</a>
                     <table class="table table-striped">
                         <tr>
                             <th>Data</th>
@@ -192,6 +201,7 @@ else{
                             $poltrona=0;
                             $polIda=0;
                             $polVolta=0;
+                            $total=0;
                             $this->db->where('id_tour',$rel->id_tour);
                             $res=$this->db->get('tb_reservs');
                             foreach($res->result() as $reserva){
