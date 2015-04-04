@@ -17,6 +17,55 @@
     $destino = $_GET['destino'];
     $ano = $_GET['ano'];
     $mes = $_GET['mes'];
+    
+    switch($mes){
+        case 0:
+            $nome='Todos';
+            break;
+        case 1:
+            $nome='Janeiro';
+            break;
+        case 2:
+            $nome='Fevereiro';
+            break;
+        case 3:
+            $nome='Mar&ccedil;o';
+            break;
+        case 4:
+            $nome='Abril';
+            break;
+        case 5:
+            $nome='Maio';
+            break;
+        case 6:
+            $nome='Junho';
+            break;
+        case 7:
+            $nome='Julho';
+            break;
+        case 8:
+            $nome='Agosto';
+            break;
+        case 9:
+            $nome='Setembro';
+            break;
+        case 10:
+            $nome='Outubro';
+            break;
+        case 11:
+            $nome='Novembro';
+            break;
+        case 12:
+            $nome='Dezembro';
+            break;
+
+    }
+    if($destino == 0){
+        $nm_destino = 'Todos';
+    }else{
+        $rel=$this->db->get_where('tb_viagem',array("id_viagem"=>$destino))->row_array();
+        $nm_destino=$rel['destino'];
+    }
     ?>
     <body>
         <!--        <div id="wrapper">-->
@@ -30,13 +79,13 @@
                     </table>
                     <table>
                         <tr>
-                            <td align='right'><strong>Destino: </strong><?= $destino ?></td>
+                            <td align='left'><strong>Destino: </strong><?=$nm_destino?></td>
                         </tr>
                         <tr>
-                            <td align='right'><strong>Ano: </strong><?= $ano ?></td>
+                            <td align='left'><strong>Ano: </strong><?= $ano ?></td>
                         </tr>
                         <tr>
-                            <td align='right'><strong>M&ecirc;s: </strong><?= $mes ?></td>
+                            <td align='left'><strong>M&ecirc;s: </strong><?= $nome ?></td>
                         </tr>
                     </table>
                 </div>
