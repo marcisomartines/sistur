@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+<?php
+$this->db->where('nome_user', $this->session->userdata('nome'));
+$query = $this->db->get('tb_users');
+$query = $query->result();
+if($query[0]->tipo > 0)
+    redirect('/home/guiaLista');
+else{
+?>
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -192,3 +200,6 @@
         <script src="<?= base_url() ?>js/tablesorter/tables.js"></script>
     </body>
 </html>
+<?php
+}
+?>

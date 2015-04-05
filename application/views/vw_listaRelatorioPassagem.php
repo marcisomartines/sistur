@@ -69,7 +69,7 @@ else{
             <div id="page-wrapper">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1>Relatório <small>Cliente</small></h1>
+                        <h1>Relatório <small>Passagem</small></h1>
                         <ol class="breadcrumb">
                             <li class="active"><i class="fa fa-ticket"></i> Reserva</li>
                         </ol>
