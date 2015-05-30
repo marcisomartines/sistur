@@ -83,7 +83,7 @@ else {
                     </div><!-- /.row -->
                     <div class="row">
                         <div class="col-lg-6">
-                            <div class="panel panel-primary">
+                            <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h3 class="panel-title"><i class="fa fa-clock-o"></i> Viagens</h3>
                                 </div>
@@ -158,7 +158,7 @@ else {
                             </div>
                         </div>
                         <div class="col-lg-6">
-                            <div class="panel panel-primary">
+                            <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h3 class="panel-title"><i class="fa fa-money"></i> Visão Geral</h3>
                                 </div>
@@ -215,7 +215,7 @@ else {
                     </div><!-- /.row -->
                     <div class="row">
                         <div class="col-lg-12">
-                            <div class="panel panel-primary">
+                            <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> Demonstrativo de vendas</h3>
                                 </div>

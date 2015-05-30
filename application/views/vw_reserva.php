@@ -89,7 +89,7 @@ else {
                     </div><!-- /.row -->
                     <div class="row">
                         <div class="col-lg-6">
-                            <div class="panel panel-primary">
+                            <div class="panel panel-default">
                                 <div class="panel-heading">
                                     <h3 class="panel-title"><i class="fa fa-clock-o"></i> Viagens</h3>
                                 </div>
