@@ -86,7 +86,7 @@ else{
                     <thead>
                         <tr>
                             <th>Nome</th>
-                            <th>E-Mail</th>
+                            <th>RG</th>
                             <th>Telefone</th>
                             <th>Celular</th>
                             <th>Data Nascimento</th>
@@ -95,6 +95,7 @@ else{
                         </tr>
                     </thead>
                     <?php
+                    $this->db->select("id_clients,nome,telefone,rg,celular,data_nascimento,loc_embarque");
                     $this->db->order_by("nome", "asc"); 
                     $query = $this->db->get('tb_clients');
                     foreach ($query->result() as $row) {
@@ -102,7 +103,7 @@ else{
                         ?>
                         <tr>
                             <td><?= $row->nome ?></td>
-                            <td><?= $row->email ?></td>
+                            <td><?= $row->rg ?></td>
                             <td><?= $row->telefone ?></td>
                             <td><?= $row->celular ?></td>
                             <td><?= $data_nascimento ?></td>

@@ -31,7 +31,7 @@ class Md_users extends CI_Model {
     }
 
     public function addCliente() {
-        $data_nascimento = implode("-", array_reverse(explode("/", $this->input->post($this->input->post('data_nascimento')))));
+        $data_nascimento = implode("-", array_reverse(explode("/", $this->input->post('data_nascimento'))));
         $data = array('nome'    => strtoupper($this->input->post('nome')),
             'data_nascimento'   => $data_nascimento,
             'rg'                => $this->input->post('rg'),
