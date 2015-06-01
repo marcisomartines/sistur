@@ -137,9 +137,49 @@ $query = $query->result();
                             <th>Local de Embarque: </th>
                             <td><?= $reservaDados->embarquer ?></td>
                         </tr>
-                    </table><?php
-                    echo form_open('home/guiaMapa') . '<input type="hidden" name="id_tour" value="' . $this->input->post('id_tour') . '"><input type="submit" class="btn btn-info" value="Voltar"></form>';
-                    ?>
+                    </table>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <?php
+                            echo form_open('home/guiaMapa');
+                            echo form_hidden('id_tour', $this->input->post('id_tour'));
+                            echo form_button(array(
+                                'class' => 'btn btn-info',
+                                'content' => 'Voltar',
+                                'type' => 'submit'
+                            ));
+                            echo form_close();
+                            ?>
+                        </div>
+                        <div class="col-md-3">
+                            <?php
+                            echo form_open('home/confirmaPresenca');
+                            echo form_hidden('id_tour', $this->input->post('id_tour'));
+                            echo form_hidden('nr_poltrona',$this->input->post('nr_poltrona'));
+                            echo form_button(array(
+                                'class'     =>'btn btn-success',
+                                'content'   =>'<i class="fa fa-check"></i> Presente',
+                                'type'      =>'submit'
+                            ));
+                            echo form_close();
+                            ?>
+                        </div>
+                        
+                        <div class="col-md-3">
+                            <?php
+                            echo form_open('home/confirmaAusencia');
+                            echo form_hidden('id_tour',$this->input->post('id_tour'));
+                            echo form_hidden('nr_poltrona',$this->input->post('nr_poltrona'));
+                            echo form_button(array(
+                                'class'     => 'btn btn-danger',
+                                'content'   => '<i class="fa fa-bus"></i> Ausente',
+                                'type'      => 'submit'
+                            ));
+                            echo form_close();
+                            ?>  
+                        </div>
+                    </div>
+                    
                     <!--Fim da Panel verde-->
                 </div>
                 <div id="relatorio" class=" row-fluid"><!--mater isso escondido aqui-->
@@ -156,18 +196,5 @@ $query = $query->result();
         <script src="<?= base_url() ?>js/morris/chart-data-morris.js"></script>
         <script src="<?= base_url() ?>js/tablesorter/jquery.tablesorter.js"></script>
         <script src="<?= base_url() ?>js/tablesorter/tables.js"></script>
-<!--            <script src="<?= base_url() ?>js/funcao.js"></script>
-        <script src="<?= base_url() ?>js/jquery-ui.js"></script>
-        <script src="<?= base_url() ?>js/jquery.autocomplete.js"></script>
-        <script src="<?= base_url() ?>js/jquery.mask.min.js"></script>
-        <script type="text/javascript">
-            $(function () {
-                $('#combustivel').mask('000000000000000.00', {reverse: true});
-                $('#alimentacao').mask('000000000000000.00', {reverse: true});
-                $('#outros').mask('000000000000000.00', {reverse: true});
-                $('#total').mask('000000000000000.00', {reverse: true});
-//                $('#desconto').mask('000000000000000.00', {reverse: true});
-            });
-        </script>-->
     </body>
 </html>

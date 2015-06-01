@@ -128,29 +128,17 @@ $query = $query->result();
                                         ?>
                                         <tr>
                                             <td>
-<!--                                        <a href="#" class="list-group-item">-->
-                                            <i class="fa fa-calendar"></i> <?= $row->destino ?> - <?php
-                                            if ($row->tipo == 'v')
-                                                echo "Viagem";
-//                                            elseif ($row->tipo == 'f')
-//                                                echo "Fretado";
-//                                            elseif ($row->tipo == 't')
-//                                                echo "Turismo";
-//                                            elseif ($row->tipo == 'e')
-//                                                echo "Excursão";
-                                            ?> - <?= $data_saida ?>
+                                                <i class="fa fa-calendar"></i> <?= $row->destino ?> - <?php
+                                                if ($row->tipo == 'v')
+                                                    echo "Viagem";
+                                                ?> - <?= $data_saida ?>
                                             </td>
-                                            <td>
+                                            <td width="20px">
                                             <?php
-                                            if ($row->nr_poltrona - $reserva > 0) {
-                                                echo form_open('home/guiaMapa').'<input type="hidden" name="id_tour" value="'.$row->id_tour.'"><input type="submit" class="btn btn-success btn-xs" value="Disponivel"></form>';
-                                            } else {
-                                                echo form_open('home/guiaMapa').'<input type="hidden" name="id_tour" value="'.$row->id_tour.'"><input type="submit" class="btn btn-danger btn-xs" value="Esgotado"></form>';
-                                            }
+                                                echo form_open('home/guiaMapa').'<input type="hidden" name="id_tour" value="'.$row->id_tour.'"><input type="submit" class="btn btn-success btn-xs" value="Lista de Passageiros"></form>';
                                             ?>
                                             </td>
-                                             </tr>
-<!--                                        </a>-->
+                                        </tr>
                                         <?php
                                     }
                                     ?>
