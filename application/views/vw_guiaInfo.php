@@ -108,6 +108,46 @@ $query = $query->result();
                         $reservaDados = $row;
                     }
                     ?>
+                    <div class="row">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <?php
+                                echo form_label("Nº Poltrona:");
+                                echo form_input(array(
+                                    'name'  =>'nr_poltrona',
+                                    'id'    =>'nr_poltrona',
+                                    'class' =>'form-control',
+                                    'value' => $this->input->post('nr_poltrona'),
+                                    'readonly' =>'true'
+                                ));
+                                ?>
+                            </div>
+                            <div class="col-md-4">
+                                <?php
+                                echo form_label("Nome:");
+                                echo form_input(array(
+                                    'name'=>'nome',
+                                    'id'=>'nome',
+                                    'class'=>'form-control',
+                                    'value'=>$reservaDados->nome,
+                                    'readonly'=>'true'
+                                ));
+                                ?>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-2">
+                                <?php
+                                
+                                ?>
+                            </div>
+                        </div>
+                    </div>
                     <table class="table table-striped">
                         <tr>
                             <th>Nº Poltrona: </th>
@@ -145,7 +185,7 @@ $query = $query->result();
                             echo form_hidden('id_tour', $this->input->post('id_tour'));
                             echo form_button(array(
                                 'class' => 'btn btn-info',
-                                'content' => 'Voltar',
+                                'content' => '<i class="fa fa-arrow-left"></i> Voltar',
                                 'type' => 'submit'
                             ));
                             echo form_close();
@@ -172,7 +212,7 @@ $query = $query->result();
                             echo form_hidden('nr_poltrona',$this->input->post('nr_poltrona'));
                             echo form_button(array(
                                 'class'     => 'btn btn-danger',
-                                'content'   => '<i class="fa fa-bus"></i> Ausente',
+                                'content'   => '<i class="fa fa-times"></i> Ausente',
                                 'type'      => 'submit'
                             ));
                             echo form_close();

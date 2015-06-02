@@ -514,6 +514,7 @@ class Home extends CI_Controller {
     
     public function guiaMapa(){
         if($this->session->userdata('is_logged_in')==1){
+            $this->load->helper('typography');
             $this->load->view('vw_guiaMapa');
         }else{
             $this->load->view('vw_login');
@@ -529,6 +530,7 @@ class Home extends CI_Controller {
     
     public function guiaInfo(){
         if($this->session->userdata('is_logged_in')==1){
+            $this->load->helper('typography');
             $this->load->view('vw_guiaInfo');
         }else{
             $this->load->view('vw_login');

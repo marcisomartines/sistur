@@ -40,6 +40,7 @@
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="01">
                         </form>
                     <?php
+                    echo character_limiter($rel->nome,10);
                 }
             }
             ?>
