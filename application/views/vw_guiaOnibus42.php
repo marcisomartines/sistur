@@ -20,6 +20,7 @@
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="01">
                         </form>
             <?php
+            echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
         }
         if ($rel->tipo == 'i') {
             echo form_open('home/guiaInfo');
@@ -30,6 +31,7 @@
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="01">
                         </form>
             <?php
+            echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
         }
         if ($rel->tipo == 'd') {
             echo form_open('home/guiaInfo');
@@ -40,7 +42,7 @@
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="01">
                         </form>
                     <?php
-                    echo character_limiter($rel->nome,10);
+                    echo character_limiter($rel->nome,15);//imprime o nome do passgeiro de forma limitada
                 }
             }
             ?>
@@ -77,6 +79,7 @@
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="02">
                         </form>
                         <?php
+                        echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                     }
                     if ($rel->tipo == 'i') {
                         echo form_open('home/guiaInfo');
@@ -87,6 +90,7 @@
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="02">
                         </form>
                         <?php
+                        echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                     }
                     if ($rel->tipo == 'd') {
                         echo form_open('home/guiaInfo');
@@ -97,6 +101,7 @@
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="02">
                         </form>
             <?php
+            echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
         }
     }
     ?>
@@ -134,6 +139,7 @@
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="04">
                         </form>
             <?php
+            echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
         }
         if ($rel->tipo == 'i') {
             echo form_open('home/guiaInfo');
@@ -144,6 +150,7 @@
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="04">
                         </form>
             <?php
+            echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
         }
         if ($rel->tipo == 'd') {
             echo form_open('home/guiaInfo');
@@ -154,6 +161,7 @@
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="04">
                         </form>
                     <?php
+                    echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                 }
             }
             ?>
@@ -190,6 +198,7 @@
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="03">
                         </form>
                     <?php
+                    echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                 }
                 if ($rel->tipo == 'i') {
                     echo form_open('home/guiaInfo');
@@ -200,6 +209,7 @@
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="03">
                         </form>
                     <?php
+                    echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                 }
                 if ($rel->tipo == 'd') {
                     echo form_open('home/guiaInfo');
@@ -210,6 +220,7 @@
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="03">
                         </form>
                         <?php
+                        echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                     }
                 }
                 ?>
@@ -248,6 +259,7 @@
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="05">
                         </form>
             <?php
+            echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
         }
         if ($rel->tipo == 'i') {
             echo form_open('home/guiaInfo');
@@ -258,6 +270,7 @@
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="05">
                         </form>
                     <?php
+                    echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                 }
                 if ($rel->tipo == 'd') {
                     echo form_open('home/guiaInfo');
@@ -268,6 +281,7 @@
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="05">
                         </form>
             <?php
+            echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
         }
     }
     ?>
@@ -304,6 +318,7 @@
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="06">
                         </form>
             <?php
+            echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
         }
         if ($rel->tipo == 'i') {
             echo form_open('home/guiaInfo');
@@ -314,6 +329,7 @@
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="06">
                         </form>
                         <?php
+                        echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                     }
                     if ($rel->tipo == 'd') {
                         echo form_open('home/guiaInfo');
@@ -324,6 +340,7 @@
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="06">
                         </form>
                         <?php
+                        echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                     }
                 }
                 ?>
@@ -363,6 +380,7 @@
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="09">
                         </form>
                         <?php
+                        echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                     }
                     if ($rel->tipo == 'i') {
                         echo form_open('home/guiaInfo');
@@ -373,6 +391,7 @@
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="09">
                         </form>
                         <?php
+                        echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                     }
                     if ($rel->tipo == 'd') {
                         echo form_open('home/guiaInfo');
@@ -383,6 +402,7 @@
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="09">
                         </form>
                         <?php
+                        echo "<b>".character_limiter($rel->nome,15)."</b>";//limita o tamanho do nome do passageiro
                     }
                 }
                 ?>
@@ -419,6 +439,7 @@
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="10">
                         </form>
             <?php
+            echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
         }
         if ($rel->tipo == 'i') {
             echo form_open('home/guiaInfo');
@@ -429,6 +450,7 @@
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="10">
                         </form>
             <?php
+            echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
         }
         if ($rel->tipo == 'd') {
             echo form_open('home/guiaInfo');
@@ -439,6 +461,7 @@
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="10">
                         </form>
             <?php
+            echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
         }
     }
     ?>
@@ -475,6 +498,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="08">
                         </form>
                         <?php
+                        echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                     }
                     if ($rel->tipo == 'i') {
                         echo form_open('home/guiaInfo');
@@ -485,6 +509,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="08">
                         </form>
                         <?php
+                        echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                     }
                     if ($rel->tipo == 'd') {
                         echo form_open('home/guiaInfo');
@@ -495,6 +520,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="08">
                         </form>
                     <?php
+                    echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                 }
             }
             ?>
@@ -531,6 +557,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="07">
                         </form>
             <?php
+            echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
         }
         if ($rel->tipo == 'i') {
             echo form_open('home/guiaInfo');
@@ -541,6 +568,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="07">
                         </form>
             <?php
+            echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
         }
         if ($rel->tipo == 'd') {
             echo form_open('home/guiaInfo');
@@ -551,6 +579,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="07">
                         </form>
             <?php
+            echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
         }
     }
     ?>
@@ -589,6 +618,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="13">
                         </form>
             <?php
+            echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
         }
         if ($rel->tipo == 'i') {
             echo form_open('home/guiaInfo');
@@ -599,6 +629,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="13">
                         </form>
                     <?php
+                    echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                 }
                 if ($rel->tipo == 'd') {
                     echo form_open('home/guiaInfo');
@@ -609,6 +640,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="13">
                         </form>
                     <?php
+                    echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                 }
             }
             ?>
@@ -645,6 +677,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="14">
                         </form>
                         <?php
+                        echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                     }
                     if ($rel->tipo == 'i') {
                         echo form_open('home/guiaInfo');
@@ -655,6 +688,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="14">
                         </form>
             <?php
+            echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
         }
         if ($rel->tipo == 'd') {
             echo form_open('home/guiaInfo');
@@ -665,6 +699,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="14">
                         </form>
                         <?php
+                        echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                     }
                 }
                 ?>
@@ -701,6 +736,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="12">
                         </form>
             <?php
+            echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
         }
         if ($rel->tipo == 'i') {
             echo form_open('home/guiaInfo');
@@ -711,6 +747,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="12">
                         </form>
                     <?php
+                    echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                 }
                 if ($rel->tipo == 'd') {
                     echo form_open('home/guiaInfo');
@@ -721,6 +758,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="12">
                         </form>
                         <?php
+                        echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                     }
                 }
                 ?>
@@ -757,6 +795,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="11">
                         </form>
             <?php
+            echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
         }
         if ($rel->tipo == 'i') {
             echo form_open('home/guiaInfo');
@@ -767,6 +806,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="11">
                         </form>
                         <?php
+                        echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                     }
                     if ($rel->tipo == 'd') {
                         echo form_open('home/guiaInfo');
@@ -777,6 +817,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="11">
                         </form>
                         <?php
+                        echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                     }
                 }
                 ?>
@@ -815,6 +856,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="17">
                         </form>
                     <?php
+                    echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                 }
                 if ($rel->tipo == 'i') {
                     echo form_open('home/guiaInfo');
@@ -825,6 +867,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="17">
                         </form>
             <?php
+            echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
         }
         if ($rel->tipo == 'd') {
             echo form_open('home/guiaInfo');
@@ -835,6 +878,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="17">
                         </form>
                         <?php
+                        echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                     }
                 }
                 ?>
@@ -871,6 +915,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="18">
                         </form>
                         <?php
+                        echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                     }
                     if ($rel->tipo == 'i') {
                         echo form_open('home/guiaInfo');
@@ -881,6 +926,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="18">
                         </form>
             <?php
+            echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
         }
         if ($rel->tipo == 'd') {
             echo form_open('home/guiaInfo');
@@ -891,6 +937,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="18">
                         </form>
             <?php
+            echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
         }
     }
     ?>
@@ -927,6 +974,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="16">
                         </form>
             <?php
+            echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
         }
         if ($rel->tipo == 'i') {
             echo form_open('home/guiaInfo');
@@ -937,6 +985,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="16">
                         </form>
                         <?php
+                        echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                     }
                     if ($rel->tipo == 'd') {
                         echo form_open('home/guiaInfo');
@@ -947,6 +996,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="16">
                         </form>
                         <?php
+                        echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                     }
                 }
                 ?>
@@ -983,6 +1033,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="15">
                         </form>
             <?php
+            echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
         }
         if ($rel->tipo == 'i') {
             echo form_open('home/guiaInfo');
@@ -993,6 +1044,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="15">
                         </form>
             <?php
+            echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
         }
         if ($rel->tipo == 'd') {
             echo form_open('home/guiaInfo');
@@ -1003,6 +1055,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="15">
                         </form>
                     <?php
+                    echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                 }
             }
             ?>
@@ -1041,6 +1094,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="21">
                         </form>
                         <?php
+                        echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                     }
                     if ($rel->tipo == 'i') {
                         echo form_open('home/guiaInfo');
@@ -1051,6 +1105,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="21">
                         </form>
                     <?php
+                    echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                 }
                 if ($rel->tipo == 'd') {
                     echo form_open('home/guiaInfo');
@@ -1061,6 +1116,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="21">
                         </form>
                     <?php
+                    echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                 }
             }
             ?>
@@ -1097,6 +1153,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="22">
                         </form>
                         <?php
+                        echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                     }
                     if ($rel->tipo == 'i') {
                         echo form_open('home/guiaInfo');
@@ -1107,6 +1164,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="22">
                         </form>
             <?php
+            echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
         }
         if ($rel->tipo == 'd') {
             echo form_open('home/guiaInfo');
@@ -1117,6 +1175,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="22">
                         </form>
                     <?php
+                    echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                 }
             }
             ?>
@@ -1153,6 +1212,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="20">
                         </form>
                     <?php
+                    echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                 }
                 if ($rel->tipo == 'i') {
                     echo form_open('home/guiaInfo');
@@ -1163,6 +1223,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="20">
                         </form>
                     <?php
+                    echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                 }
                 if ($rel->tipo == 'd') {
                     echo form_open('home/guiaInfo');
@@ -1173,6 +1234,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="20">
                         </form>
                         <?php
+                        echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                     }
                 }
                 ?>
@@ -1209,6 +1271,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="19">
                         </form>
             <?php
+            echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
         }
         if ($rel->tipo == 'i') {
             echo form_open('home/guiaInfo');
@@ -1219,6 +1282,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="19">
                         </form>
                     <?php
+                    echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                 }
                 if ($rel->tipo == 'd') {
                     echo form_open('home/guiaInfo');
@@ -1229,6 +1293,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="19">
                         </form>
             <?php
+            echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
         }
     }
     ?>
@@ -1267,6 +1332,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="25">
                         </form>
                     <?php
+                    echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                 }
                 if ($rel->tipo == 'i') {
                     echo form_open('home/guiaInfo');
@@ -1277,6 +1343,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="25">
                         </form>
             <?php
+            echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
         }
         if ($rel->tipo == 'd') {
             echo form_open('home/guiaInfo');
@@ -1287,6 +1354,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="25">
                         </form>
             <?php
+            echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
         }
     }
     ?>
@@ -1323,6 +1391,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="26">
                         </form>
                         <?php
+                        echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                     }
                     if ($rel->tipo == 'i') {
                         echo form_open('home/guiaInfo');
@@ -1333,6 +1402,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="26">
                         </form>
                         <?php
+                        echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                     }
                     if ($rel->tipo == 'd') {
                         echo form_open('home/guiaInfo');
@@ -1343,6 +1413,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="26">
                         </form>
                         <?php
+                        echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                     }
                 }
                 ?>
@@ -1379,6 +1450,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="24">
                         </form>
             <?php
+            echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
         }
         if ($rel->tipo == 'i') {
             echo form_open('home/guiaInfo');
@@ -1389,6 +1461,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="24">
                         </form>
             <?php
+            echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
         }
         if ($rel->tipo == 'd') {
             echo form_open('home/guiaInfo');
@@ -1399,6 +1472,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="24">
                         </form>
             <?php
+            echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
         }
     }
     ?>
@@ -1435,6 +1509,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="23">
                         </form>
                         <?php
+                        echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                     }
                     if ($rel->tipo == 'i') {
                         echo form_open('home/guiaInfo');
@@ -1445,6 +1520,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="23">
                         </form>
                         <?php
+                        echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                     }
                     if ($rel->tipo == 'd') {
                         echo form_open('home/guiaInfo');
@@ -1455,6 +1531,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="23">
                         </form>
                     <?php
+                    echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                 }
             }
             ?>
@@ -1493,6 +1570,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="29">
                         </form>
                         <?php
+                        echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                     }
                     if ($rel->tipo == 'i') {
                         echo form_open('home/guiaInfo');
@@ -1503,6 +1581,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="29">
                         </form>
                         <?php
+                        echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                     }
                     if ($rel->tipo == 'd') {
                         echo form_open('home/guiaInfo');
@@ -1513,6 +1592,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="29">
                         </form>
             <?php
+            echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
         }
     }
     ?>
@@ -1549,6 +1629,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="30">
                         </form>
             <?php
+            echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
         }
         if ($rel->tipo == 'i') {
             echo form_open('home/guiaInfo');
@@ -1559,6 +1640,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="30">
                         </form>
                     <?php
+                    echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                 }
                 if ($rel->tipo == 'd') {
                     echo form_open('home/guiaInfo');
@@ -1569,6 +1651,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="30">
                         </form>
                     <?php
+                    echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                 }
             }
             ?>
@@ -1605,6 +1688,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="28">
                         </form>
                         <?php
+                        echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                     }
                     if ($rel->tipo == 'i') {
                         echo form_open('home/guiaInfo');
@@ -1615,6 +1699,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="28">
                         </form>
             <?php
+            echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
         }
         if ($rel->tipo == 'd') {
             echo form_open('home/guiaInfo');
@@ -1625,6 +1710,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="28">
                         </form>
                         <?php
+                        echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                     }
                 }
                 ?>
@@ -1661,6 +1747,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="27">
                         </form>
             <?php
+            echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
         }
         if ($rel->tipo == 'i') {
             echo form_open('home/guiaInfo');
@@ -1671,6 +1758,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="27">
                         </form>
                     <?php
+                    echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                 }
                 if ($rel->tipo == 'd') {
                     echo form_open('home/guiaInfo');
@@ -1681,6 +1769,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="27">
                         </form>
             <?php
+            echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
         }
     }
     ?>
@@ -1719,6 +1808,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="33">
                         </form>
             <?php
+            echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
         }
         if ($rel->tipo == 'i') {
             echo form_open('home/guiaInfo');
@@ -1729,6 +1819,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="33">
                         </form>
                         <?php
+                        echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                     }
                     if ($rel->tipo == 'd') {
                         echo form_open('home/guiaInfo');
@@ -1739,6 +1830,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="33">
                         </form>
                         <?php
+                        echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                     }
                 }
                 ?>
@@ -1775,6 +1867,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="34">
                         </form>
                     <?php
+                    echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                 }
                 if ($rel->tipo == 'i') {
                     echo form_open('home/guiaInfo');
@@ -1785,6 +1878,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="34">
                         </form>
             <?php
+            echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
         }
         if ($rel->tipo == 'd') {
             echo form_open('home/guiaInfo');
@@ -1795,6 +1889,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="34">
                         </form>
                         <?php
+                        echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                     }
                 }
                 ?>
@@ -1831,6 +1926,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="32">
                         </form>
                         <?php
+                        echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                     }
                     if ($rel->tipo == 'i') {
                         echo form_open('home/guiaInfo');
@@ -1841,6 +1937,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="32">
                         </form>
             <?php
+            echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
         }
         if ($rel->tipo == 'd') {
             echo form_open('home/guiaInfo');
@@ -1851,6 +1948,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="32">
                         </form>
             <?php
+            echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
         }
     }
     ?>
@@ -1887,6 +1985,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="31">
                         </form>
                         <?php
+                        echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                     }
                     if ($rel->tipo == 'i') {
                         echo form_open('home/guiaInfo');
@@ -1897,6 +1996,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="31">
                         </form>
                         <?php
+                        echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                     }
                     if ($rel->tipo == 'd') {
                         echo form_open('home/guiaInfo');
@@ -1907,6 +2007,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="31">
                         </form>
                         <?php
+                        echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                     }
                 }
                 ?>
@@ -1945,6 +2046,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="37">
                         </form>
             <?php
+            echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
         }
         if ($rel->tipo == 'i') {
             echo form_open('home/guiaInfo');
@@ -1955,6 +2057,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="37">
                         </form>
             <?php
+            echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
         }
         if ($rel->tipo == 'd') {
             echo form_open('home/guiaInfo');
@@ -1965,6 +2068,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="37">
                         </form>
             <?php
+            echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
         }
     }
     ?>
@@ -2001,6 +2105,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="38">
                         </form>
                         <?php
+                        echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                     }
                     if ($rel->tipo == 'i') {
                         echo form_open('home/guiaInfo');
@@ -2011,6 +2116,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="38">
                         </form>
                     <?php
+                    echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                 }
                 if ($rel->tipo == 'd') {
                     echo form_open('home/guiaInfo');
@@ -2021,6 +2127,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="38">
                         </form>
                     <?php
+                    echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                 }
             }
             ?>
@@ -2057,6 +2164,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="36">
                         </form>
                         <?php
+                        echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                     }
                     if ($rel->tipo == 'i') {
                         echo form_open('home/guiaInfo');
@@ -2067,6 +2175,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="36">
                         </form>
             <?php
+            echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
         }
         if ($rel->tipo == 'd') {
             echo form_open('home/guiaInfo');
@@ -2077,6 +2186,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="36">
                         </form>
                     <?php
+                    echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                 }
             }
             ?>
@@ -2113,6 +2223,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="35">
                         </form>
                     <?php
+                    echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
                 }
                 if ($rel->tipo == 'i') {
                     echo form_open('home/guiaInfo');
@@ -2123,6 +2234,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="35">
                         </form>
             <?php
+            echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
         }
         if ($rel->tipo == 'd') {
             echo form_open('home/guiaInfo');
@@ -2171,6 +2283,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="41">
                         </form>
             <?php
+            echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
         }
         if ($rel->tipo == 'i') {
             echo form_open('home/guiaInfo');
@@ -2181,6 +2294,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="41">
                         </form>
             <?php
+            echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
         }
         if ($rel->tipo == 'd') {
             echo form_open('home/guiaInfo');
@@ -2191,6 +2305,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="41">
                         </form>
             <?php
+            echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
         }
     }
     ?>
@@ -2227,6 +2342,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="42">
                         </form>
             <?php
+            echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
         }
         if ($rel->tipo == 'i') {
             echo form_open('home/guiaInfo');
@@ -2237,6 +2353,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="42">
                         </form>
             <?php
+            echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
         }
         if ($rel->tipo == 'd') {
             echo form_open('home/guiaInfo');
@@ -2247,6 +2364,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="42">
                         </form>
             <?php
+            echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
         }
     }
     ?>
@@ -2283,6 +2401,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="40">
                         </form>
             <?php
+            echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
         }
         if ($rel->tipo == 'i') {
             echo form_open('home/guiaInfo');
@@ -2293,6 +2412,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="40">
                         </form>
             <?php
+            echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
         }
         if ($rel->tipo == 'd') {
             echo form_open('home/guiaInfo');
@@ -2303,6 +2423,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="40">
                         </form>
             <?php
+            echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
         }
     }
     ?>
@@ -2339,6 +2460,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="39">
                         </form>
             <?php
+            echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
         }
         if ($rel->tipo == 'i') {
             echo form_open('home/guiaInfo');
@@ -2349,6 +2471,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="39">
                         </form>
             <?php
+            echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
         }
         if ($rel->tipo == 'd') {
             echo form_open('home/guiaInfo');
@@ -2359,6 +2482,7 @@ if ($query->num_rows() > 0) {
                         <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="39">
                         </form>
             <?php
+            echo character_limiter($rel->nome,15);//limita o tamanho do nome do passageiro
         }
     }
     ?>

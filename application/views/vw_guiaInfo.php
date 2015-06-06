@@ -107,12 +107,13 @@ $query = $query->result();
                     foreach ($query->result() as $row) {
                         $reservaDados = $row;
                     }
+                    echo form_open('home/confirmaPresenca');
                     ?>
                     <div class="row">
                         <div class="row">
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                                 <?php
-                                echo form_label("Nº Poltrona:");
+                                echo form_label("Poltrona:");
                                 echo form_input(array(
                                     'name'  =>'nr_poltrona',
                                     'id'    =>'nr_poltrona',
@@ -122,7 +123,7 @@ $query = $query->result();
                                 ));
                                 ?>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-6">
                                 <?php
                                 echo form_label("Nome:");
                                 echo form_input(array(
@@ -137,63 +138,74 @@ $query = $query->result();
                         </div>
                         
                         <div class="row">
-                            
+                            <div class="col-md-4">
+                                <?php
+                                echo form_label("RG:");
+                                echo form_input(array(
+                                    'name'=>'rg',
+                                    'id'=>'rg',
+                                    'class'=>'form-control',
+                                    'value'=>$reservaDados->rg
+                                ));
+                                ?>
+                            </div>
+                            <div class="col-md-4">
+                                <?php
+                                echo form_label("CPF:");
+                                echo form_input(array(
+                                    'name'=>'cpf',
+                                    'id'=>'cpf',
+                                    'class'=>'form-control',
+                                    'value'=>$reservaDados->cpf
+                                ));
+                                ?>
+                            </div>
                         </div>
                         
                         <div class="row">
-                            <div class="col-md-2">
+                            <div class="col-md-4">
                                 <?php
+                                echo form_label("Telefone:");
+                                echo form_input(array(
+                                    'name'=>'telefone',
+                                    'id'=>'telefone',
+                                    'class'=>'form-control',
+                                    'value'=>$reservaDados->telefone
+                                ));
+                                ?>
+                            </div>
+                            <div class="col-md-4">
+                                <?php
+                                echo form_label("Celular:");
+                                echo form_input(array(
+                                    'name'=>'celular',
+                                    'id'=>'celular',
+                                    'class'=>'form-control',
+                                    'value'=>$reservaDados->celular
+                                ));
                                 
                                 ?>
                             </div>
                         </div>
-                    </div>
-                    <table class="table table-striped">
-                        <tr>
-                            <th>Nº Poltrona: </th>
-                            <td><?= $this->input->post('nr_poltrona') ?></td>
-                        </tr>
-                        <tr>
-                            <th>Nome: </th>
-                            <td><?= $reservaDados->nome ?></td>
-                        </tr>
-                        <tr>
-                            <th>RG: </th>
-                            <td><?= $reservaDados->rg ?></td>
-                        </tr>
-                        <tr>
-                            <th>CPF: </th>
-                            <td><?= $reservaDados->cpf ?></td>
-                        </tr>
-                        <tr>
-                            <th>Telefone: </th>
-                            <td><?= $reservaDados->telefone ?></td>
-                        </tr>
-                        <tr>
-                            <th>Celular: </th>
-                            <td><?= $reservaDados->celular ?></td>
-                        </tr>
-                        <tr>
-                            <th>Local de Embarque: </th>
-                            <td><?= $reservaDados->embarquer ?></td>
-                        </tr>
-                    </table>
-                    <div class="row">
-                        <div class="col-md-2">
-                            <?php
-                            echo form_open('home/guiaMapa');
-                            echo form_hidden('id_tour', $this->input->post('id_tour'));
-                            echo form_button(array(
-                                'class' => 'btn btn-info',
-                                'content' => '<i class="fa fa-arrow-left"></i> Voltar',
-                                'type' => 'submit'
-                            ));
-                            echo form_close();
-                            ?>
+                        
+                        <div class="row">
+                            <div class="col-md-8">
+                                <?php
+                                echo form_label("Local de Embarque:");
+                                echo form_input(array(
+                                    'name'=>'embarque',
+                                    'id'=>'embarque',
+                                    'class'=>'form-control',
+                                    'value'=>$reservaDados->embarquer
+                                ));
+                                ?>
+                            </div>
                         </div>
+                    </div>
+                    <br>    
+                    <div class="row">
                         <div class="col-md-3">
                             <?php
-                            echo form_open('home/confirmaPresenca');
                             echo form_hidden('id_tour', $this->input->post('id_tour'));
                             echo form_hidden('nr_poltrona',$this->input->post('nr_poltrona'));
                             echo form_button(array(
@@ -204,7 +216,7 @@ $query = $query->result();
                             echo form_close();
                             ?>
                         </div>
-                        
+
                         <div class="col-md-3">
                             <?php
                             echo form_open('home/confirmaAusencia');
@@ -218,6 +230,20 @@ $query = $query->result();
                             echo form_close();
                             ?>  
                         </div>
+                        
+                        <div class="col-md-2">
+                            <?php
+                            echo form_open('home/guiaMapa');
+                            echo form_hidden('id_tour', $this->input->post('id_tour'));
+                            echo form_button(array(
+                                'class' => 'btn btn-info',
+                                'content' => '<i class="fa fa-arrow-left"></i> Voltar',
+                                'type' => 'submit'
+                            ));
+                            echo form_close();
+                            ?>
+                        </div>
+                        
                     </div>
                     
                     <!--Fim da Panel verde-->
