@@ -817,5 +817,15 @@ class Home extends CI_Controller {
             $this->load->view('vw_login');
         }
     }
+    
+    public function atualizarDados(){
+        if($this->session->userdata('is_logged_in') == 1){
+            //$this->load->model('md_users');
+            //$this->md_users->autualizarDados();
+            $this->guiaInfo();
+        }else {
+            $this->load->view('vw_login');
+        }
+    }
 
 }

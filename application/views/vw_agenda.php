@@ -17,6 +17,7 @@ else {
             <title><?= $query[0]->titulo ?></title>
             <link href="<?= base_url() ?>css/bootstrap.css" rel="stylesheet">
             <link href="<?= base_url() ?>css/sb-admin.css" rel="stylesheet">
+            <link href="<?= base_url() ?>css/jquery.dataTables.min.css" rel="stylesheet">
             <link href='<?= base_url() ?>calendar/fullcalendar.css' rel='stylesheet' />
             <link href='<?= base_url() ?>calendar/fullcalendar.print.css' rel='stylesheet' media='print' />
             <link rel="stylesheet" href="<?= base_url() ?>font-awesome/css/font-awesome.min.css">
@@ -39,11 +40,8 @@ else {
             }
             ?>
         </head>
-
         <body>
-
             <div id="wrapper">
-
                 <!-- barra lateral -->
                 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 
@@ -106,7 +104,7 @@ else {
                         </ul>
                         <div id="myTabContent" class="tab-content">
                             <div class="tab-pane fade in active" id="listagem"><!--Listagem de agendamentos-->
-                                <table class="table tablesorter">
+                                <table id="myTable" class="table tablesorter">
                                     <thead>
                                         <tr>
                                             <th>Cod. <i class="fa fa-sort"></i></th>
@@ -124,7 +122,8 @@ else {
                                                             tb_tour.data_retorno,tb_tour.id_viagem,tb_tour.tipo,tb_tour.status 
                                                             FROM tb_tour
                                                             JOIN tb_cars on tb_cars.id_cars=tb_tour.id_car
-                                                            JOIN tb_drivers on tb_drivers.id_drivers=tb_tour.id_motorista");
+                                                            JOIN tb_drivers on tb_drivers.id_drivers=tb_tour.id_motorista 
+                                                            ORDER BY tb_tour.data_saida desc");
                                     foreach ($query->result() as $row) {
                                         $data_saida = implode("/", array_reverse(explode("-", $row->data_saida)));
                                         $data_retorno = implode("/", array_reverse(explode("-", $row->data_retorno)));
@@ -186,8 +185,10 @@ else {
             <script src="<?= base_url() ?>js/morris/chart-data-morris.js"></script>
             <script src="<?= base_url() ?>js/tablesorter/jquery.tablesorter.js"></script>
             <script src="<?= base_url() ?>js/tablesorter/tables.js"></script>
+            <script src="<?= base_url() ?>js/jquery.dataTables.min.js"></script>
             <script>
                 $(document).ready(function () {
+                    $('#myTable').DataTable();
                     $('#calendar').fullCalendar({
                         header: {
                             left: 'prev,next today',

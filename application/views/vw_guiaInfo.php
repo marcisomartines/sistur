@@ -107,9 +107,8 @@ $query = $query->result();
                     foreach ($query->result() as $row) {
                         $reservaDados = $row;
                     }
-                    echo form_open('home/confirmaPresenca');
+                    echo form_open('home/atualizarDados');
                     ?>
-                    <div class="row">
                         <div class="row">
                             <div class="col-md-2">
                                 <?php
@@ -201,11 +200,37 @@ $query = $query->result();
                                 ?>
                             </div>
                         </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <?php
+                            echo form_label("Valor pago: ");
+                            echo form_input(array(
+                                'name'=>'valor_pago',
+                                'id'=>'valor_pago',
+                                'class'=>'form-control',
+                                'value'=>'$'
+                            ));
+                             
+                            ?>
+                        </div>
                     </div>
                     <br>    
                     <div class="row">
+                        
                         <div class="col-md-3">
                             <?php
+                            echo form_button(array(
+                                'class'=>'btn btn-success',
+                                'content'=>'Atualizar Dados',
+                                'type'=>'submit'
+                            ));
+                            echo form_close();
+                            ?>
+                        </div>
+ 
+                        <div class="col-md-3">
+                            <?php
+                            echo form_open('home/confirmaPresenca');
                             echo form_hidden('id_tour', $this->input->post('id_tour'));
                             echo form_hidden('nr_poltrona',$this->input->post('nr_poltrona'));
                             echo form_button(array(
