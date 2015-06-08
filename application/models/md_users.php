@@ -404,4 +404,20 @@ class Md_users extends CI_Model {
         $this->db->where('id_clients',$this->input->post('id_clients'));
         $this->db->update('tb_clients',$data);
     }
+    
+    public function confirmaPresenca(){
+        $dados=array(
+            'status'=>'C'
+        );
+        $this->db->where('id_reservs',$this->input->post('id_reservs'));
+        $this->db->update('tb_reservs',$dados);
+    }
+    
+    public function confirmaAusencia(){
+        $dados=array(
+            'status'=>'A'
+        );
+        $this->db->where('id_reservs',$this->input->post('id_reservs'));
+        $this->db->update('tb_reservs',$dados);
+    }
 }

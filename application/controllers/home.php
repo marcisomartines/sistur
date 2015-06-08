@@ -832,5 +832,35 @@ class Home extends CI_Controller {
             $this->load->view('vw_login');
         }
     }
+    
+    public function confirmaPresenca(){
+        if ($this->session->userdata('is_logged_in') == 1) {
+            $this->load->model('md_users');
+            $this->md_users->confirmaPresenca();
+            $dados=array(
+                'id_tour'=>$this->input->post('id_tour'),
+                'nr_poltrona'=>$this->input->post('nr_poltrona'),
+                'id_reservs'=>$this->input->post('id_reservs')
+                );
+            $this->guiaInfo($dados);
+        } else {
+            $this->load->view('vw_login');
+        }
+    }
+    
+    public function confirmaAusencia(){
+        if ($this->session->userdata('is_logged_in') == 1) {
+            $this->load->model('md_users');
+            $this->md_users->confirmaAusencia();
+            $dados=array(
+                'id_tour'=>$this->input->post('id_tour'),
+                'nr_poltrona'=>$this->input->post('nr_poltrona'),
+                'id_reservs'=>$this->input->post('id_reservs')
+                );
+            $this->guiaInfo($dados);
+        } else {
+            $this->load->view('vw_login');
+        }
+    }
 
 }

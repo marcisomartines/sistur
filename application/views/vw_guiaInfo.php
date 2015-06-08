@@ -258,7 +258,8 @@ if (!isset($id_reservs)) {
                         <div class="col-md-3">
                             <?php
                             echo form_open('home/confirmaPresenca');
-                            echo form_hidden('id_tour', $id_tour);
+                            echo form_hidden('id_tour',$id_tour);
+                            echo form_hidden('id_reservs', $id_reservs);
                             echo form_hidden('nr_poltrona',$nr_poltrona);
                             echo form_button(array(
                                 'class'     =>'btn btn-success',
@@ -273,6 +274,7 @@ if (!isset($id_reservs)) {
                             <?php
                             echo form_open('home/confirmaAusencia');
                             echo form_hidden('id_tour',$id_tour);
+                            echo form_hidden('id_reservs', $id_reservs);
                             echo form_hidden('nr_poltrona',$nr_poltrona);
                             echo form_button(array(
                                 'class'     => 'btn btn-danger',
@@ -305,13 +307,23 @@ if (!isset($id_reservs)) {
             </div><!-- /#page-wrapper -->
         </div><!-- /#wrapper -->
         <!-- JavaScript -->
-<!--            <script src="<?= base_url() ?>js/jquery-1.10.2.js"></script>
-        <script src="<?= base_url() ?>js/bootstrap.js"></script>-->
+            <script src="<?= base_url() ?>js/jquery-1.10.2.js"></script>
+        <script src="<?= base_url() ?>js/bootstrap.js"></script>
         <!-- Page Specific Plugins -->
         <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
         <script src="http://cdn.oesmith.co.uk/morris-0.4.3.min.js"></script>
         <script src="<?= base_url() ?>js/morris/chart-data-morris.js"></script>
         <script src="<?= base_url() ?>js/tablesorter/jquery.tablesorter.js"></script>
         <script src="<?= base_url() ?>js/tablesorter/tables.js"></script>
+        <script src="<?= base_url() ?>js/jquery.mask.min.js"></script>
+            <script src="<?= base_url() ?>js/jquery-ui.js"></script>
+            <script type="text/javascript">
+                $(function () {
+                    $('#cpf').mask('000.000.000-00', {placeholder: "___.___.___-__"});
+                    $('#telefone').mask('(00)0000-0000', {placeholder: "(__)____-____"});
+                    $('#celular').mask('(00)0000-0000', {placeholder: "(__)____-____"});
+                    //$('#data_nascimento').mask('00/00/0000', {placeholder: "__/__/____"});
+                });
+            </script>
     </body>
 </html>
