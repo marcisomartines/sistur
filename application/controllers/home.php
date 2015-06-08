@@ -528,10 +528,10 @@ class Home extends CI_Controller {
         }
     }
     
-    public function guiaInfo(){
+    public function guiaInfo($dados="NULL"){
         if($this->session->userdata('is_logged_in')==1){
             $this->load->helper('typography');
-            $this->load->view('vw_guiaInfo');
+            $this->load->view('vw_guiaInfo',$dados);
         }else{
             $this->load->view('vw_login');
         }
@@ -820,9 +820,14 @@ class Home extends CI_Controller {
     
     public function atualizarDados(){
         if($this->session->userdata('is_logged_in') == 1){
-            //$this->load->model('md_users');
-            //$this->md_users->autualizarDados();
-            $this->guiaInfo();
+            $this->load->model('md_users');
+            $this->md_users->atualizarDados();
+            $dados=array(
+                'id_tour'=>$this->input->post('id_tour'),
+                'nr_poltrona'=>$this->input->post('nr_poltrona'),
+                'id_reservs'=>$this->input->post('id_reservs')
+                );
+            $this->guiaInfo($dados);
         }else {
             $this->load->view('vw_login');
         }

@@ -5,6 +5,15 @@ $lusuario = array('class' => 'form-control');
 $this->db->where('nome_user', $this->session->userdata('nome'));
 $query = $this->db->get('tb_users');
 $query = $query->result();
+if (!isset($id_tour)) {
+    $id_tour = $this->input->post('id_tour');
+}
+if (!isset($nr_poltrona)) {
+    $nr_poltrona = $this->input->post('nr_poltrona');
+}
+if (!isset($id_reservs)) {
+    $id_reservs = $this->input->post('id_reservs');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -95,29 +104,34 @@ $query = $query->result();
                     <h1>Informações passageiro</h1>
                     <?php
                     $this->db->select('tb_reservs.id_reservs , tb_reservs.nr_poltrona,tb_reservs.tipo,tb_reservs.id_tour,
-                                        tb_reservs.id_client,tb_reservs.loc_embarque as embarquer,tb_reservs.desconto,
-                                        tb_clients.nome,tb_clients.rg,tb_clients.cpf,tb_clients.telefone,tb_clients.celular, tb_clients.loc_embarque as embarquec');
+                                        tb_reservs.id_client,tb_reservs.loc_embarque as embarquer,tb_reservs.desconto,tb_clients.id_clients,
+                                        tb_clients.nome,tb_clients.email,tb_clients.rg,tb_clients.cpf,tb_clients.telefone,tb_clients.celular, tb_clients.loc_embarque as embarquec');
                     $this->db->from('tb_reservs');
                     $this->db->join('tb_clients', 'tb_clients.id_clients=tb_reservs.id_client');
-                    $this->db->where('tb_reservs.id_tour', $this->input->post('id_tour'));
-                    $this->db->where('tb_reservs.nr_poltrona', $this->input->post('nr_poltrona'));
-                    $this->db->where('tb_reservs.id_reservs', $this->input->post('id_reservs'));
+                    $this->db->where('tb_reservs.id_tour', $id_tour);
+                    $this->db->where('tb_reservs.nr_poltrona', $nr_poltrona);
+                    $this->db->where('tb_reservs.id_reservs', $id_reservs);
                     $query = $this->db->get();
 
                     foreach ($query->result() as $row) {
                         $reservaDados = $row;
                     }
+                    
                     echo form_open('home/atualizarDados');
                     ?>
                         <div class="row">
                             <div class="col-md-2">
                                 <?php
+                                echo form_hidden('id_clients',$reservaDados->id_clients);
+                                echo form_hidden('id_tour',$id_tour);
+                                echo form_hidden('nr_poltrona',$nr_poltrona);
+                                echo form_hidden('id_reservs',$id_reservs);
                                 echo form_label("Poltrona:");
                                 echo form_input(array(
                                     'name'  =>'nr_poltrona',
                                     'id'    =>'nr_poltrona',
                                     'class' =>'form-control',
-                                    'value' => $this->input->post('nr_poltrona'),
+                                    'value' => $nr_poltrona,
                                     'readonly' =>'true'
                                 ));
                                 ?>
@@ -190,12 +204,25 @@ $query = $query->result();
                         <div class="row">
                             <div class="col-md-8">
                                 <?php
+                                echo form_label("E-mail:");
+                                echo form_input(array(
+                                    'name'=>'email',
+                                    'id'=>'email',
+                                    'class'=>'form-control',
+                                    'value'=>$reservaDados->email
+                                ));
+                                ?>
+                            </div>
+                        </div>
+                    <div class="row">
+                            <div class="col-md-8">
+                                <?php
                                 echo form_label("Local de Embarque:");
                                 echo form_input(array(
                                     'name'=>'embarque',
                                     'id'=>'embarque',
                                     'class'=>'form-control',
-                                    'value'=>$reservaDados->embarquer
+                                    'value'=>$reservaDados->embarquec
                                 ));
                                 ?>
                             </div>
@@ -231,8 +258,8 @@ $query = $query->result();
                         <div class="col-md-3">
                             <?php
                             echo form_open('home/confirmaPresenca');
-                            echo form_hidden('id_tour', $this->input->post('id_tour'));
-                            echo form_hidden('nr_poltrona',$this->input->post('nr_poltrona'));
+                            echo form_hidden('id_tour', $id_tour);
+                            echo form_hidden('nr_poltrona',$nr_poltrona);
                             echo form_button(array(
                                 'class'     =>'btn btn-success',
                                 'content'   =>'<i class="fa fa-check"></i> Presente',
@@ -245,8 +272,8 @@ $query = $query->result();
                         <div class="col-md-3">
                             <?php
                             echo form_open('home/confirmaAusencia');
-                            echo form_hidden('id_tour',$this->input->post('id_tour'));
-                            echo form_hidden('nr_poltrona',$this->input->post('nr_poltrona'));
+                            echo form_hidden('id_tour',$id_tour);
+                            echo form_hidden('nr_poltrona',$nr_poltrona);
                             echo form_button(array(
                                 'class'     => 'btn btn-danger',
                                 'content'   => '<i class="fa fa-times"></i> Ausente',
@@ -259,7 +286,7 @@ $query = $query->result();
                         <div class="col-md-2">
                             <?php
                             echo form_open('home/guiaMapa');
-                            echo form_hidden('id_tour', $this->input->post('id_tour'));
+                            echo form_hidden('id_tour', $id_tour);
                             echo form_button(array(
                                 'class' => 'btn btn-info',
                                 'content' => '<i class="fa fa-arrow-left"></i> Voltar',
@@ -270,7 +297,6 @@ $query = $query->result();
                         </div>
                         
                     </div>
-                    
                     <!--Fim da Panel verde-->
                 </div>
                 <div id="relatorio" class=" row-fluid"><!--mater isso escondido aqui-->

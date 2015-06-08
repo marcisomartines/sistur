@@ -391,4 +391,17 @@ class Md_users extends CI_Model {
         $this->db->where('id_viagem', $this->input->post('id_viagem'));
         $this->db->update('tb_viagem', $data);
     }
+    
+    public function atualizarDados(){
+        $data=array(
+            'loc_embarque'=>$this->input->post('embarque'),
+            'email'=>$this->input->post('email'),
+            'rg'=>$this->input->post('rg'),
+            'cpf'=>$this->input->post('cpf'),
+            'telefone'=>$this->input->post('telefone'),
+            'celular'=>$this->input->post('celular')
+        );
+        $this->db->where('id_clients',$this->input->post('id_clients'));
+        $this->db->update('tb_clients',$data);
+    }
 }
