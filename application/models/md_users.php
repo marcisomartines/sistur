@@ -406,8 +406,10 @@ class Md_users extends CI_Model {
     }
     
     public function confirmaPresenca(){
+        $preco = str_replace(',', '.', $this->input->post('valorpg'));
         $dados=array(
-            'status'=>'C'
+            'status'=>'C',
+            'valor_pago'=>$preco
         );
         $this->db->where('id_reservs',$this->input->post('id_reservs'));
         $this->db->update('tb_reservs',$dados);

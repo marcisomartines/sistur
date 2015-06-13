@@ -29,9 +29,14 @@ if (!isset($id_reservs)) {
         <link rel="stylesheet" href="<?= base_url() ?>font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.4.3.min.css">
     </head>
-
     <body>
-
+        <script>
+            function valorPago(){
+                var valor_pago = document.getElementById("valor_pago");
+                var valorpg = document.getElementById("valorpg");
+                valorpg.value = valor_pago.value;
+            }
+        </script>
         <div id="wrapper">
 
             <!-- barra lateral -->
@@ -103,11 +108,27 @@ if (!isset($id_reservs)) {
                 <div class="row col-sm-4">
                     <h1>Informações passageiro</h1>
                     <?php
-                    $this->db->select('tb_reservs.id_reservs , tb_reservs.nr_poltrona,tb_reservs.tipo,tb_reservs.id_tour,
-                                        tb_reservs.id_client,tb_reservs.loc_embarque as embarquer,tb_reservs.desconto,tb_clients.id_clients,
-                                        tb_clients.nome,tb_clients.email,tb_clients.rg,tb_clients.cpf,tb_clients.telefone,tb_clients.celular, tb_clients.loc_embarque as embarquec');
+                    $this->db->select('tb_reservs.id_reservs,
+                                        tb_reservs.valor_pago,
+                                        tb_reservs.nr_poltrona,
+                                        tb_reservs.tipo,
+                                        tb_reservs.id_tour,
+                                        tb_reservs.id_client,
+                                        tb_reservs.loc_embarque as embarquer,
+                                        tb_clients.loc_embarque as embarquec,
+                                        tb_reservs.desconto,
+                                        tb_clients.id_clients,
+                                        tb_clients.nome,
+                                        tb_clients.email,
+                                        tb_clients.rg,
+                                        tb_clients.cpf,
+                                        tb_clients.telefone,
+                                        tb_clients.celular, 
+                                        tb_tour.preco,
+                                        tb_tour.preco_un');
                     $this->db->from('tb_reservs');
                     $this->db->join('tb_clients', 'tb_clients.id_clients=tb_reservs.id_client');
+                    $this->db->join('tb_tour','tb_tour.id_tour=tb_reservs.id_tour');
                     $this->db->where('tb_reservs.id_tour', $id_tour);
                     $this->db->where('tb_reservs.nr_poltrona', $nr_poltrona);
                     $this->db->where('tb_reservs.id_reservs', $id_reservs);
@@ -116,7 +137,6 @@ if (!isset($id_reservs)) {
                     foreach ($query->result() as $row) {
                         $reservaDados = $row;
                     }
-                    
                     echo form_open('home/atualizarDados');
                     ?>
                         <div class="row">
@@ -128,11 +148,11 @@ if (!isset($id_reservs)) {
                                 echo form_hidden('id_reservs',$id_reservs);
                                 echo form_label("Poltrona:");
                                 echo form_input(array(
-                                    'name'  =>'nr_poltrona',
-                                    'id'    =>'nr_poltrona',
-                                    'class' =>'form-control',
-                                    'value' => $nr_poltrona,
-                                    'readonly' =>'true'
+                                    'name'      => 'nr_poltrona',
+                                    'id'        => 'nr_poltrona',
+                                    'class'     => 'form-control',
+                                    'value'     => $nr_poltrona,
+                                    'readonly'  => 'true'
                                 ));
                                 ?>
                             </div>
@@ -230,12 +250,22 @@ if (!isset($id_reservs)) {
                     <div class="row">
                         <div class="col-md-4">
                             <?php
+                            if(empty($reservaDados->valor_pago)){
+                                if($reservaDados->tipo=='d'){
+                                    $valor=$reservaDados->preco;
+                                }else{
+                                    $valor=$reservaDados->preco_un;
+                                }
+                            }else{
+                                $valor=$reservaDados->valor_pago;
+                            }
                             echo form_label("Valor pago: ");
                             echo form_input(array(
-                                'name'=>'valor_pago',
-                                'id'=>'valor_pago',
-                                'class'=>'form-control',
-                                'value'=>'$'
+                                'name'      =>  'valor_pago',
+                                'id'        =>  'valor_pago',
+                                'class'     =>  'form-control',
+                                'onkeyup'   =>  'valorPago()',
+                                'value'     =>  str_replace('.',',',$valor)
                             ));
                              
                             ?>
@@ -261,6 +291,7 @@ if (!isset($id_reservs)) {
                             echo form_hidden('id_tour',$id_tour);
                             echo form_hidden('id_reservs', $id_reservs);
                             echo form_hidden('nr_poltrona',$nr_poltrona);
+                            echo "<input type='hidden' id='valorpg' name='valorpg' value='{$valor}'> ";
                             echo form_button(array(
                                 'class'     =>'btn btn-success',
                                 'content'   =>'<i class="fa fa-check"></i> Presente',
