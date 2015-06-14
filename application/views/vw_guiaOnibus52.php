@@ -62,7 +62,8 @@
         <?php
         $this->db->select('*');
         $this->db->from('tb_reservs');
-        $this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');
+        $this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');        
+        $this->db->where('tb_reservs.status !=','A');
         $this->db->where('id_tour', $this->input->post('id_tour'));
         $this->db->where('nr_poltrona', 2);
         $query = $this->db->get();
@@ -120,7 +121,8 @@
         <?php
         $this->db->select('*');
         $this->db->from('tb_reservs');
-        $this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');
+        $this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');        
+        $this->db->where('tb_reservs.status !=','A');
         $this->db->where('id_tour', $this->input->post('id_tour'));
         $this->db->where('nr_poltrona', 4);
         $query = $this->db->get();
@@ -176,7 +178,8 @@
             <?php
             $this->db->select('*');
             $this->db->from('tb_reservs');
-            $this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');
+            $this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');        
+            $this->db->where('tb_reservs.status !=','A');
             $this->db->where('id_tour', $this->input->post('id_tour'));
             $this->db->where('nr_poltrona', 3);
             $query = $this->db->get();
@@ -234,7 +237,8 @@
             <?php
             $this->db->select('*');
             $this->db->from('tb_reservs');
-            $this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');
+            $this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');        
+            $this->db->where('tb_reservs.status !=','A');
             $this->db->where('id_tour', $this->input->post('id_tour'));
             $this->db->where('nr_poltrona', 5);
             $query = $this->db->get();
@@ -290,7 +294,8 @@
 <?php
 $this->db->select('*');
 $this->db->from('tb_reservs');
-$this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');
+$this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');        
+$this->db->where('tb_reservs.status !=','A');
 $this->db->where('id_tour', $this->input->post('id_tour'));
 $this->db->where('nr_poltrona', 6);
 $query = $this->db->get();
@@ -346,7 +351,8 @@ if ($query->num_rows() > 0) {
             <?php
             $this->db->select('*');
             $this->db->from('tb_reservs');
-            $this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');
+            $this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');        
+            $this->db->where('tb_reservs.status !=','A');
             $this->db->where('id_tour', $this->input->post('id_tour'));
             $this->db->where('nr_poltrona', 8);
             $query = $this->db->get();
@@ -402,7 +408,8 @@ if ($query->num_rows() > 0) {
             <?php
             $this->db->select('*');
             $this->db->from('tb_reservs');
-            $this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');
+            $this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');        
+            $this->db->where('tb_reservs.status !=','A');
             $this->db->where('id_tour', $this->input->post('id_tour'));
             $this->db->where('nr_poltrona', 7);
             $query = $this->db->get();
@@ -460,7 +467,8 @@ if ($query->num_rows() > 0) {
         <?php
         $this->db->select('*');
         $this->db->from('tb_reservs');
-        $this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');
+        $this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');        
+        $this->db->where('tb_reservs.status !=','A');
         $this->db->where('id_tour', $this->input->post('id_tour'));
         $this->db->where('nr_poltrona', 9);
         $query = $this->db->get();
@@ -516,7 +524,8 @@ if ($query->num_rows() > 0) {
 <?php
 $this->db->select('*');
 $this->db->from('tb_reservs');
-$this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');
+$this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');        
+$this->db->where('tb_reservs.status !=','A');
 $this->db->where('id_tour', $this->input->post('id_tour'));
 $this->db->where('nr_poltrona', 10);
 $query = $this->db->get();
@@ -575,7 +584,8 @@ if ($query->num_rows() > 0) {
         <?php
         $this->db->select('*');
         $this->db->from('tb_reservs');
-        $this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');
+        $this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');        
+        $this->db->where('tb_reservs.status !=','A');
         $this->db->where('id_tour', $this->input->post('id_tour'));
         $this->db->where('nr_poltrona', 11);
         $query = $this->db->get();
@@ -631,7 +641,8 @@ if ($query->num_rows() > 0) {
             <?php
             $this->db->select('*');
             $this->db->from('tb_reservs');
-            $this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');
+            $this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');        
+            $this->db->where('tb_reservs.status !=','A');
             $this->db->where('id_tour', $this->input->post('id_tour'));
             $this->db->where('nr_poltrona', 12);
             $query = $this->db->get();
@@ -687,7 +698,8 @@ if ($query->num_rows() > 0) {
 <?php
 $this->db->select('*');
 $this->db->from('tb_reservs');
-$this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');
+$this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');        
+$this->db->where('tb_reservs.status !=','A');
 $this->db->where('id_tour', $this->input->post('id_tour'));
 $this->db->where('nr_poltrona', 18);
 $query = $this->db->get();
@@ -743,7 +755,8 @@ if ($query->num_rows() > 0) {
             <?php
             $this->db->select('*');
             $this->db->from('tb_reservs');
-            $this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');
+            $this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');        
+            $this->db->where('tb_reservs.status !=','A');
             $this->db->where('id_tour', $this->input->post('id_tour'));
             $this->db->where('nr_poltrona', 17);
             $query = $this->db->get();
@@ -801,7 +814,8 @@ if ($query->num_rows() > 0) {
             <?php
             $this->db->select('*');
             $this->db->from('tb_reservs');
-            $this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');
+            $this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');        
+            $this->db->where('tb_reservs.status !=','A');
             $this->db->where('id_tour', $this->input->post('id_tour'));
             $this->db->where('nr_poltrona', 13);
             $query = $this->db->get();
@@ -857,7 +871,8 @@ if ($query->num_rows() > 0) {
 <?php
 $this->db->select('*');
 $this->db->from('tb_reservs');
-$this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');
+$this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');        
+$this->db->where('tb_reservs.status !=','A');
 $this->db->where('id_tour', $this->input->post('id_tour'));
 $this->db->where('nr_poltrona', 14);
 $query = $this->db->get();
@@ -913,7 +928,8 @@ if ($query->num_rows() > 0) {
             <?php
             $this->db->select('*');
             $this->db->from('tb_reservs');
-            $this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');
+            $this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');        
+            $this->db->where('tb_reservs.status !=','A');
             $this->db->where('id_tour', $this->input->post('id_tour'));
             $this->db->where('nr_poltrona', 22);
             $query = $this->db->get();
@@ -969,7 +985,8 @@ if ($query->num_rows() > 0) {
         <?php
         $this->db->select('*');
         $this->db->from('tb_reservs');
-        $this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');
+        $this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');        
+        $this->db->where('tb_reservs.status !=','A');
         $this->db->where('id_tour', $this->input->post('id_tour'));
         $this->db->where('nr_poltrona', 21);
         $query = $this->db->get();
@@ -1027,7 +1044,8 @@ if ($query->num_rows() > 0) {
         <?php
         $this->db->select('*');
         $this->db->from('tb_reservs');
-        $this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');
+        $this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');        
+        $this->db->where('tb_reservs.status !=','A');
         $this->db->where('id_tour', $this->input->post('id_tour'));
         $this->db->where('nr_poltrona', 15);
         $query = $this->db->get();
@@ -1083,7 +1101,8 @@ if ($query->num_rows() > 0) {
         <?php
         $this->db->select('*');
         $this->db->from('tb_reservs');
-        $this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');
+        $this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');        
+        $this->db->where('tb_reservs.status !=','A');
         $this->db->where('id_tour', $this->input->post('id_tour'));
         $this->db->where('nr_poltrona', 16);
         $query = $this->db->get();
@@ -1139,7 +1158,8 @@ if ($query->num_rows() > 0) {
             <?php
             $this->db->select('*');
             $this->db->from('tb_reservs');
-            $this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');
+            $this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');        
+            $this->db->where('tb_reservs.status !=','A');
             $this->db->where('id_tour', $this->input->post('id_tour'));
             $this->db->where('nr_poltrona', 24);
             $query = $this->db->get();
@@ -1195,7 +1215,8 @@ if ($query->num_rows() > 0) {
             <?php
             $this->db->select('*');
             $this->db->from('tb_reservs');
-            $this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');
+            $this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');        
+            $this->db->where('tb_reservs.status !=','A');
             $this->db->where('id_tour', $this->input->post('id_tour'));
             $this->db->where('nr_poltrona', 23);
             $query = $this->db->get();
@@ -1253,7 +1274,8 @@ if ($query->num_rows() > 0) {
 <?php
 $this->db->select('*');
 $this->db->from('tb_reservs');
-$this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');
+$this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');        
+$this->db->where('tb_reservs.status !=','A');
 $this->db->where('id_tour', $this->input->post('id_tour'));
 $this->db->where('nr_poltrona', 19);
 $query = $this->db->get();
@@ -1309,7 +1331,8 @@ if ($query->num_rows() > 0) {
 <?php
 $this->db->select('*');
 $this->db->from('tb_reservs');
-$this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');
+$this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');        
+$this->db->where('tb_reservs.status !=','A');
 $this->db->where('id_tour', $this->input->post('id_tour'));
 $this->db->where('nr_poltrona', 20);
 $query = $this->db->get();
@@ -1365,7 +1388,8 @@ if ($query->num_rows() > 0) {
             <?php
             $this->db->select('*');
             $this->db->from('tb_reservs');
-            $this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');
+            $this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');        
+            $this->db->where('tb_reservs.status !=','A');
             $this->db->where('id_tour', $this->input->post('id_tour'));
             $this->db->where('nr_poltrona', 26);
             $query = $this->db->get();
@@ -1421,7 +1445,8 @@ if ($query->num_rows() > 0) {
         <?php
         $this->db->select('*');
         $this->db->from('tb_reservs');
-        $this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');
+        $this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');        
+        $this->db->where('tb_reservs.status !=','A');
         $this->db->where('id_tour', $this->input->post('id_tour'));
         $this->db->where('nr_poltrona', 25);
         $query = $this->db->get();
@@ -1479,7 +1504,8 @@ if ($query->num_rows() > 0) {
         <?php
         $this->db->select('*');
         $this->db->from('tb_reservs');
-        $this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');
+        $this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');        
+        $this->db->where('tb_reservs.status !=','A');
         $this->db->where('id_tour', $this->input->post('id_tour'));
         $this->db->where('nr_poltrona', 27);
         $query = $this->db->get();
@@ -1535,7 +1561,8 @@ if ($query->num_rows() > 0) {
         <?php
         $this->db->select('*');
         $this->db->from('tb_reservs');
-        $this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');
+        $this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');        
+        $this->db->where('tb_reservs.status !=','A');
         $this->db->where('id_tour', $this->input->post('id_tour'));
         $this->db->where('nr_poltrona', 28);
         $query = $this->db->get();
@@ -1591,7 +1618,8 @@ if ($query->num_rows() > 0) {
             <?php
             $this->db->select('*');
             $this->db->from('tb_reservs');
-            $this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');
+            $this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');        
+            $this->db->where('tb_reservs.status !=','A');
             $this->db->where('id_tour', $this->input->post('id_tour'));
             $this->db->where('nr_poltrona', 30);
             $query = $this->db->get();
@@ -1647,7 +1675,8 @@ if ($query->num_rows() > 0) {
 <?php
 $this->db->select('*');
 $this->db->from('tb_reservs');
-$this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');
+$this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');        
+$this->db->where('tb_reservs.status !=','A');
 $this->db->where('id_tour', $this->input->post('id_tour'));
 $this->db->where('nr_poltrona', 29);
 $query = $this->db->get();
@@ -1705,7 +1734,8 @@ if ($query->num_rows() > 0) {
 <?php
 $this->db->select('*');
 $this->db->from('tb_reservs');
-$this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');
+$this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');        
+$this->db->where('tb_reservs.status !=','A');
 $this->db->where('id_tour', $this->input->post('id_tour'));
 $this->db->where('nr_poltrona', 31);
 $query = $this->db->get();
@@ -1761,7 +1791,8 @@ if ($query->num_rows() > 0) {
             <?php
             $this->db->select('*');
             $this->db->from('tb_reservs');
-            $this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');
+            $this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');        
+            $this->db->where('tb_reservs.status !=','A');
             $this->db->where('id_tour', $this->input->post('id_tour'));
             $this->db->where('nr_poltrona', 32);
             $query = $this->db->get();
@@ -1817,7 +1848,8 @@ if ($query->num_rows() > 0) {
 <?php
 $this->db->select('*');
 $this->db->from('tb_reservs');
-$this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');
+$this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');        
+$this->db->where('tb_reservs.status !=','A');
 $this->db->where('id_tour', $this->input->post('id_tour'));
 $this->db->where('nr_poltrona', 34);
 $query = $this->db->get();
@@ -1873,7 +1905,8 @@ if ($query->num_rows() > 0) {
             <?php
             $this->db->select('*');
             $this->db->from('tb_reservs');
-            $this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');
+            $this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');        
+            $this->db->where('tb_reservs.status !=','A');
             $this->db->where('id_tour', $this->input->post('id_tour'));
             $this->db->where('nr_poltrona', 33);
             $query = $this->db->get();
@@ -1931,7 +1964,8 @@ if ($query->num_rows() > 0) {
 <?php
 $this->db->select('*');
 $this->db->from('tb_reservs');
-$this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');
+$this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');        
+$this->db->where('tb_reservs.status !=','A');
 $this->db->where('id_tour', $this->input->post('id_tour'));
 $this->db->where('nr_poltrona', 35);
 $query = $this->db->get();
@@ -1987,7 +2021,8 @@ if ($query->num_rows() > 0) {
         <?php
         $this->db->select('*');
         $this->db->from('tb_reservs');
-        $this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');
+        $this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');        
+        $this->db->where('tb_reservs.status !=','A');
         $this->db->where('id_tour', $this->input->post('id_tour'));
         $this->db->where('nr_poltrona', 36);
         $query = $this->db->get();
@@ -2043,7 +2078,8 @@ if ($query->num_rows() > 0) {
         <?php
         $this->db->select('*');
         $this->db->from('tb_reservs');
-        $this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');
+        $this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');        
+        $this->db->where('tb_reservs.status !=','A');
         $this->db->where('id_tour', $this->input->post('id_tour'));
         $this->db->where('nr_poltrona', 38);
         $query = $this->db->get();
@@ -2099,7 +2135,8 @@ if ($query->num_rows() > 0) {
 <?php
 $this->db->select('*');
 $this->db->from('tb_reservs');
-$this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');
+$this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');        
+$this->db->where('tb_reservs.status !=','A');
 $this->db->where('id_tour', $this->input->post('id_tour'));
 $this->db->where('nr_poltrona', 37);
 $query = $this->db->get();
@@ -2157,7 +2194,8 @@ if ($query->num_rows() > 0) {
 <?php
 $this->db->select('*');
 $this->db->from('tb_reservs');
-$this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');
+$this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');        
+$this->db->where('tb_reservs.status !=','A');
 $this->db->where('id_tour', $this->input->post('id_tour'));
 $this->db->where('nr_poltrona', 39);
 $query = $this->db->get();
@@ -2213,7 +2251,8 @@ if ($query->num_rows() > 0) {
 <?php
 $this->db->select('*');
 $this->db->from('tb_reservs');
-$this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');
+$this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');        
+$this->db->where('tb_reservs.status !=','A');
 $this->db->where('id_tour', $this->input->post('id_tour'));
 $this->db->where('nr_poltrona', 40);
 $query = $this->db->get();
@@ -2269,7 +2308,8 @@ if ($query->num_rows() > 0) {
 <?php
 $this->db->select('*');
 $this->db->from('tb_reservs');
-$this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');
+$this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');        
+$this->db->where('tb_reservs.status !=','A');
 $this->db->where('id_tour', $this->input->post('id_tour'));
 $this->db->where('nr_poltrona', 41);
 $query = $this->db->get();
@@ -2325,7 +2365,8 @@ if ($query->num_rows() > 0) {
             <?php
             $this->db->select('*');
             $this->db->from('tb_reservs');
-            $this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');
+            $this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');        
+            $this->db->where('tb_reservs.status !=','A');
             $this->db->where('id_tour', $this->input->post('id_tour'));
             $this->db->where('nr_poltrona', 42);
             $query = $this->db->get();
@@ -2386,7 +2427,8 @@ if ($query->num_rows() > 0) {
         <?php
         $this->db->select('*');
         $this->db->from('tb_reservs');
-        $this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');
+        $this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');        
+        $this->db->where('tb_reservs.status !=','A');
         $this->db->where('id_tour', $this->input->post('id_tour'));
         $this->db->where('nr_poltrona', 43);
         $query = $this->db->get();
@@ -2442,7 +2484,8 @@ if ($query->num_rows() > 0) {
 <?php
 $this->db->select('*');
 $this->db->from('tb_reservs');
-$this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');
+$this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');        
+$this->db->where('tb_reservs.status !=','A');
 $this->db->where('id_tour', $this->input->post('id_tour'));
 $this->db->where('nr_poltrona', 44);
 $query = $this->db->get();
@@ -2502,7 +2545,8 @@ if ($query->num_rows() > 0) {
         <?php
         $this->db->select('*');
         $this->db->from('tb_reservs');
-        $this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');
+        $this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');        
+        $this->db->where('tb_reservs.status !=','A');
         $this->db->where('id_tour', $this->input->post('id_tour'));
         $this->db->where('nr_poltrona', 45);
         $query = $this->db->get();
@@ -2558,7 +2602,8 @@ if ($query->num_rows() > 0) {
             <?php
             $this->db->select('*');
             $this->db->from('tb_reservs');
-            $this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');
+            $this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');        
+            $this->db->where('tb_reservs.status !=','A');
             $this->db->where('id_tour', $this->input->post('id_tour'));
             $this->db->where('nr_poltrona', 46);
             $query = $this->db->get();
@@ -2614,7 +2659,8 @@ if ($query->num_rows() > 0) {
 <?php
 $this->db->select('*');
 $this->db->from('tb_reservs');
-$this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');
+$this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');        
+$this->db->where('tb_reservs.status !=','A');
 $this->db->where('id_tour', $this->input->post('id_tour'));
 $this->db->where('nr_poltrona', 47);
 $query = $this->db->get();
@@ -2670,7 +2716,8 @@ if ($query->num_rows() > 0) {
 <?php
 $this->db->select('*');
 $this->db->from('tb_reservs');
-$this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');
+$this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');        
+$this->db->where('tb_reservs.status !=','A');
 $this->db->where('id_tour', $this->input->post('id_tour'));
 $this->db->where('nr_poltrona', 48);
 $query = $this->db->get();
@@ -2728,7 +2775,8 @@ if ($query->num_rows() > 0) {
 <?php
 $this->db->select('*');
 $this->db->from('tb_reservs');
-$this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');
+$this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');        
+$this->db->where('tb_reservs.status !=','A');
 $this->db->where('id_tour', $this->input->post('id_tour'));
 $this->db->where('nr_poltrona', 49);
 $query = $this->db->get();
@@ -2784,7 +2832,8 @@ if ($query->num_rows() > 0) {
 <?php
 $this->db->select('*');
 $this->db->from('tb_reservs');
-$this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');
+$this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');        
+$this->db->where('tb_reservs.status !=','A');
 $this->db->where('id_tour', $this->input->post('id_tour'));
 $this->db->where('nr_poltrona', 50);
 $query = $this->db->get();
@@ -2843,7 +2892,8 @@ if ($query->num_rows() > 0) {
 <?php
 $this->db->select('*');
 $this->db->from('tb_reservs');
-$this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');
+$this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');        
+$this->db->where('tb_reservs.status !=','A');
 $this->db->where('id_tour', $this->input->post('id_tour'));
 $this->db->where('nr_poltrona', 51);
 $query = $this->db->get();
@@ -2899,7 +2949,8 @@ if ($query->num_rows() > 0) {
 <?php
 $this->db->select('*');
 $this->db->from('tb_reservs');
-$this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');
+$this->db->join('tb_clients', 'tb_reservs.id_client=tb_clients.id_clients');        
+$this->db->where('tb_reservs.status !=','A');
 $this->db->where('id_tour', $this->input->post('id_tour'));
 $this->db->where('nr_poltrona', 52);
 $query = $this->db->get();
