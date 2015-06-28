@@ -52,7 +52,7 @@ else {
                             <li><a href="<?php echo base_url() . "index.php/home/" ?>"><i class="fa fa-dashboard"></i> Geral</a></li>
                             <li class="active"><a href="<?php echo base_url() . "index.php/home/reserva" ?>"><i class="fa fa-ticket"></i> Reserva</a></li>
                             <li><a href="<?php echo base_url() . "index.php/home/cliente" ?>"><i class="fa fa-users "></i> Cliente</a></li>
-                            <li><a href="<?php echo base_url() . "index.php/home/agenda" ?>"><i class="fa fa-calendar"></i> Agendamento</a></li>
+                            <li><a href="<?php echo base_url() . "index.php/home/agenda?pagina=0" ?>"><i class="fa fa-calendar"></i> Agendamento</a></li>
                             <li><a href="<?php echo base_url() . "index.php/home/orcamento" ?>"><i class="fa fa-file-text-o"></i> Orçamento</a></li>
                             <li><a href="<?php echo base_url() . "index.php/home/onibus" ?>"><i class="fa fa-truck"></i> Ônibus</a></li>
                             <li><a href="<?php echo base_url() . "index.php/home/viagem" ?>"><i class="fa fa-tasks"></i> Destino</a></li>
@@ -103,7 +103,7 @@ else {
                                             $this->db->join('tb_viagem','tb_tour.id_viagem=tb_viagem.id_viagem');
                                             $this->db->join('tb_cars','tb_cars.id_cars=tb_tour.id_car');
                                             $this->db->where('tb_tour.status','A');
-                                            $this->db->where("(tb_tour.tipo='v' OR tb_tour.tipo='t' OR tb_tour.tipo='e' OR tb_tour.tipo='f')");
+                                            $this->db->where('tb_tour.tipo','v');
                                             $this->db->order_by('tb_tour.id_viagem,tb_tour.data_saida','ASC');
                                             $query=$this->db->get();
                                             
@@ -135,12 +135,12 @@ else {
                                                         <i class="fa fa-calendar"></i> <?= $row->destino ?> - <?php
                                                         if ($row->tipo == 'v')
                                                             echo "Viagem";
-                                                        elseif ($row->tipo == 'f')
-                                                            echo "Fretado";
-                                                        elseif ($row->tipo == 't')
-                                                            echo "Turismo";
-                                                        elseif ($row->tipo == 'e')
-                                                            echo "Excursão";
+//                                                        elseif ($row->tipo == 'f')
+//                                                            echo "Fretado";
+//                                                        elseif ($row->tipo == 't')
+//                                                            echo "Turismo";
+//                                                        elseif ($row->tipo == 'e')
+//                                                            echo "Excursão";
                                                         ?> - <?= $data_saida ?>
                                                     </td>
                                                     <td>

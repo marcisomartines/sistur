@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php
+$pagina= $_REQUEST['pagina'];
 $this->db->where('nome_user', $this->session->userdata('nome'));
 $query = $this->db->get('tb_users');
 $query = $query->result();
@@ -60,7 +61,7 @@ else {
                             <li><a href="<?php echo base_url() . "index.php/home/" ?>"><i class="fa fa-dashboard"></i> Geral</a></li>
                             <li><a href="<?php echo base_url() . "index.php/home/reserva" ?>"><i class="fa fa-ticket"></i> Reserva</a></li>
                             <li><a href="<?php echo base_url() . "index.php/home/cliente" ?>"><i class="fa fa-users "></i> Cliente</a></li>
-                            <li class="active"><a href="<?php echo base_url() . "index.php/home/agenda" ?>"><i class="fa fa-calendar"></i> Agendamento</a></li>
+                            <li class="active"><a href="<?php echo base_url() . "index.php/home/agenda?pagina=0" ?>"><i class="fa fa-calendar"></i> Agendamento</a></li>
                             <li><a href="<?php echo base_url() . "index.php/home/orcamento" ?>"><i class="fa fa-file-text-o"></i> Orçamento</a></li>
                             <li><a href="<?php echo base_url() . "index.php/home/onibus" ?>"><i class="fa fa-truck"></i> Ônibus</a></li>
                             <li><a href="<?php echo base_url() . "index.php/home/viagem" ?>"><i class="fa fa-tasks"></i> Destino</a></li>
@@ -104,7 +105,7 @@ else {
                         </ul>
                         <div id="myTabContent" class="tab-content">
                             <div class="tab-pane fade in active" id="listagem"><!--Listagem de agendamentos-->
-                                <table id="myTable" class="table tablesorter">
+                                <table  class="table tablesorter">
                                     <thead>
                                         <tr>
                                             <th>Cod. <i class="fa fa-sort"></i></th>
@@ -122,8 +123,10 @@ else {
                                                             tb_tour.data_retorno,tb_tour.id_viagem,tb_tour.tipo,tb_tour.status 
                                                             FROM tb_tour
                                                             JOIN tb_cars on tb_cars.id_cars=tb_tour.id_car
-                                                            JOIN tb_drivers on tb_drivers.id_drivers=tb_tour.id_motorista 
-                                                            ORDER BY tb_tour.data_saida desc");
+                                                            JOIN tb_drivers on tb_drivers.id_drivers=tb_tour.id_motorista
+                                                            ORDER BY tb_tour.data_saida desc
+                                                            LIMIT {$pagina},15");
+                                                            
                                     foreach ($query->result() as $row) {
                                         $data_saida = implode("/", array_reverse(explode("-", $row->data_saida)));
                                         $data_retorno = implode("/", array_reverse(explode("-", $row->data_retorno)));
@@ -165,6 +168,27 @@ else {
                                     }
                                     ?>
                                 </table>
+                                <nav class="pull-right">
+                                    <ul class="pagination">
+                                        <?php
+                                        $queryLista = $this->db->query("SELECT tb_tour.id_tour,tb_cars.codigo,tb_cars.modelo,tb_tour.data_saida,
+                                                            tb_tour.data_retorno,tb_tour.id_viagem,tb_tour.tipo,tb_tour.status 
+                                                            FROM tb_tour
+                                                            JOIN tb_cars on tb_cars.id_cars=tb_tour.id_car
+                                                            JOIN tb_drivers on tb_drivers.id_drivers=tb_tour.id_motorista");
+                                    
+                                        $nPagina=count($queryLista->result_array());
+                                        $nPagina/=15;
+                                        $nPagina=ceil($nPagina);
+                                        $nPagina=(int)$nPagina;
+                                        $lista=0;
+                                            for ($i = 1; $i <= $nPagina; $i++) {
+                                                echo "<li><a href='agenda?pagina=$lista'>{$i}</a></li>";
+                                                $lista+=15;
+                                            }
+                                        ?>
+                                    </ul>
+                                </nav>
                             </div><!--fim da Listagem de agendamentos-->
                             <div class="tab-pane fade" id="agenda">
                                 <div id='calendar'></div>
@@ -183,12 +207,8 @@ else {
             <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
             <script src="http://cdn.oesmith.co.uk/morris-0.4.3.min.js"></script>
             <script src="<?= base_url() ?>js/morris/chart-data-morris.js"></script>
-            <script src="<?= base_url() ?>js/tablesorter/jquery.tablesorter.js"></script>
-            <script src="<?= base_url() ?>js/tablesorter/tables.js"></script>
-            <script src="<?= base_url() ?>js/jquery.dataTables.min.js"></script>
             <script>
                 $(document).ready(function () {
-                    $('#myTable').DataTable();
                     $('#calendar').fullCalendar({
                         header: {
                             left: 'prev,next today',
