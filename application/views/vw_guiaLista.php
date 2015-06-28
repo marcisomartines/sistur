@@ -101,29 +101,10 @@ $query = $query->result();
                                     $query = $this->db->query("SELECT * FROM tb_tour
                                             JOIN tb_viagem ON tb_tour.id_viagem=tb_viagem.id_viagem
                                             JOIN tb_cars ON tb_cars.id_cars=tb_tour.id_car
-                                            WHERE tb_tour.status='A' AND (tb_tour.tipo='v')");
+                                            WHERE tb_tour.status='A' AND tb_tour.tipo='v'
+                                            ORDER BY tb_tour.id_viagem,tb_tour.data_saida ASC");
 
                                     foreach ($query->result() as $row) {
-                                        $reserva=0;
-                                        $un_res=0;
-                                        for($i=1;$i<=$row->nr_poltrona;$i++){
-                                            $this->db->where('id_tour',$row->id_tour);
-                                            $this->db->where('nr_poltrona',$i);
-                                            $livre=$this->db->get('tb_reservs');
-                                            if($livre->num_rows()>0){
-                                                foreach($livre->result() as $livre)
-                                                if($livre->tipo=='i' || $livre->tipo=='v'){
-                                                    $un_res++;
-                                                    if($un_res==2){
-                                                        $reserva++;
-                                                        $un_res=0;
-                                                    }
-                                                }
-                                                if($livre->tipo=='d'){
-                                                    $reserva++;
-                                                }
-                                            }
-                                        }
                                         $data_saida = implode("/", array_reverse(explode("-", $row->data_saida)));
                                         ?>
                                         <tr>
