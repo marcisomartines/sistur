@@ -104,6 +104,9 @@ $nr_poltrona = $this->input->post('nr_poltrona');
                     <div class="row">
                             <div class="col-md-2">
                                 <?php
+                                echo form_open('home/cadastroValidacaoGuiaReserva');
+                                echo validation_errors();
+                                
                                 echo form_label("Nr:");
                                 echo form_input(array(
                                     'name'      => 'nr_poltrona',
@@ -163,18 +166,29 @@ $nr_poltrona = $this->input->post('nr_poltrona');
                             </div>
                         </div>
                     <br />
-                        <div class="col-md-2">
-                            <?php
-                            echo form_open('home/guiaMapa');
-                            echo form_hidden('id_tour', $this->input->post('id_tour'));
-                            echo form_button(array(
-                                'class' => 'btn btn-info',
-                                'content' => '<i class="fa fa-arrow-left"></i> Voltar',
-                                'type' => 'submit'
-                            ));
-                            echo form_close();
-                            ?>
-                        </div>
+                    <div class="col-md-3">
+                        <?php
+                        echo form_hidden('id_tour', $this->input->post('id_tour'));
+                        echo form_button(array(
+                            'class' => 'btn btn-primary',
+                            'content' => 'Salvar',
+                            'type' => 'submit'
+                        ));
+                        echo form_close();
+                        ?>  
+                    </div>
+                    <div class="col-md-2">
+                        <?php
+                        echo form_open('home/guiaMapa');
+                        echo form_hidden('id_tour', $this->input->post('id_tour'));
+                        echo form_button(array(
+                            'class' => 'btn btn-info',
+                            'content' => '<i class="fa fa-arrow-left"></i> Voltar',
+                            'type' => 'submit'
+                        ));
+                        echo form_close();
+                        ?>
+                    </div>
                     <!--Fim da Panel verde-->
                 </div>
             </div><!-- /#page-wrapper -->

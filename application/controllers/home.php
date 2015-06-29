@@ -558,14 +558,29 @@ class Home extends CI_Controller {
 
         $this->form_validation->set_rules('course', 'cliente', 'required|trim'); //cliente
         $this->form_validation->set_rules('tipo', 'tipo', 'required|trim'); //tipo de agendamento
-        $this->form_validation->set_rules('nr_poltrona','Nr. Poltrona','required|trim');//verifica se tem a poltrona
-
+        $this->form_validation->set_rules('nr_poltrona', 'Nr. Poltrona', 'required|trim'); //verifica se tem a poltrona
         if ($this->form_validation->run()) {
             $this->load->model('md_users');
             $this->md_users->addReserva();
+
             $this->load->view('vw_reservaMapa');
         } else {
             $this->load->view('vw_reservaMapa');
+        }
+    }
+    public function cadastroValidacaoGuiaReserva() {
+        $this->load->library('form_validation');
+
+        $this->form_validation->set_rules('course', 'cliente', 'required|trim'); //cliente
+        $this->form_validation->set_rules('tipo', 'tipo', 'required|trim'); //tipo de agendamento
+        $this->form_validation->set_rules('nr_poltrona', 'Nr. Poltrona', 'required|trim'); //verifica se tem a poltrona
+        if ($this->form_validation->run()) {
+            $this->load->model('md_users');
+            $this->md_users->addReserva();
+
+            $this->load->view('vw_guiaMapa',$dados);
+        } else {
+            $this->load->view('vw_guiaMapa',$dados);
         }
     }
     
