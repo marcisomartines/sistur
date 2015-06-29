@@ -101,7 +101,7 @@ if (!isset($id_reservs)) {
                     <div class="col-lg-12">
                         <h1>Informações <small>passagem</small></h1>
                         <ol class="breadcrumb">
-                            <li class="active"><i class="fa fa-ticket"></i><a href="<?php echo base_url() . "index.php/home/reserva" ?>"> Reserva</a> / Informações</li>
+                            <li class="active"><i class="fa fa-ticket"></i><a href="<?php echo base_url() . "index.php/home/guiaLista" ?>"> Guia</a> / Informações</li>
                         </ol>
                     </div>
                 </div><!-- /.row -->

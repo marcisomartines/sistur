@@ -536,6 +536,14 @@ class Home extends CI_Controller {
             $this->load->view('vw_login');
         }
     }
+    
+    public function guiaReserva(){
+        if($this->session->userdata('is_logged_in')==1){
+            $this->load->view('vw_guiaReserva');
+        }else{
+            $this->load->view('vw_login');
+        }
+    }
 
     public function fechamentoReserva() {
         if ($this->session->userdata('is_logged_in') == 1) {
