@@ -5,9 +5,6 @@ $lusuario = array('class' => 'form-control');
 $this->db->where('nome_user', $this->session->userdata('nome'));
 $query = $this->db->get('tb_users');
 $query = $query->result();
-
-
-$nr_poltrona = $this->input->post('nr_poltrona');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -59,7 +56,7 @@ $nr_poltrona = $this->input->post('nr_poltrona');
                         <ul class="nav navbar-nav side-nav">
                             <li><a href="<?php echo base_url() . "index.php/home/" ?>"><i class="fa fa-dashboard"></i> Geral</a></li>
                             <li><a href="<?php echo base_url() . "index.php/home/reserva" ?>"><i class="fa fa-ticket"></i> Reserva</a></li>
-                            <li><a href="<?php echo base_url() . "index.php/home/cliente" ?>"><i class="fa fa-users "></i> Cliente</a></li>
+                            <li><a href="<?php echo base_url() . "index.php/home/cliente?pagina=0" ?>"><i class="fa fa-users "></i> Cliente</a></li>
                             <li><a href="<?php echo base_url() . "index.php/home/agenda?pagina=0" ?>"><i class="fa fa-calendar"></i> Agendamento</a></li>
                             <li><a href="<?php echo base_url() . "index.php/home/orcamento" ?>"><i class="fa fa-file-text-o"></i> Orçamento</a></li>
                             <li><a href="<?php echo base_url() . "index.php/home/onibus" ?>"><i class="fa fa-truck"></i> Ônibus</a></li>
@@ -141,16 +138,6 @@ $nr_poltrona = $this->input->post('nr_poltrona');
                                 echo form_dropdown('tipo', $opcao, 'd', 'class=form-control');
                                 ?>
                             </div>
-                            <div class="col-md-4">
-                                <?php
-                                echo form_label("Valor:");
-                                echo form_input(array(
-                                    'name'=>'valor',
-                                    'id'=>'valor',
-                                    'class'=>'form-control'
-                                ));
-                                ?>
-                            </div>
                         </div>
                         
                         <div class="row">
@@ -166,12 +153,12 @@ $nr_poltrona = $this->input->post('nr_poltrona');
                             </div>
                         </div>
                     <br />
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <?php
                         echo form_hidden('id_tour', $this->input->post('id_tour'));
                         echo form_button(array(
                             'class' => 'btn btn-primary',
-                            'content' => 'Salvar',
+                            'content' => '<i class="fa fa-floppy-o"></i> Salvar',
                             'type' => 'submit'
                         ));
                         echo form_close();

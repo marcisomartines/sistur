@@ -292,7 +292,6 @@ class Md_users extends CI_Model {
                             'tipo'          => $this->input->post('tipo'),
                             'id_tour'       => $this->input->post('id_tour'), //onibus
                             'id_client'     => $cliente->id_clients,
-                            //'id_movfinan'          => $this->input->post('id_motorista'),
                             'loc_embarque'  => strtoupper($this->input->post('loc_embarque')),
                             'desconto'      => $this->input->post('desconto'),
                             'ultima_viagem' => $this->input->post('ultima_viagem'),

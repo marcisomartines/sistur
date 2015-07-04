@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php
+$pagina= $_REQUEST['pagina'];
 $this->db->where('nome_user', $this->session->userdata('nome'));
 $query = $this->db->get('tb_users');
 $query = $query->result();
@@ -44,7 +45,7 @@ else{
                     <ul class="nav navbar-nav side-nav">
                         <li><a href="<?php echo base_url() . "index.php/home/" ?>"><i class="fa fa-dashboard"></i> Geral</a></li>
                         <li><a href="<?php echo base_url() . "index.php/home/reserva" ?>"><i class="fa fa-ticket"></i> Reserva</a></li>
-                        <li class="active"><a href="<?php echo base_url() . "index.php/home/cliente" ?>"><i class="fa fa-users "></i> Cliente</a></li>
+                        <li class="active"><a href="<?php echo base_url() . "index.php/home/cliente?pagina=0" ?>"><i class="fa fa-users "></i> Cliente</a></li>
                         <li><a href="<?php echo base_url() . "index.php/home/agenda?pagina=0" ?>"><i class="fa fa-calendar"></i> Agendamento</a></li>
                         <li><a href="<?php echo base_url() . "index.php/home/orcamento" ?>"><i class="fa fa-file-text-o"></i> Orçamento</a></li>
                         <li><a href="<?php echo base_url() . "index.php/home/onibus" ?>"><i class="fa fa-truck"></i> Ônibus</a></li>
@@ -82,8 +83,18 @@ else{
                         </ol>
                     </div>
                 </div><!-- /.row -->
-
-                <table id="myTable" class="table tablesorter table-striped">
+                <?php
+                    echo form_open('home/cadastroValidacaoGuiaReserva');
+                    $query = $this->db->get('tb_clients');
+                    $cliente[] = '';
+                    foreach ($query->result() as $clt) {
+                        $cliente[$clt->id_clients] = $clt->nome;
+                    }
+                    echo form_label("Cliente:");
+                    include 'teste.php';
+                    echo form_close();
+                ?>
+                <table class="table tablesorter table-striped">
                     <thead>
                         <tr>
                             <th>Nome</th>
@@ -96,9 +107,9 @@ else{
                         </tr>
                     </thead>
                     <?php
-                    $this->db->select("id_clients,nome,telefone,rg,celular,data_nascimento,loc_embarque");
-                    $this->db->order_by("nome", "asc"); 
-                    $query = $this->db->get('tb_clients');
+                    $query=$this->db->query("SELECT id_clients,nome,telefone,rg,celular,data_nascimento,loc_embarque
+                                      FROM tb_clients ORDER BY nome asc LIMIT {$pagina},30"); 
+                    
                     foreach ($query->result() as $row) {
                         $data_nascimento = implode("/", array_reverse(explode("-", $row->data_nascimento)));
                         ?>
@@ -124,6 +135,23 @@ else{
                     }
                     ?>
                 </table>
+                <nav class="pull-right">
+                    <ul class="pagination">
+                        <?php
+                            $queryLista = $this->db->get('tb_clients');
+
+                            $nPagina = count($queryLista->result_array());
+                            $nPagina/=30;
+                            $nPagina = ceil($nPagina);
+                            $nPagina = (int) $nPagina;
+                            $lista = 0;
+                            for ($i = 1; $i <= $nPagina; $i++) {
+                                echo "<li><a href='cliente?pagina=$lista'>{$i}</a></li>";
+                                $lista+=30;
+                            }
+                         ?>
+                    </ul>
+                </nav>
             </div><!-- /#page-wrapper -->
         </div><!-- /#wrapper -->
         <!-- JavaScript -->
@@ -133,14 +161,6 @@ else{
         <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
         <script src="http://cdn.oesmith.co.uk/morris-0.4.3.min.js"></script>
         <script src="<?= base_url() ?>js/morris/chart-data-morris.js"></script>
-        <script src="<?= base_url() ?>js/tablesorter/jquery.tablesorter.js"></script>
-        <script src="<?= base_url() ?>js/tablesorter/tables.js"></script>
-        <script src="<?= base_url() ?>js/jquery.dataTables.min.js"></script>
-        <script type="text/javascript">
-            $(document).ready(function(){
-                $('#myTable').DataTable();
-            });
-            </script>
     </body>
 </html>
 <?php

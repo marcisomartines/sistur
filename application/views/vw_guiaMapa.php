@@ -3,6 +3,9 @@
 $this->db->where('nome_user', $this->session->userdata('nome'));
 $query = $this->db->get('tb_users');
 $query = $query->result();
+if (!isset($id_tour)) {
+    $id_tour = $this->input->post('id_tour');
+}
 ?>
 <html lang="en">
     <head>
@@ -47,7 +50,7 @@ $query = $query->result();
                         <ul class="nav navbar-nav side-nav">
                             <li><a href="<?php echo base_url() . "index.php/home/" ?>"><i class="fa fa-dashboard"></i> Geral</a></li>
                             <li><a href="<?php echo base_url() . "index.php/home/reserva" ?>"><i class="fa fa-ticket"></i> Reserva</a></li>
-                            <li><a href="<?php echo base_url() . "index.php/home/cliente" ?>"><i class="fa fa-users "></i> Cliente</a></li>
+                            <li><a href="<?php echo base_url() . "index.php/home/cliente?pagina=0" ?>"><i class="fa fa-users "></i> Cliente</a></li>
                             <li><a href="<?php echo base_url() . "index.php/home/agenda?pagina=0" ?>"><i class="fa fa-calendar"></i> Agendamento</a></li>
                             <li><a href="<?php echo base_url() . "index.php/home/orcamento" ?>"><i class="fa fa-file-text-o"></i> Orçamento</a></li>
                             <li><a href="<?php echo base_url() . "index.php/home/onibus" ?>"><i class="fa fa-truck"></i> Ônibus</a></li>
@@ -101,7 +104,7 @@ $query = $query->result();
                                                                 JOIN tb_drivers ON tb_drivers.id_drivers=tb_tour.id_motorista
                                                                 JOIN tb_viagem ON tb_tour.id_viagem=tb_viagem.id_viagem
                                                                 JOIN tb_cars ON tb_cars.id_cars=tb_tour.id_car
-                                                                WHERE tb_tour.id_tour=" . $this->input->post('id_tour'));
+                                                                WHERE tb_tour.id_tour=" . $id_tour);
                                     //colocar todo as informações daqui pra baixo
                                     foreach ($query->result_array() as $row) {
                                         $dados = $row;
@@ -115,16 +118,6 @@ $query = $query->result();
                                     if ($dados['nr_poltrona'] == 52)
                                         include 'vw_guiaOnibus52.php';
                                     ?>
-<!--                                        <table>
-                                        <tr>
-                                            <td><a class="btn btn-primary" href="" onClick="window.open('<?php echo base_url() . "index.php/home/listaPassageiros?id=" . $this->input->post('id_tour') ?>', 'Janela', 'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=900,height=800,left=0,top=0');
-                                            return false;"><i class="fa fa-list"></i> Lista Passageiros</a></td>
-                                            <td> <?= form_open('home/fechamentoReserva') ?>
-                            <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                            <button type="submit" class="btn btn-success"><i class="fa fa-check"></i> Finalizar Viagem</button>
-                            </form></td>
-                                        </tr>
-                                    </table>-->
                                 </div>
                             </div>
                         </div>

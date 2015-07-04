@@ -577,7 +577,7 @@ class Home extends CI_Controller {
         if ($this->form_validation->run()) {
             $this->load->model('md_users');
             $this->md_users->addReserva();
-
+            $dados=array('id_tour'=>$this->input->post('id_tour'));
             $this->load->view('vw_guiaMapa',$dados);
         } else {
             $this->load->view('vw_guiaMapa',$dados);
