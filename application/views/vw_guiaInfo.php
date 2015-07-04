@@ -105,7 +105,7 @@ if (!isset($id_reservs)) {
                         </ol>
                     </div>
                 </div><!-- /.row -->
-                <div class="row col-sm-4">
+                <div>
                     <h1>Informações passageiro</h1>
                     <?php
                     $this->db->select('tb_reservs.id_reservs,

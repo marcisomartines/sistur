@@ -96,7 +96,7 @@ $query = $query->result();
                         </ol>
                     </div>
                 </div><!-- /.row -->
-                <div class="row col-lg-6">
+                <div>
                     <h1>Reserva passageiro</h1>
                     <div class="row">
                             <div class="col-md-2">
