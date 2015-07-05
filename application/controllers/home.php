@@ -782,6 +782,14 @@ class Home extends CI_Controller {
         }
     }
     
+    public function gerarRelatorioPassagemFinanceiro() {
+        if ($this->session->userdata('is_logged_in') == 1) {
+            $this->load->view('vw_gerarRelatorioPassagemFinanceiro');
+        } else {
+            $this->load->view('vw_login');
+        }
+    }
+    
     public function gerarRelatorioPassagem() {
         if ($this->session->userdata('is_logged_in') == 1) {
             $this->load->view('vw_gerarRelatorioPassagem');

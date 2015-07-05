@@ -152,7 +152,6 @@ else{
                     <th>Volta</th>
                     <th>Ida/Volta</th>
                     <th>Total</th>
-<!--                            <th>Valor</th>-->
                 </tr>
                 <?php
                 foreach ($query->result() as $rel) {
@@ -182,7 +181,6 @@ else{
                     echo "<td>" . $polVolta . "</td>";
                     echo "<td>" . $poltrona . "</td>";
                     echo "<td>" . $total . "</td>";
-//                            echo "<td>" . $totalPoltrona . "</td>";
                     echo '</tr>';
                 }
                 ?>

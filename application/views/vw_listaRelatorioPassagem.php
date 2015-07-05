@@ -195,7 +195,7 @@ else{
                             <th>Volta</th>
                             <th>Ida/Volta</th>
                             <th>Total</th>
-<!--                            <th>Valor</th>-->
+                            <th>Financeiro</th>
                         </tr>
                         <?php
                         foreach ($query->result() as $rel) {
@@ -225,7 +225,9 @@ else{
                             echo "<td>" . $polVolta . "</td>";
                             echo "<td>" . $poltrona . "</td>";
                             echo "<td>" . $total . "</td>";
-//                            echo "<td>" . $totalPoltrona . "</td>";
+                            ?>
+                            <td><a class="btn btn-success" href="" onClick="window.open('<?php echo base_url()."index.php/home/gerarRelatorioPassagemFinanceiro?destino=".$rel->id_tour?>', 'Janela', 'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=900,height=800,left=0,top=0'); return false;">Imprimir Relatório</a></td>
+                            <?php
                             echo '</tr>';
                         }
                         ?>
