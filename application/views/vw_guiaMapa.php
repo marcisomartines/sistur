@@ -105,18 +105,22 @@ if (!isset($id_tour)) {
                                                                 JOIN tb_viagem ON tb_tour.id_viagem=tb_viagem.id_viagem
                                                                 JOIN tb_cars ON tb_cars.id_cars=tb_tour.id_car
                                                                 WHERE tb_tour.id_tour=" . $id_tour);
-                                    //colocar todo as informações daqui pra baixo
+
                                     foreach ($query->result_array() as $row) {
                                         $dados = $row;
                                     }
-                                    if ($dados['nr_poltrona'] == 40)
+                                    if ($dados['nr_poltrona'] == '40'){
                                         include 'vw_guiaOnibus40.php';
-                                    if ($dados['nr_poltrona'] == 42)
+                                    }
+                                    if ($dados['nr_poltrona'] == '42'){
                                         include 'vw_guiaOnibus42.php';
-                                    if ($dados['nr_poltrona'] == 44)
+                                    }
+                                    if ($dados['nr_poltrona'] == '44'){
                                         include 'vw_guiaOnibus44.php';
-                                    if ($dados['nr_poltrona'] == 52)
+                                    }
+                                    if ($dados['nr_poltrona'] == '52'){
                                         include 'vw_guiaOnibus52.php';
+                                    }
                                     ?>
                                 </div>
                             </div>

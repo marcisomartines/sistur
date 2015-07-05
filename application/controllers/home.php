@@ -570,17 +570,15 @@ class Home extends CI_Controller {
     }
     public function cadastroValidacaoGuiaReserva() {
         $this->load->library('form_validation');
-
         $this->form_validation->set_rules('course', 'cliente', 'required|trim'); //cliente
         $this->form_validation->set_rules('tipo', 'tipo', 'required|trim'); //tipo de agendamento
         $this->form_validation->set_rules('nr_poltrona', 'Nr. Poltrona', 'required|trim'); //verifica se tem a poltrona
         if ($this->form_validation->run()) {
             $this->load->model('md_users');
             $this->md_users->addReserva();
-            $dados=array('id_tour'=>$this->input->post('id_tour'));
-            $this->load->view('vw_guiaMapa',$dados);
+            $this->guiaMapa();
         } else {
-            $this->load->view('vw_guiaMapa',$dados);
+            $this->load->view('vw_guiaMapa');
         }
     }
     
@@ -604,7 +602,6 @@ class Home extends CI_Controller {
         if ($this->session->userdata('is_logged_in') == 1) {
             $this->load->model('md_users');
             $this->md_users->editarReserva();
-            //$this->load->view('vw_reserva');
             $this->load->view('vw_reservaMapa');
         } else {
             $this->load->view('vw_login');

@@ -24,7 +24,7 @@ else {
             <link rel="stylesheet" href="<?= base_url() ?>font-awesome/css/font-awesome.min.css">
             <link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.4.3.min.css">
             <?php
-            $calendar = $this->db->query("SELECT tb_viagem.destino,tb_tour.data_saida,tb_tour.data_retorno from tb_tour
+            $calendar = $this->db->query("SELECT tb_viagem.destino,tb_tour.data_saida,tb_tour.data_retorno,tb_cars.codigo from tb_tour
                                                         JOIN tb_viagem ON tb_tour.id_viagem=tb_viagem.id_viagem
                                                         JOIN tb_cars ON tb_cars.id_cars=tb_tour.id_car
                                                         WHERE (tb_tour.`status`='A' OR tb_tour.`status`='F') 
@@ -32,10 +32,10 @@ else {
             $i = 0;
             foreach ($calendar->result() as $row) {
                 $saida[$i]['data'] = $row->data_saida;
-                $saida[$i]['destino'] = $row->destino;
+                $saida[$i]['destino'] = $row->destino.' - '.$row->codigo;
                 $saida[$i]['cor'] = '#009947';
                 $retorno[$i]['data'] = $row->data_retorno;
-                $retorno[$i]['destino'] = $row->destino;
+                $retorno[$i]['destino'] = $row->destino.' - '.$row->codigo;
                 $retorno[$i]['cor'] = '#FF0000';
                 $i++;
             }
@@ -100,11 +100,11 @@ else {
                     </div><!-- /.row -->
                     <div>
                         <ul class="nav nav-tabs" role="tablist">
-                            <li class="active"><a href="#listagem" role="tab" data-toggle="tab">Listagem</a></li>
-                            <li><a href="#agenda" role="tab" data-toggle="tab">Agenda</a></li>
+                            <li><a href="#listagem" role="tab" data-toggle="tab">Listagem</a></li>
+                            <li class="active"><a href="#agenda" role="tab" data-toggle="tab">Agenda</a></li>
                         </ul>
                         <div id="myTabContent" class="tab-content">
-                            <div class="tab-pane fade in active" id="listagem"><!--Listagem de agendamentos-->
+                            <div class="tab-pane fade" id="listagem"><!--Listagem de agendamentos-->
                                 <table  class="table tablesorter">
                                     <thead>
                                         <tr>
@@ -190,7 +190,7 @@ else {
                                     </ul>
                                 </nav>
                             </div><!--fim da Listagem de agendamentos-->
-                            <div class="tab-pane fade" id="agenda">
+                            <div class="tab-pane fade in active" id="agenda">
                                 <div id='calendar'></div>
                             </div>
                         </div>

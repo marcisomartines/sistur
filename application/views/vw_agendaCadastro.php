@@ -16,18 +16,14 @@ else{
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="author" content="Marciso Gonzalez Martines">
-
         <title><?=$us[0]->titulo?></title>
-
         <link href="<?= base_url() ?>css/bootstrap.css" rel="stylesheet">
         <link href="<?= base_url() ?>css/sb-admin.css" rel="stylesheet">
         <link rel="stylesheet" href="<?= base_url() ?>font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.4.3.min.css">
         <link rel="stylesheet" href="<?= base_url() ?>css/jquery-ui.css">
     </head>
-
     <body>
-
         <div id="wrapper">
             <!-- barra lateral -->
             <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
