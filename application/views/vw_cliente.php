@@ -103,7 +103,7 @@ else{
                             <th>Celular</th>
                             <th>Data Nascimento</th>
                             <th>Loc. Embarque</th>
-                            <th align="center">Ação</th>
+                            <th>Ação</th>
                         </tr>
                     </thead>
                     <?php
@@ -120,7 +120,7 @@ else{
                             <td><?= $row->celular ?></td>
                             <td><?= $data_nascimento ?></td>
                             <td><?= $row->loc_embarque ?></td>
-                            <td width='180px'><?= form_open('home/excluirCliente') ?>
+                            <td width='220px'><?= form_open('home/excluirCliente') ?>
                                 <input type="hidden" name="id_clients" value="<?= $row->id_clients ?>" />
                                 <input type="submit" class="btn btn-danger btn-xs pull-right" value="Excluir">
                                 </form><?= form_open('home/editarCliente') ?>
@@ -129,7 +129,8 @@ else{
                                 </form><?= form_open('home/detalharCliente') ?>
                                 <input type="hidden" name="id_clients" value="<?= $row->id_clients ?>" />
                                 <input type="submit" class="btn btn-success btn-xs pull-right" value="Detalhar">
-                                </form></td>
+                                </form>
+                            </td>
                         </tr>
                         <?php
                     }
