@@ -55,7 +55,7 @@
     <?php
 } else {
     ?>
-            <td class="success"><?= form_open('home/guiaInfo') ?>
+            <td class="success"><?= form_open('home/guiaReserva') ?>
                 <input type="hidden" name="nr_poltrona" value="1" />
                 <input type="hidden" name="id_tour" value="<?= $id_tour ?>" />
                 <input type="submit" class="btn btn-success btn-xs pull-right" value="01" >
@@ -115,7 +115,7 @@
             <?php
         } else {
             ?>
-            <td class="success"><?= form_open('home/guiaInfo') ?>
+            <td class="success"><?= form_open('home/guiaReserva') ?>
                 <input type="hidden" name="nr_poltrona" value="2" />
                 <input type="hidden" name="id_tour" value="<?= $id_tour ?>" />
                 <input type="submit" class="btn btn-success btn-xs pull-right" value="02">
@@ -176,7 +176,7 @@ if ($query->num_rows() > 0) {
             <?php
         } else {
             ?>
-            <td class="success"><?= form_open('home/guiaInfo') ?>
+            <td class="success"><?= form_open('home/guiaReserva') ?>
                 <input type="hidden" name="nr_poltrona" value="3" />
                 <input type="hidden" name="id_tour" value="<?= $id_tour ?>" />
                 <input type="submit" class="btn btn-success btn-xs pull-right" value="03">
@@ -238,7 +238,7 @@ if ($query->num_rows() > 0) {
     <?php
 } else {
     ?>
-            <td class="success"><?= form_open('home/guiaInfo') ?>
+            <td class="success"><?= form_open('home/guiaReserva') ?>
                 <input type="hidden" name="nr_poltrona" value="5" />
                 <input type="hidden" name="id_tour" value="<?= $id_tour ?>" />
                 <input type="submit" class="btn btn-success btn-xs pull-right" value="05">
@@ -298,7 +298,7 @@ if ($query->num_rows() > 0) {
                 <?php
             } else {
                 ?>
-            <td class="success"><?= form_open('home/guiaInfo') ?>
+            <td class="success"><?= form_open('home/guiaReserva') ?>
                 <input type="hidden" name="nr_poltrona" value="4" />
                 <input type="hidden" name="id_tour" value="<?= $id_tour ?>" />
                 <input type="submit" class="btn btn-success btn-xs pull-right" value="04">
@@ -358,7 +358,7 @@ if ($query->num_rows() > 0) {
     <?php
 } else {
     ?>
-            <td class="success"><?= form_open('home/guiaInfo') ?>
+            <td class="success"><?= form_open('home/guiaReserva') ?>
                 <input type="hidden" name="nr_poltrona" value="6" />
                 <input type="hidden" name="id_tour" value="<?= $id_tour ?>" />
                 <input type="submit" class="btn btn-success btn-xs pull-right" value="06">
@@ -420,7 +420,7 @@ if ($query->num_rows() > 0) {
     <?php
 } else {
     ?>
-            <td class="success"><?= form_open('home/guiaInfo') ?>
+            <td class="success"><?= form_open('home/guiaReserva') ?>
                 <input type="hidden" name="nr_poltrona" value="7" />
                 <input type="hidden" name="id_tour" value="<?= $id_tour ?>" />
                 <input type="submit" class="btn btn-success btn-xs pull-right" value="07">
@@ -480,7 +480,7 @@ if ($query->num_rows() > 0) {
                 <?php
             } else {
                 ?>
-            <td class="success"><?= form_open('home/guiaInfo') ?>
+            <td class="success"><?= form_open('home/guiaReserva') ?>
                 <input type="hidden" name="nr_poltrona" value="8" />
                 <input type="hidden" name="id_tour" value="<?= $id_tour ?>" />
                 <input type="submit" class="btn btn-success btn-xs pull-right" value="08">
@@ -542,7 +542,7 @@ if ($query->num_rows() > 0) {
     <?php
 } else {
     ?>
-            <td class="success"><?= form_open('home/guiaInfo') ?>
+            <td class="success"><?= form_open('home/guiaReserva') ?>
                 <input type="hidden" name="nr_poltrona" value="9" />
                 <input type="hidden" name="id_tour" value="<?= $id_tour ?>" />
                 <input type="submit" class="btn btn-success btn-xs pull-right" value="09">
@@ -601,7 +601,7 @@ if ($query->num_rows() > 0) {
     <?php
 } else {
     ?>
-            <td class="success"><?= form_open('home/guiaInfo') ?>
+            <td class="success"><?= form_open('home/guiaReserva') ?>
                 <input type="hidden" name="nr_poltrona" value="10" />
                 <input type="hidden" name="id_tour" value="<?= $id_tour ?>" />
                 <input type="submit" class="btn btn-success btn-xs pull-right" value="10">
@@ -661,7 +661,7 @@ if ($query->num_rows() > 0) {
             <?php
         } else {
             ?>
-            <td class="success"><?= form_open('home/guiaInfo') ?>
+            <td class="success"><?= form_open('home/guiaReserva') ?>
                 <input type="hidden" name="nr_poltrona" value="13" />
                 <input type="hidden" name="id_tour" value="<?= $id_tour ?>" />
                 <input type="submit" class="btn btn-success btn-xs pull-right" value="13">
@@ -723,7 +723,7 @@ if ($query->num_rows() > 0) {
     <?php
 } else {
     ?>
-            <td class="success"><?= form_open('home/guiaInfo') ?>
+            <td class="success"><?= form_open('home/guiaReserva') ?>
                 <input type="hidden" name="nr_poltrona" value="11" />
                 <input type="hidden" name="id_tour" value="<?= $id_tour ?>" />
                 <input type="submit" class="btn btn-success btn-xs pull-right" value="11">
@@ -783,7 +783,7 @@ if ($query->num_rows() > 0) {
                 <?php
             } else {
                 ?>
-            <td class="success"><?= form_open('home/guiaInfo') ?>
+            <td class="success"><?= form_open('home/guiaReserva') ?>
                 <input type="hidden" name="nr_poltrona" value="12" />
                 <input type="hidden" name="id_tour" value="<?= $id_tour ?>" />
                 <input type="submit" class="btn btn-success btn-xs pull-right" value="12">
@@ -843,7 +843,7 @@ if ($query->num_rows() > 0) {
     <?php
 } else {
     ?>
-            <td class="success"><?= form_open('home/guiaInfo') ?>
+            <td class="success"><?= form_open('home/guiaReserva') ?>
                 <input type="hidden" name="nr_poltrona" value="16" />
                 <input type="hidden" name="id_tour" value="<?= $id_tour ?>" />
                 <input type="submit" class="btn btn-success btn-xs pull-right" value="16">
@@ -905,7 +905,7 @@ if ($query->num_rows() > 0) {
     <?php
 } else {
     ?>
-            <td class="success"><?= form_open('home/guiaInfo') ?>
+            <td class="success"><?= form_open('home/guiaReserva') ?>
                 <input type="hidden" name="nr_poltrona" value="14" />
                 <input type="hidden" name="id_tour" value="<?= $id_tour ?>" />
                 <input type="submit" class="btn btn-success btn-xs pull-right" value="14">
@@ -965,7 +965,7 @@ if ($query->num_rows() > 0) {
                 <?php
             } else {
                 ?>
-            <td class="success"><?= form_open('home/guiaInfo') ?>
+            <td class="success"><?= form_open('home/guiaReserva') ?>
                 <input type="hidden" name="nr_poltrona" value="15" />
                 <input type="hidden" name="id_tour" value="<?= $id_tour ?>" />
                 <input type="submit" class="btn btn-success btn-xs pull-right" value="15">
@@ -1025,7 +1025,7 @@ if ($query->num_rows() > 0) {
             <?php
         } else {
             ?>
-            <td class="success"><?= form_open('home/guiaInfo') ?>
+            <td class="success"><?= form_open('home/guiaReserva') ?>
                 <input type="hidden" name="nr_poltrona" value="19" />
                 <input type="hidden" name="id_tour" value="<?= $id_tour ?>" />
                 <input type="submit" class="btn btn-success btn-xs pull-right" value="19">
@@ -1087,7 +1087,7 @@ if ($query->num_rows() > 0) {
             <?php
         } else {
             ?>
-            <td class="success"><?= form_open('home/guiaInfo') ?>
+            <td class="success"><?= form_open('home/guiaReserva') ?>
                 <input type="hidden" name="nr_poltrona" value="17" />
                 <input type="hidden" name="id_tour" value="<?= $id_tour ?>" />
                 <input type="submit" class="btn btn-success btn-xs pull-right" value="17">
@@ -1147,7 +1147,7 @@ if ($query->num_rows() > 0) {
             <?php
         } else {
             ?>
-            <td class="success"><?= form_open('home/guiaInfo') ?>
+            <td class="success"><?= form_open('home/guiaReserva') ?>
                 <input type="hidden" name="nr_poltrona" value="18" />
                 <input type="hidden" name="id_tour" value="<?= $id_tour ?>" />
                 <input type="submit" class="btn btn-success btn-xs pull-right" value="18">
@@ -1207,7 +1207,7 @@ if ($query->num_rows() > 0) {
                 <?php
             } else {
                 ?>
-            <td class="success"><?= form_open('home/guiaInfo') ?>
+            <td class="success"><?= form_open('home/guiaReserva') ?>
                 <input type="hidden" name="nr_poltrona" value="22" />
                 <input type="hidden" name="id_tour" value="<?= $id_tour ?>" />
                 <input type="submit" class="btn btn-success btn-xs pull-right" value="22">
@@ -1269,7 +1269,7 @@ if ($query->num_rows() > 0) {
     <?php
 } else {
     ?>
-            <td class="success"><?= form_open('home/guiaInfo') ?>
+            <td class="success"><?= form_open('home/guiaReserva') ?>
                 <input type="hidden" name="nr_poltrona" value="21" />
                 <input type="hidden" name="id_tour" value="<?= $id_tour ?>" />
                 <input type="submit" class="btn btn-success btn-xs pull-right" value="21">
@@ -1329,7 +1329,7 @@ if ($query->num_rows() > 0) {
                 <?php
             } else {
                 ?>
-            <td class="success"><?= form_open('home/guiaInfo') ?>
+            <td class="success"><?= form_open('home/guiaReserva') ?>
                 <input type="hidden" name="nr_poltrona" value="20" />
                 <input type="hidden" name="id_tour" value="<?= $id_tour ?>" />
                 <input type="submit" class="btn btn-success btn-xs pull-right" value="20">
@@ -1389,7 +1389,7 @@ if ($query->num_rows() > 0) {
                 <?php
             } else {
                 ?>
-            <td class="success"><?= form_open('home/guiaInfo') ?>
+            <td class="success"><?= form_open('home/guiaReserva') ?>
                 <input type="hidden" name="nr_poltrona" value="25" />
                 <input type="hidden" name="id_tour" value="<?= $id_tour ?>" />
                 <input type="submit" class="btn btn-success btn-xs pull-right" value="25">
@@ -1451,7 +1451,7 @@ if ($query->num_rows() > 0) {
     <?php
 } else {
     ?>
-            <td class="success"><?= form_open('home/guiaInfo') ?>
+            <td class="success"><?= form_open('home/guiaReserva') ?>
                 <input type="hidden" name="nr_poltrona" value="23" />
                 <input type="hidden" name="id_tour" value="<?= $id_tour ?>" />
                 <input type="submit" class="btn btn-success btn-xs pull-right" value="23">
@@ -1511,7 +1511,7 @@ if ($query->num_rows() > 0) {
                 <?php
             } else {
                 ?>
-            <td class="success"><?= form_open('home/guiaInfo') ?>
+            <td class="success"><?= form_open('home/guiaReserva') ?>
                 <input type="hidden" name="nr_poltrona" value="24" />
                 <input type="hidden" name="id_tour" value="<?= $id_tour ?>" />
                 <input type="submit" class="btn btn-success btn-xs pull-right" value="24">
@@ -1571,7 +1571,7 @@ if ($query->num_rows() > 0) {
     <?php
 } else {
     ?>
-            <td class="success"><?= form_open('home/guiaInfo') ?>
+            <td class="success"><?= form_open('home/guiaReserva') ?>
                 <input type="hidden" name="nr_poltrona" value="28" />
                 <input type="hidden" name="id_tour" value="<?= $id_tour ?>" />
                 <input type="submit" class="btn btn-success btn-xs pull-right" value="28">
@@ -1633,7 +1633,7 @@ if ($query->num_rows() > 0) {
             <?php
         } else {
             ?>
-            <td class="success"><?= form_open('home/guiaInfo') ?>
+            <td class="success"><?= form_open('home/guiaReserva') ?>
                 <input type="hidden" name="nr_poltrona" value="27" />
                 <input type="hidden" name="id_tour" value="<?= $id_tour ?>" />
                 <input type="submit" class="btn btn-success btn-xs pull-right" value="27">
@@ -1693,7 +1693,7 @@ if ($query->num_rows() > 0) {
     <?php
 } else {
     ?>
-            <td class="success"><?= form_open('home/guiaInfo') ?>
+            <td class="success"><?= form_open('home/guiaReserva') ?>
                 <input type="hidden" name="nr_poltrona" value="26" />
                 <input type="hidden" name="id_tour" value="<?= $id_tour ?>" />
                 <input type="submit" class="btn btn-success btn-xs pull-right" value="26">
@@ -1753,7 +1753,7 @@ if ($query->num_rows() > 0) {
             <?php
         } else {
             ?>
-            <td class="success"><?= form_open('home/guiaInfo') ?>
+            <td class="success"><?= form_open('home/guiaReserva') ?>
                 <input type="hidden" name="nr_poltrona" value="31" />
                 <input type="hidden" name="id_tour" value="<?= $id_tour ?>" />
                 <input type="submit" class="btn btn-success btn-xs pull-right" value="31">
@@ -1815,7 +1815,7 @@ if ($query->num_rows() > 0) {
                 <?php
             } else {
                 ?>
-            <td class="success"><?= form_open('home/guiaInfo') ?>
+            <td class="success"><?= form_open('home/guiaReserva') ?>
                 <input type="hidden" name="nr_poltrona" value="29" />
                 <input type="hidden" name="id_tour" value="<?= $id_tour ?>" />
                 <input type="submit" class="btn btn-success btn-xs pull-right" value="29">
@@ -1875,7 +1875,7 @@ if ($query->num_rows() > 0) {
     <?php
 } else {
     ?>
-            <td class="success"><?= form_open('home/guiaInfo') ?>
+            <td class="success"><?= form_open('home/guiaReserva') ?>
                 <input type="hidden" name="nr_poltrona" value="30" />
                 <input type="hidden" name="id_tour" value="<?= $id_tour ?>" />
                 <input type="submit" class="btn btn-success btn-xs pull-right" value="30">
@@ -1946,7 +1946,7 @@ if ($query->num_rows() > 0) {
     <?php
 } else {
     ?>
-            <td class="success"><?= form_open('home/guiaInfo') ?>
+            <td class="success"><?= form_open('home/guiaReserva') ?>
                 <input type="hidden" name="nr_poltrona" value="33" />
                 <input type="hidden" name="id_tour" value="<?= $id_tour ?>" />
                 <input type="submit" class="btn btn-success btn-xs pull-right" value="33">
@@ -2006,7 +2006,7 @@ if ($query->num_rows() > 0) {
                 <?php
             } else {
                 ?>
-            <td class="success"><?= form_open('home/guiaInfo') ?>
+            <td class="success"><?= form_open('home/guiaReserva') ?>
                 <input type="hidden" name="nr_poltrona" value="32" />
                 <input type="hidden" name="id_tour" value="<?= $id_tour ?>" />
                 <input type="submit" class="btn btn-success btn-xs pull-right" value="32">
@@ -2066,7 +2066,7 @@ if ($query->num_rows() > 0) {
             <?php
         } else {
             ?>
-            <td class="success"><?= form_open('home/guiaInfo') ?>
+            <td class="success"><?= form_open('home/guiaReserva') ?>
                 <input type="hidden" name="nr_poltrona" value="34" />
                 <input type="hidden" name="id_tour" value="<?= $id_tour ?>" />
                 <input type="submit" class="btn btn-success btn-xs pull-right" value="34">
@@ -2128,7 +2128,7 @@ if ($query->num_rows() > 0) {
             <?php
         } else {
             ?>
-            <td class="success"><?= form_open('home/guiaInfo') ?>
+            <td class="success"><?= form_open('home/guiaReserva') ?>
                 <input type="hidden" name="nr_poltrona" value="35" />
                 <input type="hidden" name="id_tour" value="<?= $id_tour ?>" />
                 <input type="submit" class="btn btn-success btn-xs pull-right" value="35">
@@ -2188,7 +2188,7 @@ if ($query->num_rows() > 0) {
     <?php
 } else {
     ?>
-            <td class="success"><?= form_open('home/guiaInfo') ?>
+            <td class="success"><?= form_open('home/guiaReserva') ?>
                 <input type="hidden" name="nr_poltrona" value="36" />
                 <input type="hidden" name="id_tour" value="<?= $id_tour ?>" />
                 <input type="submit" class="btn btn-success btn-xs pull-right" value="36">
@@ -2248,7 +2248,7 @@ if ($query->num_rows() > 0) {
     <?php
 } else {
     ?>
-            <td class="success"><?= form_open('home/guiaInfo') ?>
+            <td class="success"><?= form_open('home/guiaReserva') ?>
                 <input type="hidden" name="nr_poltrona" value="37" />
                 <input type="hidden" name="id_tour" value="<?= $id_tour ?>" />
                 <input type="submit" class="btn btn-success btn-xs pull-right" value="37">
@@ -2310,7 +2310,7 @@ if ($query->num_rows() > 0) {
     <?php
 } else {
     ?>
-            <td class="success"><?= form_open('home/guiaInfo') ?>
+            <td class="success"><?= form_open('home/guiaReserva') ?>
                 <input type="hidden" name="nr_poltrona" value="39" />
                 <input type="hidden" name="id_tour" value="<?= $id_tour ?>" />
                 <input type="submit" class="btn btn-success btn-xs pull-right" value="39">
@@ -2370,7 +2370,7 @@ if ($query->num_rows() > 0) {
     <?php
 } else {
     ?>
-            <td class="success"><?= form_open('home/guiaInfo') ?>
+            <td class="success"><?= form_open('home/guiaReserva') ?>
                 <input type="hidden" name="nr_poltrona" value="38" />
                 <input type="hidden" name="id_tour" value="<?= $id_tour ?>" />
                 <input type="submit" class="btn btn-success btn-xs pull-right" value="38">
@@ -2430,7 +2430,7 @@ if ($query->num_rows() > 0) {
     <?php
 } else {
     ?>
-            <td class="success"><?= form_open('home/guiaInfo') ?>
+            <td class="success"><?= form_open('home/guiaReserva') ?>
                 <input type="hidden" name="nr_poltrona" value="40" />
                 <input type="hidden" name="id_tour" value="<?= $id_tour ?>" />
                 <input type="submit" class="btn btn-success btn-xs pull-right" value="40">
