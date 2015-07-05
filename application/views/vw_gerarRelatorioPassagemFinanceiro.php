@@ -90,8 +90,8 @@ else{
                 }
                 ?>
                 <tr>
-                    <td colspan="2"><strong>Total</strong></td>
-                    <td><?=$total?></td>
+                    <td colspan="2"><strong class="pull-right">Total</strong></td>
+                    <td>R$<?=$total?></td>
                 </tr>
             </table>
             <br>
