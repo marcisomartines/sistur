@@ -282,6 +282,7 @@ class Md_users extends CI_Model {
         $this->db->where('id_tour', $this->input->post('id_tour'));
         $this->db->where('tipo', $this->input->post('tipo'));
         $this->db->where('nr_poltrona', $this->input->post('nr_poltrona'));
+        $this->db->where('status','C');
         $val = $this->db->get('tb_reservs');
         if ($val->num_rows() == 0) {
             $query = $this->db->query("SELECT * FROM tb_clients WHERE nome='" . $this->input->post('course') . "'");
