@@ -91,7 +91,7 @@ else{
                             <td>                    
                                 <?= form_dropdown('id_viagem', $opcao2, $this->input->post('id_viagem'), 'class=form-control') ?>
                             </td>
-                            <td>&nbsp;<?=form_label('Ano:')?></td>
+<!--                            <td>&nbsp;<?=form_label('Ano:')?></td>
                             <td>
                                 <?php
                                 //seleciona os anos que possuem lancamentos de reservas
@@ -106,8 +106,8 @@ else{
                                     }
                                     echo form_dropdown('ano',$opcao3,$this->input->post('ano'),'class=form-control id="ano"');
                                 ?>
-                            </td>
-                            <td>
+                            </td>-->
+<!--                            <td>
                                 <?php
                                 $query = $this->db->get('tb_clients');
                                 $opcao[] = '';
@@ -128,7 +128,7 @@ else{
                             </td>
                             <td>                    
                                 <?= form_dropdown('mes', $opcao, $this->input->post('mes'), 'class=form-control id="mes"') ?>
-                            </td>
+                            </td>-->
                         </tr>
                     </table>
                     <br>

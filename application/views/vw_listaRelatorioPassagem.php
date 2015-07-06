@@ -91,8 +91,8 @@ else{
                             <td>                    
                                 <?= form_dropdown('id_viagem', $opcao2, $this->input->post('id_viagem'), 'class=form-control') ?>
                             </td>
-                            <td>&nbsp;<?=form_label('Ano:')?></td>
-                            <td>
+<!--                            <td>&nbsp;<?=form_label('Ano:')?></td>-->
+<!--                            <td>
                                 <?php
                                 //seleciona os anos que possuem lancamentos de reservas
                                     $this->db->select('YEAR(tb_tour.data_saida) as ano');
@@ -106,8 +106,8 @@ else{
                                     }
                                     echo form_dropdown('ano',$opcao3,$this->input->post('ano'),'class=form-control id="ano"');
                                 ?>
-                            </td>
-                            <td>
+                            </td>-->
+<!--                            <td>
                                 <?php
                                 $query = $this->db->get('tb_clients');
                                 $opcao[] = '';
@@ -125,10 +125,10 @@ else{
                                 $opcao[12] = 'Dezembro';
                                 echo form_label('Mês: ');
                                 ?>
-                            </td>
-                            <td>                    
+                            </td>-->
+<!--                            <td>                    
                                 <?= form_dropdown('mes', $opcao, $this->input->post('mes'), 'class=form-control id="mes"') ?>
-                            </td>
+                            </td>-->
                         </tr>
                     </table>
                     <br>
@@ -145,7 +145,7 @@ else{
                         $this->db->select('*');
                         $this->db->from('tb_tour');
                         $this->db->join('tb_viagem','tb_viagem.id_viagem=tb_tour.id_viagem');
-                        $this->db->order_by('tb_tour.data_saida');
+                        $this->db->order_by('tb_tour.data_saida','DESC');
                         $query = $this->db->get();
                     }
                     if (!empty($destino) and empty($ano) and empty($mes)) {//busca por destino
@@ -153,7 +153,7 @@ else{
                         $this->db->from('tb_tour');
                         $this->db->join('tb_viagem','tb_viagem.id_viagem=tb_tour.id_viagem');
                         $this->db->where('tb_viagem.id_viagem',$destino);
-                        $this->db->order_by('tb_tour.data_saida');
+                        $this->db->order_by('tb_tour.data_saida','DESC');
                         $query = $this->db->get();
                     }
                     
@@ -162,7 +162,7 @@ else{
                         $this->db->from('tb_tour');
                         $this->db->join('tb_viagem','tb_viagem.id_viagem=tb_tour.id_viagem');
                         $this->db->where('YEAR(tb_tour.data_saida)',$ano);
-                        $this->db->order_by('tb_tour.data_saida');
+                        $this->db->order_by('tb_tour.data_saida','DESC');
                         $query = $this->db->get();
                     }
                     if (!empty($destino) and !empty($ano) and empty($mes)) {//busca por destino em um ano
@@ -171,7 +171,7 @@ else{
                         $this->db->join('tb_viagem','tb_viagem.id_viagem=tb_tour.id_viagem');
                         $this->db->where('tb_viagem.id_viagem',$destino);
                         $this->db->where('YEAR(tb_tour.data_saida)',$ano);
-                        $this->db->order_by('tb_tour.data_saida');
+                        $this->db->order_by('tb_tour.data_saida','DESC');
                         $query = $this->db->get();
                     }
                     if (!empty($destino) and !empty($ano) and !empty($mes)) {//busca por um destino em um ano e mes
@@ -181,7 +181,7 @@ else{
                         $this->db->where('tb_viagem.id_viagem',$destino);
                         $this->db->where('MONTH(tb_tour.data_saida)',$mes);
                         $this->db->where('YEAR(tb_tour.data_saida)',$ano);
-                        $this->db->order_by('tb_tour.data_saida');
+                        $this->db->order_by('tb_tour.data_saida','DESC');
                         $query = $this->db->get();
                     }
                     ?>
