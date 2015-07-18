@@ -5,6 +5,13 @@ $lusuario = array('class' => 'form-control');
 $this->db->where('nome_user', $this->session->userdata('nome'));
 $query = $this->db->get('tb_users');
 $query = $query->result();
+if ($this->input->post('course')) {
+    $this->db->where('nome',$this->input->post('course'));
+    $cliente=$this->db->get('tb_clients')->result_array();
+    $id_clients=$cliente[0]['id_clients'];
+}else{
+    $id_clients=$this->input->post('id_clients');
+}
 if($query[0]->tipo > 0)
     redirect('/home/guiaLista');
 else{
@@ -87,7 +94,7 @@ else{
                 <div class="row col-sm-4">
                     <h3>Detalhar Cliente</h3>
                     <?php
-                    $this->db->where('id_clients', $this->input->post('id_clients'));
+                    $this->db->where('id_clients', $id_clients);
                     $query = $this->db->get('tb_clients');
                     foreach ($query->result_array() as $row) {
                         $clienteDados = $row;
@@ -98,7 +105,7 @@ else{
                     ?>
                     <table class="table table-striped">
                         <tr>
-                            <th>Nome: </th>
+                            <th>Nome:</th>
                             <td><?= $clienteDados['nome'] ?></td>
                         </tr>
                         <tr>
@@ -154,7 +161,7 @@ else{
                         <tr>
                             <td><a href="<?php echo base_url() . "index.php/home/cliente" ?>" class="btn btn-primary" role="button">Voltar</a></td>
                             <td><?= form_open('home/editarCliente') ?>
-                                <input type="hidden" name="id_clients" value="<?= $this->input->post('id_clients') ?>" />
+                                <input type="hidden" name="id_clients" value="<?= $id_clients ?>" />
                                 <input type="submit" class="btn btn-warning" value="Editar">
                                 </form></td>
                         </tr>
@@ -242,9 +249,9 @@ else{
                     </table>
                     <table>
                         <tr>
-                            <td><a href="<?php echo base_url() . "index.php/home/cliente" ?>" class="btn btn-primary" role="button">Voltar</a></td>
+                            <td><a href="<?php echo base_url() . "index.php/home/cliente?pagina=0" ?>" class="btn btn-primary" role="button">Voltar</a></td>
                             <td><?= form_open('home/editarCliente') ?>
-                                <input type="hidden" name="id_clients" value="<?= $this->input->post('id_clients') ?>" />
+                                <input type="hidden" name="id_clients" value="<?= $id_clients ?>" />
                                 <input type="submit" class="btn btn-warning" value="Editar">
                                 </form></td>
                         </tr>

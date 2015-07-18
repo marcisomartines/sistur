@@ -83,17 +83,29 @@ else{
                         </ol>
                     </div>
                 </div><!-- /.row -->
+                <div class="row">
+                    <div class="col-md-3">
                 <?php
-                    echo form_open('home/cadastroValidacaoGuiaReserva');
+                    echo form_open('home/detalharCliente');
                     $query = $this->db->get('tb_clients');
                     $cliente[] = '';
                     foreach ($query->result() as $clt) {
                         $cliente[$clt->id_clients] = $clt->nome;
                     }
-                    echo form_label("Cliente:");
                     include 'teste.php';
+                    ?>
+                    </div>
+                    <div class="col-md-3">   
+                    <?php
+                    echo form_button(array(
+                        "class"=>"btn btn-primary",
+                        "content"=>"<i class='fa fa-search'></i> Pesquisar",
+                        "type"=>"submit"
+                    ));
                     echo form_close();
                 ?>
+                    </div>
+                </div>
                 <table class="table tablesorter table-striped">
                     <thead>
                         <tr>
@@ -156,12 +168,18 @@ else{
             </div><!-- /#page-wrapper -->
         </div><!-- /#wrapper -->
         <!-- JavaScript -->
-        <script src="<?= base_url() ?>js/jquery-1.10.2.js"></script>
-        <script src="<?= base_url() ?>js/bootstrap.js"></script>
+<!--<script src="<?= base_url() ?>js/jquery-1.10.2.js"></script>-->
+        <script type='text/javascript' src="<?= base_url() ?>js/jquery-1.11.1.js"></script>
+        <script type='text/javascript' src="<?= base_url() ?>js/bootstrap.js"></script>
         <!-- Page Specific Plugins -->
         <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
         <script src="http://cdn.oesmith.co.uk/morris-0.4.3.min.js"></script>
         <script src="<?= base_url() ?>js/morris/chart-data-morris.js"></script>
+        <script type='text/javascript' src="<?= base_url() ?>js/jquery-ui.js"></script>
+<!--        <script src="<?= base_url() ?>js/funcao.js"></script>
+        
+        <script src="<?= base_url() ?>js/jquery.autocomplete.js"></script>
+        <script src="<?= base_url() ?>js/jquery.mask.min.js"></script>-->
     </body>
 </html>
 <?php

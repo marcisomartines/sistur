@@ -61,7 +61,7 @@ $query = $query->result();
                 $poltrona=1;
                 $count=0;//contador
                 while($count < $result->nr_poltrona){
-                    $this->db->select('tb_reservs.nr_poltrona,tb_clients.nome,tb_clients.celular,tb_clients.loc_embarque as embarquec, 
+                    $this->db->select('tb_reservs.nr_poltrona,tb_clients.nome,tb_clients.celular,tb_clients.telefone,tb_clients.loc_embarque as embarquec, 
                                        tb_reservs.loc_embarque as embarquer,tb_reservs.tipo,tb_clients.rg,tb_clients.telefone,
                                        tb_cars.nr_poltrona as total_poltronas');
                     $this->db->from('tb_reservs');
@@ -77,7 +77,7 @@ $query = $query->result();
                         ?>
                         <tr>
                         <td><?php if (!empty($row->nr_poltrona)) echo $row->nr_poltrona; ?></td>
-                        <td><?php if (!empty($row->nome)) echo $row->nome; ?> / RG:<?php if (!empty($row->rg)) echo $row->rg; ?> / Cel.:<?php if (!empty($row->celular)) echo $row->celular; ?> / Loc. Embarque:<?php if (!empty($row->embarquer)) echo $row->embarquer;
+                        <td><?php if (!empty($row->nome)) echo $row->nome; ?> / RG:<?php if (!empty($row->rg)) echo $row->rg; ?> /Tel.: <?php if (!empty($row->telefone)) echo $row->telefone; ?> / Cel.:<?php if (!empty($row->celular)) echo $row->celular; ?> / Loc. Embarque:<?php if (!empty($row->embarquer)) echo $row->embarquer;
                                 else if (!empty($row->embarquec)) echo $row->embarquec; ?> <?php if($row->tipo=='i') echo '<span class="badge">IDA</span>'; if($row->tipo=='v') echo '<span class="badge">VOLTA</span>'; ?></td>
                     </tr>
                         <?php
