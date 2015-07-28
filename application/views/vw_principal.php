@@ -91,14 +91,14 @@ else {
                                     <div class="list-group">
                                         <table class="table table-bordered table-hover table-striped">
                                             <?php
-                                            $this->db->select('*');
-                                            $this->db->from('tb_tour');
-                                            $this->db->join('tb_viagem','tb_tour.id_viagem=tb_viagem.id_viagem');
-                                            $this->db->join('tb_cars','tb_cars.id_cars=tb_tour.id_car');
-                                            $this->db->where('tb_tour.status','A');
-                                            $this->db->where("(tb_tour.tipo='v' OR tb_tour.tipo='t' OR tb_tour.tipo='e' OR tb_tour.tipo='f')");
-                                            $this->db->order_by('tb_tour.id_viagem,tb_tour.data_saida','ASC');
-                                            $query=$this->db->get();
+                                            $query=$this->db->select('*')
+                                                        ->from('tb_tour')
+                                                        ->join('tb_viagem','tb_tour.id_viagem=tb_viagem.id_viagem')
+                                                        ->join('tb_cars','tb_cars.id_cars=tb_tour.id_car')
+                                                        ->where('tb_tour.status','A')
+                                                        ->where("(tb_tour.tipo='v' OR tb_tour.tipo='t' OR tb_tour.tipo='e' OR tb_tour.tipo='f')")
+                                                        ->order_by('tb_tour.id_viagem,tb_tour.data_saida','ASC')
+                                                        ->get();
 
                                             foreach ($query->result() as $row) {
                                                 if(!strpos($row->destino,'PAULO')){
@@ -168,14 +168,14 @@ else {
                                     <div class="list-group">
                                         <table class="table table-bordered table-hover table-striped">
                                             <?php
-                                            $this->db->select('*');
-                                            $this->db->from('tb_tour');
-                                            $this->db->join('tb_viagem','tb_tour.id_viagem=tb_viagem.id_viagem');
-                                            $this->db->join('tb_cars','tb_cars.id_cars=tb_tour.id_car');
-                                            $this->db->where('tb_tour.status','A');
-                                            $this->db->where("(tb_tour.tipo='v' OR tb_tour.tipo='t' OR tb_tour.tipo='e' OR tb_tour.tipo='f')");
-                                            $this->db->order_by('tb_tour.id_viagem,tb_tour.data_saida','ASC');
-                                            $query=$this->db->get();
+                                            $query=$this->db->select('*')
+                                                            ->from('tb_tour')
+                                                            ->join('tb_viagem','tb_tour.id_viagem=tb_viagem.id_viagem')
+                                                            ->join('tb_cars','tb_cars.id_cars=tb_tour.id_car')
+                                                            ->where('tb_tour.status','A')
+                                                            ->where("(tb_tour.tipo='v' OR tb_tour.tipo='t' OR tb_tour.tipo='e' OR tb_tour.tipo='f')")
+                                                            ->order_by('tb_tour.id_viagem,tb_tour.data_saida','ASC')
+                                                            ->get();
 
                                             foreach ($query->result() as $row) {
                                                 if(strpos($row->destino,'PAULO')){
@@ -268,12 +268,12 @@ else {
                 // Chart data records -- each entry in this array corresponds to a point on
                 // the chart.
                 data: [<?php
-                      $this->db->select('MONTH(tb_tour.data_saida) as mes,COUNT(*) as vendas');
-                      $this->db->from('tb_reservs');
-                      $this->db->join('tb_tour','tb_tour.id_tour=tb_reservs.id_tour');
-                      $this->db->where('YEAR(tb_tour.data_saida)=YEAR(CURDATE())');
-                      $this->db->group_by('MONTH(tb_tour.data_saida)');
-                      $query=$this->db->get();
+                      $query=$this->db->select('MONTH(tb_tour.data_saida) as mes,COUNT(*) as vendas')
+                                        ->from('tb_reservs')
+                                        ->join('tb_tour','tb_tour.id_tour=tb_reservs.id_tour')
+                                        ->where('YEAR(tb_tour.data_saida)=YEAR(CURDATE())')
+                                        ->group_by('MONTH(tb_tour.data_saida)')
+                                        ->get();
                     foreach($query->result() as $graf){
                         echo "{month: '$graf->mes',value: $graf->vendas},";
                     }
