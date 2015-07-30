@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <?php
-$pagina= $_REQUEST['pagina'];
+if(isset($_REQUEST['pagina']))
+{
+    $pagina= $_REQUEST['pagina'];
+}else{
+    $pagina=0;
+}
 $this->db->where('nome_user', $this->session->userdata('nome'));
 $query = $this->db->get('tb_users');
 $query = $query->result();

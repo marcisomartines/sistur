@@ -24,7 +24,7 @@ class Md_users extends CI_Model {
             'celular'       => $this->input->post('celular'),
             'tipo'          => $this->input->post('tipo'),
             'status'        => 'A',
-            'empresa'       => 'Seriema Turismo',
+            'empresa'       => 'Pantanal Sul - Turismo',
             'titulo'        => 'SISTUR - Sistema de Turismo e Reserva de Passagem'
         );
         $this->db->insert('tb_users', $data);

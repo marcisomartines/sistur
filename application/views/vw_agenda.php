@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <?php
-$pagina= $_REQUEST['pagina'];
+if(isset($_REQUEST['pagina']))
+{
+    $pagina= $_REQUEST['pagina'];
+}else{
+    $pagina=0;
+}
 $this->db->where('nome_user', $this->session->userdata('nome'));
 $query = $this->db->get('tb_users');
 $query = $query->result();
@@ -46,7 +51,7 @@ else {
                 <!-- barra lateral -->
                 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 
-                    <div class="navbar-header">
+                      <div class="navbar-header">
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
