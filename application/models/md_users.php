@@ -166,8 +166,7 @@ class Md_users extends CI_Model {
             'observacao' => strtoupper($this->input->post('observacao')),
             'status' => $this->input->post('status')
         );
-        $this->db->where('id_tour', $this->input->post('id_tour'));
-        $this->db->update('tb_tour', $data);
+        $this->db->where('id_tour', $this->input->post('id_tour'))->update('tb_tour', $data);
     }
 
     public function editarMotorista() {
@@ -188,8 +187,7 @@ class Md_users extends CI_Model {
             'observacao'        => strtoupper($this->input->post('observacao')),
             'status'            => $this->input->post('status')
         );
-        $this->db->where('id_drivers', $this->input->post('id_drivers'));
-        $this->db->update('tb_drivers', $data);
+        $this->db->where('id_drivers', $this->input->post('id_drivers'))->update('tb_drivers', $data);
     }
 
     public function editarOnibus() {
@@ -216,8 +214,7 @@ class Md_users extends CI_Model {
             'valorkm'               => $this->input->post('valorkm'),
             'observacao'            => strtoupper($this->input->post('observacao'))
         );
-        $this->db->where('id_cars', $this->input->post('id_cars'));
-        $this->db->update('tb_cars', $data);
+        $this->db->where('id_cars', $this->input->post('id_cars'))->update('tb_cars', $data);
     }
 
     public function editarCliente() {
@@ -235,8 +232,7 @@ class Md_users extends CI_Model {
             'loc_embarque'      => strtoupper($this->input->post('loc_embarque')),
             'observacao'        => strtoupper($this->input->post('observacao'))
         );
-        $this->db->where('id_clients', $this->input->post('id_clients'));
-        $this->db->update('tb_clients', $data);
+        $this->db->where('id_clients', $this->input->post('id_clients'))->update('tb_clients', $data);
     }
     
     public function editarClienteJuridico(){
@@ -259,8 +255,7 @@ class Md_users extends CI_Model {
             'cont_tel3'         =>$this->input->post('cont_tel3'),
             'cont_email3'       =>$this->input->post('cont_email3'),
         );
-        $this->db->where('id_clients',$this->input->post('id_clients'));
-        $this->db->update('tb_clients',$data);
+        $this->db->where('id_clients',$this->input->post('id_clients'))->update('tb_clients',$data);
     }
 
     public function editarPessoal() {
@@ -274,8 +269,7 @@ class Md_users extends CI_Model {
             'tipo'      => $this->input->post('tipo'),
             'status'    => $this->input->post('status')
         );
-        $this->db->where('id_users', $this->input->post('id_users'));
-        $this->db->update('tb_users', $data);
+        $this->db->where('id_users', $this->input->post('id_users'))->update('tb_users', $data);
     }
 
     public function addReserva() {
@@ -305,8 +299,7 @@ class Md_users extends CI_Model {
                 $date = $e;
             }
             $data2=array('ult_viagem'=>$date->data_saida);
-            $this->db->where('id_clients',$cliente->id_clients);
-            $this->db->update('tb_clients',$data2);
+            $this->db->where('id_clients',$cliente->id_clients)->update('tb_clients',$data2);
         }
     }
     
@@ -347,8 +340,7 @@ class Md_users extends CI_Model {
             $date = $e;
         }
         $data2 = array('ult_viagem' => $date->data_saida);
-        $this->db->where('id_clients', $cliente->id_clients);
-        $this->db->update('tb_clients', $data2);
+        $this->db->where('id_clients', $cliente->id_clients)->update('tb_clients', $data2);
     }
 
     public function editarReserva() {
@@ -358,8 +350,7 @@ class Md_users extends CI_Model {
                 'loc_embarque' => strtoupper($this->input->post('loc_embarque')),
                 'nr_poltrona' => $this->input->post('nr_poltrona')
             );
-            $this->db->where('id_reservs', $this->input->post('id_reservs'));
-            $this->db->update('tb_reservs', $data);
+            $this->db->where('id_reservs', $this->input->post('id_reservs'))->update('tb_reservs', $data);
         }
 
     public function upViagem() {
@@ -373,8 +364,7 @@ class Md_users extends CI_Model {
             'total' => $total,
             'status' => 'F'
         );
-        $this->db->where('id_tour', $this->input->post('id_tour'));
-        $this->db->update('tb_tour', $data);
+        $this->db->where('id_tour', $this->input->post('id_tour'))->update('tb_tour', $data);
     }
 
     public function addViagem() {
@@ -388,8 +378,7 @@ class Md_users extends CI_Model {
         $data = array(
             'destino' => strtoupper($this->input->post('destino'))
         );
-        $this->db->where('id_viagem', $this->input->post('id_viagem'));
-        $this->db->update('tb_viagem', $data);
+        $this->db->where('id_viagem', $this->input->post('id_viagem'))->update('tb_viagem', $data);
     }
     
     public function atualizarDados(){
@@ -411,15 +400,13 @@ class Md_users extends CI_Model {
             'status'=>'C',
             'valor_pago'=>$preco
         );
-        $this->db->where('id_reservs',$this->input->post('id_reservs'));
-        $this->db->update('tb_reservs',$dados);
+        $this->db->where('id_reservs',$this->input->post('id_reservs'))->update('tb_reservs',$dados);
     }
     
     public function confirmaAusencia(){
         $dados=array(
             'status'=>'A'
         );
-        $this->db->where('id_reservs',$this->input->post('id_reservs'));
-        $this->db->update('tb_reservs',$dados);
+        $this->db->where('id_reservs',$this->input->post('id_reservs'))->update('tb_reservs',$dados);
     }
 }
