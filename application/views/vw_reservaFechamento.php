@@ -126,7 +126,7 @@ else{
         <script type="text/javascript">
             $(function() {
                 $('#telefone').mask('(00)0000-0000', {placeholder: "(__)____-____"});
-                $('#celular').mask('(00)0000-0000', {placeholder: "(__)____-____"});
+                $('#celular').mask('(00)00000-0000', {placeholder: "(__)_____-____"});
             });
         </script>
     </body>

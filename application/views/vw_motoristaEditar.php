@@ -199,7 +199,7 @@ else{
             $(function() {
                 $('#cpf').mask('000.000.000-00', {placeholder: "___.___.___-__"});
                 $('#telefone').mask('(00)0000-0000', {placeholder: "(__)____-____"});
-                $('#celular').mask('(00)0000-0000', {placeholder: "(__)____-____"});
+                $('#celular').mask('(00)00000-0000', {placeholder: "(__)_____-____"});
                 $('#data_nascimento').mask('00/00/0000', {placeholder: "__/__/____"});
                 $('#validade_cnh').mask('00/00/0000', {placeholder: "__/__/____"});
             });
