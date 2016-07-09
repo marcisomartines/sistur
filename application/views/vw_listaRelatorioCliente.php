@@ -82,15 +82,15 @@ else{
                         <tr>
                             <td><?php
                                 $query = $this->db->get('tb_clients');
-                                $opcao[] = '';
-                                echo form_label('Cliente: ');
-                                foreach ($query->result() as $bus) {
-                                    $opcao[$bus->id_clients] = $bus->nome;
+                                $cliente[] = '';
+                                foreach ($query->result() as $clt) {
+                                    $cliente[$clt->id_clients] = $clt->nome;
                                 }
+                                echo form_label('Cliente: ');
                                 ?>
                             </td>
                             <td>                    
-                                 <?= form_dropdown('id_client', $opcao, $this->input->post('id_client'), 'class=form-control') ?>
+                                 <?php include 'teste.php'; ?>
                             </td>
                             <td> <label>Periodo Inicial: </label></td><td><input type="text" id="data_inicio" name="data_inicio" class="form-control input-sm" value="<?= $this->input->post('data_inicio') ?>"></td><td><label for="data_final"> Periodo Final: </label></td><td><input type="text" id="data_final" name="data_final" class="form-control input-sm" value="<?= $this->input->post('data_final') ?>"></td>
                             <td><?php
@@ -113,7 +113,10 @@ else{
                 <br>
                 <div id="relatorio" class=" row-fluid">
                     <?php
-                    $cliente = $this->input->post('id_client');
+                    $this->db->where('nome',$this->input->post('course'));
+                    $res = $this->db->get('tb_clients')->result_array();
+                    
+                    $cliente = $res[0]['id_clients'];
                     $data_inicio = implode("-", array_reverse(explode("/", $this->input->post('data_inicio'))));
                     $data_final = implode("-", array_reverse(explode("/", $this->input->post('data_final'))));
                     $destino = $this->input->post('id_viagem');
@@ -125,6 +128,7 @@ else{
                         $this->db->join('tb_viagem', 'tb_viagem.id_viagem=tb_tour.id_viagem');
                         //$this->db->where('tb_clients.id_clients', $cliente);
                         $this->db->where('tb_tour.data_saida >=', $data_inicio);
+                        $this->db->order_by('tb_tour.data_saida', 'DESC');
                         $query = $this->db->get();
                     }
                      if (empty($data_final) and !empty($destino) and !empty($cliente)) {//busca todo resultado
@@ -135,6 +139,7 @@ else{
                         $this->db->join('tb_viagem', 'tb_viagem.id_viagem=tb_tour.id_viagem');
                         $this->db->where('tb_clients.id_clients', $cliente);
                         $this->db->where('tb_tour.data_saida >=', $data_inicio);
+                        $this->db->order_by('tb_tour.data_saida', 'DESC');
                         $query = $this->db->get();
                     }
                     if (!empty($data_final) and empty($destino) and empty($cliente)) {//busca todos os destino e todos os clientes mas em um periodo
@@ -142,7 +147,7 @@ else{
                                         JOIN tb_reservs on tb_reservs.id_client=tb_clients.id_clients
                                         JOIN tb_tour on tb_tour.id_tour=tb_reservs.id_tour
                                         JOIN tb_viagem on tb_viagem.id_viagem=tb_tour.id_viagem
-                                        WHERE tb_tour.data_saida BETWEEN '" . $data_inicio . "' AND '" . $data_final . "'");
+                                        WHERE tb_tour.data_saida BETWEEN '" . $data_inicio . "' AND '" . $data_final . "' order by tb_tour.data_saida DESC");
                         //$query = $this->db->get();
                     }
                     if (empty($data_final) and empty($destino) and !empty($cliente)) {//busca todos os destinos de um cliente
@@ -153,6 +158,7 @@ else{
                         $this->db->join('tb_viagem', 'tb_viagem.id_viagem=tb_tour.id_viagem');
                         $this->db->where('tb_clients.id_clients', $cliente);
                         $this->db->where('tb_tour.data_saida >=', $data_inicio);
+                        $this->db->order_by('tb_tour.data_saida', 'DESC');
                         $query = $this->db->get();
                     }
                     if (empty($data_final) and !empty($destino) and empty($cliente)) {//busca por apenas um destino
@@ -163,6 +169,7 @@ else{
                         $this->db->join('tb_viagem', 'tb_viagem.id_viagem=tb_tour.id_viagem');
                         $this->db->where('tb_tour.data_saida >=', $data_inicio);
                         $this->db->where('tb_tour.id_viagem', $destino);
+                        $this->db->order_by('tb_tour.data_saida', 'DESC');
                         $query = $this->db->get();
                     }
                     if (!empty($data_final) and ! empty($destino) and !empty($cliente)) {//busca um destino mas em um periodo
@@ -170,7 +177,7 @@ else{
                                         JOIN tb_reservs on tb_reservs.id_client=tb_clients.id_clients
                                         JOIN tb_tour on tb_tour.id_tour=tb_reservs.id_tour
                                         JOIN tb_viagem on tb_viagem.id_viagem=tb_tour.id_viagem
-                                        WHERE tb_clients.id_clients=" . $cliente . " AND tb_tour.id_viagem=" . $destino . " AND tb_tour.data_saida BETWEEN '" . $data_inicio . "' AND '" . $data_final . "'");
+                                        WHERE tb_clients.id_clients=" . $cliente . " AND tb_tour.id_viagem=" . $destino . " AND tb_tour.data_saida BETWEEN '" . $data_inicio . "' AND '" . $data_final . "'  order by tb_tour.data_saida DESC");
                         //$query = $this->db->get();
                     }
                     ?>
@@ -182,7 +189,7 @@ else{
                             <th>Destino</th>
                             <th>RG</th>
                             <th>CPF</th>
-                            <th>E-mail</th>
+                            <th>Status</th>
                             <th>Tel.</th>
                             <th>Cel.</th>
                             <th>Data</th>
@@ -196,12 +203,11 @@ else{
                             echo "<td>" . $rel->destino . "</td>";
                             echo "<td>".$rel->rg."</td>";
                             echo "<td>".$rel->cpf."</td>";
-                            echo "<td>".$rel->email."</td>";
+                            echo "<td>".($rel->status_reserva=='C'?'Confirmado':'Ausente')."</td>";
                             echo "<td>".$rel->telefone."</td>";
                             echo "<td>".$rel->celular."</td>";
                             echo "<td>" . $data_saida . "</td>";
-                            $total=$rel->preco - $rel->desconto;
-                            echo "<td>" . $total . "</td>";
+                            echo "<td>" . $rel->valor_pago . "</td>";
                             echo "</tr>";
                         }
                         ?>

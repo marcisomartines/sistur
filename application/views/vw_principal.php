@@ -238,13 +238,24 @@ else {
                         </div>
                     </div><!-- /.row -->
                     <div class="row">
-                        <div class="col-lg-12">
+                        <div class="col-lg-9">
                             <div class="panel panel-primary">
                                 <div class="panel-heading">
                                     <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> Demonstrativo de vendas</h3>
                                 </div>
                                 <div class="panel-body">
                                     <div id="myfirstchart" style="height: 250px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-3">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> Status Passagens</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div id="donutchart" style="height: 250px;"></div>
                                 </div>
                             </div>
                         </div>
@@ -261,6 +272,33 @@ else {
             <script src="<?= base_url() ?>js/morris/chart-data-morris.js"></script>
             <script src="<?= base_url() ?>js/tablesorter/jquery.tablesorter.js"></script>
             <script src="<?= base_url() ?>js/tablesorter/tables.js"></script>
+            <?php
+             $confirmado = $this->db->select('MONTH(tb_tour.data_saida) as mes,COUNT(*) as vendas')
+                                    ->from('tb_reservs')
+                                    ->join('tb_tour','tb_tour.id_tour=tb_reservs.id_tour')
+                                    ->where('YEAR(tb_tour.data_saida)=YEAR(CURDATE())')
+                                    ->where('tb_reservs.status_reserva','C')
+                                    ->where('MONTH(tb_tour.data_saida)=MONTH(CURDATE())')
+                                    ->group_by('MONTH(tb_tour.data_saida)')
+                                    ->get()->result_array(); 
+             
+             $ausente = $this->db->select('MONTH(tb_tour.data_saida) as mes,COUNT(*) as vendas')
+                                    ->from('tb_reservs')
+                                    ->join('tb_tour','tb_tour.id_tour=tb_reservs.id_tour')
+                                    ->where('YEAR(tb_tour.data_saida)=YEAR(CURDATE())')
+                                    ->where('tb_reservs.status_reserva','A')
+                                    ->where('MONTH(tb_tour.data_saida)=MONTH(CURDATE())')
+                                    ->group_by('MONTH(tb_tour.data_saida)')
+                                    ->get()->result_array();
+             $status = $this->db->select('MONTH(tb_tour.data_saida) as mes,COUNT(*) as vendas')
+                                    ->from('tb_reservs')
+                                    ->join('tb_tour','tb_tour.id_tour=tb_reservs.id_tour')
+                                    ->where('YEAR(tb_tour.data_saida)=YEAR(CURDATE())')
+                                    ->where('tb_reservs.status_reserva is null')
+                                    ->where('MONTH(tb_tour.data_saida)=MONTH(CURDATE())')
+                                    ->group_by('MONTH(tb_tour.data_saida)')
+                                    ->get()->result_array();
+            ?>
             <script type="text/javascript">
             new Morris.Bar({
                 // ID of the element in which to draw the chart.
@@ -272,6 +310,7 @@ else {
                                         ->from('tb_reservs')
                                         ->join('tb_tour','tb_tour.id_tour=tb_reservs.id_tour')
                                         ->where('YEAR(tb_tour.data_saida)=YEAR(CURDATE())')
+                                        ->where('tb_reservs.status_reserva','C')
                                         ->group_by('MONTH(tb_tour.data_saida)')
                                         ->get();
                     foreach($query->result() as $graf){
@@ -287,6 +326,21 @@ else {
                 // Labels for the ykeys -- will be displayed when you hover over the
                 // chart.
                 labels: ['Passagens']
+            });
+            
+            new Morris.Donut({
+                element: 'donutchart',
+                data: [{
+                    label: "Confirmados",
+                    value: <?php echo isset($confirmado[0]['vendas']) ? $confirmado[0]['vendas'] : 0; ?>
+                }, {
+                    label: "Ausentes",
+                    value: <?php echo isset($ausente[0]['vendas']) ? $ausente[0]['vendas'] : 0;  ?>
+                }, {
+                    label: "Sem status",
+                    value: <?php echo isset($status[0]['vendas']) ? $status[0]['vendas'] : 0;  ?>
+                }],
+                resize: true
             });
         </script>
         </body>

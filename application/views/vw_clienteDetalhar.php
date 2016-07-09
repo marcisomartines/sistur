@@ -113,6 +113,10 @@ else{
                             <td><?= $data_nascimento ?></td>
                         </tr>
                         <tr>
+                            <th>Sexo: </th>
+                            <td><?= $clienteDados['sexo']=='f' ? 'Feminino' : 'Masculino' ?></td>
+                        </tr>
+                        <tr>
                             <th>RG: </th>
                             <td><?= $clienteDados['rg'] ?></td>
                         </tr>
@@ -276,7 +280,7 @@ else{
             $(function() {
                 $('#cpf').mask('000.000.000-00', {placeholder: "___.___.___-__"});
                 $('#telefone').mask('(00)0000-0000', {placeholder: "(__)____-____"});
-                $('#celular').mask('(00)0000-0000', {placeholder: "(__)____-____"});
+                $('#celular').mask('(00)00000-0000', {placeholder: "(__)_____-____"});
                 $('#data_nascimento').mask('00/00/0000', {placeholder: "__/__/____"});
             });
         </script>

@@ -98,8 +98,6 @@ else {
                             foreach ($query->result_array() as $row) {
                                 $dados = $row;
                             }
-//                            $data_saida = implode("/", array_reverse(explode("-", $dados['data_saida'])));
-//                            $data_retorno = implode("/", array_reverse(explode("-", $dados['data_retorno'])));
 
                             echo form_open('home/cadastroValidacaoClienteReserva');
                             echo validation_errors();
@@ -156,7 +154,7 @@ else {
                             echo "</div>";
                             echo "<div class='row'>";
                             echo "<div class='col-md-8'>";
-                            echo form_label('Observação: ');
+                            echo form_label('Observação do cliente: ');
                             echo "<input type='text' name='observacao' id='observacao' class='form-control input-sm'>";
                             echo '</div>';
                             echo '</div>';
@@ -171,9 +169,9 @@ else {
                             echo form_label('Tipo: ');
                             echo form_dropdown('tipo', $opcao, 'd', 'class=form-control');
                             echo "</div>";
-                            echo "<div class='col-md-2'>";
-                            echo form_label('Desconto: ');
-                            echo "<input type='text' name='desconto' id='desconto' class='form-control input-sm'>";
+                            echo "<div class='col-md-3'>";
+                            echo form_label('Observação da reserva: ');
+                            echo "<input type='text' name='observacao_rev' id='observacao_rev' class='form-control input-sm'>";
                             echo "</div>";
                             echo "<div class='col-md-2'>";
                             echo form_label('Nr. Poltrona: ');
@@ -207,8 +205,8 @@ else {
                             echo form_open('home/editarValidacaoReserva', $form);
 
                             $this->db->select('tb_reservs.id_reservs , tb_reservs.nr_poltrona,tb_reservs.tipo,tb_reservs.id_tour,
-                                        tb_reservs.id_client,tb_reservs.loc_embarque as embarquer,tb_reservs.desconto,
-                                        tb_clients.nome, tb_clients.loc_embarque as embarquec');
+                                              tb_reservs.id_client,tb_reservs.loc_embarque as embarquer,tb_reservs.observacao,
+                                              tb_clients.nome, tb_clients.loc_embarque as embarquec');
                             $this->db->from('tb_reservs');
                             $this->db->join('tb_clients', 'tb_clients.id_clients=tb_reservs.id_client');
                             $this->db->where('tb_reservs.id_tour', $this->input->post('id_tour'));
@@ -239,8 +237,8 @@ else {
                             echo form_label('Tipo: ');
                             echo form_dropdown('tipo', $opcao, $reservaDados->tipo, 'class=form-control');
                             echo '<br>';
-                            echo form_label('Desconto: ');
-                            echo "<td><input type='text' name='desconto' id='desconto' class='form-control input-sm' value='" . $reservaDados->desconto . "'></td>";
+                            echo form_label('Observação: ');
+                            echo "<td><input type='text' name='observacao' id='observacao' class='form-control input-sm' value='" . $reservaDados->observacao . "'></td>";
                             echo '<br>';
                             echo form_label('Local de Embarque: ');
                             echo "<td><input type='text' name='loc_embarque' id='loc_embarque' class='form-control input-sm' value='" . $reservaDados->embarquer . "'></td>";

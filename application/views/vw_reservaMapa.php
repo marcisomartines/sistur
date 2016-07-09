@@ -157,8 +157,8 @@ else{
                                             echo "<td>" . form_dropdown('tipo', $opcao, 'd', 'class=form-control') . "</td>";
                                             echo "</tr>";
                                             echo "<tr>";
-                                            echo "<td>" . form_label('Desconto: ') . "</td>";
-                                            echo "<td><input type='text' name='desconto' id='desconto' class='form-control input-sm'></td>";
+                                            echo "<td>" . form_label('Observação: ') . "</td>";
+                                            echo "<td><input type='text' name='observacao' id='observacao' class='form-control input-sm'></td>";
                                             echo "<tr>";
                                             echo "<td>" . form_label('Local de Embarque: ') . "</td>";
                                             echo "<td><input type='text' name='loc_embarque' id='loc_embarque' class='form-control input-sm'></td>";
@@ -202,12 +202,19 @@ else{
                                         ?>
                                         <table>
                                             <tr>
-                                                <td><a class="btn btn-primary" href="" onClick="window.open('<?php echo base_url() . "index.php/home/listaPassageiros?id=" . $this->input->post('id_tour') ?>', 'Janela', 'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=900,height=800,left=0,top=0');
-                                                return false;"><i class="fa fa-list"></i> Lista Passageiros</a></td>
+                                                <td>
+                                                    <a class="btn btn-primary" href="" onClick="window.open('<?php echo base_url() . "index.php/home/imprimirMapa?id=" . $this->input->post('id_tour') ?>', 'Janela', 'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=900,height=800,left=0,top=0');
+                                                    return false;"><i class="fa fa-map"></i> Imprimir Mapa</a>
+                                                </td>
+                                                <td>
+                                                    <a class="btn btn-primary" href="" onClick="window.open('<?php echo base_url() . "index.php/home/listaPassageiros?id=" . $this->input->post('id_tour') ?>', 'Janela', 'toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=no,width=900,height=800,left=0,top=0');
+                                                    return false;"><i class="fa fa-list"></i> Lista Passageiros</a>
+                                                </td>
                                                 <td> <?= form_open('home/fechamentoReserva') ?>
-                                <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                                <button type="submit" class="btn btn-success"><i class="fa fa-check"></i> Finalizar Viagem</button>
-                                </form></td>
+                                                    <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
+                                                    <button type="submit" class="btn btn-success"><i class="fa fa-check"></i> Finalizar Viagem</button>
+                                                    <?= form_close(); ?>
+                                                </td>
                                             </tr>
                                         </table>
                                     </div>

@@ -488,6 +488,14 @@ class Home extends CI_Controller {
         }
     }
 
+    public function buscaCliente(){
+        if ($this->session->userdata('is_logged_in') == 1) {
+            $this->load->view('vw_clienteBusca');
+        } else {
+            $this->load->view('vw_login');
+        }
+    }
+
     public function reserva() {
         if ($this->session->userdata('is_logged_in') == 1) {
             $this->load->view('vw_reserva');
@@ -765,6 +773,13 @@ class Home extends CI_Controller {
             $this->load->view('vw_login');
         }
     }
+    public function imprimirMapa() {
+        if ($this->session->userdata('is_logged_in') == 1) {
+            $this->load->view('vw_mapaOnibus44');
+        } else {
+            $this->load->view('vw_login');
+        }
+    }
 
     public function gerarRelatorioViagem() {
         if ($this->session->userdata('is_logged_in') == 1) {
@@ -889,6 +904,10 @@ class Home extends CI_Controller {
         } else {
             $this->load->view('vw_login');
         }
+    }
+    
+    public function buscaResCliente(){
+        $this->load->view('cliente.php');
     }
 
 }

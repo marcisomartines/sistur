@@ -59,13 +59,13 @@ else{
             <?php
             $sqlConfirmado="SELECT * FROM tb_reservs tr
                             JOIN tb_clients tc ON tr.id_client=tc.id_clients
-                            WHERE tr.id_tour={$destino} AND tr.status='C'
+                            WHERE tr.id_tour={$destino} AND tr.status_reserva='C'
                             ORDER BY tr.nr_poltrona";
             $queryConfirmado=$this->db->query($sqlConfirmado)->result_array();
             
             $sqlAusente="SELECT * FROM tb_reservs tr
                         JOIN tb_clients tc ON tr.id_client=tc.id_clients
-                        WHERE tr.id_tour={$destino} AND (tr.status!='C' OR tr.status is null)
+                        WHERE tr.id_tour={$destino} AND (tr.status_reserva!='C' OR tr.status_reserva is null)
                         ORDER BY tr.nr_poltrona";
             $queryAusente=$this->db->query($sqlAusente)->result_array();
             ?>

@@ -34,6 +34,7 @@ class Md_users extends CI_Model {
         $data_nascimento = implode("-", array_reverse(explode("/", $this->input->post('data_nascimento'))));
         $data = array('nome'    => strtoupper($this->input->post('nome')),
             'data_nascimento'   => $data_nascimento,
+            'sexo'                => $this->input->post('sexo'),
             'rg'                => $this->input->post('rg'),
             'cpf'               => $this->input->post('cpf'),
             'email'             => $this->input->post('email'),
@@ -116,7 +117,8 @@ class Md_users extends CI_Model {
             'seguro_inicio' => $seguro_inicio,
             'seguro_final' => $seguro_final,
             'valorkm' => $this->input->post('valorkm'),
-            'observacao' => strtoupper($this->input->post('observacao'))
+            'observacao' => strtoupper($this->input->post('observacao')),
+            'licenciamento' => $this->input->post('licenciamento')
         );
         $this->db->insert('tb_cars', $data);
     }
@@ -212,7 +214,8 @@ class Md_users extends CI_Model {
             'seguro_inicio'         => $seguro_inicio,
             'seguro_final'          => $seguro_final,
             'valorkm'               => $this->input->post('valorkm'),
-            'observacao'            => strtoupper($this->input->post('observacao'))
+            'observacao'            => strtoupper($this->input->post('observacao')),
+            'licenciamento'         => $this->input->post('licenciamento')
         );
         $this->db->where('id_cars', $this->input->post('id_cars'))->update('tb_cars', $data);
     }
@@ -221,6 +224,7 @@ class Md_users extends CI_Model {
         $data_nascimento = implode("-", array_reverse(explode("/", $this->input->post('data_nascimento'))));
         $data = array('nome'    => strtoupper($this->input->post('nome')),
             'data_nascimento'   => $data_nascimento,
+            'sexo'                => $this->input->post('sexo'),
             'rg'                => $this->input->post('rg'),
             'cpf'               => $this->input->post('cpf'),
             'email'             => $this->input->post('email'),
@@ -276,7 +280,7 @@ class Md_users extends CI_Model {
         $this->db->where('id_tour', $this->input->post('id_tour'));
         $this->db->where('tipo', $this->input->post('tipo'));
         $this->db->where('nr_poltrona', $this->input->post('nr_poltrona'));
-        $this->db->where('status','C');
+        $this->db->where('status_reserva','C');
         $val = $this->db->get('tb_reservs');
         if ($val->num_rows() == 0) {
             $query = $this->db->query("SELECT * FROM tb_clients WHERE nome='" . $this->input->post('course') . "'");
@@ -284,14 +288,14 @@ class Md_users extends CI_Model {
                 $cliente = $e;
             }
             $data = array('nr_poltrona' => $this->input->post('nr_poltrona'),
-                            'tipo'          => $this->input->post('tipo'),
-                            'id_tour'       => $this->input->post('id_tour'), //onibus
-                            'id_client'     => $cliente->id_clients,
-                            'loc_embarque'  => strtoupper($this->input->post('loc_embarque')),
-                            'desconto'      => $this->input->post('desconto'),
-                            'ultima_viagem' => $this->input->post('ultima_viagem'),
-                            'destino_ultv'  => $this->input->post('destino_ultv'),
-                            'dt_reserva'    =>date('Y-m-d H:i:s')
+                          'tipo'          => $this->input->post('tipo'),
+                          'id_tour'       => $this->input->post('id_tour'), //onibus
+                          'id_client'     => $cliente->id_clients,
+                          'loc_embarque'  => strtoupper($this->input->post('loc_embarque')),
+                          'observacao'      => $this->input->post('observacao'),
+                          'ultima_viagem' => $this->input->post('ultima_viagem'),
+                          'destino_ultv'  => $this->input->post('destino_ultv'),
+                          'dt_reserva'    =>date('Y-m-d H:i:s')
             );
             $this->db->insert('tb_reservs', $data);
             $sel=$this->db->query("SELECT * FROM tb_tour WHERE id_tour='" . $this->input->post('id_tour') . "'");
@@ -330,7 +334,7 @@ class Md_users extends CI_Model {
             'tipo' => $this->input->post('tipo'),
             'id_tour' => $this->input->post('id_tour'), //onibus
             'id_client' => $cliente->id_clients,
-            'desconto' => $this->input->post('desconto'),
+            'observacao' => $this->input->post('observacao_rev'),
             'ultima_viagem' => $this->input->post('ultima_viagem'),
             'destino_ultv' => $this->input->post('destino_ultv')
         );
@@ -346,7 +350,7 @@ class Md_users extends CI_Model {
     public function editarReserva() {
             $data = array('id_client' => $this->input->post('cliente'),
                 'tipo' => $this->input->post('tipo'),
-                'desconto' => $this->input->post('desconto'),
+                'observacao' => $this->input->post('observacao'),
                 'loc_embarque' => strtoupper($this->input->post('loc_embarque')),
                 'nr_poltrona' => $this->input->post('nr_poltrona')
             );
@@ -397,7 +401,7 @@ class Md_users extends CI_Model {
     public function confirmaPresenca(){
         $preco = str_replace(',', '.', $this->input->post('valorpg'));
         $dados=array(
-            'status'=>'C',
+            'status_reserva'=>'C',
             'valor_pago'=>$preco
         );
         $this->db->where('id_reservs',$this->input->post('id_reservs'))->update('tb_reservs',$dados);
@@ -405,7 +409,7 @@ class Md_users extends CI_Model {
     
     public function confirmaAusencia(){
         $dados=array(
-            'status'=>'A'
+            'status_reserva'=>'A'
         );
         $this->db->where('id_reservs',$this->input->post('id_reservs'))->update('tb_reservs',$dados);
     }

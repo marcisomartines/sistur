@@ -81,17 +81,16 @@ else{
                     <table>
                         <tr>
                             <td><?php
-                                $this->db->order_by('nome','asc');
-                                $query = $this->db->get('tb_clients');
-                                $opcao[] = '';
+                                    $query = $this->db->get('tb_clients');
+                                    $cliente[] = '';
+                                    foreach ($query->result() as $clt) {
+                                        $cliente[$clt->id_clients] = $clt->nome;
+                                    }
                                 echo form_label('Cliente: ');
-                                foreach ($query->result() as $bus) {
-                                    $opcao[$bus->id_clients] = $bus->nome;
-                                }
                                 ?>
                             </td>
                             <td>                    
-                                <?=form_dropdown('id_client', $opcao, $this->input->post('id_client'), 'class=form-control')?>
+                                <?php include 'teste.php'; ?>
                             </td>
                             <td> <label>Periodo Inicial: </label></td><td><input type="text" id="data_inicio" name="data_inicio" class="form-control input-sm"></td><td><label for="data_final"> Periodo Final: </label></td><td><input type="text" id="data_final" name="data_final" class="form-control input-sm"></td>
                             <td><?php

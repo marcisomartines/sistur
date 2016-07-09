@@ -79,4 +79,20 @@ if ($seguro->num_rows() > 0) {
         <?php
     }
 }
+$licenciamento = $this->db->query("SELECT * FROM tb_cars WHERE licenciamento=Month(Now())");
+if ($licenciamento->num_rows() > 0) {
+    foreach ($licenciamento->result() as $res) {
+        ?>
+        <div class="alert alert-danger alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <?= form_open('home/editarOnibus') ?>
+            <input type="hidden" name="id_cars" value="<?= $res->id_cars ?>" />
+            <input type="submit" class="btn btn-primary btn-xs pull-right" value="Atualizar">
+            </form>
+            <i class="fa fa-truck"></i> Ônibus <strong><?= $res->codigo ?></strong> esta com o documento <strong>Licenciamento</strong> vencendo esse mês!
+           Por favor atualize o cadastro.
+        </div>
+        <?php
+    }
+}
 ?>

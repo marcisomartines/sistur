@@ -98,6 +98,44 @@ else{
                     $inmetro = implode("/", array_reverse(explode("-", $onibusDados['inmetro'])));
                     $seguro_inicio = implode("/", array_reverse(explode("-", $onibusDados['seguro_inicio'])));
                     $seguro_final = implode("/", array_reverse(explode("-", $onibusDados['seguro_final'])));
+                    switch ($onibusDados['licenciamento']){
+                        case 1:
+                            $licenciamento = "Janeiro";
+                            break;
+                        case 2:
+                            $licenciamento = "Fevereiro";
+                            break;
+                        case 3:
+                            $licenciamento = "Março";
+                            break;
+                        case 4:
+                            $licenciamento = "Abril";
+                            break;
+                        case 5:
+                            $licenciamento = "Maio";
+                            break;
+                        case 6:
+                            $licenciamento = "Junho";
+                            break;
+                        case 7:
+                            $licenciamento = "Julho";
+                            break;
+                        case 8:
+                            $licenciamento = "Agosto";
+                            break;
+                        case 9:
+                            $licenciamento = "Setembro";
+                            break;
+                        case 10:
+                            $licenciamento = "Outubro";
+                            break;
+                        case 11:
+                            $licenciamento = "Novembro";
+                            break;
+                        case 12:
+                            $licenciamento = "Dezembro";
+                            break;
+                    }
                     ?>
                     <table class="table table-striped">
                         <tr>
@@ -147,6 +185,10 @@ else{
                         <tr>
                             <th>Vencimento Seguro: </th>
                             <td>Inicio: <?= $seguro_inicio ?><br>Final: <?= $seguro_final ?></td>
+                        </tr>
+                        <tr>
+                            <th>Vencimento Licenciamento: </th>
+                            <td><?= $licenciamento ?></td>
                         </tr>
                         <tr>
                             <th>Valor KM: </th>

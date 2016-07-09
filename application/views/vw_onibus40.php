@@ -23,7 +23,7 @@
                         <input type="hidden" name="nr_poltrona" value="1" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="01">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="01<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
             <?php
         }
@@ -34,7 +34,7 @@
                         <input type="hidden" name="nr_poltrona" value="1" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="01">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="01<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
             <?php
         }
@@ -44,7 +44,7 @@
                         <input type="hidden" name="nr_poltrona" value="1" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="01">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="01<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                     <?php
                 }
@@ -91,7 +91,7 @@
                         <input type="hidden" name="nr_poltrona" value="2" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="02">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="02<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                         <?php
                     }
@@ -102,7 +102,7 @@
                         <input type="hidden" name="nr_poltrona" value="2" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="02">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="02<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                         <?php
                     }
@@ -112,7 +112,7 @@
                         <input type="hidden" name="nr_poltrona" value="2" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="02">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="02<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
             <?php
         }
@@ -160,7 +160,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="3" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="03">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="03<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
             <?php
         }
@@ -171,7 +171,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="3" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="03">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="03<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
             <?php
         }
@@ -181,7 +181,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="3" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="03">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="03<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                     <?php
                 }
@@ -230,7 +230,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="5" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="05">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="05<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                     <?php
                 }
@@ -241,7 +241,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="5" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="05">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="05<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                     <?php
                 }
@@ -251,7 +251,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="5" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="05">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="05<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                         <?php
                     }
@@ -298,7 +298,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="4" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="04">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="04<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
             <?php
         }
@@ -309,7 +309,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="4" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="04">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="04<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                     <?php
                 }
@@ -319,7 +319,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="4" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="04">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="04<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
             <?php
         }
@@ -366,7 +366,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="6" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="06">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="06<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
             <?php
         }
@@ -377,7 +377,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="6" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="06">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="06<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                         <?php
                     }
@@ -387,7 +387,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="6" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="06">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="06<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                         <?php
                     }
@@ -436,7 +436,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="7" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="07">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="07<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                         <?php
                     }
@@ -447,7 +447,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="7" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="07">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="07<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                         <?php
                     }
@@ -457,7 +457,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="7" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="07">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="07<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                         <?php
                     }
@@ -504,7 +504,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="8" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="08">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="08<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                         <?php
                     }
@@ -515,7 +515,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="8" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="08">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="08<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                         <?php
                     }
@@ -525,7 +525,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="8" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="08">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="08<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
             <?php
         }
@@ -575,7 +575,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="9" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="09">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="09<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                         <?php
                     }
@@ -586,7 +586,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="9" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="09">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="09<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                         <?php
                     }
@@ -596,7 +596,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="9" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="09">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="09<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                     <?php
                 }
@@ -643,7 +643,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="10" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="10">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="10<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                         <?php
                     }
@@ -654,7 +654,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="10" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="10">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="10<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                         <?php
                     }
@@ -664,7 +664,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="10" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="10">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="10<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
             <?php
         }
@@ -711,7 +711,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="13" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="13">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="13<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                         <?php
                     }
@@ -722,7 +722,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="13" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="13">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="13<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                     <?php
                 }
@@ -732,7 +732,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="13" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="13">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="13<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                     <?php
                 }
@@ -781,7 +781,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="11" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="11">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="11<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                         <?php
                     }
@@ -792,7 +792,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="11" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="11">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="11<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
             <?php
         }
@@ -802,7 +802,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="11" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="11">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="11<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                         <?php
                     }
@@ -849,7 +849,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="12" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="12">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="12<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
             <?php
         }
@@ -860,7 +860,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="12" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="12">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="12<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                     <?php
                 }
@@ -870,7 +870,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="12" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="12">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="12<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                         <?php
                     }
@@ -917,7 +917,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="16" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="16">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="16<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
             <?php
         }
@@ -928,7 +928,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="16" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="16">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="16<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                         <?php
                     }
@@ -938,7 +938,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="16" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="16">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="16<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                         <?php
                     }
@@ -987,7 +987,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="14" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="14">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="14<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                     <?php
                 }
@@ -998,7 +998,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="14" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="14">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="14<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
             <?php
         }
@@ -1008,7 +1008,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="14" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="14">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="14<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                         <?php
                     }
@@ -1055,7 +1055,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="15" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="15">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="15<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                         <?php
                     }
@@ -1066,7 +1066,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="15" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="15">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="15<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                         <?php
                     }
@@ -1076,7 +1076,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="15" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="15">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="15<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                         <?php
                     }
@@ -1123,7 +1123,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="19" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="19">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="19<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
             <?php
         }
@@ -1134,7 +1134,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="19" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="19">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="19<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                         <?php
                     }
@@ -1144,7 +1144,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="19" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="19">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="19<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                         <?php
                     }
@@ -1193,7 +1193,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="17" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="17">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="17<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
             <?php
         }
@@ -1204,7 +1204,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="17" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="17">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="17<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
             <?php
         }
@@ -1214,7 +1214,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="17" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="17">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="17<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
             <?php
         }
@@ -1261,7 +1261,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="18" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="18">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="18<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                         <?php
                     }
@@ -1272,7 +1272,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="18" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="18">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="18<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                         <?php
                     }
@@ -1282,7 +1282,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="18" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="18">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="18<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
             <?php
         }
@@ -1329,7 +1329,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="22" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="22">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="22<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
             <?php
         }
@@ -1340,7 +1340,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="22" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="22">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="22<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
             <?php
         }
@@ -1350,7 +1350,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="22" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="22">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="22<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                     <?php
                 }
@@ -1399,7 +1399,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="21" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="21">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="21<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                     <?php
                 }
@@ -1410,7 +1410,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="21" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="21">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="21<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
             <?php
         }
@@ -1420,7 +1420,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="21" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="21">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="21<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                         <?php
                     }
@@ -1467,7 +1467,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="20" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="20">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="20<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
             <?php
         }
@@ -1478,7 +1478,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="20" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="20">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="20<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                     <?php
                 }
@@ -1488,7 +1488,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="20" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="20">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="20<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
             <?php
         }
@@ -1535,7 +1535,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="25" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="25">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="25<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                     <?php
                 }
@@ -1546,7 +1546,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="25" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="25">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="25<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                         <?php
                     }
@@ -1556,7 +1556,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="25" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="25">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="25<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
             <?php
         }
@@ -1605,7 +1605,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="23" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="23">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="23<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                         <?php
                     }
@@ -1616,7 +1616,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="23" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="23">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="23<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                         <?php
                     }
@@ -1626,7 +1626,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="23" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="23">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="23<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                         <?php
                     }
@@ -1673,7 +1673,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="24" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="24">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="24<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
             <?php
         }
@@ -1684,7 +1684,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="24" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="24">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="24<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
             <?php
         }
@@ -1694,7 +1694,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="24" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="24">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="24<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
             <?php
         }
@@ -1741,7 +1741,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="28" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="28">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="28<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                         <?php
                     }
@@ -1752,7 +1752,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="28" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="28">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="28<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                         <?php
                     }
@@ -1762,7 +1762,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="28" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="28">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="28<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                     <?php
                 }
@@ -1811,7 +1811,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="27" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="27">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="27<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                         <?php
                     }
@@ -1822,7 +1822,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="27" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="27">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="27<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                         <?php
                     }
@@ -1832,7 +1832,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="27" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="27">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="27<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
             <?php
         }
@@ -1879,7 +1879,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="26" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="26">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="26<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
             <?php
         }
@@ -1890,7 +1890,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="26" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="26">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="26<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                     <?php
                 }
@@ -1900,7 +1900,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="26" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="26">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="26<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
             <?php
         }
@@ -1947,7 +1947,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="31" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="31">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="31<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                         <?php
                     }
@@ -1958,7 +1958,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="31" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="31">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="31<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                         <?php
                     }
@@ -1968,7 +1968,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="31" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="31">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="31<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
             <?php
         }
@@ -2017,7 +2017,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="29" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="29">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="29<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                         <?php
                     }
@@ -2028,7 +2028,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="29" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="29">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="29<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
             <?php
         }
@@ -2038,7 +2038,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="29" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="29">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="29<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                     <?php
                 }
@@ -2085,7 +2085,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="30" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="30">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="30<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                     <?php
                 }
@@ -2096,7 +2096,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="30" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="30">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="30<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
             <?php
         }
@@ -2106,7 +2106,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="30" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="30">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="30<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                         <?php
                     }
@@ -2164,7 +2164,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="33" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="33">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="33<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                     <?php
                 }
@@ -2175,7 +2175,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="33" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="33">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="33<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
             <?php
         }
@@ -2185,7 +2185,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="33" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="33">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="33<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                         <?php
                     }
@@ -2232,7 +2232,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="32" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="32">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="32<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                         <?php
                     }
@@ -2243,7 +2243,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="32" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="32">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="32<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
             <?php
         }
@@ -2253,7 +2253,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="32" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="32">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="32<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
             <?php
         }
@@ -2300,7 +2300,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="34" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="34">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="34<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
             <?php
         }
@@ -2311,7 +2311,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="34" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="34">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="34<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                         <?php
                     }
@@ -2321,7 +2321,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="34" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="34">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="34<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                         <?php
                     }
@@ -2370,7 +2370,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="35" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="35">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="35<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
             <?php
         }
@@ -2381,7 +2381,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="35" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="35">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="35<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
             <?php
         }
@@ -2391,7 +2391,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="35" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="35">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="35<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
             <?php
         }
@@ -2438,7 +2438,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="36" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="36">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="36<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                         <?php
                     }
@@ -2449,7 +2449,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="36" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="36">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="36<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                     <?php
                 }
@@ -2459,7 +2459,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="36" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="36">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="36<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
                     <?php
                 }
@@ -2506,7 +2506,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="37" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="37">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="37<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
             <?php
         }
@@ -2517,7 +2517,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="37" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="37">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="37<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
             <?php
         }
@@ -2527,7 +2527,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="37" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="37">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="37<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
             <?php
         }
@@ -2576,7 +2576,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="39" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="39">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="39<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
             <?php
         }
@@ -2587,7 +2587,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="39" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="39">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="39<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
             <?php
         }
@@ -2597,7 +2597,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="39" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="39">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="39<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
             <?php
         }
@@ -2644,7 +2644,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="38" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="38">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="38<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
             <?php
         }
@@ -2655,7 +2655,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="38" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="38">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="38<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
             <?php
         }
@@ -2665,7 +2665,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="38" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="38">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="38<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
             <?php
         }
@@ -2712,7 +2712,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="40" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="40">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-info btn-xs pull-right" value="40<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
             <?php
         }
@@ -2723,7 +2723,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="40" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="40">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-warning btn-xs pull-right" value="40<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
             <?php
         }
@@ -2733,7 +2733,7 @@ if ($query->num_rows() > 0) {
                         <input type="hidden" name="nr_poltrona" value="40" />
                         <input type="hidden" name="id_reservs" value="<?= $rel->id_reservs ?>" />
                         <input type="hidden" name="id_tour" value="<?= $this->input->post('id_tour') ?>" />
-                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="40">
+                        <input type="submit" title="<?= $rel->nome ?>" class="btn btn-danger btn-xs pull-right" value="40<?=$rel->sexo=='f'?' M':' H'?>">
                         </form>
             <?php
         }

@@ -91,7 +91,7 @@ else{
                 <div class="row">
                     <div class="col-md-3">
                 <?php
-                    echo form_open('home/detalharCliente');
+                    echo form_open('home/buscaCliente');
                     $query = $this->db->get('tb_clients');
                     $cliente[] = '';
                     foreach ($query->result() as $clt) {

@@ -160,6 +160,23 @@ else{
                     echo form_label('Valor KM: ');
                     echo "<input type='text' name='valorkm' id='valorkm' class='form-control input-sm' value='".$onibusDados['valorkm']."'>";
                     echo "</div>";
+                    echo "<div class='col-md-2'>";
+                    echo form_label('Licenciamento: ');
+                    $opcao[] = '';
+                    $opcao[1] = 'Janeiro';
+                    $opcao[2] = 'Fevereiro';
+                    $opcao[3] = 'Março';
+                    $opcao[4] = 'Abril';
+                    $opcao[5] = 'Maio';
+                    $opcao[6] = 'Junho';
+                    $opcao[7] = 'Julho';
+                    $opcao[8] = 'Agosto';
+                    $opcao[9] = 'Setembro';
+                    $opcao[10] = 'Outubro';
+                    $opcao[11] = 'Novembro';
+                    $opcao[12] = 'Dezembro';
+                    echo form_dropdown('licenciamento', $opcao, $onibusDados['licenciamento'], 'class=form-control');
+                    echo "</div>";
                     echo '</div>';
                     echo "<div class='row'>";
                     $ativo = array(

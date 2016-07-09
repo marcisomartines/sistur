@@ -102,11 +102,19 @@ else {
                                     echo form_label('Nome: ');
                                     echo "<input type='text' name='nome' id='nome' class='form-control input-sm'>";
                                     echo '</div>';
-                                    echo "<div class='col-md-2'>";
+                                    echo "<div class='col-md-1'>";
                                     echo form_label('Data Nasc.: ');
                                     echo "<input type='text' name='data_nascimento' id='data_nascimento' class='form-control input-sm'>";
                                     echo '</div>';
                                     echo "<div class='col-md-2'>";
+                                    $opcao = array(
+                                                'f' => 'Feminino',
+                                                'm' => 'Masculino'
+                                            );
+                                    echo form_label('Sexo: ');
+                                    echo form_dropdown('sexo', $opcao, 'f', 'class=form-control');
+                                    echo '</div>';
+                                    echo "<div class='col-md-1'>";
                                     echo form_label('RG: ');
                                     echo "<input type='text' name='rg' id='rg' class='form-control input-sm'>";
                                     echo '</div>';
@@ -287,7 +295,7 @@ else {
                 $(function () {
                     $('#cpf').mask('000.000.000-00', {placeholder: "___.___.___-__"});
                     $('#telefone').mask('(00)0000-0000', {placeholder: "(__)____-____"});
-                    $('#celular').mask('(00)0000-0000', {placeholder: "(__)____-____"});
+                    $('#celular').mask('(00)00000-0000', {placeholder: "(__)_____-____"});
                     $('#data_nascimento').mask('00/00/0000', {placeholder: "__/__/____"});
                     $('#cnpj').mask('00.000.000/0000-00', {placeholder: "__.___.___/____-__"});
                     $('#telefonej').mask('(00)0000-0000', {placeholder: "(__)____-____"});

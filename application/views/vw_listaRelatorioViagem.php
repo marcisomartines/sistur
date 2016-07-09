@@ -159,26 +159,23 @@ else{
                         foreach ($query->result() as $rel) {
                             $data_saida = implode("/", array_reverse(explode("-", $rel->data_saida)));
                             $data_retorno = implode("/", array_reverse(explode("-", $rel->data_retorno)));
-                            $this->db->where('id_tour', $rel->id_tour);
-                            $p = $this->db->get('tb_reservs');
-//                            $poltronas = $p->num_rows();
+
+                            //selecionando apenas as reservas que foram confirmadas no embarque
                             //conta a quantidade de poltronas cheias e somente ida ou volta
                             $poltronas = 0;
-                            $polUnica = 0;
-                            $desconto=0;//inicializando variavel para conter o valor total de desconto
-                            foreach ($p->result() as $pol) {
-                                if ($pol->tipo == 'i' || $pol->tipo == 'v') {
-                                    $polUnica++;
-                                }
-                                if ($pol->tipo == 'd') {
-                                    $poltronas++;
-                                }
-                                $desconto=$desconto+$pol->desconto;
+
+                            $this->db->select('valor_pago');
+                            $this->db->where('id_tour',$rel->id_tour);
+                            $this->db->where('status_reserva','C');
+                            $pago=$this->db->get('tb_reservs');
+
+                            foreach($pago->result() as $pg){
+                                $poltronas += $pg->valor_pago; 
                             }
-                            //$rel->total é o frete ganho com a viagem
-                            $totalPoltrona=($poltronas * $rel->preco) + ($polUnica * $rel->preco_un);
-                            $total = (($poltronas * $rel->preco + $polUnica * $rel->preco_un) + $rel->total) - ($rel->alimentacao + $rel->combustivel + $rel->outros);
-                            $total = $total - $desconto;
+
+                            //$total = (($poltronas * $rel->preco + $polUnica * $rel->preco_un) + $rel->total) - ($rel->alimentacao + $rel->combustivel + $rel->outros);
+                            $total = ($poltronas + $rel->total) - ($rel->alimentacao + $rel->combustivel + $rel->outros);
+
                             if ($total < 0) {
                                 echo '<tr class="danger">';
                             } else {
@@ -190,7 +187,7 @@ else{
                             echo "<td>" . $data_retorno . "</td>";
                             echo "<td>" . $rel->nr_poltrona . "</td>";
                             echo "<td>R$" . $rel->preco . "</td>";
-                            echo "<td>R$" . $totalPoltrona . "</td>";
+                            echo "<td>R$" . $poltronas . "</td>";
                             echo "<td>R$" . $rel->alimentacao . "</td>";
                             echo "<td>R$" . $rel->combustivel . "</td>";
                             echo "<td>R$" . $rel->outros . "</td>"; //valor do frete
